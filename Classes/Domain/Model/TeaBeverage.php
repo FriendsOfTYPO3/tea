@@ -49,6 +49,12 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $additions = NULL;
 
 	/**
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Testimonial>
+	 * @lazy
+	 */
+	protected $testimonials = NULL;
+
+	/**
 	 * The constructor.
 	 *
 	 * @return TeaBeverage
@@ -64,6 +70,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected function initializeStorageObjects() {
 		$this->additions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->testimonials = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -99,6 +106,22 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 */
+	public function getAdditions() {
+		return $this->additions;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 *
+	 * @return void
+	 */
+	public function setAdditions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $additions) {
+		$this->additions = $additions;
+	}
+
+	/**
 	 * Adds an Addition.
 	 *
 	 * @param \OliverKlee\Tea\Domain\Model\Addition $addition
@@ -121,23 +144,42 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the additions.
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Testimonial> $testimonials
 	 */
-	public function getAdditions() {
-		return $this->additions;
+	public function getTestimonials() {
+		return $this->testimonials;
 	}
 
 	/**
-	 * Sets the additions.
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Testimonial> $testimonials
 	 *
 	 * @return void
 	 */
-	public function setAdditions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $additions) {
-		$this->additions = $additions;
+	public function setTestimonials(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $testimonials) {
+		$this->testimonials = $testimonials;
 	}
+
+	/**
+	 * Adds an Testimonial.
+	 *
+	 * @param \OliverKlee\Tea\Domain\Model\Testimonial $testimonial
+	 *
+	 * @return void
+	 */
+	public function addTestimonial(\OliverKlee\Tea\Domain\Model\Testimonial $testimonial) {
+		$this->testimonials->attach($testimonial);
+	}
+
+	/**
+	 * Removes an Testimonial.
+	 *
+	 * @param \OliverKlee\Tea\Domain\Model\Testimonial $testimonialToRemove The Testimonial to be removed
+	 *
+	 * @return void
+	 */
+	public function removeTestimonial(\OliverKlee\Tea\Domain\Model\Testimonial $testimonialToRemove) {
+		$this->testimonials->detach($testimonialToRemove);
+	}
+
 }
 ?>

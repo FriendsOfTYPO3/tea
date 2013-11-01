@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_tea_domain_model_teabeverage'] = array(
 	'ctrl' => $TCA['tx_tea_domain_model_teabeverage']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, size, type, additions',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, size, type, additions, testimonials',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, size, type, additions,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, size, type, additions, testimonials,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -133,8 +133,8 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
-					'add' => Array(
+					),
+					'add' => array(
 						'type' => 'script',
 						'title' => 'Create new',
 						'icon' => 'add.gif',
@@ -142,9 +142,26 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 							'table' => 'tx_tea_domain_model_addition',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
-							),
+						),
 						'script' => 'wizard_add.php',
 					),
+				),
+			),
+		),
+		'testimonials' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.testimonials',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_tea_domain_model_testimonial',
+				'foreign_field' => 'teabeverage',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1,
 				),
 			),
 		),

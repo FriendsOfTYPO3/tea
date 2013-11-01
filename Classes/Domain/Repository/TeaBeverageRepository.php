@@ -26,7 +26,7 @@ namespace OliverKlee\Tea\Domain\Repository;
  ***************************************************************/
 
 /**
- * This is the repository for TeaBeverages.
+ * This is the repository for TeaBeverage models.
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T20:34:29Z" product-name="tea">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T21:35:43Z" product-name="tea">
 		<header/>
 		<body>
 			<trans-unit id="size.description">
@@ -8,6 +8,12 @@
 			</trans-unit>
 			<trans-unit id="type.description">
 				<source>type</source>
+			</trans-unit>
+			<trans-unit id="additions.description">
+				<source>additions</source>
+			</trans-unit>
+			<trans-unit id="testimonials.description">
+				<source>testimonials</source>
 			</trans-unit>
 		</body>
 	</file>

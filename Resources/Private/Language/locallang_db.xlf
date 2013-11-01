@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T20:56:40Z" product-name="tea">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T21:35:43Z" product-name="tea">
 		<header/>
 		<body>
 			<trans-unit id="tx_tea_domain_model_teabeverage">
@@ -14,6 +14,9 @@
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_teabeverage.additions">
 				<source>Additions</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_teabeverage.testimonials">
+				<source>Testimonials</source>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_teatype">
 				<source>Tea Type</source>
@@ -29,6 +32,18 @@
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_addition.title">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_testimonial">
+				<source>Testimonial</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_testimonial.date_of_posting">
+				<source>Date Of Posting</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_testimonial.number_of_consumed_cups">
+				<source>Number Of Consumed Cups</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_testimonial.text">
+				<source>Text</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -30,14 +30,14 @@ namespace OliverKlee\Tea\Tests;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
+class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \OliverKlee\Tea\Domain\Model\TeaType
+	 * @var \OliverKlee\Tea\Domain\Model\Testimonial
 	 */
 	protected $fixture = NULL;
 
 	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaType();
+		$this->fixture = new \OliverKlee\Tea\Domain\Model\Testimonial();
 	}
 
 	public function tearDown() {
@@ -47,43 +47,66 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getTitleInitiallyReturnsEmptyString() {
-		$this->assertSame(
-			'',
-			$this->fixture->getTitle()
+	public function getDateOfPostingInitiallyReturnsNull() {
+		$this->assertNull(
+			$this->fixture->getDateOfPosting()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setTitleSetsTitle() {
-		$this->fixture->setTitle('foo bar');
+	public function setDateOfPostingSetsDateOfPosting() {
+		$date = new \DateTime();
+		$this->fixture->setDateOfPosting($date);
+
+		$this->assertSame(
+			$date,
+			$this->fixture->getDateOfPosting()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function getNumberOfConsumedCupsInitiallyReturnsZero() {
+		$this->assertSame(
+			0,
+			$this->fixture->getNumberOfConsumedCups()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setNumberOfConsumedCupsSetsNumberOfConsumedCups() {
+		$this->fixture->setNumberOfConsumedCups(123456);
+
+		$this->assertSame(
+			123456,
+			$this->fixture->getNumberOfConsumedCups()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function getTextInitiallyReturnsEmptyString() {
+		$this->assertSame(
+			'',
+			$this->fixture->getText()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setTextSetsText() {
+		$this->fixture->setText('foo bar');
 
 		$this->assertSame(
 			'foo bar',
-			$this->fixture->getTitle()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function getCaffeinatedInitiallyReturnsFalse() {
-		$this->assertSame(
-			FALSE,
-			$this->fixture->getCaffeinated()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setCaffeinatedSetsCaffeinated() {
-		$this->fixture->setCaffeinated(TRUE);
-		$this->assertSame(
-			TRUE,
-			$this->fixture->getCaffeinated()
+			$this->fixture->getText()
 		);
 	}
 }

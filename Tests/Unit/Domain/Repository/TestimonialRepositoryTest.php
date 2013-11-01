@@ -1,5 +1,5 @@
 <?php
-namespace OliverKlee\Tea\Domain\Model;
+namespace OliverKlee\Tea\Tests;
 
 /***************************************************************
  *  Copyright notice
@@ -11,7 +11,7 @@ namespace OliverKlee\Tea\Domain\Model;
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
+ *  the Free Software Foundation; either version 2 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -26,31 +26,38 @@ namespace OliverKlee\Tea\Domain\Model;
  ***************************************************************/
 
 /**
- * This model represents an addition for tea like sugar or milk.
+ * Test case.
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
+class TestimonialRepositoryTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \string
-	 * @validate NotEmpty
+	 * @var \OliverKlee\Tea\Domain\Model\Testimonial
 	 */
-	protected $title = '';
+	protected $fixture;
 
 	/**
-	 * @return \string $title
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface|PHPUnit_Framework_MockObject_MockObject
 	 */
-	public function getTitle() {
-		return $this->title;
+	protected $objectManager = NULL;
+
+	public function setUp() {
+		$this->objectManager = $this->getMock('TYPO3\CMS\Extbase\Object\ObjectManagerInterface');
+
+		$this->fixture = new \OliverKlee\Tea\Domain\Repository\TestimonialRepository($this->objectManager);
+	}
+
+	public function tearDown() {
+		unset($this->fixture, $this->objectManager);
 	}
 
 	/**
-	 * @param \string $title
-	 *
-	 * @return void
+	 * @test
 	 */
-	public function setTitle($title) {
-		$this->title = $title;
+	public function canBeInstantiated() {
+		$this->assertNotNull(
+			$this->fixture
+		);
 	}
 }
 ?>

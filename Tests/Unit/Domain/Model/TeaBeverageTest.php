@@ -1,5 +1,4 @@
 <?php
-
 namespace OliverKlee\Tea\Tests;
 
 /***************************************************************
@@ -140,6 +139,60 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 		$this->assertFalse(
 			$this->fixture->getAdditions()->contains($newItem)
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function getTestimonialsInitiallyReturnsEmptyStorage() {
+		$this->assertEquals(
+			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
+			$this->fixture->getTestimonials()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setTestimonialsSetsTestimonials() {
+		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->fixture->setTestimonials($items);
+
+		$this->assertSame(
+			$items,
+			$this->fixture->getTestimonials()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function addTestimonialAddsTestimonial() {
+		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->fixture->setTestimonials($items);
+
+		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
+		$this->fixture->addTestimonial($newItem);
+
+		$this->assertTrue(
+			$this->fixture->getTestimonials()->contains($newItem)
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeTestimonialRemovesTestimonial() {
+		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->fixture->setTestimonials($items);
+
+		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
+		$this->fixture->addTestimonial($newItem);
+		$this->fixture->removeTestimonial($newItem);
+
+		$this->assertFalse(
+			$this->fixture->getTestimonials()->contains($newItem)
 		);
 	}
 }

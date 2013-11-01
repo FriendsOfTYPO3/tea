@@ -1,5 +1,5 @@
 <?php
-namespace OliverKlee\Tea\Domain\Model;
+namespace OliverKlee\Tea\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
@@ -26,31 +26,10 @@ namespace OliverKlee\Tea\Domain\Model;
  ***************************************************************/
 
 /**
- * This model represents an addition for tea like sugar or milk.
+ * This is the repository for Testimonial models.
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
-	/**
-	 * @var \string
-	 * @validate NotEmpty
-	 */
-	protected $title = '';
-
-	/**
-	 * @return \string $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
-
-	/**
-	 * @param \string $title
-	 *
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
-	}
+class TestimonialRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 }
 ?>
