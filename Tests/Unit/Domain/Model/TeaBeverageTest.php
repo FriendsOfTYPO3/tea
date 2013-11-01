@@ -35,7 +35,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\TeaBeverage
 	 */
-	protected $fixture;
+	protected $fixture = NULL;
 
 	public function setUp() {
 		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaBeverage();
@@ -86,6 +86,60 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 		$this->assertSame(
 			$type,
 			$this->fixture->getType()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function getAdditionsInitiallyReturnsEmptyStorage() {
+		$this->assertEquals(
+			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
+			$this->fixture->getAdditions()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setAdditionsSetsAdditions() {
+		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->fixture->setAdditions($items);
+
+		$this->assertSame(
+			$items,
+			$this->fixture->getAdditions()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function addAdditionAddsAddition() {
+		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->fixture->setAdditions($items);
+
+		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
+		$this->fixture->addAddition($newItem);
+
+		$this->assertTrue(
+			$this->fixture->getAdditions()->contains($newItem)
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeAdditionRemovesAddition() {
+		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->fixture->setAdditions($items);
+
+		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
+		$this->fixture->addAddition($newItem);
+		$this->fixture->removeAddition($newItem);
+
+		$this->assertFalse(
+			$this->fixture->getAdditions()->contains($newItem)
 		);
 	}
 }

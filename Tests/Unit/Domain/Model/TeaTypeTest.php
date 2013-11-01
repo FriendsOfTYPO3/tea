@@ -35,7 +35,7 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\TeaType
 	 */
-	protected $fixture;
+	protected $fixture = NULL;
 
 	public function setUp() {
 		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaType();

@@ -6,9 +6,6 @@
 			<trans-unit id="title.description">
 				<source>title</source>
 			</trans-unit>
-			<trans-unit id="caffeinated.description">
-				<source>caffeinated</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

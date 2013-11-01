@@ -3,13 +3,13 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_tea_domain_model_teabeverage'] = array(
-	'ctrl' => $TCA['tx_tea_domain_model_teabeverage']['ctrl'],
+$TCA['tx_tea_domain_model_addition'] = array(
+	'ctrl' => $TCA['tx_tea_domain_model_addition']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, size, type, additions',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, size, type, additions,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -37,8 +37,8 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_tea_domain_model_teabeverage',
-				'foreign_table_where' => 'AND tx_tea_domain_model_teabeverage.pid=###CURRENT_PID### AND tx_tea_domain_model_teabeverage.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_tea_domain_model_addition',
+				'foreign_table_where' => 'AND tx_tea_domain_model_addition.pid=###CURRENT_PID### AND tx_tea_domain_model_addition.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -93,59 +93,13 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 				),
 			),
 		),
-		'size' => array(
+		'title' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.size',
+			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_addition.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'double2',
-			),
-		),
-		'type' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.type',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_tea_domain_model_teatype',
-				'minitems' => 0,
-				'maxitems' => 1,
-			),
-		),
-		'additions' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.additions',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_tea_domain_model_addition',
-				'MM' => 'tx_tea_teabeverage_addition_mm',
-				'size' => 10,
-				'autoSizeMax' => 30,
-				'maxitems' => 9999,
-				'multiple' => 0,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_tea_domain_model_addition',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-						'script' => 'wizard_add.php',
-					),
-				),
+				'eval' => 'trim,required',
 			),
 		),
 	),

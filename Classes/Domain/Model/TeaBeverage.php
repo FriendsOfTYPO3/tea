@@ -32,7 +32,7 @@ namespace OliverKlee\Tea\Domain\Model;
  */
 class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
-	 * @var \float
+	 * @var float
 	 */
 	protected $size = 0.0;
 
@@ -43,14 +43,38 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $type = NULL;
 
 	/**
-	 * @return \float $size
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition>
+	 * @lazy
+	 */
+	protected $additions = NULL;
+
+	/**
+	 * The constructor.
+	 *
+	 * @return TeaBeverage
+	 */
+	public function __construct() {
+		$this->initializeStorageObjects();
+	}
+
+	/**
+	 * Initializes all ObjectStorage properties.
+	 *
+	 * @return void
+	 */
+	protected function initializeStorageObjects() {
+		$this->additions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
+
+	/**
+	 * @return float $size
 	 */
 	public function getSize() {
 		return $this->size;
 	}
 
 	/**
-	 * @param \float $size
+	 * @param float $size
 	 *
 	 * @return void
 	 */
@@ -72,6 +96,48 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setType(\OliverKlee\Tea\Domain\Model\TeaType $type) {
 		$this->type = $type;
+	}
+
+	/**
+	 * Adds an Addition.
+	 *
+	 * @param \OliverKlee\Tea\Domain\Model\Addition $addition
+	 *
+	 * @return void
+	 */
+	public function addAddition(\OliverKlee\Tea\Domain\Model\Addition $addition) {
+		$this->additions->attach($addition);
+	}
+
+	/**
+	 * Removes an Addition.
+	 *
+	 * @param \OliverKlee\Tea\Domain\Model\Addition $additionToRemove The Addition to be removed
+	 *
+	 * @return void
+	 */
+	public function removeAddition(\OliverKlee\Tea\Domain\Model\Addition $additionToRemove) {
+		$this->additions->detach($additionToRemove);
+	}
+
+	/**
+	 * Returns the additions.
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 */
+	public function getAdditions() {
+		return $this->additions;
+	}
+
+	/**
+	 * Sets the additions.
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 *
+	 * @return void
+	 */
+	public function setAdditions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $additions) {
+		$this->additions = $additions;
 	}
 }
 ?>
