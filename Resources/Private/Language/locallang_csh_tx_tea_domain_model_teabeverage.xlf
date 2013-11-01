@@ -3,10 +3,7 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T19:54:17Z" product-name="tea">
 		<header/>
 		<body>
-			<trans-unit id="tx_tea_domain_model_teabeverage">
-				<source>Tea beverage</source>
-			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_teabeverage.size">
+			<trans-unit id="size.description">
 				<source>size</source>
 			</trans-unit>
 		</body>

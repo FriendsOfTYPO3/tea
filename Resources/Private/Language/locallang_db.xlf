@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T19:50:01Z" product-name="tea">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T19:54:17Z" product-name="tea">
 		<header/>
 		<body>
-
+			<trans-unit id="tx_tea_domain_model_teabeverage">
+				<source>Tea Beverage</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_teabeverage.size">
+				<source>Size</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
