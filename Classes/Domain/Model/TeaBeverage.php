@@ -32,15 +32,17 @@ namespace OliverKlee\Tea\Domain\Model;
  */
 class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
-	 * size
-	 *
 	 * @var \float
 	 */
 	protected $size = 0.0;
 
 	/**
-	 * Returns the size
-	 *
+	 * @var \OliverKlee\Tea\Domain\Model\TeaType
+	 * @lazy
+	 */
+	protected $type = NULL;
+
+	/**
 	 * @return \float $size
 	 */
 	public function getSize() {
@@ -48,13 +50,28 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Sets the size
-	 *
 	 * @param \float $size
+	 *
 	 * @return void
 	 */
 	public function setSize($size) {
 		$this->size = $size;
+	}
+
+	/**
+	 * @return \OliverKlee\Tea\Domain\Model\TeaType $type
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * @param \OliverKlee\Tea\Domain\Model\TeaType $type
+	 *
+	 * @return void
+	 */
+	public function setType(\OliverKlee\Tea\Domain\Model\TeaType $type) {
+		$this->type = $type;
 	}
 }
 ?>

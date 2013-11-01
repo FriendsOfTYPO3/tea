@@ -31,14 +31,14 @@ namespace OliverKlee\Tea\Tests;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
+class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \OliverKlee\Tea\Domain\Model\TeaBeverage
+	 * @var \OliverKlee\Tea\Domain\Model\TeaType
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaBeverage();
+		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaType();
 	}
 
 	public function tearDown() {
@@ -48,44 +48,43 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getSizeInitiallyReturnsZero() {
+	public function getTitleInitiallyReturnsEmptyString() {
 		$this->assertSame(
-			0.0,
-			$this->fixture->getSize()
+			'',
+			$this->fixture->getTitle()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setSizeSetsSize() {
-		$this->fixture->setSize(1234.56);
+	public function setTitleSetsTitle() {
+		$this->fixture->setTitle('foo bar');
 
 		$this->assertSame(
-			1234.56,
-			$this->fixture->getSize()
+			'foo bar',
+			$this->fixture->getTitle()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function getTypeInitiallyReturnsNull() {
-		$this->assertNull(
-			$this->fixture->getType()
+	public function getCaffeinatedInitiallyReturnsFalse() {
+		$this->assertSame(
+			FALSE,
+			$this->fixture->getCaffeinated()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setTypeSetsType() {
-		$type = new \OliverKlee\Tea\Domain\Model\TeaType();
-		$this->fixture->setType($type);
-
+	public function setCaffeinatedSetsCaffeinated() {
+		$this->fixture->setCaffeinated(TRUE);
 		$this->assertSame(
-			$type,
-			$this->fixture->getType()
+			TRUE,
+			$this->fixture->getCaffeinated()
 		);
 	}
 }

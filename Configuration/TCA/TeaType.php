@@ -3,13 +3,13 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_tea_domain_model_teabeverage'] = array(
-	'ctrl' => $TCA['tx_tea_domain_model_teabeverage']['ctrl'],
+$TCA['tx_tea_domain_model_teatype'] = array(
+	'ctrl' => $TCA['tx_tea_domain_model_teatype']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, size, type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, caffeinated',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, size, type,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, caffeinated,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -37,8 +37,8 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_tea_domain_model_teabeverage',
-				'foreign_table_where' => 'AND tx_tea_domain_model_teabeverage.pid=###CURRENT_PID### AND tx_tea_domain_model_teabeverage.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_tea_domain_model_teatype',
+				'foreign_table_where' => 'AND tx_tea_domain_model_teatype.pid=###CURRENT_PID### AND tx_tea_domain_model_teatype.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -93,23 +93,21 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 				),
 			),
 		),
-		'size' => array(
+		'title' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.size',
+			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teatype.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'double2',
+				'eval' => 'trim,required',
 			),
 		),
-		'type' => array(
+		'caffeinated' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.type',
+			'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teatype.caffeinated',
 			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_tea_domain_model_teatype',
-				'minitems' => 0,
-				'maxitems' => 1,
+				'type' => 'check',
+				'default' => 0,
 			),
 		),
 	),

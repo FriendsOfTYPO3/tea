@@ -1,6 +1,5 @@
 <?php
-
-namespace OliverKlee\Tea\Tests;
+namespace OliverKlee\Tea\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -12,7 +11,7 @@ namespace OliverKlee\Tea\Tests;
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
+ *  the Free Software Foundation; either version 3 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -27,66 +26,59 @@ namespace OliverKlee\Tea\Tests;
  ***************************************************************/
 
 /**
- * Test case.
+ * This model represents a tea type like "Earl Grey", "Gunpowder" or "Chamomile".
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
+class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
-	 * @var \OliverKlee\Tea\Domain\Model\TeaBeverage
+	 * @var \string
+	 * @validate NotEmpty
 	 */
-	protected $fixture;
-
-	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaBeverage();
-	}
-
-	public function tearDown() {
-		unset($this->fixture);
-	}
+	protected $title = '';
 
 	/**
-	 * @test
+	 * @var boolean
 	 */
-	public function getSizeInitiallyReturnsZero() {
-		$this->assertSame(
-			0.0,
-			$this->fixture->getSize()
-		);
+	protected $caffeinated = FALSE;
+
+	/**
+	 * @return \string $title
+	 */
+	public function getTitle() {
+		return $this->title;
 	}
 
 	/**
-	 * @test
+	 * @param \string $title
+	 *
+	 * @return void
 	 */
-	public function setSizeSetsSize() {
-		$this->fixture->setSize(1234.56);
-
-		$this->assertSame(
-			1234.56,
-			$this->fixture->getSize()
-		);
+	public function setTitle($title) {
+		$this->title = $title;
 	}
 
 	/**
-	 * @test
+	 * @return boolean $caffeinated
 	 */
-	public function getTypeInitiallyReturnsNull() {
-		$this->assertNull(
-			$this->fixture->getType()
-		);
+	public function getCaffeinated() {
+		return $this->caffeinated;
 	}
 
 	/**
-	 * @test
+	 * @param boolean $caffeinated
+	 *
+	 * @return void
 	 */
-	public function setTypeSetsType() {
-		$type = new \OliverKlee\Tea\Domain\Model\TeaType();
-		$this->fixture->setType($type);
+	public function setCaffeinated($caffeinated) {
+		$this->caffeinated = $caffeinated;
+	}
 
-		$this->assertSame(
-			$type,
-			$this->fixture->getType()
-		);
+	/**
+	 * @return boolean
+	 */
+	public function isCaffeinated() {
+		return $this->getCaffeinated();
 	}
 }
 ?>

@@ -3,11 +3,11 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-11-01T20:34:29Z" product-name="tea">
 		<header/>
 		<body>
-			<trans-unit id="size.description">
-				<source>size</source>
+			<trans-unit id="title.description">
+				<source>title</source>
 			</trans-unit>
-			<trans-unit id="type.description">
-				<source>type</source>
+			<trans-unit id="caffeinated.description">
+				<source>caffeinated</source>
 			</trans-unit>
 		</body>
 	</file>
