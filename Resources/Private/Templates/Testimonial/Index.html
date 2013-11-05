@@ -1,0 +1,16 @@
+<f:layout name="Default"/>
+
+<f:section name="main">
+	<h2><f:translate key="heading.testimonials"/></h2>
+	<f:for each="{testimonials}" as="testimonial">
+		<h3>
+			<f:format.printf arguments="{cups: testimonial.numberOfConsumedCups}">
+				<f:translate key="testimonials.cups.and.date"/>
+			</f:format.printf>
+			<f:format.date format="{f:translate(key: 'date-and-time-format')}">{testimonial.dateOfPosting}</f:format.date>
+		</h3>
+		<f:format.html>
+			{testimonial.text}
+		</f:format.html>
+	</f:for>
+</f:section>
