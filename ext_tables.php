@@ -3,6 +3,12 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'OliverKlee.' . $_EXTKEY,
+	'Tea',
+	'Tea'
+);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Tea example');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tea_domain_model_teabeverage', 'EXT:tea/Resources/Private/Language/locallang_csh_tx_tea_domain_model_teabeverage.xlf');
