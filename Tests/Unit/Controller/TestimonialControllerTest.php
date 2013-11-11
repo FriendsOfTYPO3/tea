@@ -40,7 +40,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 	/**
 	 * @var TestimonialController
 	 */
-	protected $fixture;
+	protected $subject;
 
 	/**
 	 * @var ViewInterface
@@ -53,26 +53,26 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 	protected $testimonialRepository = NULL;
 
 	public function setUp() {
-		$this->fixture = new TestimonialController();
+		$this->subject = new TestimonialController();
 
 		$this->view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
-		$this->fixture->setView($this->view);
+		$this->subject->setView($this->view);
 
 		$this->testimonialRepository = $this->getMock(
 			'OliverKlee\\Tea\\Domain\\Repository\\TestimonialRepository', array(), array(), '', FALSE
 		);
-		$this->fixture->injectTestimonialRepository($this->testimonialRepository);
+		$this->subject->injectTestimonialRepository($this->testimonialRepository);
 	}
 
 	public function tearDown() {
-		unset($this->fixture, $this->view, $this->testimonialRepository);
+		unset($this->subject, $this->view, $this->testimonialRepository);
 	}
 
 	/**
 	 * @test
 	 */
 	public function indexActionCanBeCalled() {
-		$this->fixture->indexAction();
+		$this->subject->indexAction();
 	}
 
 	/**
@@ -85,7 +85,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 
 		$this->view->expects($this->once())->method('assign')->with('testimonials', $allTestimonials);
 
-		$this->fixture->indexAction();
+		$this->subject->indexAction();
 	}
 }
 ?>

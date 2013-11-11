@@ -34,14 +34,14 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\TeaBeverage
 	 */
-	protected $fixture = NULL;
+	protected $subject = NULL;
 
 	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaBeverage();
+		$this->subject = new \OliverKlee\Tea\Domain\Model\TeaBeverage();
 	}
 
 	public function tearDown() {
-		unset($this->fixture);
+		unset($this->subject);
 	}
 
 	/**
@@ -50,7 +50,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getSizeInitiallyReturnsZero() {
 		$this->assertSame(
 			0.0,
-			$this->fixture->getSize()
+			$this->subject->getSize()
 		);
 	}
 
@@ -58,11 +58,11 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setSizeSetsSize() {
-		$this->fixture->setSize(1234.56);
+		$this->subject->setSize(1234.56);
 
 		$this->assertSame(
 			1234.56,
-			$this->fixture->getSize()
+			$this->subject->getSize()
 		);
 	}
 
@@ -71,7 +71,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function getTypeInitiallyReturnsNull() {
 		$this->assertNull(
-			$this->fixture->getType()
+			$this->subject->getType()
 		);
 	}
 
@@ -80,11 +80,11 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function setTypeSetsType() {
 		$type = new \OliverKlee\Tea\Domain\Model\TeaType();
-		$this->fixture->setType($type);
+		$this->subject->setType($type);
 
 		$this->assertSame(
 			$type,
-			$this->fixture->getType()
+			$this->subject->getType()
 		);
 	}
 
@@ -94,7 +94,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getAdditionsInitiallyReturnsEmptyStorage() {
 		$this->assertEquals(
 			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
-			$this->fixture->getAdditions()
+			$this->subject->getAdditions()
 		);
 	}
 
@@ -103,11 +103,11 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function setAdditionsSetsAdditions() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->fixture->setAdditions($items);
+		$this->subject->setAdditions($items);
 
 		$this->assertSame(
 			$items,
-			$this->fixture->getAdditions()
+			$this->subject->getAdditions()
 		);
 	}
 
@@ -116,13 +116,13 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function addAdditionAddsAddition() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->fixture->setAdditions($items);
+		$this->subject->setAdditions($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
-		$this->fixture->addAddition($newItem);
+		$this->subject->addAddition($newItem);
 
 		$this->assertTrue(
-			$this->fixture->getAdditions()->contains($newItem)
+			$this->subject->getAdditions()->contains($newItem)
 		);
 	}
 
@@ -131,14 +131,14 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function removeAdditionRemovesAddition() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->fixture->setAdditions($items);
+		$this->subject->setAdditions($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
-		$this->fixture->addAddition($newItem);
-		$this->fixture->removeAddition($newItem);
+		$this->subject->addAddition($newItem);
+		$this->subject->removeAddition($newItem);
 
 		$this->assertFalse(
-			$this->fixture->getAdditions()->contains($newItem)
+			$this->subject->getAdditions()->contains($newItem)
 		);
 	}
 
@@ -148,7 +148,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getTestimonialsInitiallyReturnsEmptyStorage() {
 		$this->assertEquals(
 			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
-			$this->fixture->getTestimonials()
+			$this->subject->getTestimonials()
 		);
 	}
 
@@ -157,11 +157,11 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function setTestimonialsSetsTestimonials() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->fixture->setTestimonials($items);
+		$this->subject->setTestimonials($items);
 
 		$this->assertSame(
 			$items,
-			$this->fixture->getTestimonials()
+			$this->subject->getTestimonials()
 		);
 	}
 
@@ -170,13 +170,13 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function addTestimonialAddsTestimonial() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->fixture->setTestimonials($items);
+		$this->subject->setTestimonials($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
-		$this->fixture->addTestimonial($newItem);
+		$this->subject->addTestimonial($newItem);
 
 		$this->assertTrue(
-			$this->fixture->getTestimonials()->contains($newItem)
+			$this->subject->getTestimonials()->contains($newItem)
 		);
 	}
 
@@ -185,14 +185,14 @@ class TeaBeverageTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function removeTestimonialRemovesTestimonial() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->fixture->setTestimonials($items);
+		$this->subject->setTestimonials($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
-		$this->fixture->addTestimonial($newItem);
-		$this->fixture->removeTestimonial($newItem);
+		$this->subject->addTestimonial($newItem);
+		$this->subject->removeTestimonial($newItem);
 
 		$this->assertFalse(
-			$this->fixture->getTestimonials()->contains($newItem)
+			$this->subject->getTestimonials()->contains($newItem)
 		);
 	}
 }

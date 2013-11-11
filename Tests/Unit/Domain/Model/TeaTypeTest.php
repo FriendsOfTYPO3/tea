@@ -34,14 +34,14 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\TeaType
 	 */
-	protected $fixture = NULL;
+	protected $subject = NULL;
 
 	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\TeaType();
+		$this->subject = new \OliverKlee\Tea\Domain\Model\TeaType();
 	}
 
 	public function tearDown() {
-		unset($this->fixture);
+		unset($this->subject);
 	}
 
 	/**
@@ -50,7 +50,7 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getTitleInitiallyReturnsEmptyString() {
 		$this->assertSame(
 			'',
-			$this->fixture->getTitle()
+			$this->subject->getTitle()
 		);
 	}
 
@@ -58,11 +58,11 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setTitleSetsTitle() {
-		$this->fixture->setTitle('foo bar');
+		$this->subject->setTitle('foo bar');
 
 		$this->assertSame(
 			'foo bar',
-			$this->fixture->getTitle()
+			$this->subject->getTitle()
 		);
 	}
 
@@ -72,7 +72,7 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getCaffeinatedInitiallyReturnsFalse() {
 		$this->assertSame(
 			FALSE,
-			$this->fixture->getCaffeinated()
+			$this->subject->getCaffeinated()
 		);
 	}
 
@@ -80,10 +80,10 @@ class TeaTypeTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setCaffeinatedSetsCaffeinated() {
-		$this->fixture->setCaffeinated(TRUE);
+		$this->subject->setCaffeinated(TRUE);
 		$this->assertSame(
 			TRUE,
-			$this->fixture->getCaffeinated()
+			$this->subject->getCaffeinated()
 		);
 	}
 }

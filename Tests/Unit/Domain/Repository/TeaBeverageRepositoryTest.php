@@ -34,7 +34,7 @@ class TeaBeverageRepositoryTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\TeaBeverage
 	 */
-	protected $fixture;
+	protected $subject;
 
 	/**
 	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface|PHPUnit_Framework_MockObject_MockObject
@@ -44,11 +44,11 @@ class TeaBeverageRepositoryTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 	public function setUp() {
 		$this->objectManager = $this->getMock('TYPO3\CMS\Extbase\Object\ObjectManagerInterface');
 
-		$this->fixture = new \OliverKlee\Tea\Domain\Repository\TeaBeverageRepository($this->objectManager);
+		$this->subject = new \OliverKlee\Tea\Domain\Repository\TeaBeverageRepository($this->objectManager);
 	}
 
 	public function tearDown() {
-		unset($this->fixture, $this->objectManager);
+		unset($this->subject, $this->objectManager);
 	}
 
 	/**
@@ -56,7 +56,7 @@ class TeaBeverageRepositoryTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 	 */
 	public function canBeInstantiated() {
 		$this->assertNotNull(
-			$this->fixture
+			$this->subject
 		);
 	}
 }

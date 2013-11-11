@@ -34,14 +34,14 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\Testimonial
 	 */
-	protected $fixture = NULL;
+	protected $subject = NULL;
 
 	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\Testimonial();
+		$this->subject = new \OliverKlee\Tea\Domain\Model\Testimonial();
 	}
 
 	public function tearDown() {
-		unset($this->fixture);
+		unset($this->subject);
 	}
 
 	/**
@@ -49,7 +49,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function getDateOfPostingInitiallyReturnsNull() {
 		$this->assertNull(
-			$this->fixture->getDateOfPosting()
+			$this->subject->getDateOfPosting()
 		);
 	}
 
@@ -58,11 +58,11 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function setDateOfPostingSetsDateOfPosting() {
 		$date = new \DateTime();
-		$this->fixture->setDateOfPosting($date);
+		$this->subject->setDateOfPosting($date);
 
 		$this->assertSame(
 			$date,
-			$this->fixture->getDateOfPosting()
+			$this->subject->getDateOfPosting()
 		);
 	}
 
@@ -72,7 +72,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getNumberOfConsumedCupsInitiallyReturnsZero() {
 		$this->assertSame(
 			0,
-			$this->fixture->getNumberOfConsumedCups()
+			$this->subject->getNumberOfConsumedCups()
 		);
 	}
 
@@ -80,11 +80,11 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setNumberOfConsumedCupsSetsNumberOfConsumedCups() {
-		$this->fixture->setNumberOfConsumedCups(123456);
+		$this->subject->setNumberOfConsumedCups(123456);
 
 		$this->assertSame(
 			123456,
-			$this->fixture->getNumberOfConsumedCups()
+			$this->subject->getNumberOfConsumedCups()
 		);
 	}
 
@@ -94,7 +94,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getTextInitiallyReturnsEmptyString() {
 		$this->assertSame(
 			'',
-			$this->fixture->getText()
+			$this->subject->getText()
 		);
 	}
 
@@ -102,11 +102,11 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setTextSetsText() {
-		$this->fixture->setText('foo bar');
+		$this->subject->setText('foo bar');
 
 		$this->assertSame(
 			'foo bar',
-			$this->fixture->getText()
+			$this->subject->getText()
 		);
 	}
 }

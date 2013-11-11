@@ -34,14 +34,14 @@ class AdditionTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\Addition
 	 */
-	protected $fixture = NULL;
+	protected $subject = NULL;
 
 	public function setUp() {
-		$this->fixture = new \OliverKlee\Tea\Domain\Model\Addition();
+		$this->subject = new \OliverKlee\Tea\Domain\Model\Addition();
 	}
 
 	public function tearDown() {
-		unset($this->fixture);
+		unset($this->subject);
 	}
 
 	/**
@@ -50,7 +50,7 @@ class AdditionTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	public function getTitleInitiallyReturnsEmptyString() {
 		$this->assertSame(
 			'',
-			$this->fixture->getTitle()
+			$this->subject->getTitle()
 		);
 	}
 
@@ -58,11 +58,11 @@ class AdditionTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setTitleSetsTitle() {
-		$this->fixture->setTitle('foo bar');
+		$this->subject->setTitle('foo bar');
 
 		$this->assertSame(
 			'foo bar',
-			$this->fixture->getTitle()
+			$this->subject->getTitle()
 		);
 	}
 }
