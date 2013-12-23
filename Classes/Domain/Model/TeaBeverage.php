@@ -180,6 +180,4 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function removeTestimonial(\OliverKlee\Tea\Domain\Model\Testimonial $testimonialToRemove) {
 		$this->testimonials->detach($testimonialToRemove);
 	}
-
 }
-?>

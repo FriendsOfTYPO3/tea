@@ -112,4 +112,3 @@ $TCA['tx_tea_domain_model_teatype'] = array(
 		),
 	),
 );
-?>

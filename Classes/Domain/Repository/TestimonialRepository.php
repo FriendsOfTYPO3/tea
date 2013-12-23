@@ -32,4 +32,3 @@ namespace OliverKlee\Tea\Domain\Repository;
  */
 class TestimonialRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 }
-?>

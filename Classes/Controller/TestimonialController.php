@@ -74,4 +74,3 @@ class TestimonialController extends ActionController {
 		$this->view = $view;
 	}
 }
-?>

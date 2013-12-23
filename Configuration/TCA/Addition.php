@@ -104,4 +104,3 @@ $TCA['tx_tea_domain_model_addition'] = array(
 		),
 	),
 );
-?>

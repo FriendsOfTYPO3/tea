@@ -53,4 +53,3 @@ class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->title = $title;
 	}
 }
-?>

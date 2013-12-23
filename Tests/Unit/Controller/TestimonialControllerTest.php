@@ -40,7 +40,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 	/**
 	 * @var TestimonialController
 	 */
-	protected $subject;
+	protected $subject = NULL;
 
 	/**
 	 * @var ViewInterface
@@ -88,4 +88,3 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 		$this->subject->indexAction();
 	}
 }
-?>

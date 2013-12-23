@@ -134,4 +134,3 @@ $TCA['tx_tea_domain_model_testimonial'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_testimonial.gif'
 	),
 );
-?>

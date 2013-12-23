@@ -15,4 +15,3 @@ if (!defined('TYPO3_MODE')) {
 		'Testimonial' => 'index',
 	)
 );
-?>

@@ -94,4 +94,3 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->text = $text;
 	}
 }
-?>
