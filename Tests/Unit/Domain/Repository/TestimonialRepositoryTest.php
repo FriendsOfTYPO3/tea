@@ -53,6 +53,7 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function canBeInstantiated() {
 		$this->assertNotNull(
