@@ -46,6 +46,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function getDateOfPostingInitiallyReturnsNull() {
 		$this->assertNull(
@@ -55,6 +56,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function setDateOfPostingSetsDateOfPosting() {
 		$date = new \DateTime();
@@ -68,6 +70,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function getNumberOfConsumedCupsInitiallyReturnsZero() {
 		$this->assertSame(
@@ -78,6 +81,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function setNumberOfConsumedCupsSetsNumberOfConsumedCups() {
 		$this->subject->setNumberOfConsumedCups(123456);
@@ -90,6 +94,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function getTextInitiallyReturnsEmptyString() {
 		$this->assertSame(
@@ -100,6 +105,7 @@ class TestimonialTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function setTextSetsText() {
 		$this->subject->setText('foo bar');
