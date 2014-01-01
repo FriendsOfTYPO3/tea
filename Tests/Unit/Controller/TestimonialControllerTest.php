@@ -70,6 +70,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function indexActionCanBeCalled() {
 		$this->subject->indexAction();
@@ -77,6 +78,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCa
 
 	/**
 	 * @test
+	 * @return void
 	 */
 	public function indexActionPassesAllTestimonialsAsTestimonialsToView() {
 		$allTestimonials = new ObjectStorage();
