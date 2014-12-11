@@ -24,7 +24,7 @@ use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
+class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @var TestimonialController
 	 */

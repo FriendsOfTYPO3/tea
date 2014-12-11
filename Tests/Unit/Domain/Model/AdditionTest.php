@@ -19,7 +19,7 @@ namespace OliverKlee\Tea\Tests;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class AdditionTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
+class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\Addition
 	 */
