@@ -13,7 +13,7 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tea_domain_model_teabeverage', 'EXT:tea/Resources/Private/Language/locallang_csh_tx_tea_domain_model_teabeverage.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tea_domain_model_teabeverage');
-$TCA['tx_tea_domain_model_teabeverage'] = array(
+$GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage',
 		'label' => 'size',
@@ -44,7 +44,7 @@ $TCA['tx_tea_domain_model_teabeverage'] = array(
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tea_domain_model_teatype', 'EXT:tea/Resources/Private/Language/locallang_csh_tx_tea_domain_model_teatype.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tea_domain_model_teatype');
-$TCA['tx_tea_domain_model_teatype'] = array(
+$GLOBALS['TCA']['tx_tea_domain_model_teatype'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teatype',
 		'label' => 'title',
@@ -75,7 +75,7 @@ $TCA['tx_tea_domain_model_teatype'] = array(
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tea_domain_model_addition', 'EXT:tea/Resources/Private/Language/locallang_csh_tx_tea_domain_model_addition.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tea_domain_model_addition');
-$TCA['tx_tea_domain_model_addition'] = array(
+$GLOBALS['TCA']['tx_tea_domain_model_addition'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_addition',
 		'label' => 'title',
@@ -106,7 +106,7 @@ $TCA['tx_tea_domain_model_addition'] = array(
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tea_domain_model_testimonial', 'EXT:tea/Resources/Private/Language/locallang_csh_tx_tea_domain_model_testimonial.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tea_domain_model_testimonial');
-$TCA['tx_tea_domain_model_testimonial'] = array(
+$GLOBALS['TCA']['tx_tea_domain_model_testimonial'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_testimonial',
 		'label' => 'date_of_posting',
