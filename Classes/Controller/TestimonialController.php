@@ -56,7 +56,7 @@ class TestimonialController extends ActionController {
 	 *
 	 * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
 	 *
-	 * @return view
+	 * @return void
 	 */
 	public function setView(ViewInterface $view) {
 		$this->view = $view;

@@ -31,12 +31,12 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	protected $subject = NULL;
 
 	/**
-	 * @var ViewInterface
+	 * @var ViewInterface|\PHPUnit_Framework_MockObject_MockObject
 	 */
 	protected $view = NULL;
 
 	/**
-	 * @var TestimonialRepository
+	 * @var TestimonialRepository|\PHPUnit_Framework_MockObject_MockObject
 	 */
 	protected $testimonialRepository = NULL;
 

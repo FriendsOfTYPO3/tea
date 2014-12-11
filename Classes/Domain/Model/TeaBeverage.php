@@ -102,7 +102,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $additions
 	 *
 	 * @return void
 	 */
@@ -140,7 +140,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Testimonial> $testimonials
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $testimonials
 	 *
 	 * @return void
 	 */

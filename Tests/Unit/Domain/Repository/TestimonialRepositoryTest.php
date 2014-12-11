@@ -26,7 +26,7 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	protected $subject;
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface|PHPUnit_Framework_MockObject_MockObject
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
 	 */
 	protected $objectManager = NULL;
 
