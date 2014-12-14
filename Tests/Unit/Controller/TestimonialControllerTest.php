@@ -52,10 +52,6 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject->injectTestimonialRepository($this->testimonialRepository);
 	}
 
-	protected function tearDown() {
-		unset($this->subject, $this->view, $this->testimonialRepository);
-	}
-
 	/**
 	 * @test
 	 * @return void

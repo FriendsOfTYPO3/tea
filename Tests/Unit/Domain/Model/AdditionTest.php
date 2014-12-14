@@ -29,10 +29,6 @@ class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject = new \OliverKlee\Tea\Domain\Model\Addition();
 	}
 
-	protected function tearDown() {
-		unset($this->subject);
-	}
-
 	/**
 	 * @test
 	 * @return void

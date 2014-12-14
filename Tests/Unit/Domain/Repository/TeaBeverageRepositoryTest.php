@@ -36,10 +36,6 @@ class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject = new \OliverKlee\Tea\Domain\Repository\TeaBeverageRepository($this->objectManager);
 	}
 
-	protected function tearDown() {
-		unset($this->subject, $this->objectManager);
-	}
-
 	/**
 	 * @test
 	 * @return void
