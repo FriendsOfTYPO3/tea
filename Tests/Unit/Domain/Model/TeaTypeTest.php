@@ -25,11 +25,11 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	protected $subject = NULL;
 
-	public function setUp() {
+	protected function setUp() {
 		$this->subject = new \OliverKlee\Tea\Domain\Model\TeaType();
 	}
 
-	public function tearDown() {
+	protected function tearDown() {
 		unset($this->subject);
 	}
 

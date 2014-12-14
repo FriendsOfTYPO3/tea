@@ -40,7 +40,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	protected $testimonialRepository = NULL;
 
-	public function setUp() {
+	protected function setUp() {
 		$this->subject = new TestimonialController();
 
 		$this->view = $this->getMock('TYPO3\\CMS\\Extbase\\Mvc\\View\\ViewInterface');
@@ -52,7 +52,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject->injectTestimonialRepository($this->testimonialRepository);
 	}
 
-	public function tearDown() {
+	protected function tearDown() {
 		unset($this->subject, $this->view, $this->testimonialRepository);
 	}
 

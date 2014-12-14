@@ -30,13 +30,13 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	protected $objectManager = NULL;
 
-	public function setUp() {
+	protected function setUp() {
 		$this->objectManager = $this->getMock('TYPO3\CMS\Extbase\Object\ObjectManagerInterface');
 
 		$this->subject = new \OliverKlee\Tea\Domain\Repository\TestimonialRepository($this->objectManager);
 	}
 
-	public function tearDown() {
+	protected function tearDown() {
 		unset($this->subject, $this->objectManager);
 	}
 
