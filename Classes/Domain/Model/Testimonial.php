@@ -26,7 +26,7 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $dateOfPosting = NULL;
 
 	/**
-	 * @var integer
+	 * @var int
 	 */
 	protected $numberOfConsumedCups = 0;
 
@@ -52,14 +52,14 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @return integer $numberOfConsumedCups
+	 * @return int $numberOfConsumedCups
 	 */
 	public function getNumberOfConsumedCups() {
 		return $this->numberOfConsumedCups;
 	}
 
 	/**
-	 * @param integer $numberOfConsumedCups
+	 * @param int $numberOfConsumedCups
 	 *
 	 * @return void
 	 */

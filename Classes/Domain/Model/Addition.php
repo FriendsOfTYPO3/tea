@@ -21,20 +21,20 @@ namespace OliverKlee\Tea\Domain\Model;
  */
 class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
-	 * @var \string
+	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $title = '';
 
 	/**
-	 * @return \string $title
+	 * @return string $title
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * @param \string $title
+	 * @param string $title
 	 *
 	 * @return void
 	 */

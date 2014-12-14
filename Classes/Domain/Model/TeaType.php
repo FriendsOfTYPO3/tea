@@ -21,25 +21,25 @@ namespace OliverKlee\Tea\Domain\Model;
  */
 class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
-	 * @var \string
+	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $title = '';
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $caffeinated = FALSE;
 
 	/**
-	 * @return \string $title
+	 * @return string $title
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * @param \string $title
+	 * @param string $title
 	 *
 	 * @return void
 	 */
@@ -48,14 +48,14 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @return boolean $caffeinated
+	 * @return bool $caffeinated
 	 */
 	public function getCaffeinated() {
 		return $this->caffeinated;
 	}
 
 	/**
-	 * @param boolean $caffeinated
+	 * @param bool $caffeinated
 	 *
 	 * @return void
 	 */
@@ -64,7 +64,7 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isCaffeinated() {
 		return $this->getCaffeinated();
