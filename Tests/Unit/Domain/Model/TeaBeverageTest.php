@@ -14,6 +14,8 @@ namespace OliverKlee\Tea\Tests;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 /**
  * Test case.
  *
@@ -78,7 +80,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	public function getAdditionsInitiallyReturnsEmptyStorage() {
 		self::assertEquals(
-			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
+			new ObjectStorage(),
 			$this->subject->getAdditions()
 		);
 	}
@@ -87,7 +89,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setAdditionsSetsAdditions() {
-		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$items = new ObjectStorage();
 		$this->subject->setAdditions($items);
 
 		self::assertSame(
@@ -100,7 +102,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function addAdditionAddsAddition() {
-		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$items = new ObjectStorage();
 		$this->subject->setAdditions($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
@@ -115,7 +117,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function removeAdditionRemovesAddition() {
-		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$items = new ObjectStorage();
 		$this->subject->setAdditions($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
@@ -132,7 +134,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	public function getTestimonialsInitiallyReturnsEmptyStorage() {
 		self::assertEquals(
-			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
+			new ObjectStorage(),
 			$this->subject->getTestimonials()
 		);
 	}
@@ -141,7 +143,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setTestimonialsSetsTestimonials() {
-		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$items = new ObjectStorage();
 		$this->subject->setTestimonials($items);
 
 		self::assertSame(
@@ -154,7 +156,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function addTestimonialAddsTestimonial() {
-		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$items = new ObjectStorage();
 		$this->subject->setTestimonials($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
@@ -169,7 +171,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function removeTestimonialRemovesTestimonial() {
-		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$items = new ObjectStorage();
 		$this->subject->setTestimonials($items);
 
 		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
