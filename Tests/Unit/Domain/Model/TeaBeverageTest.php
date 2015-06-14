@@ -31,7 +31,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getSizeInitiallyReturnsZero() {
 		self::assertSame(
@@ -42,7 +41,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setSizeSetsSize() {
 		$this->subject->setSize(1234.56);
@@ -55,7 +53,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getTypeInitiallyReturnsNull() {
 		self::assertNull(
@@ -65,7 +62,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setTypeSetsType() {
 		$type = new \OliverKlee\Tea\Domain\Model\TeaType();
@@ -79,7 +75,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getAdditionsInitiallyReturnsEmptyStorage() {
 		self::assertEquals(
@@ -90,7 +85,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setAdditionsSetsAdditions() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -104,7 +98,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function addAdditionAddsAddition() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -120,7 +113,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function removeAdditionRemovesAddition() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -137,7 +129,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getTestimonialsInitiallyReturnsEmptyStorage() {
 		self::assertEquals(
@@ -148,7 +139,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setTestimonialsSetsTestimonials() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -162,7 +152,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function addTestimonialAddsTestimonial() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -178,7 +167,6 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function removeTestimonialRemovesTestimonial() {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();

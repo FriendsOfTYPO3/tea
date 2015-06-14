@@ -38,7 +38,6 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function canBeInstantiated() {
 		self::assertNotNull(

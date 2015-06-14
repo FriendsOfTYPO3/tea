@@ -31,7 +31,6 @@ class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getTitleInitiallyReturnsEmptyString() {
 		self::assertSame(
@@ -42,7 +41,6 @@ class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setTitleSetsTitle() {
 		$this->subject->setTitle('foo bar');

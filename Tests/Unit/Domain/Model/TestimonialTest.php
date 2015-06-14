@@ -31,7 +31,6 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getDateOfPostingInitiallyReturnsNull() {
 		self::assertNull(
@@ -41,7 +40,6 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setDateOfPostingSetsDateOfPosting() {
 		$date = new \DateTime();
@@ -55,7 +53,6 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getNumberOfConsumedCupsInitiallyReturnsZero() {
 		self::assertSame(
@@ -66,7 +63,6 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setNumberOfConsumedCupsSetsNumberOfConsumedCups() {
 		$this->subject->setNumberOfConsumedCups(123456);
@@ -79,7 +75,6 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function getTextInitiallyReturnsEmptyString() {
 		self::assertSame(
@@ -90,7 +85,6 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 	/**
 	 * @test
-	 * @return void
 	 */
 	public function setTextSetsText() {
 		$this->subject->setText('foo bar');
