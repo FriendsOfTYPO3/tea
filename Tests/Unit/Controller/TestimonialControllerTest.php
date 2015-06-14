@@ -1,5 +1,5 @@
 <?php
-namespace OliverKlee\Tea\Tests;
+namespace OliverKlee\Tea\Tests\Unit\Controller;
 
 /*
  * This file is part of the TYPO3 CMS project.
