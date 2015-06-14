@@ -34,7 +34,7 @@ class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @return void
 	 */
 	public function getTitleInitiallyReturnsEmptyString() {
-		$this->assertSame(
+		self::assertSame(
 			'',
 			$this->subject->getTitle()
 		);
@@ -47,7 +47,7 @@ class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function setTitleSetsTitle() {
 		$this->subject->setTitle('foo bar');
 
-		$this->assertSame(
+		self::assertSame(
 			'foo bar',
 			$this->subject->getTitle()
 		);

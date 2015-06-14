@@ -66,10 +66,10 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	public function indexActionPassesAllTestimonialsAsTestimonialsToView() {
 		$allTestimonials = new ObjectStorage();
-		$this->testimonialRepository->expects($this->any())->method('findAll')
-			->will($this->returnValue($allTestimonials));
+		$this->testimonialRepository->expects(self::any())->method('findAll')
+			->will(self::returnValue($allTestimonials));
 
-		$this->view->expects($this->once())->method('assign')->with('testimonials', $allTestimonials);
+		$this->view->expects(self::once())->method('assign')->with('testimonials', $allTestimonials);
 
 		$this->subject->indexAction();
 	}

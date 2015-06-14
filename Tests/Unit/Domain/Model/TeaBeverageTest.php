@@ -34,7 +34,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @return void
 	 */
 	public function getSizeInitiallyReturnsZero() {
-		$this->assertSame(
+		self::assertSame(
 			0.0,
 			$this->subject->getSize()
 		);
@@ -47,7 +47,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function setSizeSetsSize() {
 		$this->subject->setSize(1234.56);
 
-		$this->assertSame(
+		self::assertSame(
 			1234.56,
 			$this->subject->getSize()
 		);
@@ -58,7 +58,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @return void
 	 */
 	public function getTypeInitiallyReturnsNull() {
-		$this->assertNull(
+		self::assertNull(
 			$this->subject->getType()
 		);
 	}
@@ -71,7 +71,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$type = new \OliverKlee\Tea\Domain\Model\TeaType();
 		$this->subject->setType($type);
 
-		$this->assertSame(
+		self::assertSame(
 			$type,
 			$this->subject->getType()
 		);
@@ -82,7 +82,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @return void
 	 */
 	public function getAdditionsInitiallyReturnsEmptyStorage() {
-		$this->assertEquals(
+		self::assertEquals(
 			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
 			$this->subject->getAdditions()
 		);
@@ -96,7 +96,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->subject->setAdditions($items);
 
-		$this->assertSame(
+		self::assertSame(
 			$items,
 			$this->subject->getAdditions()
 		);
@@ -113,7 +113,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$newItem = new \OliverKlee\Tea\Domain\Model\Addition();
 		$this->subject->addAddition($newItem);
 
-		$this->assertTrue(
+		self::assertTrue(
 			$this->subject->getAdditions()->contains($newItem)
 		);
 	}
@@ -130,7 +130,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject->addAddition($newItem);
 		$this->subject->removeAddition($newItem);
 
-		$this->assertFalse(
+		self::assertFalse(
 			$this->subject->getAdditions()->contains($newItem)
 		);
 	}
@@ -140,7 +140,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @return void
 	 */
 	public function getTestimonialsInitiallyReturnsEmptyStorage() {
-		$this->assertEquals(
+		self::assertEquals(
 			new \TYPO3\CMS\Extbase\Persistence\ObjectStorage(),
 			$this->subject->getTestimonials()
 		);
@@ -154,7 +154,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$items = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->subject->setTestimonials($items);
 
-		$this->assertSame(
+		self::assertSame(
 			$items,
 			$this->subject->getTestimonials()
 		);
@@ -171,7 +171,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$newItem = new \OliverKlee\Tea\Domain\Model\Testimonial();
 		$this->subject->addTestimonial($newItem);
 
-		$this->assertTrue(
+		self::assertTrue(
 			$this->subject->getTestimonials()->contains($newItem)
 		);
 	}
@@ -188,7 +188,7 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject->addTestimonial($newItem);
 		$this->subject->removeTestimonial($newItem);
 
-		$this->assertFalse(
+		self::assertFalse(
 			$this->subject->getTestimonials()->contains($newItem)
 		);
 	}
