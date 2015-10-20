@@ -27,7 +27,7 @@ class TestimonialController extends ActionController {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Repository\TestimonialRepository
 	 */
-	protected $testimonialRepository = NULL;
+	protected $testimonialRepository = null;
 
 	/**
 	 * Injects the TestimonialRepository.

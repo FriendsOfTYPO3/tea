@@ -23,7 +23,7 @@ class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\Addition
 	 */
-	protected $subject = NULL;
+	protected $subject = null;
 
 	protected function setUp() {
 		$this->subject = new \OliverKlee\Tea\Domain\Model\Addition();

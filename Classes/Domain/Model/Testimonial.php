@@ -23,7 +23,7 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var \DateTime
 	 */
-	protected $dateOfPosting = NULL;
+	protected $dateOfPosting = null;
 
 	/**
 	 * @var int

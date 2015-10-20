@@ -29,19 +29,19 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \OliverKlee\Tea\Domain\Model\TeaType
 	 * @lazy
 	 */
-	protected $type = NULL;
+	protected $type = null;
 
 	/**
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition>
 	 * @lazy
 	 */
-	protected $additions = NULL;
+	protected $additions = null;
 
 	/**
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Testimonial>
 	 * @lazy
 	 */
-	protected $testimonials = NULL;
+	protected $testimonials = null;
 
 	/**
 	 * The constructor.

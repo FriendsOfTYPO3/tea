@@ -28,7 +28,7 @@ class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
 	 */
-	protected $objectManager = NULL;
+	protected $objectManager = null;
 
 	protected function setUp() {
 		$this->objectManager = $this->getMock('TYPO3\CMS\Extbase\Object\ObjectManagerInterface');

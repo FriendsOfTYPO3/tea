@@ -28,17 +28,17 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @var TestimonialController
 	 */
-	protected $subject = NULL;
+	protected $subject = null;
 
 	/**
 	 * @var ViewInterface|\PHPUnit_Framework_MockObject_MockObject
 	 */
-	protected $view = NULL;
+	protected $view = null;
 
 	/**
 	 * @var TestimonialRepository|\PHPUnit_Framework_MockObject_MockObject
 	 */
-	protected $testimonialRepository = NULL;
+	protected $testimonialRepository = null;
 
 	protected function setUp() {
 		$this->subject = new TestimonialController();
@@ -47,7 +47,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject->setView($this->view);
 
 		$this->testimonialRepository = $this->getMock(
-			'OliverKlee\\Tea\\Domain\\Repository\\TestimonialRepository', array(), array(), '', FALSE
+			'OliverKlee\\Tea\\Domain\\Repository\\TestimonialRepository', array(), array(), '', false
 		);
 		$this->subject->injectTestimonialRepository($this->testimonialRepository);
 	}

@@ -23,7 +23,7 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @var \OliverKlee\Tea\Domain\Model\TeaType
 	 */
-	protected $subject = NULL;
+	protected $subject = null;
 
 	protected function setUp() {
 		$this->subject = new \OliverKlee\Tea\Domain\Model\TeaType();
@@ -56,7 +56,7 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	public function getCaffeinatedInitiallyReturnsFalse() {
 		self::assertSame(
-			FALSE,
+			false,
 			$this->subject->getCaffeinated()
 		);
 	}
@@ -65,9 +65,9 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setCaffeinatedSetsCaffeinated() {
-		$this->subject->setCaffeinated(TRUE);
+		$this->subject->setCaffeinated(true);
 		self::assertSame(
-			TRUE,
+			true,
 			$this->subject->getCaffeinated()
 		);
 	}

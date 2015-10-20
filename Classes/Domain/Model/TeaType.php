@@ -29,7 +29,7 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var bool
 	 */
-	protected $caffeinated = FALSE;
+	protected $caffeinated = false;
 
 	/**
 	 * @return string $title
