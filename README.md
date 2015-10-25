@@ -4,7 +4,7 @@ This TYPO3 extension is an example for writing unit tests for extbase
 extensions for TYPO3 CMS using PHPUnit.
 
 The functional tests for the Repositories provide an example of creating
-records using the PHPUnit extension testing framework.
+records both using the PHPUnit extension testing framework and DBUnit.
 
 The functional test for the Utility/FileUtility class provides examples
 for working with [vfsStream](https://github.com/mikey179/vfsStream/).
