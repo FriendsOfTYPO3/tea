@@ -14,6 +14,9 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
+use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
+
 /**
  * Test case.
  *
@@ -21,19 +24,18 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Repository;
  */
 class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
-	 * @var \OliverKlee\Tea\Domain\Model\Testimonial
+	 * @var TestimonialRepository
 	 */
 	protected $subject;
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+	 * @var ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
 	 */
 	protected $objectManager = null;
 
 	protected function setUp() {
-		$this->objectManager = $this->getMock('TYPO3\CMS\Extbase\Object\ObjectManagerInterface');
-
-		$this->subject = new \OliverKlee\Tea\Domain\Repository\TestimonialRepository($this->objectManager);
+		$this->objectManager = $this->getMock(ObjectManagerInterface::class);
+		$this->subject = new TestimonialRepository($this->objectManager);
 	}
 
 	/**
