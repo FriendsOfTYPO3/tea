@@ -105,7 +105,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function concatenateWithTWoFileCopiesContentsFromBothFilesInOrderToTargetFile() {
+	public function concatenateWithTwoFileCopiesContentsFromBothFilesInOrderToTargetFile() {
 		$contents1 = 'Hello ';
 		$sourceFileName1 = vfsStream::url('home/source1.txt');
 		file_put_contents($sourceFileName1, $contents1);
