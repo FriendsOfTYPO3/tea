@@ -1,5 +1,5 @@
 <?php
-namespace OliverKlee\Tea\Tests\Functional\Utility;
+namespace OliverKlee\Tea\Tests\Functional\Domain\Repository;
 
 /*
  * This file is part of the TYPO3 CMS project.
