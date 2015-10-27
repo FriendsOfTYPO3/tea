@@ -15,8 +15,6 @@ namespace OliverKlee\Tea\Controller;
  */
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
-use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
 
 /**
  * This controller takes care of displaying testimonials.
@@ -25,20 +23,10 @@ use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
  */
 class TestimonialController extends ActionController {
 	/**
+	 * @inject
 	 * @var \OliverKlee\Tea\Domain\Repository\TestimonialRepository
 	 */
 	protected $testimonialRepository = null;
-
-	/**
-	 * Injects the TestimonialRepository.
-	 *
-	 * @param \OliverKlee\Tea\Domain\Repository\TestimonialRepository $repository
-	 *
-	 * @return void
-	 */
-	public function injectTestimonialRepository(TestimonialRepository $repository) {
-		$this->testimonialRepository = $repository;
-	}
 
 	/**
 	 * Lists all testimonials.
@@ -47,18 +35,5 @@ class TestimonialController extends ActionController {
 	 */
 	public function indexAction() {
 		$this->view->assign('testimonials', $this->testimonialRepository->findAll());
-	}
-
-	/**
-	 * Injects the view.
-	 *
-	 * Note: This function is intended for unit-testing purposes only.
-	 *
-	 * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
-	 *
-	 * @return void
-	 */
-	public function setView(ViewInterface $view) {
-		$this->view = $view;
 	}
 }

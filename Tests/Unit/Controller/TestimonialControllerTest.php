@@ -44,10 +44,10 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject = new TestimonialController();
 
 		$this->view = $this->getMock(ViewInterface::class);
-		$this->subject->setView($this->view);
+		$this->inject($this->subject, 'view', $this->view);
 
 		$this->testimonialRepository = $this->getMock(TestimonialRepository::class, array(), array(), '', false);
-		$this->subject->injectTestimonialRepository($this->testimonialRepository);
+		$this->inject($this->subject, 'testimonialRepository', $this->testimonialRepository);
 	}
 
 	/**
