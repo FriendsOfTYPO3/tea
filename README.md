@@ -1,5 +1,7 @@
 # Tea example
 
+[![Flattr this git repo](https://button.flattr.com/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=45y2xw&url=https%3A%2F%2Fgithub.com%2Foliverklee%2Fext_tea)
+
 This TYPO3 extension is an example for writing unit tests for extbase
 extensions for TYPO3 CMS using PHPUnit.
 
