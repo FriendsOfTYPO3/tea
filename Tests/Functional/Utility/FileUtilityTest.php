@@ -56,7 +56,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function concatenateWithEmptyTargetFileNameThrowsException()
     {
-        $this->subject->concatenate('', array('foo.txt'));
+        $this->subject->concatenate('', ['foo.txt']);
     }
 
     /**
@@ -64,7 +64,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function concatenateWithNoSourceFilesCreatesEmptyTargetFile()
     {
-        $this->subject->concatenate($this->targetFilePath, array());
+        $this->subject->concatenate($this->targetFilePath, []);
 
         self::assertSame(
             '',
@@ -82,7 +82,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         // Just calling vfsStream::url does not create the file yet. We need to write into it to create it.
         file_put_contents($sourceFileName, '');
 
-        $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+        $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
         self::assertSame(
             '',
@@ -100,7 +100,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $sourceFileName = vfsStream::url('home/source.txt');
         vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
 
-        $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+        $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
         self::assertSame(
             $contents,
@@ -122,7 +122,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
         $this->subject->concatenate(
             $this->targetFilePath,
-            array($sourceFileName1, $sourceFileName2)
+            [$sourceFileName1, $sourceFileName2]
         );
 
         self::assertSame(

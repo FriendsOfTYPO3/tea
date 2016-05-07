@@ -36,7 +36,7 @@ class TeaBeverageRepositoryTest extends \Tx_Phpunit_Database_TestCase
         if (!$this->createDatabase()) {
             self::markTestSkipped('Test database could not be created.');
         }
-        $this->importExtensions(array('tea'));
+        $this->importExtensions(['tea']);
 
         /** @var ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);

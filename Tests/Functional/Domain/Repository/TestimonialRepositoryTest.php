@@ -93,7 +93,7 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $text = 'A very good Early Grey!';
         $uid = $this->testingFramework->createRecord(
-            'tx_tea_domain_model_testimonial', array('text' => $text)
+            'tx_tea_domain_model_testimonial', ['text' => $text]
         );
 
         /** @var Testimonial $model */
