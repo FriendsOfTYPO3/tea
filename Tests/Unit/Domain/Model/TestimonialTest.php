@@ -19,79 +19,87 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Model;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var \OliverKlee\Tea\Domain\Model\Testimonial
-	 */
-	protected $subject = null;
+class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var \OliverKlee\Tea\Domain\Model\Testimonial
+     */
+    protected $subject = null;
 
-	protected function setUp() {
-		$this->subject = new \OliverKlee\Tea\Domain\Model\Testimonial();
-	}
+    protected function setUp()
+    {
+        $this->subject = new \OliverKlee\Tea\Domain\Model\Testimonial();
+    }
 
-	/**
-	 * @test
-	 */
-	public function getDateOfPostingInitiallyReturnsNull() {
-		self::assertNull(
-			$this->subject->getDateOfPosting()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getDateOfPostingInitiallyReturnsNull()
+    {
+        self::assertNull(
+            $this->subject->getDateOfPosting()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setDateOfPostingSetsDateOfPosting() {
-		$date = new \DateTime();
-		$this->subject->setDateOfPosting($date);
+    /**
+     * @test
+     */
+    public function setDateOfPostingSetsDateOfPosting()
+    {
+        $date = new \DateTime();
+        $this->subject->setDateOfPosting($date);
 
-		self::assertSame(
-			$date,
-			$this->subject->getDateOfPosting()
-		);
-	}
+        self::assertSame(
+            $date,
+            $this->subject->getDateOfPosting()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getNumberOfConsumedCupsInitiallyReturnsZero() {
-		self::assertSame(
-			0,
-			$this->subject->getNumberOfConsumedCups()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getNumberOfConsumedCupsInitiallyReturnsZero()
+    {
+        self::assertSame(
+            0,
+            $this->subject->getNumberOfConsumedCups()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setNumberOfConsumedCupsSetsNumberOfConsumedCups() {
-		$this->subject->setNumberOfConsumedCups(123456);
+    /**
+     * @test
+     */
+    public function setNumberOfConsumedCupsSetsNumberOfConsumedCups()
+    {
+        $this->subject->setNumberOfConsumedCups(123456);
 
-		self::assertSame(
-			123456,
-			$this->subject->getNumberOfConsumedCups()
-		);
-	}
+        self::assertSame(
+            123456,
+            $this->subject->getNumberOfConsumedCups()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTextInitiallyReturnsEmptyString() {
-		self::assertSame(
-			'',
-			$this->subject->getText()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getTextInitiallyReturnsEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getText()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setTextSetsText() {
-		$this->subject->setText('foo bar');
+    /**
+     * @test
+     */
+    public function setTextSetsText()
+    {
+        $this->subject->setText('foo bar');
 
-		self::assertSame(
-			'foo bar',
-			$this->subject->getText()
-		);
-	}
+        self::assertSame(
+            'foo bar',
+            $this->subject->getText()
+        );
+    }
 }

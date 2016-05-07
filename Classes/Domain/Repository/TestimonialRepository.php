@@ -19,5 +19,6 @@ namespace OliverKlee\Tea\Domain\Repository;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class TestimonialRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
 }

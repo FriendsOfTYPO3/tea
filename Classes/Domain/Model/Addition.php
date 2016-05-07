@@ -19,26 +19,29 @@ namespace OliverKlee\Tea\Domain\Model;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
-	/**
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $title = '';
+class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
+{
+    /**
+     * @var string
+     * @validate NotEmpty
+     */
+    protected $title = '';
 
-	/**
-	 * @return string $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
+    /**
+     * @return string $title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
-	/**
-	 * @param string $title
-	 *
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
-	}
+    /**
+     * @param string $title
+     *
+     * @return void
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 }

@@ -22,105 +22,112 @@ use org\bovigo\vfs\vfsStreamDirectory;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var \OliverKlee\Tea\Utility\FileUtility
-	 */
-	protected $subject = null;
+class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var \OliverKlee\Tea\Utility\FileUtility
+     */
+    protected $subject = null;
 
-	/**
-	 * @var vfsStreamDirectory
-	 */
-	protected $root = null;
+    /**
+     * @var vfsStreamDirectory
+     */
+    protected $root = null;
 
-	/** @var string */
-	protected $rootDirectoryName = 'home';
+    /** @var string */
+    protected $rootDirectoryName = 'home';
 
-	/**
-	 * @var string
-	 */
-	protected $targetFilePath = '';
+    /**
+     * @var string
+     */
+    protected $targetFilePath = '';
 
-	protected function setUp() {
-		$this->root = vfsStream::setup('home');
-		$this->targetFilePath = vfsStream::url('home/target.txt');
+    protected function setUp()
+    {
+        $this->root = vfsStream::setup('home');
+        $this->targetFilePath = vfsStream::url('home/target.txt');
 
-		$this->subject = new \OliverKlee\Tea\Utility\FileUtility();
-	}
+        $this->subject = new \OliverKlee\Tea\Utility\FileUtility();
+    }
 
-	/**
-	 * @test
-	 * @expectedException \InvalidArgumentException
-	 */
-	public function concatenateWithEmptyTargetFileNameThrowsException() {
-		$this->subject->concatenate('', array('foo.txt'));
-	}
+    /**
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function concatenateWithEmptyTargetFileNameThrowsException()
+    {
+        $this->subject->concatenate('', array('foo.txt'));
+    }
 
-	/**
-	 * @test
-	 */
-	public function concatenateWithNoSourceFilesCreatesEmptyTargetFile() {
-		$this->subject->concatenate($this->targetFilePath, array());
+    /**
+     * @test
+     */
+    public function concatenateWithNoSourceFilesCreatesEmptyTargetFile()
+    {
+        $this->subject->concatenate($this->targetFilePath, array());
 
-		self::assertSame(
-			'',
-			file_get_contents($this->targetFilePath)
-		);
-	}
+        self::assertSame(
+            '',
+            file_get_contents($this->targetFilePath)
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile() {
-		// This is one way to create a file with contents, using PHP's file functions.
-		$sourceFileName = vfsStream::url('home/source.txt');
-		// Just calling vfsStream::url does not create the file yet. We need to write into it to create it.
-		file_put_contents($sourceFileName, '');
+    /**
+     * @test
+     */
+    public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile()
+    {
+        // This is one way to create a file with contents, using PHP's file functions.
+        $sourceFileName = vfsStream::url('home/source.txt');
+        // Just calling vfsStream::url does not create the file yet. We need to write into it to create it.
+        file_put_contents($sourceFileName, '');
 
-		$this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+        $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
 
-		self::assertSame(
-			'',
-			file_get_contents($this->targetFilePath)
-		);
-	}
+        self::assertSame(
+            '',
+            file_get_contents($this->targetFilePath)
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile() {
-		// This is vfsStream's way of creating a file with contents.
-		$contents = 'Hello world!';
-		$sourceFileName = vfsStream::url('home/source.txt');
-		vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
+    /**
+     * @test
+     */
+    public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
+    {
+        // This is vfsStream's way of creating a file with contents.
+        $contents = 'Hello world!';
+        $sourceFileName = vfsStream::url('home/source.txt');
+        vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
 
-		$this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+        $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
 
-		self::assertSame(
-			$contents,
-			file_get_contents($this->targetFilePath)
-		);
-	}
+        self::assertSame(
+            $contents,
+            file_get_contents($this->targetFilePath)
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function concatenateWithTwoFileCopiesContentsFromBothFilesInOrderToTargetFile() {
-		$contents1 = 'Hello ';
-		$sourceFileName1 = vfsStream::url('home/source1.txt');
-		file_put_contents($sourceFileName1, $contents1);
-		$contents2 = 'world!';
-		$sourceFileName2 = vfsStream::url('home/source2.txt');
-		file_put_contents($sourceFileName2, $contents2);
+    /**
+     * @test
+     */
+    public function concatenateWithTwoFileCopiesContentsFromBothFilesInOrderToTargetFile()
+    {
+        $contents1 = 'Hello ';
+        $sourceFileName1 = vfsStream::url('home/source1.txt');
+        file_put_contents($sourceFileName1, $contents1);
+        $contents2 = 'world!';
+        $sourceFileName2 = vfsStream::url('home/source2.txt');
+        file_put_contents($sourceFileName2, $contents2);
 
-		$this->subject->concatenate(
-			$this->targetFilePath,
-			array($sourceFileName1, $sourceFileName2)
-		);
+        $this->subject->concatenate(
+            $this->targetFilePath,
+            array($sourceFileName1, $sourceFileName2)
+        );
 
-		self::assertSame(
-			$contents1 . $contents2,
-			file_get_contents($this->targetFilePath)
-		);
-	}
+        self::assertSame(
+            $contents1 . $contents2,
+            file_get_contents($this->targetFilePath)
+        );
+    }
 }

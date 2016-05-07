@@ -14,36 +14,39 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
+use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 
 /**
  * Test case.
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var TestimonialRepository
-	 */
-	protected $subject;
+class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var TestimonialRepository
+     */
+    protected $subject;
 
-	/**
-	 * @var ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
-	 */
-	protected $objectManager = null;
+    /**
+     * @var ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $objectManager = null;
 
-	protected function setUp() {
-		$this->objectManager = $this->getMock(ObjectManagerInterface::class);
-		$this->subject = new TestimonialRepository($this->objectManager);
-	}
+    protected function setUp()
+    {
+        $this->objectManager = $this->getMock(ObjectManagerInterface::class);
+        $this->subject = new TestimonialRepository($this->objectManager);
+    }
 
-	/**
-	 * @test
-	 */
-	public function canBeInstantiated() {
-		self::assertNotNull(
-			$this->subject
-		);
-	}
+    /**
+     * @test
+     */
+    public function canBeInstantiated()
+    {
+        self::assertNotNull(
+            $this->subject
+        );
+    }
 }

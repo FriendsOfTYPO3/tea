@@ -19,5 +19,6 @@ namespace OliverKlee\Tea\Domain\Repository;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class TeaBeverageRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
 }

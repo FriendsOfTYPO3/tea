@@ -19,54 +19,60 @@ namespace OliverKlee\Tea\Domain\Model;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
-	/**
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $title = '';
+class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
+    /**
+     * @var string
+     * @validate NotEmpty
+     */
+    protected $title = '';
 
-	/**
-	 * @var bool
-	 */
-	protected $caffeinated = false;
+    /**
+     * @var bool
+     */
+    protected $caffeinated = false;
 
-	/**
-	 * @return string $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
+    /**
+     * @return string $title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
-	/**
-	 * @param string $title
-	 *
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
-	}
+    /**
+     * @param string $title
+     *
+     * @return void
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 
-	/**
-	 * @return bool $caffeinated
-	 */
-	public function getCaffeinated() {
-		return $this->caffeinated;
-	}
+    /**
+     * @return bool $caffeinated
+     */
+    public function getCaffeinated()
+    {
+        return $this->caffeinated;
+    }
 
-	/**
-	 * @param bool $caffeinated
-	 *
-	 * @return void
-	 */
-	public function setCaffeinated($caffeinated) {
-		$this->caffeinated = $caffeinated;
-	}
+    /**
+     * @param bool $caffeinated
+     *
+     * @return void
+     */
+    public function setCaffeinated($caffeinated)
+    {
+        $this->caffeinated = $caffeinated;
+    }
 
-	/**
-	 * @return bool
-	 */
-	public function isCaffeinated() {
-		return $this->getCaffeinated();
-	}
+    /**
+     * @return bool
+     */
+    public function isCaffeinated()
+    {
+        return $this->getCaffeinated();
+    }
 }

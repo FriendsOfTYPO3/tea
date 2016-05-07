@@ -21,19 +21,21 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialController extends ActionController {
-	/**
-	 * @inject
-	 * @var \OliverKlee\Tea\Domain\Repository\TestimonialRepository
-	 */
-	protected $testimonialRepository = null;
+class TestimonialController extends ActionController
+{
+    /**
+     * @inject
+     * @var \OliverKlee\Tea\Domain\Repository\TestimonialRepository
+     */
+    protected $testimonialRepository = null;
 
-	/**
-	 * Lists all testimonials.
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		$this->view->assign('testimonials', $this->testimonialRepository->findAll());
-	}
+    /**
+     * Lists all testimonials.
+     *
+     * @return void
+     */
+    public function indexAction()
+    {
+        $this->view->assign('testimonials', $this->testimonialRepository->findAll());
+    }
 }

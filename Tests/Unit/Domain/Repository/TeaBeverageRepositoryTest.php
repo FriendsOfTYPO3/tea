@@ -22,28 +22,31 @@ use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var TeaBeverageRepository
-	 */
-	protected $subject;
+class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var TeaBeverageRepository
+     */
+    protected $subject;
 
-	/**
-	 * @var ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
-	 */
-	protected $objectManager = null;
+    /**
+     * @var ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $objectManager = null;
 
-	protected function setUp() {
-		$this->objectManager = $this->getMock(ObjectManagerInterface::class);
-		$this->subject = new TeaBeverageRepository($this->objectManager);
-	}
+    protected function setUp()
+    {
+        $this->objectManager = $this->getMock(ObjectManagerInterface::class);
+        $this->subject = new TeaBeverageRepository($this->objectManager);
+    }
 
-	/**
-	 * @test
-	 */
-	public function canBeInstantiated() {
-		self::assertNotNull(
-			$this->subject
-		);
-	}
+    /**
+     * @test
+     */
+    public function canBeInstantiated()
+    {
+        self::assertNotNull(
+            $this->subject
+        );
+    }
 }

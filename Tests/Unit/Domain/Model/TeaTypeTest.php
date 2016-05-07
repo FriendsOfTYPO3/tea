@@ -19,56 +19,62 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Model;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var \OliverKlee\Tea\Domain\Model\TeaType
-	 */
-	protected $subject = null;
+class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var \OliverKlee\Tea\Domain\Model\TeaType
+     */
+    protected $subject = null;
 
-	protected function setUp() {
-		$this->subject = new \OliverKlee\Tea\Domain\Model\TeaType();
-	}
+    protected function setUp()
+    {
+        $this->subject = new \OliverKlee\Tea\Domain\Model\TeaType();
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTitleInitiallyReturnsEmptyString() {
-		self::assertSame(
-			'',
-			$this->subject->getTitle()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getTitleInitiallyReturnsEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getTitle()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setTitleSetsTitle() {
-		$this->subject->setTitle('foo bar');
+    /**
+     * @test
+     */
+    public function setTitleSetsTitle()
+    {
+        $this->subject->setTitle('foo bar');
 
-		self::assertSame(
-			'foo bar',
-			$this->subject->getTitle()
-		);
-	}
+        self::assertSame(
+            'foo bar',
+            $this->subject->getTitle()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getCaffeinatedInitiallyReturnsFalse() {
-		self::assertSame(
-			false,
-			$this->subject->getCaffeinated()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getCaffeinatedInitiallyReturnsFalse()
+    {
+        self::assertSame(
+            false,
+            $this->subject->getCaffeinated()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setCaffeinatedSetsCaffeinated() {
-		$this->subject->setCaffeinated(true);
-		self::assertSame(
-			true,
-			$this->subject->getCaffeinated()
-		);
-	}
+    /**
+     * @test
+     */
+    public function setCaffeinatedSetsCaffeinated()
+    {
+        $this->subject->setCaffeinated(true);
+        self::assertSame(
+            true,
+            $this->subject->getCaffeinated()
+        );
+    }
 }

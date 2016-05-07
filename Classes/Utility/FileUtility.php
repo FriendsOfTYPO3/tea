@@ -19,27 +19,29 @@ namespace OliverKlee\Tea\Utility;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class FileUtility {
-	/**
-	 * Concatenates the files given as $sourceFilePaths and writes their contents into $targetFilePath.
-	 *
-	 * @param string   $targetFilePath
-	 * @param string[] $sourceFilePaths
-	 *
-	 * @return void
-	 *
-	 * @throws \InvalidArgumentException
-	 */
-	public function concatenate($targetFilePath, array $sourceFilePaths) {
-		if ($targetFilePath === '') {
-			throw new \InvalidArgumentException('$targetFileName must not be empty.', 1445631384);
-		}
+class FileUtility
+{
+    /**
+     * Concatenates the files given as $sourceFilePaths and writes their contents into $targetFilePath.
+     *
+     * @param string   $targetFilePath
+     * @param string[] $sourceFilePaths
+     *
+     * @return void
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function concatenate($targetFilePath, array $sourceFilePaths)
+    {
+        if ($targetFilePath === '') {
+            throw new \InvalidArgumentException('$targetFileName must not be empty.', 1445631384);
+        }
 
-		$concatenatedContents = '';
-		foreach ($sourceFilePaths as $sourceFilePath) {
-			$concatenatedContents .= file_get_contents($sourceFilePath);
-		}
+        $concatenatedContents = '';
+        foreach ($sourceFilePaths as $sourceFilePath) {
+            $concatenatedContents .= file_get_contents($sourceFilePath);
+        }
 
-		file_put_contents($targetFilePath, $concatenatedContents);
-	}
+        file_put_contents($targetFilePath, $concatenatedContents);
+    }
 }

@@ -14,59 +14,63 @@ namespace OliverKlee\Tea\Tests\Unit\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use OliverKlee\Tea\Controller\TestimonialController;
 use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
+use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Test case.
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var TestimonialController
-	 */
-	protected $subject = null;
+class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var TestimonialController
+     */
+    protected $subject = null;
 
-	/**
-	 * @var ViewInterface|\PHPUnit_Framework_MockObject_MockObject
-	 */
-	protected $view = null;
+    /**
+     * @var ViewInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $view = null;
 
-	/**
-	 * @var TestimonialRepository|\PHPUnit_Framework_MockObject_MockObject
-	 */
-	protected $testimonialRepository = null;
+    /**
+     * @var TestimonialRepository|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $testimonialRepository = null;
 
-	protected function setUp() {
-		$this->subject = new TestimonialController();
+    protected function setUp()
+    {
+        $this->subject = new TestimonialController();
 
-		$this->view = $this->getMock(ViewInterface::class);
-		$this->inject($this->subject, 'view', $this->view);
+        $this->view = $this->getMock(ViewInterface::class);
+        $this->inject($this->subject, 'view', $this->view);
 
-		$this->testimonialRepository = $this->getMock(TestimonialRepository::class, array(), array(), '', false);
-		$this->inject($this->subject, 'testimonialRepository', $this->testimonialRepository);
-	}
+        $this->testimonialRepository = $this->getMock(TestimonialRepository::class, array(), array(), '', false);
+        $this->inject($this->subject, 'testimonialRepository', $this->testimonialRepository);
+    }
 
-	/**
-	 * @test
-	 */
-	public function indexActionCanBeCalled() {
-		$this->subject->indexAction();
-	}
+    /**
+     * @test
+     */
+    public function indexActionCanBeCalled()
+    {
+        $this->subject->indexAction();
+    }
 
-	/**
-	 * @test
-	 */
-	public function indexActionPassesAllTestimonialsAsTestimonialsToView() {
-		$allTestimonials = new ObjectStorage();
-		$this->testimonialRepository->expects(self::any())->method('findAll')
-			->will(self::returnValue($allTestimonials));
+    /**
+     * @test
+     */
+    public function indexActionPassesAllTestimonialsAsTestimonialsToView()
+    {
+        $allTestimonials = new ObjectStorage();
+        $this->testimonialRepository->expects(self::any())->method('findAll')
+            ->will(self::returnValue($allTestimonials));
 
-		$this->view->expects(self::once())->method('assign')->with('testimonials', $allTestimonials);
+        $this->view->expects(self::once())->method('assign')->with('testimonials', $allTestimonials);
 
-		$this->subject->indexAction();
-	}
+        $this->subject->indexAction();
+    }
 }
