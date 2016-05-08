@@ -24,7 +24,7 @@ class FileUtility
     /**
      * Concatenates the files given as $sourceFilePaths and writes their contents into $targetFilePath.
      *
-     * @param string   $targetFilePath
+     * @param string $targetFilePath
      * @param string[] $sourceFilePaths
      *
      * @return void
