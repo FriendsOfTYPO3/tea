@@ -49,12 +49,11 @@ class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function setSizeSetsSize()
     {
-        $this->subject->setSize(1234.56);
+        $size = 1234.56;
 
-        self::assertSame(
-            1234.56,
-            $this->subject->getSize()
-        );
+        $this->subject->setSize($size);
+
+        self::assertSame($size, $this->subject->getSize());
     }
 
     /**

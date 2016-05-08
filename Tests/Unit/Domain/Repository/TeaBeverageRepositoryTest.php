@@ -16,6 +16,7 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Repository;
 
 use OliverKlee\Tea\Domain\Repository\TeaBeverageRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Test case.
@@ -43,10 +44,8 @@ class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     /**
      * @test
      */
-    public function canBeInstantiated()
+    public function isRepository()
     {
-        self::assertNotNull(
-            $this->subject
-        );
+        self::assertInstanceOf(Repository::class, $this->subject);
     }
 }

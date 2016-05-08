@@ -59,10 +59,7 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $container = $this->subject->findAll();
 
-        self::assertSame(
-            0,
-            $container->count()
-        );
+        self::assertCount(0, $container);
     }
 
     /**
@@ -76,14 +73,8 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         /** @var Testimonial $first */
         $first = $container->getFirst();
 
-        self::assertSame(
-            1,
-            $container->count()
-        );
-        self::assertSame(
-            $uid,
-            $first->getUid()
-        );
+        self::assertCount(1, $container);
+        self::assertSame($uid, $first->getUid());
     }
 
     /**
@@ -100,9 +91,6 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $model = $this->subject->findByUid($uid);
 
         self::assertNotNull($model);
-        self::assertSame(
-            $text,
-            $model->getText()
-        );
+        self::assertSame($text, $model->getText());
     }
 }

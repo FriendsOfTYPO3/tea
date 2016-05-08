@@ -36,9 +36,7 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getDateOfPostingInitiallyReturnsNull()
     {
-        self::assertNull(
-            $this->subject->getDateOfPosting()
-        );
+        self::assertNull($this->subject->getDateOfPosting());
     }
 
     /**
@@ -60,10 +58,7 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getNumberOfConsumedCupsInitiallyReturnsZero()
     {
-        self::assertSame(
-            0,
-            $this->subject->getNumberOfConsumedCups()
-        );
+        self::assertSame(0, $this->subject->getNumberOfConsumedCups());
     }
 
     /**
@@ -71,12 +66,11 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function setNumberOfConsumedCupsSetsNumberOfConsumedCups()
     {
-        $this->subject->setNumberOfConsumedCups(123456);
+        $number = 123456;
 
-        self::assertSame(
-            123456,
-            $this->subject->getNumberOfConsumedCups()
-        );
+        $this->subject->setNumberOfConsumedCups($number);
+
+        self::assertSame($number, $this->subject->getNumberOfConsumedCups());
     }
 
     /**
@@ -84,10 +78,7 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getTextInitiallyReturnsEmptyString()
     {
-        self::assertSame(
-            '',
-            $this->subject->getText()
-        );
+        self::assertSame('', $this->subject->getText());
     }
 
     /**
@@ -95,11 +86,10 @@ class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function setTextSetsText()
     {
-        $this->subject->setText('foo bar');
+        $text = 'foo bar';
 
-        self::assertSame(
-            'foo bar',
-            $this->subject->getText()
-        );
+        $this->subject->setText($text);
+
+        self::assertSame($text, $this->subject->getText());
     }
 }

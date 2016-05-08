@@ -66,10 +66,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->concatenate($this->targetFilePath, []);
 
-        self::assertSame(
-            '',
-            file_get_contents($this->targetFilePath)
-        );
+        self::assertSame('', file_get_contents($this->targetFilePath));
     }
 
     /**
@@ -84,10 +81,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
         $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
-        self::assertSame(
-            '',
-            file_get_contents($this->targetFilePath)
-        );
+        self::assertSame('', file_get_contents($this->targetFilePath));
     }
 
     /**
@@ -102,10 +96,7 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
         $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
-        self::assertSame(
-            $contents,
-            file_get_contents($this->targetFilePath)
-        );
+        self::assertSame($contents, file_get_contents($this->targetFilePath));
     }
 
     /**

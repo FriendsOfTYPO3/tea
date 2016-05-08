@@ -36,10 +36,7 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getTitleInitiallyReturnsEmptyString()
     {
-        self::assertSame(
-            '',
-            $this->subject->getTitle()
-        );
+        self::assertSame('', $this->subject->getTitle());
     }
 
     /**
@@ -47,12 +44,11 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function setTitleSetsTitle()
     {
-        $this->subject->setTitle('foo bar');
+        $title = 'foo bar';
 
-        self::assertSame(
-            'foo bar',
-            $this->subject->getTitle()
-        );
+        $this->subject->setTitle($title);
+
+        self::assertSame($title, $this->subject->getTitle());
     }
 
     /**
@@ -60,10 +56,7 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getCaffeinatedInitiallyReturnsFalse()
     {
-        self::assertSame(
-            false,
-            $this->subject->getCaffeinated()
-        );
+        self::assertFalse($this->subject->getCaffeinated());
     }
 
     /**
@@ -72,9 +65,7 @@ class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     public function setCaffeinatedSetsCaffeinated()
     {
         $this->subject->setCaffeinated(true);
-        self::assertSame(
-            true,
-            $this->subject->getCaffeinated()
-        );
+
+        self::assertTrue($this->subject->getCaffeinated());
     }
 }

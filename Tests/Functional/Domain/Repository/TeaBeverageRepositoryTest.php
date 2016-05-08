@@ -58,10 +58,7 @@ class TeaBeverageRepositoryTest extends \Tx_Phpunit_Database_TestCase
     {
         $container = $this->subject->findAll();
 
-        self::assertSame(
-            0,
-            $container->count()
-        );
+        self::assertCount(0, $container);
     }
 
     /**
@@ -75,14 +72,8 @@ class TeaBeverageRepositoryTest extends \Tx_Phpunit_Database_TestCase
         /** @var TeaBeverage $first */
         $first = $container->getFirst();
 
-        self::assertSame(
-            1,
-            $container->count()
-        );
-        self::assertSame(
-            1,
-            $first->getUid()
-        );
+        self::assertCount(1, $container);
+        self::assertSame(1, $first->getUid());
     }
 
     /**
