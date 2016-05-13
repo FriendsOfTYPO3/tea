@@ -1,7 +1,7 @@
 <phpunit
 	backupGlobals="true"
 	backupStaticAttributes="false"
-	bootstrap="../../typo3/sysext/core/Build/UnitTestsBootstrap.php"
+	bootstrap="../../../../typo3/sysext/core/Build/UnitTestsBootstrap.php"
 	colors="false"
 	convertErrorsToExceptions="true"
 	convertWarningsToExceptions="true"
