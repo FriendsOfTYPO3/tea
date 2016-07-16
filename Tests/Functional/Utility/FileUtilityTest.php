@@ -25,6 +25,11 @@ use org\bovigo\vfs\vfsStreamDirectory;
 class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var \OliverKlee\Tea\Utility\FileUtility
      */
     protected $subject = null;

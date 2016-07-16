@@ -22,6 +22,11 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Model;
 class TeaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var \OliverKlee\Tea\Domain\Model\TeaType
      */
     protected $subject = null;

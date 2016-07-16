@@ -22,6 +22,11 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Model;
 class AdditionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var \OliverKlee\Tea\Domain\Model\Addition
      */
     protected $subject = null;

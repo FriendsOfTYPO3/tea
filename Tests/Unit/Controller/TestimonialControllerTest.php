@@ -27,6 +27,11 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var TestimonialController
      */
     protected $subject = null;

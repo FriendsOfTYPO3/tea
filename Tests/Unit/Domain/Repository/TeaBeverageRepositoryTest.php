@@ -26,6 +26,11 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var TeaBeverageRepository
      */
     protected $subject;

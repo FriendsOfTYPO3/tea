@@ -27,6 +27,11 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var TestimonialRepository
      */
     protected $subject = null;

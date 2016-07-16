@@ -27,6 +27,11 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 class TeaBeverageRepositoryTest extends \Tx_Phpunit_Database_TestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var TeaBeverageRepository|\PHPUnit_Framework_MockObject_MockObject
      */
     protected $subject = null;

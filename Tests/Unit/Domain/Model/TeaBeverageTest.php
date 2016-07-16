@@ -24,6 +24,11 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
     /**
+     * @var bool
+     */
+    protected $backupGlobals = false;
+
+    /**
      * @var \OliverKlee\Tea\Domain\Model\TeaBeverage
      */
     protected $subject = null;
