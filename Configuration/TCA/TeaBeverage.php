@@ -7,7 +7,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, size, type, additions, testimonials',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, size, type, additions, testimonials,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, size, type, additions, testimonials, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -18,6 +18,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
@@ -32,6 +33,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', 0],
                 ],
@@ -105,6 +107,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.type',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_tea_domain_model_teatype',
                 'minitems' => 0,
                 'maxitems' => 1,
@@ -115,35 +118,13 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_teabeverage.additions',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingleBox',
                 'foreign_table' => 'tx_tea_domain_model_addition',
                 'MM' => 'tx_tea_teabeverage_addition_mm',
                 'size' => 10,
                 'autoSizeMax' => 30,
                 'maxitems' => 9999,
                 'multiple' => 0,
-                'wizards' => [
-                    '_PADDING' => 1,
-                    '_VERTICAL' => 1,
-                    'edit' => [
-                        'type' => 'popup',
-                        'title' => 'Edit',
-                        'script' => 'wizard_edit.php',
-                        'icon' => 'edit2.gif',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                    ],
-                    'add' => [
-                        'type' => 'script',
-                        'title' => 'Create new',
-                        'icon' => 'add.gif',
-                        'params' => [
-                            'table' => 'tx_tea_domain_model_addition',
-                            'pid' => '###CURRENT_PID###',
-                            'setValue' => 'prepend'
-                        ],
-                        'script' => 'wizard_add.php',
-                    ],
-                ],
             ],
         ],
         'testimonials' => [
