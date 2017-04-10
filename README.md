@@ -38,4 +38,6 @@ I also frequently give workshops at the TYPO3 Developer Days.
 * [Anagram finder](https://github.com/oliverklee/anagram-finder)
   is the finished result of a code kata for TDD
 * [Coffee example](https://github.com/oliverklee/coffee)
-  is my starting point for demonstrating TDD
+  is my starting point for demonstrating TDD with TYPO3 CMS
+* [TDD Seed](https://github.com/oliverklee/tdd-seed)
+  for starting PHPUnit projects with Composer (without TYPO3 CMS)
