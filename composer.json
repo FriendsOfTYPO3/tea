@@ -1,0 +1,29 @@
+{
+  "name": "oliverklee/tea",
+  "type": "typo3-cms-extension",
+  "version": "1.0.0",
+  "description": "This extension serves as an example on how to unit-test different data types and relation types in TYPO3 extensions.",
+  "keywords": ["TYPO3", "extension", "tdd", "phpunit", "unit testing"],
+  "homepage": "https://www.oliverklee.de",
+  "authors": [
+    {
+      "name": "Oliver Klee",
+      "role": "Developer",
+      "homepage": "https://www.oliverklee.de"
+    }
+  ],
+  "license": ["GPL-2.0+"],
+  "replace": {
+    "tea": "self.version",
+    "typo3-ter/tea": "self.version"
+  },
+  "require": {
+    "typo3/cms-core": "^7.6.0 || ^8.7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "OliverKlee\\Tea\\": "Classes/",
+      "OliverKlee\\Tea\\Tests\\": "Tests/"
+    }
+  }
+}
