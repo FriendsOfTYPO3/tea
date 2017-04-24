@@ -52,7 +52,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
                 'type' => 'input',
                 'size' => 30,
                 'max' => 255,
-            ]
+            ],
         ],
         'hidden' => [
             'exclude' => 1,

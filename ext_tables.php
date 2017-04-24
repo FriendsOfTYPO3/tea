@@ -36,7 +36,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teabeverage'] = [
         ],
         'searchFields' => 'size,type,additions,testimonials,',
         'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/TeaBeverage.php',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_teabeverage.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_teabeverage.gif',
     ],
 ];
 
@@ -67,7 +67,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_teatype'] = [
         ],
         'searchFields' => 'title,caffeinated,',
         'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/TeaType.php',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_teatype.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_teatype.gif',
     ],
 ];
 
@@ -98,7 +98,7 @@ $GLOBALS['TCA']['tx_tea_domain_model_addition'] = [
         ],
         'searchFields' => 'title,',
         'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Addition.php',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_addition.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_addition.gif',
     ],
 ];
 
@@ -129,6 +129,6 @@ $GLOBALS['TCA']['tx_tea_domain_model_testimonial'] = [
         ],
         'searchFields' => 'date_of_posting,number_of_consumed_cups,text,',
         'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Testimonial.php',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_testimonial.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_tea_domain_model_testimonial.gif',
     ],
 ];
