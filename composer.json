@@ -17,13 +17,42 @@
     "tea": "self.version",
     "typo3-ter/tea": "self.version"
   },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.typo3.org/"
+    }
+  ],
   "require": {
-    "typo3/cms-core": "^7.6.0 || ^8.7.0"
+    "typo3/cms": "^7.6.0"
+  },
+  "require-dev": {
+    "namelesscoder/typo3-repository-client": "^1.2",
+    "nimut/testing-framework": "^1.0",
+    "mikey179/vfsStream": "^1.4",
+    "typo3-ter/phpunit": "*",
+    "phpunit/phpunit": "^4.7 || ^5.0"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/tea ]|| ln -snvf ../../../../. .Build/Web/typo3conf/ext/tea"
+    ]
   },
   "autoload": {
     "psr-4": {
       "OliverKlee\\Tea\\": "Classes/",
       "OliverKlee\\Tea\\Tests\\": "Tests/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
     }
   }
 }

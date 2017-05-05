@@ -11,6 +11,9 @@ records both using the PHPUnit extension testing framework and DBUnit.
 The functional test for the Utility/FileUtility class provides examples
 for working with [vfsStream](https://github.com/mikey179/vfsStream/).
 
+For information on the different ways to execute the tests, please have a look
+at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
+
 
 ## About me (Oliver Klee)
 
