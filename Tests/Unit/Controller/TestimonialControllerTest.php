@@ -16,6 +16,8 @@ namespace OliverKlee\Tea\Tests\Unit\Controller;
 
 use OliverKlee\Tea\Controller\TestimonialController;
 use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
+use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\Prophecy\ProphecySubjectInterface;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -37,12 +39,22 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     protected $subject = null;
 
     /**
-     * @var ViewInterface|\PHPUnit_Framework_MockObject_MockObject
+     * @var ViewInterface|ObjectProphecy
+     */
+    protected $viewProphecy = null;
+
+    /**
+     * @var ViewInterface|ProphecySubjectInterface
      */
     protected $view = null;
 
     /**
-     * @var TestimonialRepository|\PHPUnit_Framework_MockObject_MockObject
+     * @var TestimonialRepository|ObjectProphecy
+     */
+    protected $testimonialRepositoryProphecy = null;
+
+    /**
+     * @var TestimonialRepository|ProphecySubjectInterface
      */
     protected $testimonialRepository = null;
 
@@ -50,10 +62,12 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject = new TestimonialController();
 
-        $this->view = $this->getMock(ViewInterface::class);
+        $this->viewProphecy = $this->prophesize(ViewInterface::class);
+        $this->view = $this->viewProphecy->reveal();
         $this->inject($this->subject, 'view', $this->view);
 
-        $this->testimonialRepository = $this->getMock(TestimonialRepository::class, [], [], '', false);
+        $this->testimonialRepositoryProphecy = $this->prophesize(TestimonialRepository::class);
+        $this->testimonialRepository = $this->testimonialRepositoryProphecy->reveal();
         $this->inject($this->subject, 'testimonialRepository', $this->testimonialRepository);
     }
 
@@ -71,10 +85,9 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     public function indexActionPassesAllTestimonialsAsTestimonialsToView()
     {
         $allTestimonials = new ObjectStorage();
-        $this->testimonialRepository->expects(self::any())->method('findAll')
-            ->will(self::returnValue($allTestimonials));
+        $this->testimonialRepositoryProphecy->findAll()->willReturn($allTestimonials);
 
-        $this->view->expects(self::once())->method('assign')->with('testimonials', $allTestimonials);
+        $this->viewProphecy->assign('testimonials', $allTestimonials)->shouldBeCalled();
 
         $this->subject->indexAction();
     }

@@ -15,6 +15,7 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Repository;
  */
 
 use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
+use Prophecy\Prophecy\ProphecySubjectInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
@@ -36,13 +37,14 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     protected $subject;
 
     /**
-     * @var ObjectManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+     * @var ObjectManagerInterface|ProphecySubjectInterface
      */
     protected $objectManager = null;
 
     protected function setUp()
     {
-        $this->objectManager = $this->getMock(ObjectManagerInterface::class);
+        $objectManagerProphecy = $this->prophesize(ObjectManagerInterface::class);
+        $this->objectManager = $objectManagerProphecy->reveal();
         $this->subject = new TestimonialRepository($this->objectManager);
     }
 
