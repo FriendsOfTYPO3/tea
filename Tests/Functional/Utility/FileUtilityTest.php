@@ -57,10 +57,11 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
      */
     public function concatenateWithEmptyTargetFileNameThrowsException()
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $this->subject->concatenate('', ['foo.txt']);
     }
 
