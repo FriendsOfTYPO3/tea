@@ -19,7 +19,7 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Model;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class TestimonialTest extends \Nimut\TestingFramework\TestCase\UnitTestCase
 {
     /**
      * @var bool

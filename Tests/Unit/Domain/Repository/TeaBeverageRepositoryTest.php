@@ -24,7 +24,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class TeaBeverageRepositoryTest extends \Nimut\TestingFramework\TestCase\UnitTestCase
 {
     /**
      * @var bool

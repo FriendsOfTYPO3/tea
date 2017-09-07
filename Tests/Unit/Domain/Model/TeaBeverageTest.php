@@ -21,7 +21,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class TeaBeverageTest extends \Nimut\TestingFramework\TestCase\UnitTestCase
 {
     /**
      * @var bool
