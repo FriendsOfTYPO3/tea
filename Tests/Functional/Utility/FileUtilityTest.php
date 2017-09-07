@@ -22,12 +22,12 @@ use org\bovigo\vfs\vfsStreamDirectory;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class FileUtilityTest extends \Nimut\TestingFramework\TestCase\FunctionalTestCase
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    protected $backupGlobals = false;
+    protected $testExtensionsToLoad = ['typo3conf/ext/tea'];
 
     /**
      * @var \OliverKlee\Tea\Utility\FileUtility
@@ -49,6 +49,8 @@ class FileUtilityTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
     protected function setUp()
     {
+        parent::setUp();
+
         $this->root = vfsStream::setup('home');
         $this->targetFilePath = vfsStream::url('home/target.txt');
 

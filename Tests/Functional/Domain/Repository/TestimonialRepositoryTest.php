@@ -24,37 +24,27 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class TestimonialRepositoryTest extends \Nimut\TestingFramework\TestCase\FunctionalTestCase
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    protected $backupGlobals = false;
+    protected $testExtensionsToLoad = ['typo3conf/ext/tea'];
 
     /**
      * @var TestimonialRepository
      */
     protected $subject = null;
 
-    /**
-     * @var \Tx_Phpunit_Framework
-     */
-    protected $testingFramework = null;
-
     protected function setUp()
     {
-        $this->testingFramework = new \Tx_Phpunit_Framework('tx_tea');
+        parent::setUp();
 
         /** @var ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         // We are using the object manager instead of new so that the dependencies get injected.
         // In a unit test, we would inject the mocked dependencies instead.
         $this->subject = $objectManager->get(TestimonialRepository::class);
-    }
-
-    protected function tearDown()
-    {
-        $this->testingFramework->cleanUp();
     }
 
     /**
@@ -72,7 +62,8 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function findAllWithOneRecordFindsThisRecord()
     {
-        $uid = $this->testingFramework->createRecord('tx_tea_domain_model_testimonial');
+        $this->importDataSet(__DIR__ . '/Fixtures/Testimonials.xml');
+        $uid = 1;
 
         $container = $this->subject->findAll();
         /** @var Testimonial $first */
@@ -87,15 +78,14 @@ class TestimonialRepositoryTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function findByUidForExistingRecordReturnsModelWithData()
     {
-        $text = 'A very good Early Grey!';
-        $uid = $this->testingFramework->createRecord(
-            'tx_tea_domain_model_testimonial', ['text' => $text]
-        );
+        $this->importDataSet(__DIR__ . '/Fixtures/Testimonials.xml');
+        $uid = 1;
 
         /** @var Testimonial $model */
         $model = $this->subject->findByUid($uid);
 
         self::assertNotNull($model);
+        $text = 'A very good Early Grey!';
         self::assertSame($text, $model->getText());
     }
 }

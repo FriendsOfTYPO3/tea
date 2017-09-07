@@ -24,12 +24,12 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
  *
  * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
-class TeaBeverageRepositoryTest extends \Tx_Phpunit_Database_TestCase
+class TeaBeverageRepositoryTest extends \Nimut\TestingFramework\TestCase\FunctionalTestCase
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    protected $backupGlobals = false;
+    protected $testExtensionsToLoad = ['typo3conf/ext/tea'];
 
     /**
      * @var TeaBeverageRepository|\PHPUnit_Framework_MockObject_MockObject
@@ -38,22 +38,13 @@ class TeaBeverageRepositoryTest extends \Tx_Phpunit_Database_TestCase
 
     protected function setUp()
     {
-        if (!$this->createDatabase()) {
-            self::markTestSkipped('Test database could not be created.');
-        }
-        $this->importExtensions(['tea']);
+        parent::setUp();
 
         /** @var ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         // We are using the object manager instead of new so that the dependencies get injected.
         // In a unit test, we would inject the mocked dependencies instead.
         $this->subject = $objectManager->get(TeaBeverageRepository::class);
-    }
-
-    protected function tearDown()
-    {
-        $this->dropDatabase();
-        $this->switchToTypo3Database();
     }
 
     /**
