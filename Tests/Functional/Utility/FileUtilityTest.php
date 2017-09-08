@@ -126,9 +126,8 @@ class FileUtilityTest extends \Nimut\TestingFramework\TestCase\FunctionalTestCas
             [$sourceFileName1, $sourceFileName2]
         );
 
-        self::assertSame(
-            $contents1 . $contents2,
-            file_get_contents($this->targetFilePath)
+        self::assertStringEqualsFile(
+            $this->targetFilePath, $contents1 . $contents2
         );
     }
 }
