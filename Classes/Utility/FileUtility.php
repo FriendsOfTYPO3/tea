@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Utility;
 
 /*
@@ -31,7 +33,7 @@ class FileUtility
      *
      * @throws \InvalidArgumentException
      */
-    public function concatenate($targetFilePath, array $sourceFilePaths)
+    public function concatenate(string $targetFilePath, array $sourceFilePaths)
     {
         if ($targetFilePath === '') {
             throw new \InvalidArgumentException('$targetFileName must not be empty.', 1445631384);

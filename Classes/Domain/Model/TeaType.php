@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Domain\Model;
 
 /*
@@ -33,9 +35,9 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $caffeinated = false;
 
     /**
-     * @return string $title
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -45,15 +47,15 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
     /**
-     * @return bool $caffeinated
+     * @return bool
      */
-    public function getCaffeinated()
+    public function getCaffeinated(): bool
     {
         return $this->caffeinated;
     }
@@ -63,7 +65,7 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setCaffeinated($caffeinated)
+    public function setCaffeinated(bool $caffeinated)
     {
         $this->caffeinated = $caffeinated;
     }
@@ -71,7 +73,7 @@ class TeaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return bool
      */
-    public function isCaffeinated()
+    public function isCaffeinated(): bool
     {
         return $this->getCaffeinated();
     }

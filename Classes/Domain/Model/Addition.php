@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Domain\Model;
 
 /*
@@ -30,7 +32,7 @@ class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
     /**
      * @return string $title
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -40,7 +42,7 @@ class Addition extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
      *
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }

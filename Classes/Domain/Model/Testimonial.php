@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Domain\Model;
 
 /*
@@ -37,7 +39,7 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $text = '';
 
     /**
-     * @return \DateTime $dateOfPosting
+     * @return \DateTime|null
      */
     public function getDateOfPosting()
     {
@@ -49,7 +51,7 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setDateOfPosting($dateOfPosting)
+    public function setDateOfPosting(\DateTime $dateOfPosting)
     {
         $this->dateOfPosting = $dateOfPosting;
     }
@@ -57,7 +59,7 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return int $numberOfConsumedCups
      */
-    public function getNumberOfConsumedCups()
+    public function getNumberOfConsumedCups(): int
     {
         return $this->numberOfConsumedCups;
     }
@@ -67,15 +69,15 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setNumberOfConsumedCups($numberOfConsumedCups)
+    public function setNumberOfConsumedCups(int $numberOfConsumedCups)
     {
         $this->numberOfConsumedCups = $numberOfConsumedCups;
     }
 
     /**
-     * @return string $text
+     * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
@@ -85,7 +87,7 @@ class Testimonial extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setText($text)
+    public function setText(string $text)
     {
         $this->text = $text;
     }

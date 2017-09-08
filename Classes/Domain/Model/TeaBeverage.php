@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Domain\Model;
 
 /*
@@ -13,6 +15,8 @@ namespace OliverKlee\Tea\Domain\Model;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * This model represents a good cup of tea.
@@ -68,7 +72,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return float $size
      */
-    public function getSize()
+    public function getSize(): float
     {
         return $this->size;
     }
@@ -78,13 +82,13 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setSize($size)
+    public function setSize(float $size)
     {
         $this->size = $size;
     }
 
     /**
-     * @return \OliverKlee\Tea\Domain\Model\TeaType $type
+     * @return TeaType|null $type
      */
     public function getType()
     {
@@ -92,11 +96,11 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \OliverKlee\Tea\Domain\Model\TeaType $type
+     * @param TeaType $type
      *
      * @return void
      */
-    public function setType(\OliverKlee\Tea\Domain\Model\TeaType $type)
+    public function setType(TeaType $type)
     {
         $this->type = $type;
     }
@@ -104,7 +108,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Addition> $additions
      */
-    public function getAdditions()
+    public function getAdditions(): ObjectStorage
     {
         return $this->additions;
     }
@@ -114,7 +118,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setAdditions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $additions)
+    public function setAdditions(ObjectStorage $additions)
     {
         $this->additions = $additions;
     }
@@ -126,7 +130,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function addAddition(\OliverKlee\Tea\Domain\Model\Addition $addition)
+    public function addAddition(Addition $addition)
     {
         $this->additions->attach($addition);
     }
@@ -138,7 +142,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function removeAddition(\OliverKlee\Tea\Domain\Model\Addition $additionToRemove)
+    public function removeAddition(Addition $additionToRemove)
     {
         $this->additions->detach($additionToRemove);
     }
@@ -146,7 +150,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverKlee\Tea\Domain\Model\Testimonial> $testimonials
      */
-    public function getTestimonials()
+    public function getTestimonials(): ObjectStorage
     {
         return $this->testimonials;
     }
@@ -156,7 +160,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setTestimonials(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $testimonials)
+    public function setTestimonials(ObjectStorage $testimonials)
     {
         $this->testimonials = $testimonials;
     }
@@ -168,7 +172,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function addTestimonial(\OliverKlee\Tea\Domain\Model\Testimonial $testimonial)
+    public function addTestimonial(Testimonial $testimonial)
     {
         $this->testimonials->attach($testimonial);
     }
@@ -180,7 +184,7 @@ class TeaBeverage extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function removeTestimonial(\OliverKlee\Tea\Domain\Model\Testimonial $testimonialToRemove)
+    public function removeTestimonial(Testimonial $testimonialToRemove)
     {
         $this->testimonials->detach($testimonialToRemove);
     }
