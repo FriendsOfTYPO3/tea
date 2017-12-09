@@ -14,6 +14,7 @@ namespace OliverKlee\Tea\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use OliverKlee\Tea\Domain\Model\Testimonial;
 use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -47,5 +48,14 @@ class TestimonialController extends ActionController
     public function indexAction()
     {
         $this->view->assign('testimonials', $this->testimonialRepository->findAll());
+    }
+
+    /**
+     * @param Testimonial $testimonial
+     *
+     * @return void
+     */
+    public function showAction(Testimonial $testimonial) {
+        $this->view->assign('testimonial', $testimonial);
     }
 }

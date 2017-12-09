@@ -6,10 +6,10 @@ defined('TYPO3_MODE') or die('Access denied.');
     'Tea',
     // all actions
     [
-        'Testimonial' => 'index',
+        'Testimonial' => 'index,show',
     ],
     // non-cacheable actions
     [
-        'Testimonial' => 'index',
+        'Testimonial' => '',
     ]
 );
