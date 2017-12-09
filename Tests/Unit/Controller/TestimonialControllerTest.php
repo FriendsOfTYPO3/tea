@@ -70,7 +70,7 @@ class TestimonialControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
         $this->testimonialRepositoryProphecy = $this->prophesize(TestimonialRepository::class);
         $this->testimonialRepository = $this->testimonialRepositoryProphecy->reveal();
-        $this->inject($this->subject, 'testimonialRepository', $this->testimonialRepository);
+        $this->subject->injectTestimonialRepository($this->testimonialRepository);
     }
 
     /**

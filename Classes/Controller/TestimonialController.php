@@ -14,6 +14,7 @@ namespace OliverKlee\Tea\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use OliverKlee\Tea\Domain\Repository\TestimonialRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -24,10 +25,19 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class TestimonialController extends ActionController
 {
     /**
-     * @inject
      * @var \OliverKlee\Tea\Domain\Repository\TestimonialRepository
      */
     protected $testimonialRepository = null;
+
+    /**
+     * @param TestimonialRepository $repository
+     *
+     * @return void
+     */
+    public function injectTestimonialRepository(TestimonialRepository $repository)
+    {
+        $this->testimonialRepository = $repository;
+    }
 
     /**
      * Lists all testimonials.
