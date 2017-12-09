@@ -1,8 +1,32 @@
 <?php
-defined('TYPO3_MODE') or die('Access denied.');
+defined('TYPO3_MODE') or die();
 
-$GLOBALS['TCA']['tx_tea_domain_model_addition'] = [
-    'ctrl' => $GLOBALS['TCA']['tx_tea_domain_model_addition']['ctrl'],
+return [
+    'ctrl' => [
+        'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_addition',
+        'label' => 'title',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'dividers2tabs' => true,
+
+        'versioningWS' => 2,
+        'versioning_followPages' => true,
+
+        'origUid' => 't3_origuid',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+
+        'delete' => 'deleted',
+        'enablecolumns' => [
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ],
+        'searchFields' => 'title,',
+        'iconfile' => 'EXT:tea/Resources/Public/Icons/tx_tea_domain_model_addition.gif',
+    ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
     ],
