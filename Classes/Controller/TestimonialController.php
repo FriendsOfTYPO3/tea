@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Controller;
 
 /*
@@ -55,7 +57,8 @@ class TestimonialController extends ActionController
      *
      * @return void
      */
-    public function showAction(Testimonial $testimonial) {
+    public function showAction(Testimonial $testimonial)
+    {
         $this->view->assign('testimonial', $testimonial);
     }
 }
