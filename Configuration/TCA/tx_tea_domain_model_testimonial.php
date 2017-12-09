@@ -121,12 +121,11 @@ $GLOBALS['TCA']['tx_tea_domain_model_testimonial'] = [
             'exclude' => 0,
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_testimonial.date_of_posting',
             'config' => [
-                'dbType' => 'datetime',
                 'type' => 'input',
                 'size' => 12,
                 'eval' => 'datetime',
-                'checkbox' => 0,
-                'default' => '0000-00-00 00:00:00',
+                'checkbox' => '0',
+                'default' => '0',
             ],
         ],
         'number_of_consumed_cups' => [
