@@ -1,59 +1,73 @@
 {
-  "name": "oliverklee/tea",
-  "type": "typo3-cms-extension",
-  "version": "1.0.0",
-  "description": "This extension serves as an example on how to unit-test different data types and relation types in TYPO3 extensions.",
-  "keywords": ["TYPO3", "extension", "tdd", "phpunit", "unit testing"],
-  "homepage": "https://www.oliverklee.de",
-  "authors": [
-    {
-      "name": "Oliver Klee",
-      "role": "Developer",
-      "homepage": "https://www.oliverklee.de"
+    "name": "oliverklee/tea",
+    "description": "TYPO3 example extension for unit testing and best practices.",
+    "type": "typo3-cms-extension",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "TDD",
+        "PHPUnit",
+        "unit testing",
+        "best practices"
+    ],
+    "homepage": "https://github.com/oliverklee/tea",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Oliver Klee",
+            "role": "Developer",
+            "homepage": "https://www.oliverklee.de"
+        }
+    ],
+    "support": "https://github.com/oliverklee/tea",
+    "require": {
+        "php": "~7.0.0 || ~7.1.0",
+        "typo3/cms-core": "^7.6 || ^8.7",
+        "roave/security-advisories": "dev-master"
+    },
+    "require-dev": {
+        "namelesscoder/typo3-repository-client": "^1.2.0",
+        "nimut/testing-framework": "^2.0.0",
+        "phpunit/phpunit": "^5.7.0",
+        "mikey179/vfsStream": "^1.6.0"
+    },
+    "replace": {
+        "tea": "self.version",
+        "typo3-ter/tea": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "OliverKlee\\Tea\\": "Classes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OliverKlee\\Tea\\Tests\\": "Tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.typo3.org/"
+        }
+    ],
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "mkdir -p .Build/Web/typo3conf/ext/",
+            "[ -L .Build/Web/typo3conf/ext/tea ]|| ln -snvf ../../../../. .Build/Web/typo3conf/ext/tea"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        },
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web"
+        }
     }
-  ],
-  "license": ["GPL-2.0+"],
-  "replace": {
-    "tea": "self.version",
-    "typo3-ter/tea": "self.version"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://composer.typo3.org/"
-    }
-  ],
-  "require": {
-    "php": "~7.0.0 || ~7.1.0",
-    "typo3/cms-core": "^7.6.0",
-    "roave/security-advisories": "dev-master"
-  },
-  "require-dev": {
-    "namelesscoder/typo3-repository-client": "^1.2.0",
-    "nimut/testing-framework": "^2.0.0",
-    "phpunit/phpunit": "^5.7.0",
-    "mikey179/vfsStream": "^1.6.0"
-  },
-  "config": {
-    "vendor-dir": ".Build/vendor",
-    "bin-dir": ".Build/bin"
-  },
-  "scripts": {
-    "post-autoload-dump": [
-      "mkdir -p .Build/Web/typo3conf/ext/",
-      "[ -L .Build/Web/typo3conf/ext/tea ]|| ln -snvf ../../../../. .Build/Web/typo3conf/ext/tea"
-    ]
-  },
-  "autoload": {
-    "psr-4": {
-      "OliverKlee\\Tea\\": "Classes/",
-      "OliverKlee\\Tea\\Tests\\": "Tests/"
-    }
-  },
-  "extra": {
-    "typo3/cms": {
-      "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".Build/Web"
-    }
-  }
 }
