@@ -1,6 +1,10 @@
 # Tea example
 
-[![Flattr this git repo](https://button.flattr.com/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=45y2xw&url=https%3A%2F%2Fgithub.com%2Foliverklee%2Fext_tea)
+[![Build Status](https://travis-ci.org/oliverklee/tea.svg?branch=master)](https://travis-ci.org/oliverklee/tea)
+[![Latest Stable Version](https://poser.pugx.org/oliverklee/tea/v/stable.svg)](https://packagist.org/packages/oliverklee/tea)
+[![Total Downloads](https://poser.pugx.org/oliverklee/tea/downloads.svg)](https://packagist.org/packages/oliverklee/tea)
+[![Latest Unstable Version](https://poser.pugx.org/oliverklee/tea/v/unstable.svg)](https://packagist.org/packages/oliverklee/tea)
+[![License](https://poser.pugx.org/oliverklee/tea/license.svg)](https://packagist.org/packages/oliverklee/tea)
 
 This TYPO3 extension is an example for writing unit tests for extbase
 extensions for TYPO3 CMS using PHPUnit.
