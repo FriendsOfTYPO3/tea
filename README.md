@@ -6,14 +6,11 @@
 [![Latest Unstable Version](https://poser.pugx.org/oliverklee/tea/v/unstable.svg)](https://packagist.org/packages/oliverklee/tea)
 [![License](https://poser.pugx.org/oliverklee/tea/license.svg)](https://packagist.org/packages/oliverklee/tea)
 
-This TYPO3 extension is an example for writing unit tests for extbase
-extensions for TYPO3 CMS using PHPUnit.
+This TYPO3 extension is an example for writing unit and functional tests for
+extbase/fluid-based extensions for TYPO3 CMS using PHPUnit.
 
-The functional tests for the Repositories provide an example of creating
-records both using the PHPUnit extension testing framework and DBUnit.
-
-The functional test for the Utility/FileUtility class provides examples
-for working with [vfsStream](https://github.com/mikey179/vfsStream/).
+It also is an example for
+[best practices for extbase/fluid](https://github.com/oliverklee/workshop-handouts/tree/master/extbase-best-practices).
 
 For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
@@ -35,7 +32,7 @@ I also frequently give workshops at the TYPO3 Developer Days.
 ## More Documentation
 
 * [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
-* [Manual for the PHPUnit TYPO3 extension](https://docs.typo3.org/typo3cms/extensions/phpunit/)
+* [Handout for best practices with extbase and fluid](https://github.com/oliverklee/workshop-handouts/blob/master/extbase-best-practices/extbase-best-practices.pdf)
 
 
 ## Other example projects
