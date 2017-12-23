@@ -19,17 +19,19 @@
             "homepage": "https://www.oliverklee.de"
         }
     ],
-    "support": "https://github.com/oliverklee/tea",
+    "support": {
+        "issues": "https://github.com/oliverklee/tea"
+    },
     "require": {
         "php": "~7.0.0 || ~7.1.0",
-        "typo3/cms-core": "^7.6 || ^8.7",
-        "roave/security-advisories": "dev-master"
+        "typo3/cms-core": "^7.6 || ^8.7"
     },
     "require-dev": {
         "namelesscoder/typo3-repository-client": "^1.2.0",
         "nimut/testing-framework": "^2.0.0",
         "phpunit/phpunit": "^5.7.0",
-        "mikey179/vfsStream": "^1.6.0"
+        "mikey179/vfsStream": "^1.6.0",
+        "roave/security-advisories": "dev-master"
     },
     "replace": {
         "tea": "self.version",
