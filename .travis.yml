@@ -1,0 +1,28 @@
+sudo: false
+
+language: php
+
+cache:
+  directories:
+  - vendor
+  - $HOME/.composer/cache
+
+matrix:
+  include:
+  - php: 7.0
+  - php: 7.1
+
+install:
+  - composer install
+
+before_script:
+  - |
+    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+      phpenv config-rm xdebug.ini
+    else
+      echo "xdebug.ini does not exist"
+    fi
+
+script:
+  # Run PHP lint on all PHP files.
+  - find Classes/ Tests/ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
