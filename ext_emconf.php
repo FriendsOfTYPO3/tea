@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Tea example',
-    'description' => 'TYPO3 example extension for unit testing and best practices.',
+    'description' => 'Example extension for unit testing and best practices',
     'category' => 'example',
     'author' => 'Oliver Klee',
     'author_email' => 'typo3-coding@oliverklee.de',

@@ -1,26 +1,29 @@
 {
     "name": "oliverklee/tea",
-    "description": "TYPO3 example extension for unit testing and best practices.",
+    "description": "TYPO3 example extension for unit testing and best practices",
     "type": "typo3-cms-extension",
     "keywords": [
-        "TYPO3",
+        "typo3",
+        "example",
         "extension",
-        "TDD",
-        "PHPUnit",
+        "tdd",
+        "phpunit",
         "unit testing",
         "best practices"
     ],
-    "homepage": "https://github.com/oliverklee/tea",
-    "license": "GPL-3.0",
+    "homepage": "https://github.com/oliverklee/tdd-reader",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Oliver Klee",
-            "role": "Developer",
-            "homepage": "https://www.oliverklee.de"
+            "email": "typo3-coding@oliverklee.de",
+            "homepage": "https://www.oliverklee.de",
+            "role": "developer"
         }
     ],
     "support": {
-        "issues": "https://github.com/oliverklee/tea"
+        "issues": "https://github.com/oliverklee/tea/issues",
+        "source": "https://github.com/oliverklee/tea"
     },
     "require": {
         "php": "~7.0.0 || ~7.1.0",
