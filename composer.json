@@ -27,11 +27,13 @@
     },
     "require": {
         "php": "~7.0.0 || ~7.1.0 || ~7.2.0",
-        "typo3/cms-core": "^7.6 || ^8.7"
+        "typo3/cms-core": "^7.6 || ^8.7",
+        "typo3/cms-fluid": "^7.6 || ^8.7",
+        "typo3/cms-frontend": "^7.6 || ^8.7"
     },
     "require-dev": {
-        "namelesscoder/typo3-repository-client": "^1.2.0",
         "nimut/testing-framework": "^2.0.0",
+        "helhum/typo3-composer-setup": "^0.5.1",
         "phpunit/phpunit": "^5.7.0",
         "mikey179/vfsStream": "^1.6.0",
         "roave/security-advisories": "dev-master"
@@ -57,22 +59,21 @@
         }
     ],
     "config": {
-        "vendor-dir": ".Build/vendor",
-        "bin-dir": ".Build/bin"
+        "vendor-dir": ".Build/vendor"
     },
     "scripts": {
-        "post-autoload-dump": [
-            "mkdir -p .Build/Web/typo3conf/ext/",
-            "[ -L .Build/Web/typo3conf/ext/tea ]|| ln -snvf ../../../../. .Build/Web/typo3conf/ext/tea"
+        "require-typo3-version": [
+            "@php -r '$conf=json_decode(file_get_contents(__DIR__.\"/composer.json\"),true);$conf[\"require\"][\"typo3/cms-core\"]=$_SERVER[\"argv\"][1];file_put_contents(__DIR__.\"/composer.json\",json_encode($conf,JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT).chr(10));'",
+            "@composer install"
         ]
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.x-dev"
+            "dev-master": "2.0.x-dev"
         },
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": ".Build/Web"
+            "web-dir": ".Build/public"
         }
     }
 }
