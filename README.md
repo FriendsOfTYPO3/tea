@@ -16,6 +16,13 @@ For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
 
 
+## Creating new extensions with automated tests
+
+For creating new extensions, I recommend taking
+[Helmut Hummel's extension skeleton](https://github.com/helhum/ext_scaffold)
+as a starting point.
+
+
 ## About me (Oliver Klee)
 
 I am the maintainer of the
