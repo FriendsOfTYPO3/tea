@@ -30,4 +30,4 @@ script:
 - >
   echo;
   echo "Linting all PHP files";
-  composer php-lint;
+  composer ci:php:lint;
