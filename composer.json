@@ -32,8 +32,9 @@
         "typo3/cms-frontend": "^7.6.23 || ^8.7.9"
     },
     "require-dev": {
-        "nimut/testing-framework": "^2.0.0",
         "helhum/typo3-composer-setup": "^0.5.1",
+        "helmich/typo3-typoscript-lint": "^1.4.4",
+        "nimut/testing-framework": "^2.0.0",
         "phpunit/phpunit": "^5.7.0",
         "mikey179/vfsStream": "^1.6.0",
         "roave/security-advisories": "dev-master"
@@ -63,8 +64,10 @@
     },
     "scripts": {
         "ci:php:lint": "find *.php Classes/ Configuration/ Tests/ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+        "ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript/",
         "ci:static": [
-            "@ci:php:lint"
+            "@ci:php:lint",
+            "@ci:ts:lint"
         ],
         "ci": [
             "@ci:static"

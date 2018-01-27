@@ -31,3 +31,8 @@ script:
   echo;
   echo "Linting all PHP files";
   composer ci:php:lint;
+
+- >
+  echo;
+  echo "Linting all TypoScript files";
+  composer ci:ts:lint;
