@@ -59,6 +59,19 @@ class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
+    public function findAllSortsByTitleInAscendingOrder()
+    {
+        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+
+        $container = $this->subject->findAll();
+
+        $container->rewind();
+        static::assertSame(2, $container->current()->getUid());
+    }
+
+    /**
+     * @test
+     */
     public function findByUidForExistingRecordReturnsModelWithData()
     {
         $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');

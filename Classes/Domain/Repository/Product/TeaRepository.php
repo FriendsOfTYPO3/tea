@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace OliverKlee\Tea\Domain\Repository\Product;
 
 use OliverKlee\Tea\Domain\Repository\Traits\StoragePageAgnosticTrait;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -13,4 +14,9 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class TeaRepository extends Repository
 {
     use StoragePageAgnosticTrait;
+
+    /**
+     * @var string[]
+     */
+    protected $defaultOrderings = ['title' => QueryInterface::ORDER_ASCENDING];
 }

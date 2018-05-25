@@ -6,4 +6,10 @@
         <title>Earl Grey</title>
         <description>Fresh and hot.</description>
     </tx_tea_domain_model_product_tea>
+    <tx_tea_domain_model_product_tea>
+        <uid>2</uid>
+        <pid>1</pid>
+        <title>Assam</title>
+        <description>Dark ans strong.</description>
+    </tx_tea_domain_model_product_tea>
 </dataset>
