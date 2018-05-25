@@ -21,7 +21,9 @@ at the [handout to my workshops on test-driven development (TDD)](https://github
 ### General PHPUnit setup
 
 ```bash
+composer require typo3/cms ^8.7
 composer install
+git checkout HEAD -- composer.json
 ```
 
 File > Settings > Languages & Frameworks > PHP > Test Frameworks
