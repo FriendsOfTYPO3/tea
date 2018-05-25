@@ -34,9 +34,7 @@
     "require-dev": {
         "helhum/typo3-composer-setup": "^0.5.1",
         "helmich/typo3-typoscript-lint": "^1.4.4",
-        "nimut/testing-framework": "^2.0.0",
-        "phpunit/phpunit": "^5.7.0",
-        "mikey179/vfsStream": "^1.6.0",
+        "nimut/testing-framework": "^3.0.0",
         "roave/security-advisories": "dev-master"
     },
     "replace": {
@@ -53,6 +51,7 @@
             "OliverKlee\\Tea\\Tests\\": "Tests/"
         }
     },
+    "prefer-stable": true,
     "repositories": [
         {
             "type": "composer",
@@ -60,6 +59,9 @@
         }
     ],
     "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
         "vendor-dir": ".Build/vendor"
     },
     "scripts": {
