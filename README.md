@@ -52,7 +52,7 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 
 In the Run configurations, copy the PHPUnit configuration and use these settings:
 
-- Directory: use the `Tests/Functionsal` directory in your project
+- Directory: use the `Tests/Functional` directory in your project
 - [x] Use alternative configuration file
 - use `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
 
