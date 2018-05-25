@@ -7,8 +7,12 @@ php:
 - 7.1
 
 env:
-- TYPO3_VERSION="^7.6"
-- TYPO3_VERSION="^8.7"
+  global:
+  - typo3DatabaseHost=localhost typo3DatabaseName=typo3 typo3DatabaseUsername=travis typo3DatabasePassword=''
+  - TYPO3_PATH_ROOT=$PWD/.Build/public
+  matrix:
+  - TYPO3_VERSION="^7.6"
+  - TYPO3_VERSION="^8.7"
 
 matrix:
   exclude:
@@ -24,7 +28,6 @@ before_install:
 install:
 - composer require-typo3-version "$TYPO3_VERSION"
 - git checkout .
-- export TYPO3_PATH_ROOT=$PWD/.Build/public
 
 script:
 - >
@@ -36,3 +39,13 @@ script:
   echo;
   echo "Linting all TypoScript files";
   composer ci:ts:lint;
+
+- >
+  echo;
+  echo "Running the unit tests";
+  composer ci:tests:unit;
+
+- >
+  echo;
+  echo "Running the functional tests";
+  composer ci:tests:functional;

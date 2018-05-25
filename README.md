@@ -16,6 +16,46 @@ For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
 
 
+## Running the tests in PhpStorm
+
+### General PHPUnit setup
+
+```bash
+composer install
+```
+
+File > Settings > Languages & Frameworks > PHP > Test Frameworks
+
+- (*) Use Composer autoloader
+- Path to script: select `vendor/autoload.php` in your project folder
+
+In the Run configurations, edit the PHPUnit configuration and use these
+settings so this configuration can serve as a template:
+
+- Directory: use the `Tests/Unit` directory in your project
+- [x] Use alternative configuration file
+- use `.Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml`
+  in your project folder
+- Add the following environment variables:
+  - typo3DatabaseUsername
+  - typo3DatabasePassword
+  - typo3DatabaseHost
+  - typo3DatabaseName
+
+### Unit tests configuration
+
+In the Run configurations, copy the PHPUnit configuration and use these settings:
+
+- Directory: use the `Tests/Unit` directory in your project
+
+### Functional tests configuration
+
+In the Run configurations, copy the PHPUnit configuration and use these settings:
+
+- Directory: use the `Tests/Functionsal` directory in your project
+- [x] Use alternative configuration file
+- use `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
+
 ## Creating new extensions with automated tests
 
 For creating new extensions, I recommend taking

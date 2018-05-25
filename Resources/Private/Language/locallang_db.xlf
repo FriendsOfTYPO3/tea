@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages">
+        <header/>
+        <body>
+            <trans-unit id="tx_tea_domain_model_product_tea">
+                <source>Tea</source>
+            </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.description">
+                <source>Description</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

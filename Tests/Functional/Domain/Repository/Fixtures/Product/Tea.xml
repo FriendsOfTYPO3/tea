@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <tx_tea_domain_model_product_tea>
+        <uid>1</uid>
+        <pid>1</pid>
+        <title>Earl Grey</title>
+        <description>Fresh and hot.</description>
+    </tx_tea_domain_model_product_tea>
+</dataset>
