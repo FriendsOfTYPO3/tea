@@ -12,6 +12,9 @@
             <trans-unit id="tx_tea_domain_model_product_tea.description">
                 <source>Description</source>
             </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.image">
+                <source>Image</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

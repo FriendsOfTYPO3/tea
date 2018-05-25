@@ -6,6 +6,7 @@ use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 use OliverKlee\Tea\Domain\Model\Product\Tea;
 use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
@@ -83,5 +84,21 @@ class TeaRepositoryTest extends FunctionalTestCase
         static::assertNotNull($model);
         static::assertSame('Earl Grey', $model->getTitle());
         static::assertSame('Fresh and hot.', $model->getDescription());
+    }
+
+    /**
+     * @test
+     */
+    public function fillsImageRelation()
+    {
+        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+
+        $uid = 3;
+        /** @var Tea $model */
+        $model = $this->subject->findByUid($uid);
+
+        $image = $model->getImage();
+        static::assertInstanceOf(FileReference::class, $image);
+        static::assertSame(1, $image->getUid());
     }
 }

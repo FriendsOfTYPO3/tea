@@ -4,6 +4,7 @@ namespace OliverKlee\Tea\Tests\Unit\Domain\Model\Product;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use OliverKlee\Tea\Domain\Model\Product\Tea;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -67,5 +68,24 @@ class TeaTest extends UnitTestCase
         $this->subject->setDescription($value);
 
         static::assertSame($value, $this->subject->getDescription());
+    }
+
+    /**
+     * @test
+     */
+    public function getImageInitiallyReturnsNull()
+    {
+        static::assertNull($this->subject->getImage());
+    }
+
+    /**
+     * @test
+     */
+    public function setImageSetsImage()
+    {
+        $model = new FileReference();
+        $this->subject->setImage($model);
+
+        static::assertSame($model, $this->subject->getImage());
     }
 }

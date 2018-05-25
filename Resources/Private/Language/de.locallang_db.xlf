@@ -15,6 +15,10 @@
                 <source>Description</source>
                 <target>Beschreibung</target>
             </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.image">
+                <source>Image</source>
+                <target>Bild</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

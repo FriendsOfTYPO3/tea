@@ -13,10 +13,10 @@ return [
         'searchFields' => 'title, description',
     ],
     'interface' => [
-        'showRecordFieldList' => 'title, description',
+        'showRecordFieldList' => 'title, description, image',
     ],
     'types' => [
-        '1' => ['showitem' => 'title, description'],
+        '1' => ['showitem' => 'title, description, image'],
     ],
     'columns' => [
         'title' => [
@@ -37,6 +37,22 @@ return [
                 'max' => 2000,
                 'eval' => 'trim',
             ],
+        ],
+        'image' => [
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                [
+                    'maxitems' => 1,
+                    'appearance' => [
+                        'collapseAll' => true,
+                        'useSortable' => false,
+                        'enabledControls' => [
+                            'hide' => false,
+                        ],
+                    ],
+                ]
+            ),
         ],
     ],
 ];
