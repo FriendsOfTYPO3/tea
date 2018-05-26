@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages">
+        <header/>
+        <body>
+            <trans-unit id="plugin.tea">
+                <source>Tea</source>
+            </trans-unit>
+            <trans-unit id="plugin.tea.view">
+                <source>View</source>
+            </trans-unit>
+            <trans-unit id="plugin.tea.index">
+                <source>Tea list</source>
+            </trans-unit>
+            <trans-unit id="index.heading">
+                <source>Our selection of assorted teas</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

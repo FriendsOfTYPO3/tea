@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:f="https://xsd.helhum.io/ns/typo3/cms-fluid/master/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default"/>
+
+    <f:section name="main">
+        <h2>
+            <f:translate key="index.heading"/>
+        </h2>
+
+        <table class="table">
+            <tbody>
+                <f:for each="{teas}" as="tea">
+                    <tr>
+                        <td scope="row">
+                            {tea.uid}
+                        </td>
+                        <td>
+                            {tea.title}
+                        </td>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </f:section>
+</html>

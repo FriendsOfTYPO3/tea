@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <sheets>
+        <general>
+            <ROOT>
+                <TCEforms>
+                    <!--
+                        The sheet title will not be visible in the BE. Still, the XML element needs to be present to
+                        avoid a crash in the BE.
+                    -->
+                    <sheetTitle/>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <switchableControllerActions>
+                        <TCEforms>
+                            <label>LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea.view</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea.index</numIndex>
+                                        <numIndex index="1">Tea->index</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </switchableControllerActions>
+                </el>
+            </ROOT>
+        </general>
+    </sheets>
+</T3DataStructure>

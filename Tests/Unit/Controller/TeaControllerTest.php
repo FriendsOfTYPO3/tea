@@ -1,0 +1,79 @@
+<?php
+declare(strict_types = 1);
+namespace OliverKlee\Tea\Tests\Unit\Controller;
+
+use Nimut\TestingFramework\TestCase\UnitTestCase;
+use OliverKlee\Tea\Controller\TeaController;
+use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
+use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\Prophecy\ProphecySubjectInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\View\JsonView;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Fluid\View\TemplateView;
+
+/**
+ * Test case.
+ *
+ * @author Oliver Klee <typo3-coding@oliverklee.de
+ */
+class TeaControllerTest extends UnitTestCase
+{
+    /**
+     * @var TeaController
+     */
+    private $subject = null;
+
+    /**
+     * @var JsonView|ObjectProphecy
+     */
+    private $viewProphecy = null;
+
+    /**
+     * @var JsonView|ProphecySubjectInterface
+     */
+    private $view = null;
+
+    /**
+     * @var TeaRepository|ObjectProphecy
+     */
+    private $teaRepositoryProphecy = null;
+
+    /**
+     * @var TeaRepository|ProphecySubjectInterface
+     */
+    private $teaRepository = null;
+
+    protected function setUp()
+    {
+        $this->subject = new TeaController();
+
+        $this->viewProphecy = $this->prophesize(TemplateView::class);
+        $this->view = $this->viewProphecy->reveal();
+        $this->inject($this->subject, 'view', $this->view);
+
+        $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
+        $this->teaRepository = $this->teaRepositoryProphecy->reveal();
+        $this->subject->injectTeaRepository($this->teaRepository);
+    }
+
+    /**
+     * @test
+     */
+    public function isActionController()
+    {
+        static::assertInstanceOf(ActionController::class, $this->subject);
+    }
+
+    /**
+     * @test
+     */
+    public function indexActionAssignsAllTeaAsTeasToView()
+    {
+        $teas = $this->prophesize(QueryResultInterface::class)->reveal();
+        $this->teaRepositoryProphecy->findAll()->willReturn($teas);
+        $this->viewProphecy->assign('teas', $teas)->shouldBeCalled();
+
+        $this->subject->indexAction();
+    }
+}

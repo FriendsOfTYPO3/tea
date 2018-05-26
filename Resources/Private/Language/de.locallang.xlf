@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages">
+        <header/>
+        <body>
+            <trans-unit id="plugin.tea">
+                <source>Tea</source>
+                <target>Tee</target>
+            </trans-unit>
+            <trans-unit id="plugin.tea.view">
+                <source>View</source>
+                <target>Ansicht</target>
+            </trans-unit>
+            <trans-unit id="plugin.tea.index">
+                <source>Tea list</source>
+                <target>Teeliste</target>
+            </trans-unit>
+            <trans-unit id="index.heading">
+                <source>Our selection of assorted teas</source>
+                <target>Unsere Auswahl an erlesenen Tees</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
