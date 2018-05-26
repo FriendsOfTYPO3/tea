@@ -1,0 +1,54 @@
+lib.dynamicContent = COA
+lib.dynamicContent {
+    10 = LOAD_REGISTER
+    10.colPos.cObject = TEXT
+    10.colPos.cObject {
+        field = colPos
+        ifEmpty.cObject = TEXT
+        ifEmpty.cObject {
+            value.current = 1
+            ifEmpty = 0
+        }
+    }
+
+    20 = CONTENT
+    20 {
+        table = tt_content
+        select {
+            orderBy = sorting
+            where = colPos={register:colPos}
+            where.insertData = 1
+        }
+    }
+
+    90 = RESTORE_REGISTER
+}
+
+config {
+    doctype = html5
+    xmlprologue = none
+
+    inlineStyle2TempFile = 0
+    removeDefaultJS = 0
+    compressJs = 0
+    concatenateJs = 0
+    compressCss = 0
+    concatenateCss = 0
+
+    no_cache = 1
+    debug = 0
+    xhtml_cleaning = 0
+    admPanel = 0
+    disableAllHeaderCode = 1
+    sendCacheHeaders = 0
+    absRefPrefix = /
+    contentObjectExceptionHandler = 0
+}
+
+page = PAGE
+page {
+    10 = FLUIDTEMPLATE
+    10 {
+        file = EXT:tea/Tests/Functional/Controller/Fixtures/Frontend/Template.html
+    }
+}

@@ -32,6 +32,7 @@
         "typo3/cms-frontend": "^7.6.23 || ^8.7.9"
     },
     "require-dev": {
+        "typo3/cms-fluid-styled-content": "^7.6.23 || ^8.7.9",
         "helhum/typo3-composer-setup": "^0.5.1",
         "helmich/typo3-typoscript-lint": "^1.4.4",
         "nimut/testing-framework": "^3.0.0",
