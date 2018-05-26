@@ -8,7 +8,6 @@ use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophecy\ProphecySubjectInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\View\JsonView;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
 
@@ -25,12 +24,12 @@ class TeaControllerTest extends UnitTestCase
     private $subject = null;
 
     /**
-     * @var JsonView|ObjectProphecy
+     * @var TemplateView|ObjectProphecy
      */
     private $viewProphecy = null;
 
     /**
-     * @var JsonView|ProphecySubjectInterface
+     * @var TemplateView|ProphecySubjectInterface
      */
     private $view = null;
 
