@@ -3,20 +3,13 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.5/phpunit.xsd"
          backupGlobals="true"
-         backupStaticAttributes="false"
          bootstrap="../../.Build/vendor/nimut/testing-framework/res/Configuration/UnitTestsBootstrap.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertWarningsToExceptions="true"
-         forceCoversAnnotation="false"
-         processIsolation="false"
-         stopOnError="false"
-         stopOnFailure="false"
-         stopOnIncomplete="false"
-         stopOnSkipped="false"
-         verbose="false"
 >
     <testsuites>
+        <!--
+            There can also be multiple "testsuite" elements, e.g., for executing all unit tests from multiple extensions.
+        -->
         <testsuite name="Model unit tests">
             <directory>../../Tests/Unit/Domain/Model</directory>
         </testsuite>
