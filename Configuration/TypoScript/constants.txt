@@ -16,6 +16,7 @@ plugin.tx_tea {
     }
 
     settings {
-
+        # cat=plugin.tx_tea//a; type=int; label=UID of the page with the single view
+        singleViewPageUid =
     }
 }

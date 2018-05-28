@@ -12,6 +12,9 @@
             <trans-unit id="plugin.tea.index">
                 <source>Tea list</source>
             </trans-unit>
+            <trans-unit id="plugin.tea.show">
+                <source>Tea single view</source>
+            </trans-unit>
             <trans-unit id="index.heading">
                 <source>Our selection of assorted teas</source>
             </trans-unit>

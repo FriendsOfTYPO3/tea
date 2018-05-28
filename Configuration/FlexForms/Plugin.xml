@@ -24,6 +24,10 @@
                                         <numIndex index="0">LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea.index</numIndex>
                                         <numIndex index="1">Tea->index</numIndex>
                                     </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea.show</numIndex>
+                                        <numIndex index="1">Tea->show</numIndex>
+                                    </numIndex>
                                 </items>
                             </config>
                         </TCEforms>

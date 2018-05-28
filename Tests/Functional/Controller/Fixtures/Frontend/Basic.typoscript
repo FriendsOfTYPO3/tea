@@ -52,3 +52,9 @@ page {
         file = EXT:tea/Tests/Functional/Controller/Fixtures/Frontend/Template.html
     }
 }
+
+plugin.tx_tea {
+    settings {
+        singleViewPageUid = 2
+    }
+}

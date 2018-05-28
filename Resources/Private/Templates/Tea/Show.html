@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:f="https://xsd.helhum.io/ns/typo3/cms-fluid/master/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default"/>
+
+    <f:section name="main">
+        <h2>
+            {tea.title}
+        </h2>
+
+        {tea.description -> f:format.html()}
+    </f:section>
+</html>

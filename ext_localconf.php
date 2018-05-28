@@ -7,7 +7,7 @@
     'Tea',
     // all actions
     [
-        'Tea' => 'index',
+        'Tea' => 'index, show',
     ],
     // non-cacheable actions
     [

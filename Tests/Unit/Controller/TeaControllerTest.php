@@ -4,6 +4,7 @@ namespace OliverKlee\Tea\Tests\Unit\Controller;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use OliverKlee\Tea\Controller\TeaController;
+use OliverKlee\Tea\Domain\Model\Product\Tea;
 use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophecy\ProphecySubjectInterface;
@@ -74,5 +75,16 @@ class TeaControllerTest extends UnitTestCase
         $this->viewProphecy->assign('teas', $teas)->shouldBeCalled();
 
         $this->subject->indexAction();
+    }
+
+    /**
+     * @test
+     */
+    public function showActionAssignsPassedTeaAsTeaToView()
+    {
+        $tea = new Tea();
+        $this->viewProphecy->assign('tea', $tea)->shouldBeCalled();
+
+        $this->subject->showAction($tea);
     }
 }

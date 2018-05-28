@@ -10,6 +10,6 @@ plugin.tx_tea {
     }
 
     settings {
-
+        singleViewPageUid = {$plugin.tx_tea.settings.singleViewPageUid}
     }
 }

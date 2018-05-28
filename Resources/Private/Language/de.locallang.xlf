@@ -15,6 +15,10 @@
                 <source>Tea list</source>
                 <target>Teeliste</target>
             </trans-unit>
+            <trans-unit id="plugin.tea.show">
+                <source>Tea single view</source>
+                <target>Tee-Einzelansicht</target>
+            </trans-unit>
             <trans-unit id="index.heading">
                 <source>Our selection of assorted teas</source>
                 <target>Unsere Auswahl an erlesenen Tees</target>

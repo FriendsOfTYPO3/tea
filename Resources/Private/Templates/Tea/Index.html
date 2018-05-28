@@ -15,7 +15,9 @@
                             {tea.uid}
                         </td>
                         <td>
-                            {tea.title}
+                            <f:link.action arguments="{tea: tea}" pageUid="{settings.singleViewPageUid}">
+                                {tea.title}
+                            </f:link.action>
                         </td>
                     </tr>
                 </f:for>

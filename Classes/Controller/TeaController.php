@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace OliverKlee\Tea\Controller;
 
+use OliverKlee\Tea\Domain\Model\Product\Tea;
 use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -33,5 +34,15 @@ class TeaController extends ActionController
     public function indexAction()
     {
         $this->view->assign('teas', $this->teaRepository->findAll());
+    }
+
+    /**
+     * @param Tea $tea
+     *
+     * @return void
+     */
+    public function showAction(Tea $tea)
+    {
+        $this->view->assign('tea', $tea);
     }
 }

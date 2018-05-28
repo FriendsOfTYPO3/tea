@@ -1,5 +1,5 @@
 <?php
-return [
+$tca = [
     'ctrl' => [
         'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea',
         'label' => 'title',
@@ -32,6 +32,7 @@ return [
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.description',
             'config' => [
                 'type' => 'text',
+                'enableRichtext' => true,
                 'rows' => 8,
                 'cols' => 40,
                 'max' => 2000,
@@ -56,3 +57,9 @@ return [
         ],
     ],
 ];
+
+if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 8006000) {
+    $tca['columns']['description']['defaultExtras'] = 'richtext[]';
+}
+
+return $tca;

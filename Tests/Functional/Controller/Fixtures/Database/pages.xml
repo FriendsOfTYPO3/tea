@@ -3,7 +3,7 @@
     <pages>
         <uid>1</uid>
         <pid>0</pid>
-        <title>Root</title>
+        <title>Tea list</title>
         <doktype>1</doktype>
         <perms_everybody>15</perms_everybody>
     </pages>
@@ -20,6 +20,33 @@
                         <language index="lDEF">
                             <field index="switchableControllerActions">
                                 <value index="vDEF">Tea-&gt;index</value>
+                            </field>
+                        </language>
+                    </sheet>
+                </data>
+            </T3FlexForms>
+        ]]></pi_flexform>
+    </tt_content>
+    <pages>
+        <uid>2</uid>
+        <pid>1</pid>
+        <title>Tea single view</title>
+        <doktype>1</doktype>
+        <perms_everybody>15</perms_everybody>
+    </pages>
+    <tt_content>
+        <uid>2</uid>
+        <pid>2</pid>
+        <CType>list</CType>
+        <list_type>tea_tea</list_type>
+        <pi_flexform><![CDATA[
+            <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+            <T3FlexForms>
+                <data>
+                    <sheet index="general">
+                        <language index="lDEF">
+                            <field index="switchableControllerActions">
+                                <value index="vDEF">Tea-&gt;show</value>
                             </field>
                         </language>
                     </sheet>
