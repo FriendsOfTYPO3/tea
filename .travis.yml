@@ -11,8 +11,8 @@ env:
   global:
   - typo3DatabaseHost=localhost typo3DatabaseName=typo3 typo3DatabaseUsername=travis typo3DatabasePassword=''
   matrix:
-  - TYPO3_VERSION="^8.7" DEPENDENCIES=latest
-  - TYPO3_VERSION="^8.7" DEPENDENCIES=oldest
+  - TYPO3_VERSION="^8.7"
+  - TYPO3_VERSION="^8.7" DEPENDENCIES_PREFERENCE="--prefer-lowest"
 
 matrix:
   exclude:
@@ -26,22 +26,8 @@ before_install:
 - phpenv config-rm xdebug.ini
 
 install:
-- >
-  composer require-typo3-version "$TYPO3_VERSION";
-- >
-  echo;
-  if [ "$DEPENDENCIES" = "latest" ]; then
-    echo "Installing the latest dependencies";
-    composer update --with-dependencies --prefer-stable --prefer-dist;
-  else
-    echo "Installing the lowest dependencies";
-    composer update --with-dependencies --prefer-stable --prefer-dist --prefer-lowest;
-  fi;
-  composer show;
-- >
-  echo;
-  echo "Restoring the composer.json";
-  git checkout .;
+- composer require typo3/minimal "$TYPO3_VERSION" $DEPENDENCIES_PREFERENCE
+- git checkout .
 
 script:
 - >

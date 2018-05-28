@@ -27,20 +27,23 @@
     },
     "require": {
         "php": "~7.0.0 || ~7.1.0 || ~7.2.0",
-        "typo3/cms-core": "^7.6.23 || ^8.7.9",
-        "typo3/cms-fluid": "^7.6.23 || ^8.7.9",
-        "typo3/cms-frontend": "^7.6.23 || ^8.7.9"
+        "typo3/cms-core": "^7.6.23 || ^8.7.10",
+        "typo3/cms-fluid": "^7.6.23 || ^8.7.10",
+        "typo3/cms-frontend": "^7.6.23 || ^8.7.10"
     },
     "require-dev": {
-        "typo3/cms-fluid-styled-content": "^7.6.23 || ^8.7.9",
+        "typo3/cms-fluid-styled-content": "^7.6.23 || ^8.7.10",
         "helhum/typo3-composer-setup": "^0.5.1",
         "helmich/typo3-typoscript-lint": "^1.4.4",
-        "nimut/testing-framework": "^3.0.0",
+        "nimut/testing-framework": "^3.0",
         "roave/security-advisories": "dev-master"
     },
     "replace": {
         "tea": "self.version",
         "typo3-ter/tea": "self.version"
+    },
+    "conflict": {
+        "typo3/cms-composer-installers": "<1.4.6"
     },
     "autoload": {
         "psr-4": {
@@ -84,10 +87,6 @@
         "ci": [
             "@ci:static"
         ],
-        "require-typo3-version": [
-            "@php -r '$conf=json_decode(file_get_contents(__DIR__.\"/composer.json\"),true);$conf[\"require\"][\"typo3/cms-core\"]=$_SERVER[\"argv\"][1];file_put_contents(__DIR__.\"/composer.json\",json_encode($conf,JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT).chr(10));'",
-            "@composer install"
-        ],
         "link-extension": [
             "@php -r 'is_dir($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
             "@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/tea\") || symlink(__DIR__,$extFolder);'"
@@ -101,6 +100,7 @@
             "dev-master": "2.0.x-dev"
         },
         "typo3/cms": {
+            "extension-key": "tea",
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/public"
         }
