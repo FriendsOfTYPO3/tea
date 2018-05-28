@@ -8,6 +8,7 @@ use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
  * Test case.
@@ -26,9 +27,16 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     private $subject = null;
 
+    /**
+     * @var PersistenceManager
+     */
+    private $persistenceManager = null;
+
     protected function setUp()
     {
         parent::setUp();
+
+        $this->persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
 
         /** @var ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
@@ -100,5 +108,25 @@ class TeaRepositoryTest extends FunctionalTestCase
         $image = $model->getImage();
         static::assertInstanceOf(FileReference::class, $image);
         static::assertSame(1, $image->getUid());
+    }
+
+    /**
+     * @test
+     */
+    public function addAndPersistAllCreatesNewRecord()
+    {
+        $title = 'Godesberger Burgtee';
+        $model = new Tea();
+        $model->setTitle($title);
+
+        $this->subject->add($model);
+        $this->persistenceManager->persistAll();
+
+        $databaseRow = $this->getDatabaseConnection()->selectSingleRow(
+            '*',
+            'tx_tea_domain_model_product_tea',
+            'uid = ' . $model->getUid()
+        );
+        static::assertSame($title, $databaseRow['title']);
     }
 }
