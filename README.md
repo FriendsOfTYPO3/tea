@@ -15,6 +15,12 @@ It also is an example for
 For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
 
+## Running the unit tests from the command line
+
+```bash
+.Build/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit/
+```
+
 
 ## Running the tests in PhpStorm
 
