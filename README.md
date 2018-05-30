@@ -35,7 +35,7 @@ git checkout HEAD -- composer.json
 File > Settings > Languages & Frameworks > PHP > Test Frameworks
 
 - (*) Use Composer autoloader
-- Path to script: select `vendor/autoload.php` in your project folder
+- Path to script: select `.Build/vendor/autoload.php` in your project folder
 
 In the Run configurations, edit the PHPUnit configuration and use these
 settings so this configuration can serve as a template:
