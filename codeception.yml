@@ -1,0 +1,41 @@
+# suite config
+suites:
+    acceptance:
+        actor: AcceptanceTester
+        path: .
+        modules:
+            enabled:
+                - WebDriver:
+                    url: https://www.oliverklee.de
+                    browser: chrome
+                - \Helper\Acceptance
+
+extensions:
+    enabled: [Codeception\Extension\RunFailed]
+
+params:
+    - env
+
+gherkin: []
+
+# additional paths
+paths:
+    tests: Tests/Acceptance
+    output: .Build/public/typo3temp/var/tests/_output
+    data: .Build/public/typo3temp/var/tests/_data
+    support: Tests/Acceptance/_support
+    envs: .Build/public/typo3temp/var/tests/_envs
+
+settings:
+    shuffle: false
+    lint: true
+
+modules:
+  config:
+    WebDriver:
+      browser: chrome
+      port: 9515 # ChromeDriver port
+      window_size: false
+      capabilities:
+        chromeOptions:
+          args: ["--headless", "--disable-gpu"]

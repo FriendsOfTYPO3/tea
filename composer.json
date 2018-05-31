@@ -36,6 +36,8 @@
         "helhum/typo3-composer-setup": "^0.5.1",
         "helmich/typo3-typoscript-lint": "^1.4.4",
         "nimut/testing-framework": "^3.0",
+        "codeception/codeception": "^2.4",
+        "enm1989/chromedriver": "^2.38",
         "roave/security-advisories": "dev-master"
     },
     "replace": {

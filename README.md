@@ -64,6 +64,24 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 - [x] Use alternative configuration file
 - use `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
 
+### Running the acceptance tests
+
+#### On the command line
+
+1. make sure you have Chrome installed on your machine
+2. `composer update codeception/codeception` (just in case)
+3. [download the latest version of ChromeDriver](http://chromedriver.chromium.org/downloads)
+4. unzip it
+5. `chromedriver --url-base=/wd/hub &`
+6. `.Build/vendor/bin/codecept run`
+7. Run 'Acceptance (Codeception)'
+
+
+#### In PhpStorm
+
+1. make sure the "Codeception Framework" plugin is activated
+2. right-click on `Tests/Acceptance`
+
 ## Creating new extensions with automated tests
 
 For creating new extensions, I recommend taking
