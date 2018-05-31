@@ -47,10 +47,5 @@ script:
 
 - >
   echo;
-  echo "Running the model tests";
-  .Build/vendor/bin/phpunit -c Configuration/PHPUnit/ModelTests.xml;
-
-- >
-  echo;
   echo "Running the functional tests";
   composer ci:tests:functional;

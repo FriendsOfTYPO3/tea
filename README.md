@@ -64,12 +64,6 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 - [x] Use alternative configuration file
 - use `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
 
-### Example PHPUnit configuration file with a test suite
-
-The file [`Configuration/PHPUnit/ModelTests.xml`](Configuration/PHPUnit/ModelTests.xml)
-contains an example of a PHPUnit configuration file that has a test suite
-(based on the unit tests configuration file from the testing framework).
-
 ## Creating new extensions with automated tests
 
 For creating new extensions, I recommend taking
