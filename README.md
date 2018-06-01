@@ -72,15 +72,15 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 2. `composer update codeception/codeception` (just in case)
 3. [download the latest version of ChromeDriver](http://chromedriver.chromium.org/downloads)
 4. unzip it
-5. `chromedriver --url-base=/wd/hub &`
-6. `.Build/vendor/bin/codecept run`
-7. Run 'Acceptance (Codeception)'
+5. `chromedriver --url-base=/wd/hub`
+6. `.Build/vendor/bin/codecept run` (in another terminal)
 
 
 #### In PhpStorm
 
 1. make sure the "Codeception Framework" plugin is activated
 2. right-click on `Tests/Acceptance`
+3. Run 'Acceptance (Codeception)'
 
 ## Creating new extensions with automated tests
 
