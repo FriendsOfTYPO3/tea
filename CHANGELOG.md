@@ -16,3 +16,5 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+## 2.0.0
+Complete rewrite. Usable with TYPO3 7.6 and 8.7.
