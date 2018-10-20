@@ -12,7 +12,7 @@ cache:
   - $HOME/.composer/cache
 
 before_install:
-- phpenv config-rm xdebug.ini
+- phpenv config-rm xdebug.ini || echo "xdebug not available"
 
 install:
 - >
