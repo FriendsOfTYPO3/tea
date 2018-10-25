@@ -16,7 +16,7 @@ before_install:
 
 install:
 - >
-  composer require typo3/minimal:"$TYPO3" --prefer-stable --prefer-dist $DEPENDENCIES_PREFERENCE;
+  composer require typo3/minimal:"$TYPO3" $DEPENDENCIES_PREFERENCE;
   composer show;
 - >
   echo;
