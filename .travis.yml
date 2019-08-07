@@ -2,6 +2,9 @@ sudo: false
 
 language: php
 
+services:
+  - mysql
+
 env:
   global:
   - typo3DatabaseHost=localhost typo3DatabaseName=typo3 typo3DatabaseUsername=travis typo3DatabasePassword=''
@@ -47,26 +50,26 @@ script:
 jobs:
   include:
   - stage: test
-    php: 7.2
+    php: "7.2"
     env: TYPO3=^8.7
   - stage: test
-    php: 7.1
+    php: "7.1"
     env: TYPO3=^8.7
   - stage: test
-    php: 7.0
+    php: "7.0"
     env: TYPO3=^8.7
   - stage: test
-    php: 7.2
+    php: "7.2"
     env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
   - stage: test
-    php: 7.1
+    php: "7.1"
     env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
   - stage: test
-    php: 7.0
+    php: "7.0"
     env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
   - stage: release to ter
     if: tag IS present AND env(TYPO3_ORG_USERNAME) IS present AND env(TYPO3_ORG_PASSWORD) IS present
-    php: 7.0
+    php: "7.0"
     before_install: skip
     install: skip
     before_script: skip
