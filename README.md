@@ -1,6 +1,6 @@
 # Tea example
 
-[![Build Status](https://travis-ci.org/oliverklee/tea.svg?branch=master)](https://travis-ci.org/oliverklee/tea)
+[![Build Status](https://travis-ci.org/oliverklee/ext-tea.svg?branch=master)](https://travis-ci.org/oliverklee/ext-tea)
 [![Latest Stable Version](https://poser.pugx.org/oliverklee/tea/v/stable.svg)](https://packagist.org/packages/oliverklee/tea)
 [![Total Downloads](https://poser.pugx.org/oliverklee/tea/downloads.svg)](https://packagist.org/packages/oliverklee/tea)
 [![Latest Unstable Version](https://poser.pugx.org/oliverklee/tea/v/unstable.svg)](https://packagist.org/packages/oliverklee/tea)
@@ -20,7 +20,6 @@ at the [handout to my workshops on test-driven development (TDD)](https://github
 ```bash
 .Build/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit/
 ```
-
 
 ## Running the tests in PhpStorm
 
@@ -75,7 +74,6 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 5. `chromedriver --url-base=wd/hub`
 6. `.Build/vendor/bin/codecept run` (in another terminal)
 
-
 #### In PhpStorm
 
 1. make sure the "Codeception Framework" plugin is activated
@@ -87,7 +85,6 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 For creating new extensions, I recommend taking
 [Helmut Hummel's extension skeleton](https://github.com/helhum/ext_scaffold)
 as a starting point.
-
 
 ## About me (Oliver Klee)
 
@@ -101,12 +98,10 @@ at your company.
 
 I also frequently give workshops at the TYPO3 Developer Days.
 
-
 ## More Documentation
 
 * [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
 * [Handout for best practices with extbase and fluid](https://github.com/oliverklee/workshop-handouts/blob/master/extbase-best-practices/extbase-best-practices.pdf)
-
 
 ## Other example projects
 
