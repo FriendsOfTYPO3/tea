@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of roave/security-advisories (#41)
 
 ### Fixed
+- Drop an obsolete "replace" entry from composer.json (#42)
 - Explicitly require MySQL on Travis CI (#38)
 - Add .php_cs.cache to the .gitignore (#33)
 
