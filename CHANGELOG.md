@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop the dependency of roave/security-advisories (#41)
 
 ### Fixed
 - Explicitly require MySQL on Travis CI (#38)
