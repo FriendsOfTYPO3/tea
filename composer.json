@@ -55,12 +55,6 @@
         }
     },
     "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://composer.typo3.org/"
-        }
-    ],
     "config": {
         "preferred-install": {
             "*": "dist"

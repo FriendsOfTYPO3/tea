@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop the TYPO3 package repository from composer.json (#43)
 - Drop the dependency of roave/security-advisories (#41)
 
 ### Fixed
