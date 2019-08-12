@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Tests\Unit\Domain\Model\Product;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
@@ -19,7 +20,7 @@ class TeaTest extends UnitTestCase
      */
     private $subject = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Tea();
     }
@@ -27,65 +28,65 @@ class TeaTest extends UnitTestCase
     /**
      * @test
      */
-    public function isAbstractEntity()
+    public function isAbstractEntity(): void
     {
-        static::assertInstanceOf(AbstractEntity::class, $this->subject);
+        self::assertInstanceOf(AbstractEntity::class, $this->subject);
     }
 
     /**
      * @test
      */
-    public function getTitleInitiallyReturnsEmptyString()
+    public function getTitleInitiallyReturnsEmptyString(): void
     {
-        static::assertSame('', $this->subject->getTitle());
+        self::assertSame('', $this->subject->getTitle());
     }
 
     /**
      * @test
      */
-    public function setTitleSetsTitle()
+    public function setTitleSetsTitle(): void
     {
         $value = 'Club-Mate';
         $this->subject->setTitle($value);
 
-        static::assertSame($value, $this->subject->getTitle());
+        self::assertSame($value, $this->subject->getTitle());
     }
 
     /**
      * @test
      */
-    public function getDescriptionInitiallyReturnsEmptyString()
+    public function getDescriptionInitiallyReturnsEmptyString(): void
     {
-        static::assertSame('', $this->subject->getDescription());
+        self::assertSame('', $this->subject->getDescription());
     }
 
     /**
      * @test
      */
-    public function setDescriptionSetsDescription()
+    public function setDescriptionSetsDescription(): void
     {
         $value = 'Club-Mate';
         $this->subject->setDescription($value);
 
-        static::assertSame($value, $this->subject->getDescription());
+        self::assertSame($value, $this->subject->getDescription());
     }
 
     /**
      * @test
      */
-    public function getImageInitiallyReturnsNull()
+    public function getImageInitiallyReturnsNull(): void
     {
-        static::assertNull($this->subject->getImage());
+        self::assertNull($this->subject->getImage());
     }
 
     /**
      * @test
      */
-    public function setImageSetsImage()
+    public function setImageSetsImage(): void
     {
         $model = new FileReference();
         $this->subject->setImage($model);
 
-        static::assertSame($model, $this->subject->getImage());
+        self::assertSame($model, $this->subject->getImage());
     }
 }

@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Controller;
 
 use OliverKlee\Tea\Domain\Model\Product\Tea;
@@ -18,30 +19,17 @@ class TeaController extends ActionController
      */
     private $teaRepository = null;
 
-    /**
-     * @param TeaRepository $teaRepository
-     *
-     * @return void
-     */
-    public function injectTeaRepository(TeaRepository $teaRepository)
+    public function injectTeaRepository(TeaRepository $teaRepository): void
     {
         $this->teaRepository = $teaRepository;
     }
 
-    /**
-     * @return void
-     */
-    public function indexAction()
+    public function indexAction(): void
     {
         $this->view->assign('teas', $this->teaRepository->findAll());
     }
 
-    /**
-     * @param Tea $tea
-     *
-     * @return void
-     */
-    public function showAction(Tea $tea)
+    public function showAction(Tea $tea): void
     {
         $this->view->assign('tea', $tea);
     }

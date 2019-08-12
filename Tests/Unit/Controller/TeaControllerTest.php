@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Tests\Unit\Controller;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
@@ -44,7 +45,7 @@ class TeaControllerTest extends UnitTestCase
      */
     private $teaRepository = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subject = new TeaController();
 
@@ -60,15 +61,15 @@ class TeaControllerTest extends UnitTestCase
     /**
      * @test
      */
-    public function isActionController()
+    public function isActionController(): void
     {
-        static::assertInstanceOf(ActionController::class, $this->subject);
+        self::assertInstanceOf(ActionController::class, $this->subject);
     }
 
     /**
      * @test
      */
-    public function indexActionAssignsAllTeaAsTeasToView()
+    public function indexActionAssignsAllTeaAsTeasToView(): void
     {
         $teas = $this->prophesize(QueryResultInterface::class)->reveal();
         $this->teaRepositoryProphecy->findAll()->willReturn($teas);
@@ -80,7 +81,7 @@ class TeaControllerTest extends UnitTestCase
     /**
      * @test
      */
-    public function showActionAssignsPassedTeaAsTeaToView()
+    public function showActionAssignsPassedTeaAsTeaToView(): void
     {
         $tea = new Tea();
         $this->viewProphecy->assign('tea', $tea)->shouldBeCalled();

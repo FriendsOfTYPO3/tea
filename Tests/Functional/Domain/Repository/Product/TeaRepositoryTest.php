@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Tests\Functional\Domain\Repository\Product;
 
 use Nimut\TestingFramework\TestCase\FunctionalTestCase;
@@ -32,7 +33,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     private $persistenceManager = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -46,42 +47,42 @@ class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function findAllForNoRecordsReturnsEmptyContainer()
+    public function findAllForNoRecordsReturnsEmptyContainer(): void
     {
         $container = $this->subject->findAll();
 
-        static::assertCount(0, $container);
+        self::assertCount(0, $container);
     }
 
     /**
      * @test
      */
-    public function findAllWithRecordsFindsRecordsFromAllPages()
+    public function findAllWithRecordsFindsRecordsFromAllPages(): void
     {
         $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
 
         $container = $this->subject->findAll();
 
-        static::assertGreaterThanOrEqual(1, \count($container));
+        self::assertGreaterThanOrEqual(1, \count($container));
     }
 
     /**
      * @test
      */
-    public function findAllSortsByTitleInAscendingOrder()
+    public function findAllSortsByTitleInAscendingOrder(): void
     {
         $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
 
         $container = $this->subject->findAll();
 
         $container->rewind();
-        static::assertSame(2, $container->current()->getUid());
+        self::assertSame(2, $container->current()->getUid());
     }
 
     /**
      * @test
      */
-    public function findByUidForExistingRecordReturnsModelWithData()
+    public function findByUidForExistingRecordReturnsModelWithData(): void
     {
         $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
 
@@ -89,15 +90,15 @@ class TeaRepositoryTest extends FunctionalTestCase
         /** @var Tea $model */
         $model = $this->subject->findByUid($uid);
 
-        static::assertNotNull($model);
-        static::assertSame('Earl Grey', $model->getTitle());
-        static::assertSame('Fresh and hot.', $model->getDescription());
+        self::assertNotNull($model);
+        self::assertSame('Earl Grey', $model->getTitle());
+        self::assertSame('Fresh and hot.', $model->getDescription());
     }
 
     /**
      * @test
      */
-    public function fillsImageRelation()
+    public function fillsImageRelation(): void
     {
         $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
 
@@ -106,14 +107,14 @@ class TeaRepositoryTest extends FunctionalTestCase
         $model = $this->subject->findByUid($uid);
 
         $image = $model->getImage();
-        static::assertInstanceOf(FileReference::class, $image);
-        static::assertSame(1, $image->getUid());
+        self::assertInstanceOf(FileReference::class, $image);
+        self::assertSame(1, $image->getUid());
     }
 
     /**
      * @test
      */
-    public function addAndPersistAllCreatesNewRecord()
+    public function addAndPersistAllCreatesNewRecord(): void
     {
         $title = 'Godesberger Burgtee';
         $model = new Tea();
@@ -127,6 +128,6 @@ class TeaRepositoryTest extends FunctionalTestCase
             'tx_tea_domain_model_product_tea',
             'uid = ' . $model->getUid()
         );
-        static::assertSame($title, $databaseRow['title']);
+        self::assertSame($title, $databaseRow['title']);
     }
 }

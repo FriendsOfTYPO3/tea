@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Tests\Unit\Domain\Repository\Product;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
@@ -25,7 +26,7 @@ class TeaRepositoryTest extends UnitTestCase
      */
     protected $objectManager = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $objectManagerProphecy = $this->prophesize(ObjectManagerInterface::class);
         $this->objectManager = $objectManagerProphecy->reveal();
@@ -35,8 +36,8 @@ class TeaRepositoryTest extends UnitTestCase
     /**
      * @test
      */
-    public function isRepository()
+    public function isRepository(): void
     {
-        static::assertInstanceOf(Repository::class, $this->subject);
+        self::assertInstanceOf(Repository::class, $this->subject);
     }
 }

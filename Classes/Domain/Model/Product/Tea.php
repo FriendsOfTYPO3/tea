@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Domain\Model\Product;
 
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -30,38 +31,22 @@ class Tea extends AbstractEntity
      */
     protected $image = null;
 
-    /**
-     * @return string
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     *
-     * @return void
-     */
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return void
-     */
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
@@ -78,12 +63,7 @@ class Tea extends AbstractEntity
         return $this->image;
     }
 
-    /**
-     * @param FileReference $image
-     *
-     * @return void
-     */
-    public function setImage(FileReference $image)
+    public function setImage(FileReference $image): void
     {
         $this->image = $image;
     }

@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Domain\Repository\Traits;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
@@ -11,12 +12,7 @@ use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
  */
 trait StoragePageAgnosticTrait
 {
-    /**
-     * Initializes this object.
-     *
-     * @return void
-     */
-    public function initializeObject()
+    public function initializeObject(): void
     {
         /** @var QuerySettingsInterface $querySettings */
         $querySettings = $this->objectManager->get(QuerySettingsInterface::class);

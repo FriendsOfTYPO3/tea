@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace OliverKlee\Tea\Tests\Functional\Controller;
 
 use Nimut\TestingFramework\TestCase\FunctionalTestCase;
@@ -21,7 +22,7 @@ class TeaControllerTest extends FunctionalTestCase
      */
     protected $coreExtensionsToLoad = ['fluid_styled_content'];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -41,11 +42,11 @@ class TeaControllerTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function indexActionRendersTeaTitle()
+    public function indexActionRendersTeaTitle(): void
     {
         $responseContent = $this->getFrontendResponse(1)->getContent();
 
         $teaTitle = 'Earl Grey';
-        $this->assertContains($teaTitle, $responseContent);
+        self::assertContains($teaTitle, $responseContent);
     }
 }

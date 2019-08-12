@@ -1,8 +1,8 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
- * Inherited Methods
+ * Inherited Methods.
  * @method void wantToTest($text)
  * @method void wantTo($text)
  * @method void execute($callable)
@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * @method void am($role)
  * @method void lookForwardTo($achieveValue)
  * @method void comment($description)
- * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
+ * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = null)
  *
  * @SuppressWarnings(PHPMD)
  */
@@ -20,7 +20,5 @@ class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
-   /*
-    * Define custom actions here
-    */
+    // Define custom actions here
 }

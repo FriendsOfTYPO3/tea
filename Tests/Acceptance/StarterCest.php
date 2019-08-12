@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace OliverKlee\Tea\Tests\Acceptance;
 
@@ -10,17 +10,17 @@ namespace OliverKlee\Tea\Tests\Acceptance;
  */
 class StarterCest
 {
-    public function _before(\AcceptanceTester $I)
+    public function _before(\AcceptanceTester $I): void
     {
         $I->amOnPage('/');
     }
 
-    public function seeAuthorName(\AcceptanceTester $I)
+    public function seeAuthorName(\AcceptanceTester $I): void
     {
         $I->see('Oliver Klee');
     }
 
-    public function canNavigateToPastWorkshops(\AcceptanceTester $I)
+    public function canNavigateToPastWorkshops(\AcceptanceTester $I): void
     {
         $I->click('Workshops');
         $I->click('Rückblick');
