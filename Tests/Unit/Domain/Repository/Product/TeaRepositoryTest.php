@@ -28,8 +28,7 @@ class TeaRepositoryTest extends UnitTestCase
 
     protected function setUp(): void
     {
-        $objectManagerProphecy = $this->prophesize(ObjectManagerInterface::class);
-        $this->objectManager = $objectManagerProphecy->reveal();
+        $this->objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
         $this->subject = new TeaRepository($this->objectManager);
     }
 

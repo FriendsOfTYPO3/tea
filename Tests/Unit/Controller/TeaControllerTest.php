@@ -31,31 +31,22 @@ class TeaControllerTest extends UnitTestCase
     private $viewProphecy = null;
 
     /**
-     * @var TemplateView|ProphecySubjectInterface
-     */
-    private $view = null;
-
-    /**
      * @var TeaRepository|ObjectProphecy
      */
     private $teaRepositoryProphecy = null;
-
-    /**
-     * @var TeaRepository|ProphecySubjectInterface
-     */
-    private $teaRepository = null;
 
     protected function setUp(): void
     {
         $this->subject = new TeaController();
 
         $this->viewProphecy = $this->prophesize(TemplateView::class);
-        $this->view = $this->viewProphecy->reveal();
-        $this->inject($this->subject, 'view', $this->view);
+        $view = $this->viewProphecy->reveal();
+        $this->inject($this->subject, 'view', $view);
 
         $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
-        $this->teaRepository = $this->teaRepositoryProphecy->reveal();
-        $this->subject->injectTeaRepository($this->teaRepository);
+        /** @var TeaRepository|ProphecySubjectInterface $teaRepository */
+        $teaRepository = $this->teaRepositoryProphecy->reveal();
+        $this->subject->injectTeaRepository($teaRepository);
     }
 
     /**

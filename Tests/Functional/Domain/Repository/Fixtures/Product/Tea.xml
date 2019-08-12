@@ -25,6 +25,5 @@
         <uid_foreign>3</uid_foreign>
         <tablenames>tx_tea_domain_model_product_tea</tablenames>
         <fieldname>image</fieldname>
-        <l10n_diffsource></l10n_diffsource>
     </sys_file_reference>
 </dataset>

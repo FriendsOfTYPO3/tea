@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace OliverKlee\Tea\Domain\Model\Product;
 
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 
 /**
  * This class represents a tea (flavor), e.g., "Earl Grey".
@@ -51,10 +51,7 @@ class Tea extends AbstractEntity
         $this->description = $description;
     }
 
-    /**
-     * @return FileReference|null
-     */
-    public function getImage()
+    public function getImage(): ?FileReference
     {
         if ($this->image instanceof LazyLoadingProxy) {
             $this->image = $this->image->_loadRealInstance();
