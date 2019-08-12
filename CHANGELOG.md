@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add PHP_CodeSniffer to the Travis CI build (#44)
 - Auto-release to the TER (#34)
 - Composer script for PHP linting
 
