@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Upgrade PHPUnit to 7.5.14 (#52)
 - Change from GPL V3+ to GPL V2+ (#40)
 - Streamline ext_emconf.php (#37)
 
