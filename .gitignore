@@ -3,3 +3,4 @@
 /.php_cs.cache
 composer.lock
 /nbproject
+/var

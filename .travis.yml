@@ -56,6 +56,9 @@ jobs:
   include:
   - stage: test
     php: "7.2"
+    env: TYPO3=^9.5
+  - stage: test
+    php: "7.2"
     env: TYPO3=^8.7
   - stage: test
     php: "7.1"
@@ -63,6 +66,9 @@ jobs:
   - stage: test
     php: "7.0"
     env: TYPO3=^8.7
+  - stage: test
+    php: "7.2"
+    env: TYPO3=^9.5 DEPENDENCIES_PREFERENCE="--prefer-lowest"
   - stage: test
     php: "7.2"
     env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
