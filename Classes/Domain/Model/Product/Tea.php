@@ -5,6 +5,7 @@ namespace OliverKlee\Tea\Domain\Model\Product;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 
 /**
  * This class represents a tea (flavor), e.g., "Earl Grey".
@@ -25,7 +26,7 @@ class Tea extends AbstractEntity
 
     /**
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @lazy
+     * @Lazy
      */
     protected $image = null;
 
