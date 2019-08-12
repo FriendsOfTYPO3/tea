@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop ext_icon.svg (#56)
 - Stop building with the lowest Composer dependencies (#55)
 - Drop support for TYPO3 < 9.5 (#50)
 - Drop support for PHP < 7.2 (#49)
