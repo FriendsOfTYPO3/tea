@@ -7,7 +7,7 @@
 [![License](https://poser.pugx.org/oliverklee/tea/license.svg)](https://packagist.org/packages/oliverklee/tea)
 
 This TYPO3 extension is an example for writing unit and functional tests for
-extbase/fluid-based extensions for TYPO3 CMS using PHPUnit.
+Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
 
 It also is an example for
 [best practices for extbase/fluid](https://github.com/oliverklee/workshop-handouts/tree/master/extbase-best-practices).
@@ -26,7 +26,7 @@ at the [handout to my workshops on test-driven development (TDD)](https://github
 ### General PHPUnit setup
 
 ```bash
-composer require typo3/cms ^8.7
+composer require typo3/cms ^9.5
 composer install
 git checkout HEAD -- composer.json
 ```

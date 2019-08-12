@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop support for TYPO3 < 9.5 (#50)
 - Drop support for PHP < 7.2 (#49)
 - Drop support for TYPO3 7.6 and require TYPO3 >= 8.7 (#47)
 - Drop the TYPO3 package repository from composer.json (#43)
