@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add support for PHP 7.3 (#51)
 - Add support for TYPO3 9.6 (#48)
 - Add PHP_CodeSniffer to the Travis CI build (#44,#46)
 - Auto-release to the TER (#34)

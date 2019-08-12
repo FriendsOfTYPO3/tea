@@ -26,7 +26,7 @@
         "source": "https://github.com/oliverklee/tea"
     },
     "require": {
-        "php": "~7.2",
+        "php": "~7.2 || ~7.3",
         "typo3/cms-core": "^9.5.4",
         "typo3/cms-extbase": "^9.5",
         "typo3/cms-fluid": "^9.5",
