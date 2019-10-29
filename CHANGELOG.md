@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Run the functional tests in parallel (#58)
 - Add PHP-CS-Fixer (#53)
 - Add support for PHP 7.3 (#51)
 - Add support for TYPO3 9.6 (#48)
