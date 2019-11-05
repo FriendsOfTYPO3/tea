@@ -33,14 +33,14 @@
         "typo3/cms-frontend": "^9.5"
     },
     "require-dev": {
-        "typo3/cms-fluid-styled-content": "^9.5",
-        "helhum/typo3-composer-setup": "^0.5.4",
-        "squizlabs/php_codesniffer": "^3.4.2",
-        "helmich/typo3-typoscript-lint": "^1.5.0",
+        "codeception/codeception": "^3.0.3",
         "friendsofphp/php-cs-fixer": "^2.15.1",
+        "helhum/typo3-composer-setup": "^0.5.4",
+        "helmich/typo3-typoscript-lint": "^1.5.0",
         "nimut/testing-framework": "^4.1.5",
         "phpunit/phpunit": "^7.5.14",
-        "codeception/codeception": "^3.0.3"
+        "squizlabs/php_codesniffer": "^3.4.2",
+        "typo3/cms-fluid-styled-content": "^9.5"
     },
     "replace": {
         "typo3-ter/tea": "self.version"
@@ -60,6 +60,7 @@
         "preferred-install": {
             "*": "dist"
         },
+        "sort-packages": true,
         "vendor-dir": ".Build/vendor"
     },
     "scripts": {
