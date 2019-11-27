@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverKlee\Tea\Tests\Unit\Domain\Model\Product;
+namespace TTN\Tea\Tests\Unit\Domain\Model\Product;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
-use OliverKlee\Tea\Domain\Model\Product\Tea;
+use TTN\Tea\Domain\Model\Product\Tea;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 

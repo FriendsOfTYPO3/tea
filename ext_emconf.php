@@ -18,12 +18,12 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => 'TYPO3 Trainer Network',
     'autoload' => [
         'psr-4' => [
-            'OliverKlee\\Tea\\' => 'Classes/',
+            'TTN\\Tea\\' => 'Classes/',
         ],
     ],
     'autoload-dev' => [
         'psr-4' => [
-            'OliverKlee\\Tea\\Tests\\' => 'Tests/',
+            'TTN\\Tea\\Tests\\' => 'Tests/',
         ],
     ],
 ];

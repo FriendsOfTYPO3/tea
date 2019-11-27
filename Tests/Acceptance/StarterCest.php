@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverKlee\Tea\Tests\Acceptance;
+namespace TTN\Tea\Tests\Acceptance;
 
 /**
  * Test case.
