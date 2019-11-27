@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Switch to the `TTN` PHP vendor namespace (#1, #5)
 - Sort the Composer dependencies
 - Upgrade PHPUnit to 7.5.14
 - Change from GPL V3+ to GPL V2+
@@ -41,4 +42,4 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add `.php_cs.cache` to the `.gitignore`
 
 ## 2.0.0
-Complete rewrite. Usable with TYPO3 7.6 and 8.7.
+- Complete rewrite. Usable with TYPO3 7.6 and 8.7.
