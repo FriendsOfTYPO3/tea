@@ -1,5 +1,5 @@
 {
-    "name": "oliverklee/tea",
+    "name": "ttn/tea",
     "description": "TYPO3 example extension for unit testing and best practices",
     "type": "typo3-cms-extension",
     "keywords": [
@@ -22,8 +22,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/oliverklee/tea/issues",
-        "source": "https://github.com/oliverklee/tea"
+        "issues": "https://github.com/typo3-trainer-network/tea/issues",
+        "source": "https://github.com/typo3-trainer-network/tea"
     },
     "require": {
         "php": "~7.2 || ~7.3",
