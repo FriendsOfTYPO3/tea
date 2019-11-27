@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Update the contact email in the CoC document (#6)
 - Switch to the `TTN` PHP vendor namespace (#1, #5)
 - Sort the Composer dependencies
 - Upgrade PHPUnit to 7.5.14
