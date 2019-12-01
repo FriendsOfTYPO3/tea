@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverKlee\Tea\Controller;
+namespace TTN\Tea\Controller;
 
-use OliverKlee\Tea\Domain\Model\Product\Tea;
-use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Domain\Model\Product\Tea;
+use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**

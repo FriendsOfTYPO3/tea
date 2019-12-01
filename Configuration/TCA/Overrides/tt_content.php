@@ -4,7 +4,7 @@ defined('TYPO3_MODE') or die();
 // This makes the plugin selectable in the BE.
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     // extension name, exactly matching the PHP namespaces (vendor and product)
-    'OliverKlee.Tea',
+    'TTN.Tea',
     // arbitrary, but unique plugin name (not visible in the BE)
     'Tea',
     // plugin title, as visible in the drop-down in the BE

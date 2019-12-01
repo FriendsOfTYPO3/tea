@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverKlee\Tea\Tests\Unit\Controller;
+namespace TTN\Tea\Tests\Unit\Controller;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
-use OliverKlee\Tea\Controller\TeaController;
-use OliverKlee\Tea\Domain\Model\Product\Tea;
-use OliverKlee\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Controller\TeaController;
+use TTN\Tea\Domain\Model\Product\Tea;
+use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophecy\ProphecySubjectInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;

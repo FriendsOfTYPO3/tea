@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverKlee\Tea\Tests\Functional\Controller;
+namespace TTN\Tea\Tests\Functional\Controller;
 
 use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 
