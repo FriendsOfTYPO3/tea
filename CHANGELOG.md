@@ -10,7 +10,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Run the functional tests in parallel
 - Add PHP-CS-Fixer
 - Add support for PHP 7.3 and 7.4
-- Add support for TYPO3 9.5
+- Add support for TYPO3 9.5 and 10.x (#27)
 - Add PHP_CodeSniffer to the Travis CI build
 - Auto-release to the TER
 - Composer script for PHP linting

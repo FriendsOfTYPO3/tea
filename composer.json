@@ -26,10 +26,10 @@
     },
     "require": {
         "php": "~7.2 || ~7.3 || ~7.4",
-        "typo3/cms-core": "^9.5.4",
-        "typo3/cms-extbase": "^9.5",
-        "typo3/cms-fluid": "^9.5",
-        "typo3/cms-frontend": "^9.5"
+        "typo3/cms-core": "^9.5.4 || ^10.2",
+        "typo3/cms-extbase": "^9.5 || ^10.2",
+        "typo3/cms-fluid": "^9.5 || ^10.2",
+        "typo3/cms-frontend": "^9.5 || ^10.2"
     },
     "require-dev": {
         "codeception/codeception": "^3.0.3",
