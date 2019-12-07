@@ -24,6 +24,21 @@ jobs:
     - name: Run PHP lint
       run: composer ci:php:lint
 
+  typoscript-lint:
+    name: TypoScript linter
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Install Composer dependencies
+      run: composer install --no-progress
+
+    - name: Run PHP lint
+      run: composer ci:ts:lint
+
   php-code-sniffer:
     name: PHP Code Sniffer
 
