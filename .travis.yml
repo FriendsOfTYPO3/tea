@@ -47,11 +47,6 @@ script:
   echo "Running the functional tests";
   composer ci:tests:functional;
 
-- >
-  echo;
-  echo "Running PHP_CodeSniffer";
-  composer ci:php:sniff;
-
 jobs:
   include:
   - stage: test
