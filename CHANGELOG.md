@@ -46,6 +46,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of `roave/security-advisories`
 
 ### Fixed
+- Keep the global namespace clean in `ext_localconf.php` (#40)
 - Update the badge URLs in the README (#29, #22)
 - Fix code inspection warnings
 - Use the new annotations for lazy loading
