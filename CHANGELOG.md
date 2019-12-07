@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Composer script for PHP code sniffer fixing (#21)
 - Run the functional tests in parallel
 - Add PHP-CS-Fixer
 - Add support for PHP 7.3

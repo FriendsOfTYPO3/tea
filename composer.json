@@ -88,6 +88,7 @@
             "@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/tea\") || symlink(__DIR__,$extFolder);'"
         ],
         "fix:php-cs": "php-cs-fixer fix",
+        "fix:php-sniff": "phpcbf Classes Tests",
         "post-autoload-dump": [
             "@link-extension"
         ]
