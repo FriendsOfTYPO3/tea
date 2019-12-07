@@ -109,11 +109,15 @@ jobs:
 
     - name: Install lowest dependencies with composer
       if: matrix.composer-dependencies == 'lowest'
-      run: composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+      run: |
+        composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+        composer show
 
     - name: Install highest dependencies with composer
       if: matrix.composer-dependencies == 'highest'
-      run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+      run: |
+        composer update --no-ansi --no-interaction --no-progress --no-suggest
+        composer show
 
     - name: Run unit tests
       run: composer ci:tests:unit
