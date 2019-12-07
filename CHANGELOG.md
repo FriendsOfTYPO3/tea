@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP code sniffer fixing (#21)
 - Run the functional tests in parallel
 - Add PHP-CS-Fixer
-- Add support for PHP 7.3
+- Add support for PHP 7.3 and 7.4
 - Add support for TYPO3 9.6
 - Add PHP_CodeSniffer to the Travis CI build
 - Auto-release to the TER
