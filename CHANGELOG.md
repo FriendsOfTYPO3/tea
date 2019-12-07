@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Cache Composer dependencies in build (#31)
 - Add a status badge for GitHub actions (#32)
 - Composer script for PHP code sniffer fixing (#21)
 - Run the functional tests in parallel
