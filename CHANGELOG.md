@@ -16,7 +16,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
-- Moved PHP linting to GitHub actions (#12)
+- Move PHP code sniffing to GitHub actions (#13)
+- Move PHP linting to GitHub actions (#12)
 - Use `.typoscript` as file extension for TS files (#19)
 - Convert the PHP namespaces to "TTN" (#8)
 - Update the contact email in the CoC document (#6)
