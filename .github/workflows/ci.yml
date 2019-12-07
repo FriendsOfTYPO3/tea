@@ -80,6 +80,9 @@ jobs:
         typo3-version:
           - "^9.5"
           #- "^10.2"
+        composer-dependencies:
+          - highest
+          - lowest
         php-version:
           - 7.2
           - 7.3
@@ -104,8 +107,13 @@ jobs:
         composer require typo3/minimal:"$TYPO3"
         composer show
 
-    - name: Install Composer dependencies
-      run: composer install --no-progress
+    - name: Install lowest dependencies with composer
+      if: matrix.composer-dependencies == 'lowest'
+      run: composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+
+    - name: Install highest dependencies with composer
+      if: matrix.composer-dependencies == 'highest'
+      run: composer update --no-ansi --no-interaction --no-progress --no-suggest
 
     - name: Run unit tests
       run: composer ci:tests:unit
