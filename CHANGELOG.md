@@ -32,6 +32,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop obsolete parts from the README (#34)
 - Drop unneeded Travis CI configuration settings
 - Drop `ext_icon.svg`
 - Stop building with the lowest Composer dependencies
