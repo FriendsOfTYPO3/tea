@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace TTN\Tea\Tests\Unit\Controller;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
-use Prophecy\Prophecy\ObjectProphecy;
-use Prophecy\Prophecy\ProphecySubjectInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;

@@ -17,6 +17,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Switch from PSR-2 to PSR-12 (#3, #35)
 - Move TypoScript linting to GitHub actions (#14)
 - Move PHP code sniffing to GitHub actions (#13)
 - Move PHP linting to GitHub actions (#12)

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ruleset name="phpList Coding Standard">
     <description>
-        This standard requires PHP_CodeSniffer >= 3.4.0.
+        This standard requires PHP_CodeSniffer >= 3.5.3.
     </description>
 
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
-
-    <!--The complete PSR-2 rule set-->
-    <rule ref="PSR2"/>
 
     <!--The complete PSR-12 rule set-->
     <rule ref="PSR12"/>
