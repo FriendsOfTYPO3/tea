@@ -38,6 +38,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of `roave/security-advisories`
 
 ### Fixed
+- Update the badge URLs in the README (#29, #22)
 - Fix code inspection warnings
 - Use the new annotations for lazy loading
 - Update and pin the dev dependencies

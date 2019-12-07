@@ -1,10 +1,10 @@
 # Tea example
 
-[![Build Status](https://travis-ci.org/oliverklee/ext-tea.svg?branch=master)](https://travis-ci.org/oliverklee/ext-tea)
-[![Latest Stable Version](https://poser.pugx.org/oliverklee/tea/v/stable.svg)](https://packagist.org/packages/oliverklee/tea)
-[![Total Downloads](https://poser.pugx.org/oliverklee/tea/downloads.svg)](https://packagist.org/packages/oliverklee/tea)
-[![Latest Unstable Version](https://poser.pugx.org/oliverklee/tea/v/unstable.svg)](https://packagist.org/packages/oliverklee/tea)
-[![License](https://poser.pugx.org/oliverklee/tea/license.svg)](https://packagist.org/packages/oliverklee/tea)
+[![Build Status](https://travis-ci.org/typo3-trainer-network/tea.svg?branch=master)](https://travis-ci.org/typo3-trainer-network/tea)
+[![Latest Stable Version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
+[![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
+[![Latest Unstable Version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
+[![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
 
 This TYPO3 extension is an example for writing unit and functional tests for
 Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
