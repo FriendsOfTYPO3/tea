@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Use .typoscript as file extension for TS files
 - Convert the PHP namespaces to "TTN" (#8)
 - Update the contact email in the CoC document (#6)
 - Switch to the `TTN` PHP vendor namespace (#1, #5)
