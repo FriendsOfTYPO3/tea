@@ -19,18 +19,10 @@ at the [handout to my workshops on test-driven development (TDD)](https://github
 ## Running the unit tests from the command line
 
 ```bash
-.Build/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit/
+composer ci:tests:unit
 ```
 
 ## Running the tests in PhpStorm
-
-### General PHPUnit setup
-
-```bash
-composer require typo3/cms ^9.5
-composer install
-git checkout HEAD -- composer.json
-```
 
 File > Settings > Languages & Frameworks > PHP > Test Frameworks
 
@@ -41,10 +33,10 @@ In the Run configurations, edit the PHPUnit configuration and use these
 settings so this configuration can serve as a template:
 
 - Directory: use the `Tests/Unit` directory in your project
-- [x] Use alternative configuration file
+- (*) Use alternative configuration file
 - use `.Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml`
   in your project folder
-- Add the following environment variables:
+- add the following environment variables:
   - typo3DatabaseUsername
   - typo3DatabasePassword
   - typo3DatabaseHost
@@ -61,7 +53,7 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 In the Run configurations, copy the PHPUnit configuration and use these settings:
 
 - Directory: use the `Tests/Functional` directory in your project
-- [x] Use alternative configuration file
+- (x) Use alternative configuration file
 - use `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
 
 ### Running the acceptance tests
@@ -86,18 +78,6 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 For creating new extensions, I recommend taking
 [Helmut Hummel's extension skeleton](https://github.com/helhum/ext_scaffold)
 as a starting point.
-
-## About me (Oliver Klee)
-
-I am the maintainer of the
-[PHPUnit TYPO3 extension](http://typo3.org/extensions/repository/view/phpunit),
-which is available in the TYPO3 extension repository (TER).
-
-You can book me for
-[workshops](https://www.oliverklee.de/workshops/workshops.html)
-at your company.
-
-I also frequently give workshops at the TYPO3 Developer Days.
 
 ## More Documentation
 
