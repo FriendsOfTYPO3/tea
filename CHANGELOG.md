@@ -48,6 +48,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of `roave/security-advisories`
 
 ### Fixed
+- Use the PHP version from the matrix in the CI (#48)
 - Re-add the static TypoScript registration (#41)
 - Keep the global namespace clean in `ext_localconf.php` (#40)
 - Update the badge URLs in the `README` (#29, #22)

@@ -21,6 +21,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+
     - name: Run PHP lint
       run: composer ci:php:lint
 
@@ -29,9 +34,19 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        php-version:
+          - 7.3
+
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
 
     - name: "Cache dependencies installed with composer"
       uses: actions/cache@v1
@@ -52,9 +67,19 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        php-version:
+          - 7.3
+
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
 
     - name: "Cache dependencies installed with composer"
       uses: actions/cache@v1
@@ -91,6 +116,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
 
     - name: "Cache dependencies installed with composer"
       uses: actions/cache@v1
