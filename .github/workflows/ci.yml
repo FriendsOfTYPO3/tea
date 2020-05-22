@@ -107,7 +107,7 @@ jobs:
           #- "^10.2"
         composer-dependencies:
           - highest
-          - lowest
+#          - lowest
         php-version:
           - 7.2
           - 7.3

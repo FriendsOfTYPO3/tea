@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Disable running with lower dependencies on GitHub actions (#54)
 - Move the project to the TYPO3 Documentation Team (#47)
 - Run unit tests with GitHub actions (#37)
 - Switch from PSR-2 to PSR-12 (#3, #35)
