@@ -16,7 +16,6 @@ env:
 
 cache:
   directories:
-  - .Build/vendor
   - $HOME/.composer/cache
 
 before_install:
