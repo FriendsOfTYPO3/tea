@@ -30,7 +30,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Sort the Composer dependencies
 - Upgrade PHPUnit to 7.5.14
 - Change from GPL V3+ to GPL V2+
-- Streamline ext_emconf.php
+- Streamline `ext_emconf.php`
 
 ### Deprecated
 
@@ -48,7 +48,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Fixed
 - Re-add the static TypoScript registration (#41)
 - Keep the global namespace clean in `ext_localconf.php` (#40)
-- Update the badge URLs in the README (#29, #22)
+- Update the badge URLs in the `README` (#29, #22)
 - Fix code inspection warnings
 - Use the new annotations for lazy loading
 - Update and pin the dev dependencies
