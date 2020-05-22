@@ -35,6 +35,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop obsolete `dividers2tabs` from the TCA (#44)
 - Drop obsolete parts from the README (#34)
 - Drop unneeded Travis CI configuration settings
 - Drop `ext_icon.svg`

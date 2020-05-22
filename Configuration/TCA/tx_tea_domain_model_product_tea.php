@@ -8,7 +8,6 @@ $tca = [
         'cruser_id' => 'cruser_id',
         'delete' => 'deleted',
         'default_sortby' => 'title',
-        'dividers2tabs' => true,
         'iconfile' => 'EXT:tea/Resources/Public/Icons/Record.svg',
         'searchFields' => 'title, description',
     ],
