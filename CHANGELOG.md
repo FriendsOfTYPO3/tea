@@ -50,6 +50,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of `roave/security-advisories`
 
 ### Fixed
+- Fix warnings in the Travis CI configuration (#53)
 - Avoid unwanted higher PHP versions (#50)
 - Stop caching `vendor/` on Travis CI (#51)
 - Use the PHP version from the matrix in the CI (#48)
