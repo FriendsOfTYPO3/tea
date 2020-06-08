@@ -73,16 +73,19 @@ jobs:
   yaml-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Yaml lint
         uses: ibiqlik/action-yamllint@v1
 
   xml-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install xmllint
-      - run: sudo apt-get install libxml2-utils
+        run: sudo apt-get install libxml2-utils
       - name: Run lint
         run: xmllint ./*.xliff
 
