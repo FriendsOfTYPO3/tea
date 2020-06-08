@@ -19,10 +19,33 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: Run PHP lint
       run: composer ci:php:lint
+
+  php-cs-fixer:
+    name: PHP Codestyle fixer
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+
+      - name: Run PHP Codestyle check
+        run: composer ci:php:cgl
 
   typoscript-lint:
     name: TypoScript linter
@@ -31,10 +54,10 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: "Cache dependencies installed with composer"
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: ~/.composer/cache
         key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
@@ -47,6 +70,45 @@ jobs:
     - name: Run TypoScript lint
       run: composer ci:ts:lint
 
+  yaml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Yaml lint
+        uses: ibiqlik/action-yamllint@v1
+
+  xml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install xmllint
+      - run: sudo apt-get install libxml2-utils
+      - name: Run lint
+        run: xmllint ./*.xliff
+
+  json-lint:
+    name: Json linter
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+
+      - name: Run JSON lint
+        run: composer ci:json:lint
+
   php-code-sniffer:
     name: PHP Code Sniffer
 
@@ -54,10 +116,10 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: "Cache dependencies installed with composer"
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: ~/.composer/cache
         key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
@@ -78,8 +140,7 @@ jobs:
     strategy:
       matrix:
         typo3-version:
-          - "^9.5"
-          #- "^10.2"
+          - "^10.4"
         composer-dependencies:
           - highest
           - lowest
@@ -90,7 +151,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: "Cache dependencies installed with composer"
       uses: actions/cache@v1

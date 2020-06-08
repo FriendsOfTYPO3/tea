@@ -26,6 +26,7 @@
     },
     "require": {
         "php": "~7.2 || ~7.3 || ~7.4",
+        "seld/jsonlint": "^1.8",
         "typo3/cms-core": "^9.5.4 || ^10.2",
         "typo3/cms-extbase": "^9.5 || ^10.2",
         "typo3/cms-fluid": "^9.5 || ^10.2",
@@ -64,7 +65,9 @@
     },
     "scripts": {
         "ci:php:lint": "find *.php Classes/ Configuration/ Tests/ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+        "ci:php:cgl": "php-cs-fixer fix -v --dry-run --using-cache false --diff --diff-format=udiff",
         "ci:php:sniff": "phpcs Classes Tests",
+        "ci:json:lint": ".Build/vendor/bin/jsonlint ./*.json",
         "ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript/",
         "ci:tests:unit": "phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit/",
         "ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
