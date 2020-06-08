@@ -71,6 +71,7 @@ jobs:
       run: composer ci:ts:lint
 
   yaml-lint:
+    name: Yaml linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -90,7 +91,7 @@ jobs:
         run: xmllint ./*.xliff
 
   json-lint:
-    name: Json linter
+    name: JSON linter
 
     runs-on: ubuntu-latest
 
