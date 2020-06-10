@@ -82,6 +82,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: hallee/eslint-action@1.0.3
+        with:
+          files: Resources/Public/JavaScript
   style-lint:
     name: Styles linter
     runs-on: ubuntu-latest
