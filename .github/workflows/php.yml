@@ -95,7 +95,7 @@ jobs:
       - uses: actions-hub/stylelint@master
         env:
           INDENT_SPACES: 4
-          PATTERN: "Resources/Public/CSS/*.css
+          PATTERN: "Resources/Public/CSS/*.css"
   json-lint:
     name: JSON linter
     runs-on: ubuntu-latest
