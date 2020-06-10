@@ -1,85 +1,68 @@
-on:
+'on':
   - pull_request
   - push
-
 name: CI
-
 jobs:
   php-lint:
     name: PHP linter
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         php-version:
           - 7.2
           - 7.3
           - 7.4
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Run PHP lint
-      run: composer ci:php:lint
-
-  php-cs-fixer:
-    name: PHP Codestyle fixer
-
-    runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: "Cache dependencies installed with composer"
+      - name: Run PHP lint
+        run: 'composer ci:php:lint'
+  php-cs-fixer:
+    name: PHP Codestyle fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
           restore-keys: |
             php${{ matrix.php-version }}-composer-
-
       - name: Install Composer dependencies
         run: composer install --no-progress
-
       - name: Run PHP Codestyle check
-        run: composer ci:php:cgl
-
+        run: 'composer ci:php:cgl'
   typoscript-lint:
     name: TypoScript linter
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: "Cache dependencies installed with composer"
-      uses: actions/cache@v2
-      with:
-        path: ~/.composer/cache
-        key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
-        restore-keys: |
-          php${{ matrix.php-version }}-composer-
-
-    - name: Install Composer dependencies
-      run: composer install --no-progress
-
-    - name: Run TypoScript lint
-      run: composer ci:ts:lint
-
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+      - name: Run TypoScript lint
+        run: 'composer ci:ts:lint'
   yaml-lint:
     name: Yaml linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Yaml lint
         uses: ibiqlik/action-yamllint@v1
-
   xml-lint:
     runs-on: ubuntu-latest
     steps:
@@ -88,77 +71,65 @@ jobs:
       - name: Install xmllint
         run: sudo apt-get install libxml2-utils
       - name: Run lint
-        run: xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')
-
+        run: >-
+          xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources
+          -name '*.xlf')
   es-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: hallee/eslint-action@1.0.3
-
   style-lint:
     name: stylelint
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions-hub/stylelint@master
-
   json-lint:
     name: JSON linter
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: "Cache dependencies installed with composer"
+      - name: Cache dependencies installed with composer
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
           restore-keys: |
             php${{ matrix.php-version }}-composer-
-
       - name: Install Composer dependencies
         run: composer install --no-progress
-
       - name: Run JSON lint
-        run: composer ci:json:lint
-
+        run: 'composer ci:json:lint'
   php-code-sniffer:
     name: PHP Code Sniffer
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: "Cache dependencies installed with composer"
-      uses: actions/cache@v2
-      with:
-        path: ~/.composer/cache
-        key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
-        restore-keys: |
-          php${{ matrix.php-version }}-composer-
-
-    - name: Install Composer dependencies
-      run: composer install --no-progress
-
-    - name: Run PHP Code Sniffer
-      run: composer ci:php:sniff
-
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+      - name: Run PHP Code Sniffer
+        run: 'composer ci:php:sniff'
   unit-tests:
     name: Unit tests
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         typo3-version:
-          - "^10.4"
+          - ^10.4
         composer-dependencies:
           - highest
           - lowest
@@ -166,37 +137,35 @@ jobs:
           - 7.2
           - 7.3
           - 7.4
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+      - name: Install TYPO3 Core
+        env:
+          TYPO3: '${{ matrix.typo3-version }}'
+        run: |
+          composer require typo3/minimal:"$TYPO3"
+          composer show
+      - name: Install lowest dependencies with composer
+        if: matrix.composer-dependencies == 'lowest'
+        run: >
+          composer update --no-ansi --no-interaction --no-progress --no-suggest
+          --prefer-lowest
 
-    - name: "Cache dependencies installed with composer"
-      uses: actions/cache@v1
-      with:
-        path: ~/.composer/cache
-        key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
-        restore-keys: |
-          php${{ matrix.php-version }}-composer-
-
-    - name: Install TYPO3 Core
-      env:
-        TYPO3: ${{ matrix.typo3-version }}
-      run: |
-        composer require typo3/minimal:"$TYPO3"
-        composer show
-
-    - name: Install lowest dependencies with composer
-      if: matrix.composer-dependencies == 'lowest'
-      run: |
-        composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
-        composer show
-
-    - name: Install highest dependencies with composer
-      if: matrix.composer-dependencies == 'highest'
-      run: |
-        composer update --no-ansi --no-interaction --no-progress --no-suggest
-        composer show
-
-    - name: Run unit tests
-      run: composer ci:tests:unit
+          composer show
+      - name: Install highest dependencies with composer
+        if: matrix.composer-dependencies == 'highest'
+        run: |
+          composer update --no-ansi --no-interaction --no-progress --no-suggest
+          composer show
+      - name: Run unit tests
+        run: 'composer ci:tests:unit'
