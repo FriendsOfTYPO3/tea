@@ -1,3 +1,4 @@
+---
 'on':
   - pull_request
   - push
@@ -64,6 +65,7 @@ jobs:
       - name: Yaml lint
         uses: ibiqlik/action-yamllint@v1
   xml-lint:
+    name: XML linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -75,12 +77,13 @@ jobs:
           xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources
           -name '*.xlf')
   es-lint:
+    name: Javascript linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: hallee/eslint-action@1.0.3
   style-lint:
-    name: stylelint
+    name: Styles linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

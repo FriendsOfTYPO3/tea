@@ -1,3 +1,4 @@
+---
 sniffs:
   - class: Indentation
     parameters:
