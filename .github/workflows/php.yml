@@ -82,7 +82,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: hallee/eslint-action@1.0.3
+        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
         with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          source-root: optional-sub-dir
           files: Resources/Public/JavaScript
   style-lint:
     name: Styles linter
@@ -92,6 +95,7 @@ jobs:
       - uses: actions-hub/stylelint@master
         env:
           INDENT_SPACES: 4
+          PATTERN: "Resources/Public/CSS/*.css
   json-lint:
     name: JSON linter
     runs-on: ubuntu-latest
