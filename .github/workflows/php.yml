@@ -88,7 +88,21 @@ jobs:
       - name: Install xmllint
         run: sudo apt-get install libxml2-utils
       - name: Run lint
-        run: xmllint ./*.xliff
+        run: xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')
+
+  es-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hallee/eslint-action@1.0.3
+
+  style-lint:
+    name: stylelint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-hub/stylelint@master
 
   json-lint:
     name: JSON linter
