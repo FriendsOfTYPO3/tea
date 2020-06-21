@@ -15,17 +15,36 @@ jobs:
           - 7.4
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Run PHP lint
         run: 'composer ci:php:lint'
+  php-cs-fixer:
+    name: PHP Codestyle fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+      - name: Run PHP Codestyle check
+        run: 'composer ci:php:cgl'
   typoscript-lint:
     name: TypoScript linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Cache dependencies installed with composer
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.composer/cache
           key: >-
@@ -37,14 +56,72 @@ jobs:
         run: composer install --no-progress
       - name: Run TypoScript lint
         run: 'composer ci:ts:lint'
+  yaml-lint:
+    name: Yaml linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Yaml lint
+        uses: ibiqlik/action-yamllint@v1
+  xml-lint:
+    name: XML linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install xmllint
+        run: sudo apt-get install libxml2-utils
+      - name: Run lint
+        run: >-
+          xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources
+          -name '*.xlf')
+  es-lint:
+    name: Javascript linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hallee/eslint-action@1.0.3
+        if: ${{ github.event_name == 'push' ||
+          github.event.pull_request.head.repo.full_name == github.repository }}
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+  style-lint:
+    name: Styles linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-hub/stylelint@master
+        env:
+          INDENT_SPACES: 4
+          PATTERN: "Resources/Public/CSS/*.css"
+  json-lint:
+    name: JSON linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+      - name: Run JSON lint
+        run: 'composer ci:json:lint'
   php-code-sniffer:
     name: PHP Code Sniffer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Cache dependencies installed with composer
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.composer/cache
           key: >-
