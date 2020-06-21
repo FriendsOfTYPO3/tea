@@ -74,7 +74,7 @@ jobs:
         run: sudo apt-get install libxml2-utils
       - name: Run lint
         run: >-
-          xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources
+          xmllint --schema xliff-core-2.0.xsd --noout $(find Resources
           -name '*.xlf')
   es-lint:
     name: Javascript linter
