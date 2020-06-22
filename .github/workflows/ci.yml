@@ -94,8 +94,8 @@ jobs:
 
     - name: Run PHP Code Sniffer
       run: composer ci:php:sniff
-  xml-lint:
-    name: XML linter
+  xliff-lint:
+    name: Xliff linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -104,7 +104,7 @@ jobs:
         run: sudo apt-get install libxml2-utils
       - name: Run lint
         run: >-
-          xmllint --schema xliff-core-1.2-strict.xsd --noout $(find Resources
+          xmllint --schema .github/build/xliff-core-1.2-strict.xsd --noout $(find Resources
           -name '*.xlf')
   unit-tests:
     name: Unit tests
