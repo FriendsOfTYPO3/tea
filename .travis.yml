@@ -1,42 +1,52 @@
 ---
+sudo: false
+language: php
 addons:
   apt:
     packages:
       - parallel
-before_install:
-  - "phpenv config-rm xdebug.ini || echo \"xdebug not available\""
+services:
+  - mysql
+env:
+  global:
+    - >-
+      typo3DatabaseHost=localhost typo3DatabaseName=typo3
+      typo3DatabaseUsername=travis typo3DatabasePassword=''
 cache:
   directories:
     - $HOME/.composer/cache
-env:
-  global:
-    - "typo3DatabaseHost=localhost typo3DatabaseName=typo3 typo3DatabaseUsername=travis typo3DatabasePassword=''"
+before_install:
+  - phpenv config-rm xdebug.ini || echo "xdebug not available"
 install:
-  - "composer require typo3/minimal:\"$TYPO3\"; composer show;\n"
-  - "echo; echo \"Restoring the composer.json\"; git checkout .;\n"
+  - |
+    composer require typo3/minimal:"$TYPO3"; composer show;
+  - |
+    echo; echo "Restoring the composer.json"; git checkout .;
+script:
+  - |
+    echo; echo "Running the functional tests"; composer ci:tests:functional;
 jobs:
   include:
-    -
+    - stage: test
+      php: '7.3'
       env: TYPO3=^9.5
-      php: "7.3"
-      stage: test
-    -
+    - stage: test
+      php: '7.2'
       env: TYPO3=^9.5
-      php: "7.2"
-      stage: test
-    -
+    - stage: release to ter
+      if: >-
+        tag IS present AND env(TYPO3_ORG_USERNAME) IS present AND
+        env(TYPO3_ORG_PASSWORD) IS present
+      php: '7.2'
       before_install: skip
-      before_script: skip
-      if: "tag IS present AND env(TYPO3_ORG_USERNAME) IS present AND env(TYPO3_ORG_PASSWORD) IS present"
       install: skip
-      php: "7.2"
+      before_script: skip
       script:
-        - "echo; echo \"Preparing upload of release ${TRAVIS_TAG} to TER\"; echo; echo; composer global require helhum/ter-client;\n"
-        - "TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^[0-9.]*[ ]*//g'`; echo; echo \"Uploading release ${TRAVIS_TAG} to TER\"; echo; echo; $HOME/.composer/vendor/bin/ter-client upload tea . -u \"$TYPO3_ORG_USERNAME\" -p \"$TYPO3_ORG_PASSWORD\" -m \"$TAG_MESSAGE\";\n"
-      stage: "release to ter"
-language: php
-script:
-  - "echo; echo \"Running the functional tests\"; composer ci:tests:functional;\n"
-services:
-  - mysql
-sudo: false
+        - >
+          echo; echo "Preparing upload of release ${TRAVIS_TAG} to TER"; echo;
+          echo; composer global require helhum/ter-client;
+        - >
+          TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^[0-9.]*[ ]*//g'`;
+          echo; echo "Uploading release ${TRAVIS_TAG} to TER"; echo; echo;
+          $HOME/.composer/vendor/bin/ter-client upload tea . -u
+          "$TYPO3_ORG_USERNAME" -p "$TYPO3_ORG_PASSWORD" -m "$TAG_MESSAGE";
