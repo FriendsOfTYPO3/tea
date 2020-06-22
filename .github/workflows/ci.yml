@@ -94,7 +94,14 @@ jobs:
 
     - name: Run PHP Code Sniffer
       run: composer ci:php:sniff
-
+  yaml-lint:
+    name: Yaml linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Yaml lint
+        uses: ibiqlik/action-yamllint@v1
   unit-tests:
     name: Unit tests
 
