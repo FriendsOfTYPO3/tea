@@ -95,6 +95,26 @@ jobs:
     - name: Run PHP Code Sniffer
       run: composer ci:php:sniff
 
+  php-cs-fixer:
+    name: PHP Codestyle fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache
+          key: >-
+            php${{ matrix.php-version }}-composer-${{
+            hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+      - name: Run PHP Codestyle check
+        run: 'composer ci:php:cgl'
+
   unit-tests:
     name: Unit tests
 
