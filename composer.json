@@ -33,6 +33,7 @@
     },
     "require-dev": {
         "codeception/codeception": "^3.0.3",
+        "seld/jsonlint": "^1.8",
         "friendsofphp/php-cs-fixer": "^2.16.1",
         "helhum/typo3-composer-setup": "^0.5.4",
         "helmich/typo3-typoscript-lint": "^1.5.0",
