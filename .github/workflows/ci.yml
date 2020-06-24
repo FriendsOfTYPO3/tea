@@ -29,13 +29,16 @@ jobs:
     - name: Run PHP lint
       run: composer ci:php:lint
 
-  typoscript-lint:
-    name: TypoScript linter
+  code-quality:
+    name: Code quality checks
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
+        command:
+          - ts:lint
+          - php:sniff
         php-version:
           - 7.3
 
@@ -59,41 +62,8 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --no-progress
 
-    - name: Run TypoScript lint
-      run: composer ci:ts:lint
-
-  php-code-sniffer:
-    name: PHP Code Sniffer
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        php-version:
-          - 7.3
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Install PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-version }}
-
-    - name: "Cache dependencies installed with composer"
-      uses: actions/cache@v1
-      with:
-        path: ~/.composer/cache
-        key: php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}
-        restore-keys: |
-          php${{ matrix.php-version }}-composer-
-
-    - name: Install Composer dependencies
-      run: composer install --no-progress
-
-    - name: Run PHP Code Sniffer
-      run: composer ci:php:sniff
+    - name: Run command
+      run: composer ci:${{ matrix.command }}
 
   unit-tests:
     name: Unit tests
