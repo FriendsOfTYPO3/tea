@@ -94,6 +94,7 @@ jobs:
 
     - name: Run PHP Code Sniffer
       run: composer ci:php:sniff
+
   xliff-lint:
     name: Xliff linter
     runs-on: ubuntu-latest
@@ -106,6 +107,7 @@ jobs:
         run: >-
           xmllint --schema .github/build/xliff-core-1.2-strict.xsd --noout $(find Resources
           -name '*.xlf')
+
   unit-tests:
     name: Unit tests
 
