@@ -65,6 +65,16 @@ jobs:
     - name: Run command
       run: composer ci:${{ matrix.command }}
 
+  style-lint:
+    name: Styles linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-hub/stylelint@master
+        env:
+          INDENT_SPACES: 4
+          PATTERN: "Resources/Public/CSS/*.css"
+
   unit-tests:
     name: Unit tests
 
