@@ -13,7 +13,7 @@ build-composer-dependencies:
     - php -v
     - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
-    - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader --no-dev
+    - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader
     - composer license > licenses.txt
   tags:
     - docker
