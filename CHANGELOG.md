@@ -38,6 +38,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop the Travis CI builds (#56)
 - Drop obsolete `dividers2tabs` from the TCA (#44)
 - Drop obsolete parts from the README (#34)
 - Drop unneeded Travis CI configuration settings
@@ -50,6 +51,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of `roave/security-advisories`
 
 ### Fixed
+- Always use the Composer-installed tools (#49)
 - Avoid unwanted higher PHP versions (#50)
 - Stop caching `vendor/` on Travis CI (#51)
 - Use the PHP version from the matrix in the CI (#48)
