@@ -1,0 +1,56 @@
+--
+stages:
+  - build
+  - lint
+  - code_quality
+  - test
+
+build-composer-dependencies:
+  image: php:7.4
+  stage: build
+  variables:
+    COMPOSER_CACHE_DIR: '.composer'
+  before_script:
+    - php -v
+  script:
+    - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader --no-dev
+    - composer license > licenses.txt
+  tags:
+    - docker
+  artifacts:
+    when: on_success
+    expire_in: 2 weeks
+    paths:
+      - vendor
+      - public
+      - licenses.txt
+  cache:
+    paths:
+      - .composer
+
+php-lint:
+  image: php:7.4
+  stage: lint
+  script:
+    - composer ci:php:lint
+  tags:
+    - docker
+  allow_failure: true
+
+ts-lint:
+  image: php:7.4
+  stage: lint
+  script:
+    - composer install ci:ts:lint
+  tags:
+    - docker
+  allow_failure: true
+
+phpcs:
+  image: php:7.4
+  stage: code_quality
+  script:
+    - composer install ci:php:sniff
+  tags:
+    - docker
+  allow_failure: true
