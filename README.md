@@ -1,6 +1,5 @@
 # Tea example
 
-[![Build Status](https://travis-ci.org/typo3-trainer-network/tea.svg?branch=master)](https://travis-ci.org/typo3-trainer-network/tea)
 [![CI Status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg)](https://github.com/TYPO3-Documentation/tea/actions)
 [![Latest Stable Version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
 [![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
