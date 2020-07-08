@@ -14,3 +14,4 @@ curl --location --output /usr/local/bin/phpunit https://phar.phpunit.de/phpunit.
 chmod +x /usr/local/bin/phpunit
 
 docker-php-ext-install pdo_mysql
+docker-php-ext-install zip

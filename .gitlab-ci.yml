@@ -14,19 +14,17 @@ build-composer-dependencies:
     - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader
-    - composer license > licenses.txt
   tags:
     - docker
   artifacts:
     when: on_success
     expire_in: 2 weeks
     paths:
-      - vendor
-      - public
-      - licenses.txt
+      - .Build
   cache:
     paths:
       - .composer
+      - .Build
 
 php-lint:
   image: php:7.4
