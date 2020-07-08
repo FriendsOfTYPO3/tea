@@ -55,14 +55,6 @@ jobs:
           - "php:sniff"
         php-version:
           - 7.3
-  yaml-lint:
-    name: "Yaml linter"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: "Yaml lint"
-        uses: ibiqlik/action-yamllint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-latest
