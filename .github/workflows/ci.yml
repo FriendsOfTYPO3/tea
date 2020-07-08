@@ -53,6 +53,7 @@ jobs:
         command:
           - "ts:lint"
           - "php:sniff"
+          - "php:codestyle"
         php-version:
           - 7.3
   xliff-lint:
