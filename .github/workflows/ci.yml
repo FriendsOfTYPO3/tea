@@ -38,7 +38,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-
+          composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -54,6 +55,19 @@ jobs:
           - "php:sniff"
         php-version:
           - 7.3
+  xliff-lint:
+    name: "Xliff linter"
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: "Install xmllint"
+        run: "sudo apt-get install libxml2-utils"
+      -
+        name: "Run lint"
+        run: "xmllint --schema .github/build/xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')"
   yaml-lint:
     name: "Yaml linter"
     runs-on: ubuntu-latest
@@ -80,7 +94,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}
+               -composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -94,7 +109,8 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+          composer update --no-ansi --no-interaction |
+          --no-progress --no-suggest --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
@@ -131,7 +147,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}
+          -composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -145,7 +162,8 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+          composer update --no-ansi --no-interaction |
+          --no-progress --no-suggest --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
