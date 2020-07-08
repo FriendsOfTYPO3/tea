@@ -54,16 +54,17 @@ jobs:
           - "php:sniff"
         php-version:
           - 7.3
-  name: "Styles linter"
-  runs-on: ubuntu-latest
-  steps:
-    -
-      uses: actions/checkout@v2
-    -
-      uses: actions-hub/stylelint@master
-      env:
-        INDENT_SPACES: 4
-        PATTERN: Resources/Public/CSS/*.css
+  style-lint:
+    name: "Styles linter"
+    runs-on: ubuntu-latest
+    steps:
+      -
+        uses: actions/checkout@v2
+      -
+        uses: actions-hub/stylelint@master
+        env:
+          INDENT_SPACES: 4
+          PATTERN: Resources/Public/CSS/*.css
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-latest
