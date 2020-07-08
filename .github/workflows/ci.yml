@@ -67,7 +67,8 @@ jobs:
         run: "sudo apt-get install libxml2-utils"
       -
         name: "Run lint"
-        run: "xmllint --schema .github/build/xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')"
+        run: "xmllint --schema .github/build/xliff-core-1.2-strict.xsd
+              --noout $(find Resources -name '*.xlf')"
   yaml-lint:
     name: "Yaml linter"
     runs-on: ubuntu-latest
