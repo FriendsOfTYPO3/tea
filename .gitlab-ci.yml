@@ -47,7 +47,7 @@ ts-lint:
     - php -v
     - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
-    - composer install ci:ts:lint
+    - composer ci:ts:lint
   tags:
     - docker
   allow_failure: true
@@ -59,7 +59,7 @@ phpcs:
     - php -v
     - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
-    - composer install ci:php:sniff
+    - composer ci:php:sniff
   tags:
     - docker
   allow_failure: true
