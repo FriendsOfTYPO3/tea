@@ -61,3 +61,57 @@ phpcs:
   tags:
     - docker
   allow_failure: true
+
+unit-tests-php7.4:
+  image: php:7.4
+  stage: test
+  before_script:
+    - php -v
+    - bash .gitlab/ci/docker_install.sh > /dev/null
+  script:
+    - composer ci:tests:unit
+  tags:
+    - docker
+  allow_failure: true
+unit-tests-php7.3:
+  image: php:7.3
+  stage: test
+  before_script:
+    - php -v
+    - bash .gitlab/ci/docker_install.sh > /dev/null
+  script:
+    - composer ci:tests:unit
+  tags:
+    - docker
+  allow_failure: true
+
+functional-tests-php7.4:
+  image: php:7.4
+  stage: test
+  before_script:
+    - php -v
+    - bash .gitlab/ci/docker_install.sh > /dev/null
+  script:
+    - export typo3DatabaseName="typo3";
+    - export typo3DatabaseHost="127.0.0.1";
+    - export typo3DatabaseUsername="root";
+    - export typo3DatabasePassword="root";
+    - composer ci:tests:functional
+  tags:
+    - docker
+  allow_failure: true
+functional-tests-php7.3:
+  image: php:7.3
+  stage: test
+  before_script:
+    - php -v
+    - bash .gitlab/ci/docker_install.sh > /dev/null
+  script:
+    - export typo3DatabaseName="typo3";
+    - export typo3DatabaseHost="127.0.0.1";
+    - export typo3DatabaseUsername="root";
+    - export typo3DatabasePassword="root";
+    - composer ci:tests:functional
+  tags:
+    - docker
+  allow_failure: true
