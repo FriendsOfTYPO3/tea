@@ -38,7 +38,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-
+          composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -83,7 +84,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}
+               -composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -97,7 +99,8 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+          composer update --no-ansi --no-interaction |
+          --no-progress --no-suggest --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
@@ -134,7 +137,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}
+          -composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -148,7 +152,8 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest
+          composer update --no-ansi --no-interaction |
+          --no-progress --no-suggest --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
