@@ -38,7 +38,8 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-
+          composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -54,6 +55,14 @@ jobs:
           - "php:sniff"
         php-version:
           - 7.3
+  yaml-lint:
+    name: "Yaml linter"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Yaml lint"
+        uses: ibiqlik/action-yamllint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-latest
