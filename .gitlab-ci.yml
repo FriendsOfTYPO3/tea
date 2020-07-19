@@ -4,14 +4,16 @@ stages:
   - code_quality
   - test
 
+default:
+  before_script:
+    - php -v
+    - bash .gitlab/build/docker_install.sh > /dev/null
+
 build-composer-dependencies:
   image: php:7.4
   stage: build
   variables:
     COMPOSER_CACHE_DIR: '.composer'
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader
   tags:
@@ -29,9 +31,6 @@ build-composer-dependencies:
 php-lint:
   image: php:7.4
   stage: lint
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - composer ci:php:lint
   tags:
@@ -41,9 +40,6 @@ php-lint:
 ts-lint:
   image: php:7.4
   stage: lint
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - composer ci:ts:lint
   tags:
@@ -53,9 +49,6 @@ ts-lint:
 phpcs:
   image: php:7.4
   stage: code_quality
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - composer ci:php:sniff
   tags:
@@ -65,9 +58,6 @@ phpcs:
 unit-tests-php7.4:
   image: php:7.4
   stage: test
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - composer ci:tests:unit
   tags:
@@ -76,9 +66,6 @@ unit-tests-php7.4:
 unit-tests-php7.3:
   image: php:7.3
   stage: test
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - composer ci:tests:unit
   tags:
@@ -88,9 +75,6 @@ unit-tests-php7.3:
 functional-tests-php7.4:
   image: php:7.4
   stage: test
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - export typo3DatabaseName="typo3";
     - export typo3DatabaseHost="127.0.0.1";
@@ -103,9 +87,6 @@ functional-tests-php7.4:
 functional-tests-php7.3:
   image: php:7.3
   stage: test
-  before_script:
-    - php -v
-    - bash .gitlab/ci/docker_install.sh > /dev/null
   script:
     - export typo3DatabaseName="typo3";
     - export typo3DatabaseHost="127.0.0.1";
