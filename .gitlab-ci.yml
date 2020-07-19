@@ -63,6 +63,7 @@ unit-tests-php7.4:
   tags:
     - docker
   allow_failure: true
+
 unit-tests-php7.3:
   image: php:7.3
   stage: test
@@ -73,25 +74,34 @@ unit-tests-php7.3:
   allow_failure: true
 
 functional-tests-php7.4:
+  services:
+    - mariadb:10
   image: php:7.4
   stage: test
+  variables:
+    MYSQL_ROOT_PASSWORD: root
+    typo3DatabaseName: typo3
+    typo3DatabaseHost: mariadb
+    typo3DatabaseUsername: root
+    typo3DatabasePassword: root
   script:
-    - export typo3DatabaseName="typo3";
-    - export typo3DatabaseHost="127.0.0.1";
-    - export typo3DatabaseUsername="root";
-    - export typo3DatabasePassword="root";
     - composer ci:tests:functional
   tags:
     - docker
   allow_failure: true
+
 functional-tests-php7.3:
+  services:
+    - mariadb:10
   image: php:7.3
   stage: test
+  variables:
+    MYSQL_ROOT_PASSWORD: root
+    typo3DatabaseName: typo3
+    typo3DatabaseHost: mariadb
+    typo3DatabaseUsername: root
+    typo3DatabasePassword: root
   script:
-    - export typo3DatabaseName="typo3";
-    - export typo3DatabaseHost="127.0.0.1";
-    - export typo3DatabaseUsername="root";
-    - export typo3DatabasePassword="root";
     - composer ci:tests:functional
   tags:
     - docker
