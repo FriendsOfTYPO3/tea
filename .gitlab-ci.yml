@@ -16,7 +16,6 @@ build-composer-dependencies:
     COMPOSER_CACHE_DIR: '.composer'
   script:
     - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader
-    - composer require typo3/minimal:"^9.5"
   tags:
     - docker
   artifacts:
