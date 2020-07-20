@@ -48,6 +48,16 @@ ts-lint:
     - docker
   allow_failure: true
 
+xliff-lint:
+  image: debian:stretch-slim
+  stage: lint
+  script:
+    - xmllint --schema .github/build/xliff-core-1.2-strict.xsd
+      --noout $(find Resources -name '*.xlf')
+  tags:
+    - docker
+  allow_failure: true
+
 phpcs:
   image: php:7.4
   stage: code_quality
