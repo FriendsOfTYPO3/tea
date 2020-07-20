@@ -48,11 +48,20 @@ ts-lint:
     - docker
   allow_failure: true
 
+json-lint:
+  image: php:7.4
+  stage: lint
+  script:
+    - composer ci:json:lint
+  tags:
+    - docker
+  allow_failure: true
+
 xliff-lint:
   image: php:7.4
   stage: lint
   script:
-    - xmllint --schema .github/build/xliff-core-1.2-strict.xsd
+    - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
   tags:
     - docker
