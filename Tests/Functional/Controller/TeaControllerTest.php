@@ -58,7 +58,7 @@ class TeaControllerTest extends FunctionalTestCase
     {
         $typoscriptTemplatePath = 'EXT:fluid_styled_content/Configuration/TypoScript/setup.';
 
-        if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 10000000) {
+        if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 10000000) {
             $extension = 'typoscript';
         } else {
             $extension = 'txt';
