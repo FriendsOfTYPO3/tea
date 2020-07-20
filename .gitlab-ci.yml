@@ -1,3 +1,4 @@
+---
 stages:
   - build
   - lint
@@ -15,7 +16,8 @@ build-composer-dependencies:
   variables:
     COMPOSER_CACHE_DIR: '.composer'
   script:
-    - COMPOSER_CACHE_DIR=.composer composer install --prefer-dist --no-progress --optimize-autoloader
+    - COMPOSER_CACHE_DIR=.composer
+      composer install --prefer-dist --no-progress --optimize-autoloader
   tags:
     - docker
   artifacts:
