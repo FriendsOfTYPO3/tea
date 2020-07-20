@@ -7,6 +7,7 @@ stages:
 
 default:
   before_script:
+    - php -v
     - bash .gitlab/build/docker_install.sh > /dev/null
 
 build-composer-dependencies:
@@ -48,7 +49,7 @@ ts-lint:
   allow_failure: true
 
 xliff-lint:
-  image: debian:stretch-slim
+  image: php:7.4
   stage: lint
   script:
     - xmllint --schema .github/build/xliff-core-1.2-strict.xsd
