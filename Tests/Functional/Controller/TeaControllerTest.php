@@ -33,7 +33,7 @@ class TeaControllerTest extends FunctionalTestCase
         $this->setUpFrontendRootPage(
             1,
             [
-                'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript',
+                $this->getFluidStyledContentTyposcriptTemplate(),
                 'EXT:tea/Configuration/TypoScript/setup.typoscript',
                 'EXT:tea/Tests/Functional/Controller/Fixtures/Frontend/Basic.typoscript',
             ]
@@ -49,5 +49,21 @@ class TeaControllerTest extends FunctionalTestCase
 
         $teaTitle = 'Earl Grey';
         self::assertContains($teaTitle, $responseContent);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getFluidStyledContentTyposcriptTemplate(): string
+    {
+        $typoscriptTemplatePath = 'EXT:fluid_styled_content/Configuration/TypoScript/setup.';
+
+        if(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 10000000) {
+            $extension = 'typoscript';
+        } else {
+            $extension = 'txt';
+        }
+
+        return $typoscriptTemplatePath . $extension;
     }
 }
