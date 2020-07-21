@@ -68,7 +68,7 @@ jobs:
         run: cd Resources/Public | yarn
       -
         name: "Run command"
-        run: "yarn ${{ matrix.command }}"
+        run: "cd Resources/Public | yarn ${{ matrix.command }}"
     strategy:
       matrix:
         command:
