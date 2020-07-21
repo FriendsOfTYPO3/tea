@@ -65,9 +65,11 @@ jobs:
         uses: actions/checkout@v2
       -
         name: "Install modules"
-        run: cd Resources/Public | yarn
+        working-directory: ./Resources/Public
+        run: yarn
       -
         name: "Run command"
+        working-directory: ./Resources/Public
         run: "cd Resources/Public | yarn ${{ matrix.command }}"
     strategy:
       matrix:
