@@ -52,6 +52,7 @@ jobs:
       matrix:
         command:
           - "ts:lint"
+          - "json:lint"
           - "php:sniff"
           - "php:codestyle"
         php-version:
