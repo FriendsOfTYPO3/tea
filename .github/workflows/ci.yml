@@ -58,13 +58,16 @@ jobs:
           - 7.3
   code-quality-frontend:
     name: "Code quality frontend checks"
-    runs-on: node:latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      -
+        name: Checkout
         uses: actions/checkout@v2
-      - name: "Install modules"
+      -
+        name: "Install modules"
         run: cd Resources/Public | yarn
-      - name: "Run command"
+      -
+        name: "Run command"
         run: "yarn ${{ matrix.command }}"
     strategy:
       matrix:
