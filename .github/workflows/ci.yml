@@ -56,6 +56,22 @@ jobs:
           - "php:codestyle"
         php-version:
           - 7.3
+  code-quality-frontend:
+    name: "Code quality frontend checks"
+    runs-on: node:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Install modules"
+        run: cd Resources/Public
+        run: yarn
+      - name: "Run command"
+        run: "yarn ${{ matrix.command }}"
+    strategy:
+      matrix:
+        command:
+          - "stylelint"
+          - "jslint"
   xliff-lint:
     name: "Xliff linter"
     runs-on: ubuntu-latest
