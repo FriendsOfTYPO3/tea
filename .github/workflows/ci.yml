@@ -70,12 +70,12 @@ jobs:
       -
         name: "Run command"
         working-directory: ./Resources/Public
-        run: "cd Resources/Public | yarn ${{ matrix.command }}"
+        run: "yarn lint:${{ matrix.command }}"
     strategy:
       matrix:
         command:
-          - "stylelint"
-          - "jslint"
+          - "style"
+          - "js"
   xliff-lint:
     name: "Xliff linter"
     runs-on: ubuntu-latest
