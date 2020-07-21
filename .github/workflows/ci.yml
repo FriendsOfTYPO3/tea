@@ -63,8 +63,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: "Install modules"
-        run: cd Resources/Public
-        run: yarn
+        run: cd Resources/Public | yarn
       - name: "Run command"
         run: "yarn ${{ matrix.command }}"
     strategy:
