@@ -10,6 +10,12 @@ default:
     - php -v
     - bash .gitlab/build/docker_install.sh > /dev/null
 
+include:
+  - template: DAST.gitlab-ci.yml
+  - template: License-Management.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
+
 build-composer-dependencies:
   image: php:7.4
   stage: build
@@ -106,4 +112,11 @@ functional-tests-php7.3:
     typo3DatabasePassword: root
   script:
     - composer ci:tests:functional
+  allow_failure: true
+
+security-test:
+  image: php:7.4
+  stage: test
+  script:
+    - security-checker security:check
   allow_failure: true
