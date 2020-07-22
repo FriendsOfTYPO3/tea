@@ -11,6 +11,7 @@ include:
   - template: Code-Quality.gitlab-ci.yml
 
 default:
+  image: php:7.4
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
 variables:
@@ -21,7 +22,6 @@ variables:
   typo3DatabasePassword: root
 
 build-composer-dependencies:
-  image: php:7.4
   stage: build
   variables:
     COMPOSER_CACHE_DIR: '.composer'
@@ -39,28 +39,24 @@ build-composer-dependencies:
       - .Build
 
 php-lint:
-  image: php:7.4
   stage: lint
   script:
     - composer ci:php:lint
   allow_failure: true
 
 ts-lint:
-  image: php:7.4
   stage: lint
   script:
     - composer ci:ts:lint
   allow_failure: true
 
 json-lint:
-  image: php:7.4
   stage: lint
   script:
     - composer ci:json:lint
   allow_failure: true
 
 xliff-lint:
-  image: php:7.4
   stage: lint
   script:
     - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
@@ -68,14 +64,12 @@ xliff-lint:
   allow_failure: true
 
 phpcs:
-  image: php:7.4
   stage: code_quality
   script:
     - composer ci:php:sniff
   allow_failure: true
 
 unit-tests-php7.4:
-  image: php:7.4
   stage: test
   script:
     - composer ci:tests:unit
@@ -98,7 +92,6 @@ unit-tests-php7.2:
 functional-tests-php7.4:
   services:
     - mariadb:10
-  image: php:7.4
   stage: test
   script:
     - composer ci:tests:functional
@@ -120,11 +113,4 @@ functional-tests-php7.2:
   stage: test
   script:
     - composer ci:tests:functional
-  allow_failure: true
-
-security-test:
-  image: php:7.4
-  stage: test
-  script:
-    - security-checker security:check
   allow_failure: true
