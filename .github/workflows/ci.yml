@@ -195,3 +195,15 @@ jobs:
           - 7.4
         typo3-version:
           - ^9.5
+  security-test:
+    name: "PHP Security test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+      - name: "Run PHP Security test"
+        run: "composer ci:tests:security"
