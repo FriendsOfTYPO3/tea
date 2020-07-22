@@ -212,6 +212,8 @@ jobs:
                -composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
+      - name: "Install Composer dependencies"
+        run: "composer install --no-progress"
       - name: "Run PHP Security test"
         run: "composer ci:tests:security"
     strategy:
