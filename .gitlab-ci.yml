@@ -11,7 +11,6 @@ default:
     - bash .gitlab/build/docker_install.sh > /dev/null
 
 include:
-  - template: DAST.gitlab-ci.yml
   - template: License-Management.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
   - template: Code-Quality.gitlab-ci.yml
