@@ -204,6 +204,17 @@ jobs:
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: "${{ matrix.php-version }}"
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v1
+        with:
+          key: "php${{ matrix.php-version }}
+               -composer-${{ hashFiles('**/composer.json') }}"
+          path: ~/.composer/cache
+          restore-keys: "php${{ matrix.php-version }}-composer-\n"
       - name: "Run PHP Security test"
         run: "composer ci:tests:security"
+    strategy:
+      matrix:
+        php-version:
+          - 7.4
