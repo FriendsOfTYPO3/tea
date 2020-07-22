@@ -6,6 +6,12 @@ stages:
   - test
 
 default:
+  variables:
+    MYSQL_ROOT_PASSWORD: root
+    typo3DatabaseName: typo3
+    typo3DatabaseHost: mariadb
+    typo3DatabaseUsername: root
+    typo3DatabasePassword: root
   before_script:
     - php -v
     - bash .gitlab/build/docker_install.sh > /dev/null
@@ -83,17 +89,18 @@ unit-tests-php7.3:
     - composer ci:tests:unit
   allow_failure: true
 
+unit-tests-php7.2:
+  image: php:7.2
+  stage: test
+  script:
+    - composer ci:tests:unit
+  allow_failure: true
+
 functional-tests-php7.4:
   services:
     - mariadb:10
   image: php:7.4
   stage: test
-  variables:
-    MYSQL_ROOT_PASSWORD: root
-    typo3DatabaseName: typo3
-    typo3DatabaseHost: mariadb
-    typo3DatabaseUsername: root
-    typo3DatabasePassword: root
   script:
     - composer ci:tests:functional
   allow_failure: true
@@ -103,12 +110,15 @@ functional-tests-php7.3:
     - mariadb:10
   image: php:7.3
   stage: test
-  variables:
-    MYSQL_ROOT_PASSWORD: root
-    typo3DatabaseName: typo3
-    typo3DatabaseHost: mariadb
-    typo3DatabaseUsername: root
-    typo3DatabasePassword: root
+  script:
+    - composer ci:tests:functional
+  allow_failure: true
+
+functional-tests-php7.2:
+  services:
+    - mariadb:10
+  image: php:7.2
+  stage: test
   script:
     - composer ci:tests:functional
   allow_failure: true
