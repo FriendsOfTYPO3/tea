@@ -18,8 +18,6 @@ build-composer-dependencies:
   script:
     - COMPOSER_CACHE_DIR=.composer
       composer install --prefer-dist --no-progress --optimize-autoloader
-  tags:
-    - docker
   artifacts:
     when: on_success
     expire_in: 2 weeks
@@ -35,8 +33,6 @@ php-lint:
   stage: lint
   script:
     - composer ci:php:lint
-  tags:
-    - docker
   allow_failure: true
 
 ts-lint:
@@ -44,8 +40,6 @@ ts-lint:
   stage: lint
   script:
     - composer ci:ts:lint
-  tags:
-    - docker
   allow_failure: true
 
 json-lint:
@@ -53,8 +47,6 @@ json-lint:
   stage: lint
   script:
     - composer ci:json:lint
-  tags:
-    - docker
   allow_failure: true
 
 xliff-lint:
@@ -63,8 +55,6 @@ xliff-lint:
   script:
     - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
-  tags:
-    - docker
   allow_failure: true
 
 phpcs:
@@ -72,8 +62,6 @@ phpcs:
   stage: code_quality
   script:
     - composer ci:php:sniff
-  tags:
-    - docker
   allow_failure: true
 
 unit-tests-php7.4:
@@ -81,8 +69,6 @@ unit-tests-php7.4:
   stage: test
   script:
     - composer ci:tests:unit
-  tags:
-    - docker
   allow_failure: true
 
 unit-tests-php7.3:
@@ -90,8 +76,6 @@ unit-tests-php7.3:
   stage: test
   script:
     - composer ci:tests:unit
-  tags:
-    - docker
   allow_failure: true
 
 functional-tests-php7.4:
@@ -107,8 +91,6 @@ functional-tests-php7.4:
     typo3DatabasePassword: root
   script:
     - composer ci:tests:functional
-  tags:
-    - docker
   allow_failure: true
 
 functional-tests-php7.3:
@@ -124,6 +106,4 @@ functional-tests-php7.3:
     typo3DatabasePassword: root
   script:
     - composer ci:tests:functional
-  tags:
-    - docker
   allow_failure: true
