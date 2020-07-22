@@ -9,8 +9,8 @@
   "version": "1.0.0",
   "license": "ISC",
   "scripts": {
-    "lint:js": "eslint '../Public/*/**/*.{js,ts,tsx}'",
-    "lint:js:fix": "eslint '../Public/*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint:js": "eslint --config .eslintrc.json '../Public/*/**/*.{js,ts,tsx}'",
+    "lint:js:fix": "eslint --config .eslintrc.json '../Public/*/**/*.{js,ts,tsx}' --quiet --fix",
     "lint:style": "stylelint --config stylelint.config.js ../Public/*/*.{css,scss,less}",
     "lint:style:fix": "stylelint --config stylelint.config.js ../Public/*/*.{css,scss,less} --fix"
   },
