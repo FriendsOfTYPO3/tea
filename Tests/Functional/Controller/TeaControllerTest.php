@@ -34,7 +34,8 @@ class TeaControllerTest extends FunctionalTestCase
         $this->setUpFrontendRootPage(
             1,
             [
-                $this->getFluidStyledContentTyposcriptTemplatePath(),
+                'EXT:fluid_styled_content/Configuration/TypoScript/setup.'
+                . ($this->isTYPO3VersionAbove10() ? 'typoscript' : 'txt'),
                 'EXT:tea/Configuration/TypoScript/setup.typoscript',
                 'EXT:tea/Tests/Functional/Controller/Fixtures/Frontend/Basic.typoscript',
             ]
@@ -53,18 +54,10 @@ class TeaControllerTest extends FunctionalTestCase
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    protected function getFluidStyledContentTyposcriptTemplatePath(): string
+    protected function isTYPO3VersionAbove10(): bool
     {
-        $typoscriptTemplatePath = 'EXT:fluid_styled_content/Configuration/TypoScript/setup.';
-
-        if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 10000000) {
-            $extension = 'typoscript';
-        } else {
-            $extension = 'txt';
-        }
-
-        return $typoscriptTemplatePath . $extension;
+        return VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 10000000;
     }
 }
