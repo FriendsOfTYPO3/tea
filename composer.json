@@ -40,7 +40,8 @@
         "phpunit/phpunit": "^7.5.20",
         "squizlabs/php_codesniffer": "^3.5.5",
         "typo3/cms-fluid-styled-content": "^9.5 || 10.4",
-        "seld/jsonlint": "^1.8"
+        "seld/jsonlint": "^1.8",
+        "phpdocumentor/reflection-docblock": "5.1"
     },
     "replace": {
         "typo3-ter/tea": "self.version"
