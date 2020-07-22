@@ -9,10 +9,10 @@
   "version": "1.0.0",
   "license": "ISC",
   "scripts": {
-    "lint:js": "eslint '*/**/*.{js,ts,tsx}'",
-    "lint:js:fix": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "lint:style": "stylelint --config stylelint.config.js */*.{css,scss,less}",
-    "lint:style:fix": "stylelint --config stylelint.config.js */*.{css,scss,less} --fix"
+    "lint:js": "eslint '../Public/*/**/*.{js,ts,tsx}'",
+    "lint:js:fix": "eslint '../Public/*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint:style": "stylelint --config stylelint.config.js ../Public/*/*.{css,scss,less}",
+    "lint:style:fix": "stylelint --config stylelint.config.js ../Public/*/*.{css,scss,less} --fix"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.0",

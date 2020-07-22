@@ -4,7 +4,7 @@
 /composer.lock
 /nbproject
 /var
-/Resources/Public/node_modules/
-/Resources/Public/yarn.lock
-/Resources/Public/yarn-error.log
-/Resources/Public/package-lock.json
+/Resources/Private/node_modules/
+/Resources/Private/yarn.lock
+/Resources/Private/yarn-error.log
+/Resources/Private/package-lock.json
