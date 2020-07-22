@@ -14,6 +14,7 @@ default:
   image: php:7.4
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
+
 variables:
   MYSQL_ROOT_PASSWORD: root
   typo3DatabaseName: typo3
@@ -114,3 +115,15 @@ functional-tests-php7.2:
   script:
     - composer ci:tests:functional
   allow_failure: true
+
+code_quality:
+  before_script: []
+
+eslint-sast:
+  before_script: []
+
+phpcs-security-audit-sast:
+  before_script: []
+
+secrets-sast:
+  before_script: []
