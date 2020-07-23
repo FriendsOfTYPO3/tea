@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TTN\Tea\Tests\Functional\Controller;
 
 use Nimut\TestingFramework\TestCase\FunctionalTestCase;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 /**
  * Test case.
@@ -33,7 +34,8 @@ class TeaControllerTest extends FunctionalTestCase
         $this->setUpFrontendRootPage(
             1,
             [
-                'EXT:fluid_styled_content/Configuration/TypoScript/setup.txt',
+                'EXT:fluid_styled_content/Configuration/TypoScript/setup.'
+                . ($this->isTYPO3VersionAbove10() ? 'typoscript' : 'txt'),
                 'EXT:tea/Configuration/TypoScript/setup.typoscript',
                 'EXT:tea/Tests/Functional/Controller/Fixtures/Frontend/Basic.typoscript',
             ]
@@ -49,5 +51,13 @@ class TeaControllerTest extends FunctionalTestCase
 
         $teaTitle = 'Earl Grey';
         self::assertContains($teaTitle, $responseContent);
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isTYPO3VersionAbove10(): bool
+    {
+        return VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 10000000;
     }
 }
