@@ -56,7 +56,7 @@ jobs:
           - "php:sniff"
           - "php:codestyle"
         php-version:
-          - 7.3
+          - 7.4
   xliff-lint:
     name: "Xliff linter"
     runs-on: ubuntu-latest
