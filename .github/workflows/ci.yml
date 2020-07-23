@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -28,7 +28,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       -
         name: "Install PHP"
         uses: shivammathur/setup-php@v2
@@ -52,10 +52,11 @@ jobs:
       matrix:
         command:
           - "ts:lint"
+          - "json:lint"
           - "php:sniff"
           - "php:codestyle"
         php-version:
-          - 7.3
+          - 7.4
   xliff-lint:
     name: "Xliff linter"
     runs-on: ubuntu-latest
@@ -86,7 +87,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       -
         name: "Install PHP"
         uses: shivammathur/setup-php@v2
@@ -133,13 +134,14 @@ jobs:
           - 7.4
         typo3-version:
           - ^9.5
+          - ^10.4
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       -
         name: "Install PHP"
         uses: shivammathur/setup-php@v2
@@ -194,3 +196,4 @@ jobs:
           - 7.4
         typo3-version:
           - ^9.5
+          - ^10.4
