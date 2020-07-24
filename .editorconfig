@@ -1,0 +1,65 @@
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# HTML-Files
+[*.html]
+indent_style = space
+indent_size = 4
+
+# CSS-Files
+[*.css]
+indent_style = space
+indent_size = 4
+
+
+# LESS-Files
+[*.less]
+indent_style = space
+indent_size = 4
+
+# SCSS-Files
+[*.scss]
+indent_style = tab
+indent_size = 2
+
+# JS-Files
+[*.js]
+indent_style = space
+indent_size = 4
+
+# PHP-Files
+[*.php]
+indent_style = space
+indent_size = 4
+
+# MD-Files
+[*.md]
+indent_style = space
+indent_size = 4
+
+# ReST-Files
+[*.rst]
+indent_style = space
+indent_size = 3
+
+# TypoScript-Files
+[*.typoscript,*.ts]
+indent_style = space
+indent_size = 4
+
+# YML-Files
+[{*.yml,*.yaml}]
+indent_style = space
+indent_size = 2
+
+# JSON-Files
+[{*.jsonl}]
+indent_style = space
+indent_size = 2
