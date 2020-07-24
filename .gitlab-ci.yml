@@ -25,6 +25,26 @@ build-composer-dependencies:
       - .composer
       - .Build
 
+php-lint-php7.4:
+  stage: lint
+  script:
+    - composer ci:php:lint
+  allow_failure: true
+
+php-lint-php7.3:
+  image: php:7.3
+  stage: lint
+  script:
+    - composer ci:php:lint
+  allow_failure: true
+
+php-lint-php7.2:
+  image: php:7.3
+  stage: lint
+  script:
+    - composer ci:php:lint
+  allow_failure: true
+
 php-lint:
   stage: lint
   script:
