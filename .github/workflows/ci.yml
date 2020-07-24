@@ -162,7 +162,7 @@ jobs:
         run: |
           composer require typo3/minimal:"$TYPO3"
           composer show
-      -
+      -saasas
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |

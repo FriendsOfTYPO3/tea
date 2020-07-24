@@ -6,7 +6,6 @@ stages:
 default:
   image: php:7.4
   before_script:
-    - ls -lah
     - bash .gitlab/build/docker_install.sh > /dev/null
 
 build-composer-dependencies:
@@ -49,4 +48,10 @@ xliff-lint:
   script:
     - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
+  allow_failure: true
+
+yaml-lint:
+  stage: lint
+  script:
+    - find . -name '*.json' -not -path '*.Build/*' | xargs yamllint -d relaxed
   allow_failure: true
