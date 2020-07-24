@@ -43,15 +43,15 @@ json-lint:
     - composer ci:json:lint
   allow_failure: true
 
+yaml-lint:
+  stage: lint
+  script:
+    - composer ci:yaml:lint
+  allow_failure: true
+
 xliff-lint:
   stage: lint
   script:
     - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
-  allow_failure: true
-
-yaml-lint:
-  stage: lint
-  script:
-    - find . -name '*.json' -not -path '*.Build/*' | xargs yamllint -d relaxed
   allow_failure: true
