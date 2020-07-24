@@ -42,7 +42,7 @@
         "typo3/cms-fluid-styled-content": "^9.5 || 10.4",
         "seld/jsonlint": "^1.8",
         "phpdocumentor/reflection-docblock": "<= 5.1 || > 5.2",
-        "j13k/yaml-lint": "^1.1"
+        "j13k/yaml-lint": "1.1.x-dev"
     },
     "replace": {
         "typo3-ter/tea": "self.version"
