@@ -1,6 +1,7 @@
 ---
 stages:
   - build
+  - lint
 
 default:
   image: php:7.4
@@ -23,3 +24,28 @@ build-composer-dependencies:
     paths:
       - .composer
       - .Build
+
+php-lint:
+  stage: lint
+  script:
+    - composer ci:php:lint
+  allow_failure: true
+
+ts-lint:
+  stage: lint
+  script:
+    - composer ci:ts:lint
+  allow_failure: true
+
+json-lint:
+  stage: lint
+  script:
+    - composer ci:json:lint
+  allow_failure: true
+
+xliff-lint:
+  stage: lint
+  script:
+    - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
+      --noout $(find Resources -name '*.xlf')
+  allow_failure: true
