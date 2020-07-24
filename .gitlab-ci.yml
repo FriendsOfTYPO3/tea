@@ -6,6 +6,7 @@ stages:
 default:
   image: php:7.4
   before_script:
+    - ls -lah
     - bash .gitlab/build/docker_install.sh > /dev/null
 
 build-composer-dependencies:
