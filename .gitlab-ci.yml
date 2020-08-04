@@ -81,9 +81,6 @@ functional-tests-php7.2-t3-v10:
 unit-tests-php7.4-t3-v9:
   stage: test
   before_script:
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
     - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:unit
@@ -93,9 +90,7 @@ unit-tests-php7.3-t3-v9:
   image: php:7.3
   stage: test
   before_script:
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
+    - bash .gitlab/build/docker_install.sh > /dev/null
     - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:unit
@@ -105,9 +100,7 @@ unit-tests-php7.2-t3-v9:
   image: php:7.2
   stage: test
   before_script:
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
+    - bash .gitlab/build/docker_install.sh > /dev/null
     - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:unit
@@ -118,9 +111,6 @@ functional-tests-php7.4-t3-v9:
     - mariadb:10
   stage: test
   before_script:
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
     - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:functional
@@ -132,9 +122,7 @@ functional-tests-php7.3-t3-v9:
   image: php:7.3
   stage: test
   before_script:
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
+    - bash .gitlab/build/docker_install.sh > /dev/null
     - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:functional
@@ -146,9 +134,7 @@ functional-tests-php7.2-t3-v9:
   image: php:7.2
   stage: test
   before_script:
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-    - php -r "unlink('composer-setup.php');"
+    - bash .gitlab/build/docker_install.sh > /dev/null
     - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:functional
