@@ -84,6 +84,7 @@ unit-tests-php7.4-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
+    - rm composer.lock
     - php composer.phar require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
@@ -96,6 +97,7 @@ unit-tests-php7.3-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
+    - rm composer.lock
     - php composer.phar require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
@@ -108,6 +110,7 @@ unit-tests-php7.2-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
+    - rm composer.lock
     - php composer.phar require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
@@ -121,6 +124,7 @@ functional-tests-php7.4-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
+    - rm composer.lock
     - php composer.phar require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:functional
@@ -135,6 +139,7 @@ functional-tests-php7.3-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
+    - rm composer.lock
     - php composer.phar require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:functional
@@ -149,6 +154,7 @@ functional-tests-php7.2-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
+    - rm composer.lock
     - php composer.phar require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:functional
