@@ -1,6 +1,7 @@
 ---
 stages:
   - build
+  - code_quality
 
 default:
   image: php:7.4
@@ -23,3 +24,9 @@ build-composer-dependencies:
     paths:
       - .composer
       - .Build
+
+phpcs:
+  stage: code_quality
+  script:
+    - composer ci:php:sniff
+  allow_failure: true
