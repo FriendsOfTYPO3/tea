@@ -84,8 +84,8 @@ unit-tests-php7.4-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
-    - rm composer.lock
-    - php composer.phar require typo3/minimal:"^9.5"
+    - php composer.phar update --no-ansi --no-interaction |
+      --no-progress --no-suggest --prefer-lowest
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -97,8 +97,8 @@ unit-tests-php7.3-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
-    - rm composer.lock
-    - php composer.phar require typo3/minimal:"^9.5"
+    - php composer.phar update --no-ansi --no-interaction |
+      --no-progress --no-suggest --prefer-lowest
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -111,7 +111,8 @@ unit-tests-php7.2-t3-v9:
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
     - rm composer.lock
-    - php composer.phar require typo3/minimal:"^9.5"
+    - php composer.phar update --no-ansi --no-interaction |
+      --no-progress --no-suggest --prefer-lowest
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -124,8 +125,8 @@ functional-tests-php7.4-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
-    - rm composer.lock
-    - php composer.phar require typo3/minimal:"^9.5"
+    - php composer.phar update --no-ansi --no-interaction |
+      --no-progress --no-suggest --prefer-lowest
   script:
     - composer ci:tests:functional
   allow_failure: true
@@ -140,7 +141,8 @@ functional-tests-php7.3-t3-v9:
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
     - rm composer.lock
-    - php composer.phar require typo3/minimal:"^9.5"
+    - php composer.phar update --no-ansi --no-interaction |
+      --no-progress --no-suggest --prefer-lowest
   script:
     - composer ci:tests:functional
   allow_failure: true
@@ -154,8 +156,8 @@ functional-tests-php7.2-t3-v9:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
-    - rm composer.lock
-    - php composer.phar require typo3/minimal:"^9.5"
+    - php composer.phar update --no-ansi --no-interaction |
+      --no-progress --no-suggest --prefer-lowest
   script:
     - composer ci:tests:functional
   allow_failure: true
