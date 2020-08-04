@@ -81,8 +81,6 @@ functional-tests-php7.2-t3-v10:
 unit-tests-php7.4-t3-v9:
   stage: test
   before_script:
-    - apt-get update
-    - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
@@ -95,8 +93,6 @@ unit-tests-php7.3-t3-v9:
   image: php:7.3
   stage: test
   before_script:
-    - apt-get update
-    - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
@@ -109,8 +105,6 @@ unit-tests-php7.2-t3-v9:
   image: php:7.2
   stage: test
   before_script:
-    - apt-get update
-    - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
@@ -124,8 +118,6 @@ functional-tests-php7.4-t3-v9:
     - mariadb:10
   stage: test
   before_script:
-    - apt-get update
-    - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
@@ -140,8 +132,6 @@ functional-tests-php7.3-t3-v9:
   image: php:7.3
   stage: test
   before_script:
-    - apt-get update
-    - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
@@ -156,8 +146,6 @@ functional-tests-php7.2-t3-v9:
   image: php:7.2
   stage: test
   before_script:
-    - apt-get update
-    - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
