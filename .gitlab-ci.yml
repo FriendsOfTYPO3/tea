@@ -1,6 +1,12 @@
 ---
 stages:
   - build
+  - test
+
+include:
+  - template: License-Management.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
 
 default:
   image: php:7.4
@@ -23,3 +29,15 @@ build-composer-dependencies:
     paths:
       - .composer
       - .Build
+
+code_quality:
+  before_script: []
+
+eslint-sast:
+  before_script: []
+
+phpcs-security-audit-sast:
+  before_script: []
+
+secrets-sast:
+  before_script: []
