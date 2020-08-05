@@ -1,0 +1,25 @@
+---
+stages:
+  - build
+
+default:
+  image: php:7.4
+  before_script:
+    - bash .gitlab/build/docker_install.sh > /dev/null
+
+build-composer-dependencies:
+  stage: build
+  variables:
+    COMPOSER_CACHE_DIR: '.composer'
+  script:
+    - COMPOSER_CACHE_DIR=.composer
+      composer install --prefer-dist --no-progress --optimize-autoloader
+  artifacts:
+    when: on_success
+    expire_in: 2 weeks
+    paths:
+      - .Build
+  cache:
+    paths:
+      - .composer
+      - .Build
