@@ -217,7 +217,7 @@ jobs:
       - name: "Install Composer dependencies"
         run: "composer install --no-progress"
       - name: "Run PHP Security test"
-        run: "composer ci:tests:security"
+        run: "composer ci:security"
     strategy:
       matrix:
         php-version:
