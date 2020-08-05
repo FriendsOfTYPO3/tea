@@ -3,6 +3,11 @@ stages:
   - build
   - test
 
+include:
+  - template: License-Management.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
+
 default:
   image: php:7.4
   before_script:
@@ -143,3 +148,15 @@ functional-tests-php7.2-t3-v9:
   script:
     - composer ci:tests:functional
   allow_failure: true
+
+code_quality:
+  before_script: []
+
+eslint-sast:
+  before_script: []
+
+phpcs-security-audit-sast:
+  before_script: []
+
+secrets-sast:
+  before_script: []
