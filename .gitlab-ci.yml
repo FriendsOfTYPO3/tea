@@ -61,27 +61,29 @@ functional-tests-php7.4-t3-v10:
   allow_failure: true
 
 functional-tests-php7.3-t3-v10:
+  image: php:7.3
   services:
     - mariadb:10
-  image: php:7.3
   stage: test
   script:
     - composer ci:tests:functional
   allow_failure: true
 
 functional-tests-php7.2-t3-v10:
+  image: php:7.2
   services:
     - mariadb:10
-  image: php:7.2
   stage: test
   script:
     - composer ci:tests:functional
   allow_failure: true
 
 unit-tests-php7.4-t3-v9:
+  image: php:7.4
   stage: test
   before_script:
-    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - bash .gitlab/build/docker_install.sh > /dev/null
+    - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -91,7 +93,7 @@ unit-tests-php7.3-t3-v9:
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -101,41 +103,43 @@ unit-tests-php7.2-t3-v9:
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
   allow_failure: true
 
 functional-tests-php7.4-t3-v9:
+  image: php:7.4
   services:
     - mariadb:10
   stage: test
   before_script:
-    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - bash .gitlab/build/docker_install.sh > /dev/null
+      - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:functional
   allow_failure: true
 
 functional-tests-php7.3-t3-v9:
+  image: php:7.3
   services:
     - mariadb:10
-  image: php:7.3
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:functional
   allow_failure: true
 
 functional-tests-php7.2-t3-v9:
+  image: php:7.2
   services:
     - mariadb:10
-  image: php:7.2
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:functional
   allow_failure: true
