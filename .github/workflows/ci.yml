@@ -60,6 +60,11 @@ jobs:
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        command:
+          - "style"
+          - "js"
     steps:
       -
         name: Checkout
@@ -72,11 +77,6 @@ jobs:
         name: "Run command"
         working-directory: ./Resources/Private
         run: "yarn lint:${{ matrix.command }}"
-    strategy:
-      matrix:
-        command:
-          - "style"
-          - "js"
   xliff-lint:
     name: "Xliff linter"
     runs-on: ubuntu-latest
