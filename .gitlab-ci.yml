@@ -81,7 +81,7 @@ functional-tests-php7.2-t3-v10:
 unit-tests-php7.4-t3-v9:
   stage: test
   before_script:
-    - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -91,7 +91,7 @@ unit-tests-php7.3-t3-v9:
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -101,7 +101,7 @@ unit-tests-php7.2-t3-v9:
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:unit
   allow_failure: true
@@ -111,7 +111,7 @@ functional-tests-php7.4-t3-v9:
     - mariadb:10
   stage: test
   before_script:
-    - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:functional
   allow_failure: true
@@ -123,7 +123,7 @@ functional-tests-php7.3-t3-v9:
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:functional
   allow_failure: true
@@ -135,7 +135,7 @@ functional-tests-php7.2-t3-v9:
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-    - php composer.phar update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
+    - composer update --no-dev --no-ansi --no-interaction --no-progress --prefer-lowest
   script:
     - composer ci:tests:functional
   allow_failure: true
