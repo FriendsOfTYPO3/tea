@@ -1,6 +1,7 @@
 ---
 stages:
   - build
+  - code_quality
   - test
 
 include:
@@ -29,6 +30,11 @@ build-composer-dependencies:
     paths:
       - .composer
       - .Build
+
+phpcs:
+  stage: code_quality
+  script:
+    - composer ci:php:sniff
 
 code_quality:
   before_script: []
