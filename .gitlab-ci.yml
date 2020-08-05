@@ -29,4 +29,3 @@ phpcs:
   stage: code_quality
   script:
     - composer ci:php:sniff
-  allow_failure: true
