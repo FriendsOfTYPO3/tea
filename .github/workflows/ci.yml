@@ -52,6 +52,7 @@ jobs:
       matrix:
         command:
           - "ts:lint"
+          - "yaml:lint"
           - "json:lint"
           - "php:sniff"
           - "php:codestyle"
@@ -71,19 +72,10 @@ jobs:
         name: "Run lint"
         run: "xmllint --schema .github/build/xliff-core-1.2-strict.xsd
               --noout $(find Resources -name '*.xlf')"
-  yaml-lint:
-    name: "Yaml linter"
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: "Yaml lint"
-        uses: ibiqlik/action-yamllint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-latest
+    needs: php-lint
     steps:
       -
         name: Checkout
@@ -138,6 +130,7 @@ jobs:
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-latest
+    needs: php-lint
     steps:
       -
         name: Checkout
@@ -197,3 +190,28 @@ jobs:
         typo3-version:
           - ^9.5
           - ^10.4
+  security-test:
+    name: "PHP Security test"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - 7.4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php-version }}"
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v1
+        with:
+          key: "php${{ matrix.php-version }}
+               -composer-${{ hashFiles('**/composer.json') }}"
+          path: ~/.composer/cache
+          restore-keys: "php${{ matrix.php-version }}-composer-\n"
+      - name: "Install Composer dependencies"
+        run: "composer install --no-progress"
+      - name: "Run PHP Security test"
+        run: "composer ci:security"
