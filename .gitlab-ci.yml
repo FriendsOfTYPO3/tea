@@ -1,7 +1,14 @@
 ---
 stages:
   - build
+  - code_quality
   - lint
+  - test
+
+include:
+  - template: License-Management.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
 
 default:
   image: php:7.4
@@ -24,6 +31,11 @@ build-composer-dependencies:
     paths:
       - .composer
       - .Build
+
+phpcs:
+  stage: code_quality
+  script:
+    - composer ci:php:sniff
 
 php-lint-php7.2:
   image: php:7.3
@@ -73,3 +85,15 @@ xliff-lint:
     - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
   allow_failure: true
+
+code_quality:
+  before_script: []
+
+eslint-sast:
+  before_script: []
+
+phpcs-security-audit-sast:
+  before_script: []
+
+secrets-sast:
+  before_script: []
