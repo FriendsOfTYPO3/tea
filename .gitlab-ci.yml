@@ -81,8 +81,10 @@ yaml-lint:
 
 xliff-lint:
   stage: lint
+  before_script:
+    - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
   script:
-    - xmllint --schema .gitlab/build/xliff-core-1.2-strict.xsd
+    - xmllint --schema ./xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
   allow_failure: true
 
