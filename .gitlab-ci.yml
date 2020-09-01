@@ -55,12 +55,6 @@ php-lint-php7.4:
   script:
     - composer ci:php:lint
 
-php-lint:
-  stage: lint
-  script:
-    - composer ci:php:lint
-  allow_failure: true
-
 ts-lint:
   stage: lint
   script:
