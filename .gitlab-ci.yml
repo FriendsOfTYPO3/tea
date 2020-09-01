@@ -38,7 +38,7 @@ phpcs:
     - composer ci:php:sniff
 
 php-lint-php7.2:
-  image: php:7.3
+  image: php:7.2
   stage: lint
   script:
     - composer ci:php:lint
