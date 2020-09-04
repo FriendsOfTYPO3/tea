@@ -71,10 +71,13 @@ jobs:
         uses: actions/checkout@v2
       -
         name: "Install xmllint"
-        run: "sudo apt-get install libxml2-utils"
+        run: "sudo apt-get install libxml2-utils wget"
+      -
+        name: "Download xliff schema"
+        run: "wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd"
       -
         name: "Run lint"
-        run: "xmllint --schema .github/build/xliff-core-1.2-strict.xsd
+        run: "xmllint --schema ./xliff-core-1.2-strict.xsd
               --noout $(find Resources -name '*.xlf')"
   unit-tests:
     name: "Unit tests"
