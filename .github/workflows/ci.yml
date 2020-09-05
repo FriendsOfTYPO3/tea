@@ -126,6 +126,7 @@ jobs:
     strategy:
       matrix:
         composer-dependencies:
+          - lowest
           - highest
         php-version:
           - 7.2
@@ -189,6 +190,7 @@ jobs:
     strategy:
       matrix:
         composer-dependencies:
+          - lowest
           - highest
         php-version:
           - 7.2
