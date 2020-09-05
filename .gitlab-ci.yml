@@ -12,8 +12,6 @@ include:
 
 default:
   image: php:7.4
-  needs:
-    - build-composer-dependencies
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
 
@@ -37,61 +35,73 @@ build-composer-dependencies:
 
 phpcs:
   stage: code_quality
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:php:sniff
 
 php-lint-php7.2:
   image: php:7.2
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:php:lint
 
 php-lint-php7.3:
   image: php:7.3
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:php:lint
 
 php-lint-php7.4:
   image: php:7.4
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:php:lint
 
 ts-lint:
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:ts:lint
 
 json-lint:
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:json:lint
 
 yaml-lint:
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - composer ci:yaml:lint
 
 xliff-lint:
   stage: lint
+  needs:
+    - build-composer-dependencies
   script:
     - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
     - xmllint --schema ./xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
 
 code_quality:
-  needs: []
   before_script: []
 
 eslint-sast:
-  needs: []
   before_script: []
 
 phpcs-security-audit-sast:
-  needs: []
   before_script: []
 
 secrets-sast:
-  needs: []
   before_script: []
