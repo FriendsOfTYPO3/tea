@@ -10,19 +10,29 @@ include:
   - template: SAST.gitlab-ci.yml
   - template: Code-Quality.gitlab-ci.yml
 
+variables:
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+
 default:
   image: php:7.4
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
 
-build-composer-dependencies:
+build:
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
   stage: build
   needs: []
   variables:
     COMPOSER_CACHE_DIR: '.composer'
   script:
-    - COMPOSER_CACHE_DIR=.composer
-      composer install --prefer-dist --no-progress --optimize-autoloader
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CONTAINER_RELEASE_IMAGE || true
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE .gitlab/build/Dockerfile
+    - docker push $CONTAINER_TEST_IMAGE
+    - docker push $CI_REGISTRY_IMAGE:latest
   artifacts:
     when: on_success
     expire_in: 2 weeks
