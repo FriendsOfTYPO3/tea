@@ -20,8 +20,6 @@ build:
     - docker:19.03.12-dind
   stage: build
   needs: []
-  variables:
-    COMPOSER_CACHE_DIR: '.composer'
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $CONTAINER_RELEASE_IMAGE || true
@@ -32,10 +30,10 @@ build:
     when: on_success
     expire_in: 2 weeks
     paths:
-      - .code/.Build
+      - ./code/.Build
   cache:
     paths:
-      - .code/.Build
+      - ./code/.Build
 phpcs:
   image: $CONTAINER_TEST_IMAGE
   stage: code_quality
@@ -47,20 +45,21 @@ phpcs:
 php-lint-php7.2:
   image: php:7.2
   stage: lint
-  needs: []
+  needs:
+    - build
   script:
     - composer ci:php:lint
 
 php-lint-php7.3:
   image: php:7.3
   stage: lint
-  needs: []
+  needs:
+    - build
   script:
     - composer ci:php:lint
 
 php-lint-php7.4:
   image: $CONTAINER_TEST_IMAGE
-  image: php:7.4
   stage: lint
   needs: []
   script:
