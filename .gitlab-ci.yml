@@ -20,8 +20,9 @@ build:
     - docker:19.03.12-dind
   stage: build
   needs: []
-  script:
+  before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
     - docker pull $CONTAINER_RELEASE_IMAGE || true
     - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
@@ -61,7 +62,8 @@ php-lint-php7.3:
 php-lint-php7.4:
   image: $CONTAINER_TEST_IMAGE
   stage: lint
-  needs: []
+  needs:
+    - build
   script:
     - composer ci:php:lint
 
