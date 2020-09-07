@@ -32,13 +32,12 @@ build:
     when: on_success
     expire_in: 2 weeks
     paths:
-      - .Build
+      - .code/.Build
   cache:
     paths:
-      - .composer
-      - .Build
-
+      - .code/.Build
 phpcs:
+  image: $CONTAINER_TEST_IMAGE
   stage: code_quality
   needs:
     - build
@@ -60,6 +59,7 @@ php-lint-php7.3:
     - composer ci:php:lint
 
 php-lint-php7.4:
+  image: $CONTAINER_TEST_IMAGE
   image: php:7.4
   stage: lint
   needs: []
@@ -67,6 +67,7 @@ php-lint-php7.4:
     - composer ci:php:lint
 
 ts-lint:
+  image: $CONTAINER_TEST_IMAGE
   stage: lint
   needs:
     - build
@@ -74,6 +75,7 @@ ts-lint:
     - composer ci:ts:lint
 
 json-lint:
+  image: $CONTAINER_TEST_IMAGE
   stage: lint
   needs:
     - build
@@ -81,6 +83,7 @@ json-lint:
     - composer ci:json:lint
 
 yaml-lint:
+  image: $CONTAINER_TEST_IMAGE
   stage: lint
   needs:
     - build
@@ -88,6 +91,7 @@ yaml-lint:
     - composer ci:yaml:lint
 
 xliff-lint:
+  image: $CONTAINER_TEST_IMAGE
   stage: lint
   needs:
     - build
