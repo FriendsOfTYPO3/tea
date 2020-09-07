@@ -12,11 +12,3 @@ RUN mkdir -p /run/php
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN cd /code;composer install --prefer-dist --no-progress --optimize-autoloader
 RUN cd /usr/local/etc/php/conf.d/ && echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
-RUN echo "#!/bin/bash" > /usr/sbin/php-start
-RUN echo "/usr/sbin/php-fpm7.4 --nodaemonize --fpm-config /etc/php/7.4/fpm/php-fpm.conf" >> /usr/sbin/php-start
-RUN chmod 755 /usr/sbin/php-start
-RUN  mkdir -p /healthcheck
-RUN echo "<?php echo 'OK'; ?>" > /healthcheck/index.php
-
-CMD ["/usr/sbin/php-start"]
-
