@@ -46,7 +46,7 @@ build:
 phpcs:
   stage: code_quality
   needs:
-    - build-composer-dependencies
+    - build
   script:
     - composer ci:php:sniff
 
@@ -74,28 +74,28 @@ php-lint-php7.4:
 ts-lint:
   stage: lint
   needs:
-    - build-composer-dependencies
+    - build
   script:
     - composer ci:ts:lint
 
 json-lint:
   stage: lint
   needs:
-    - build-composer-dependencies
+    - build
   script:
     - composer ci:json:lint
 
 yaml-lint:
   stage: lint
   needs:
-    - build-composer-dependencies
+    - build
   script:
     - composer ci:yaml:lint
 
 xliff-lint:
   stage: lint
   needs:
-    - build-composer-dependencies
+    - build
   script:
     - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
     - xmllint --schema ./xliff-core-1.2-strict.xsd
