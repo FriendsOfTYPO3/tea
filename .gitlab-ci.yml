@@ -32,10 +32,10 @@ build:
     when: on_success
     expire_in: 2 weeks
     paths:
-      - ./code/.Build
+      - ./Build
   cache:
     paths:
-      - ./code/.Build
+      - ./Build
 phpcs:
   image: $CONTAINER_TEST_IMAGE
   stage: code_quality
