@@ -1,6 +1,5 @@
 FROM php:7.4-cli
 
-COPY ./ /code/
 RUN mkdir /var/log/php-fpm
 RUN apt-get update
 RUN apt-get -y install curl telnet net-tools mc
