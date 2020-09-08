@@ -98,8 +98,8 @@ xliff-lint:
     - xmllint --schema ./xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
 
-unit-tests-php7.4-t3-v10:
-  image: php:7.4
+unit-tests-php7.2-t3-v10:
+  image: php:7.2
   stage: test
   needs:
     - build-composer-dependencies
@@ -114,16 +114,16 @@ unit-tests-php7.3-t3-v10:
   script:
     - composer ci:tests:unit
 
-unit-tests-php7.2-t3-v10:
-  image: php:7.2
+unit-tests-php7.4-t3-v10:
+  image: php:7.4
   stage: test
   needs:
     - build-composer-dependencies
   script:
     - composer ci:tests:unit
 
-functional-tests-php7.4-t3-v10:
-  image: php:7.4
+functional-tests-php7.2-t3-v10:
+  image: php:7.2
   services:
     - mariadb:10
   stage: test
@@ -142,8 +142,8 @@ functional-tests-php7.3-t3-v10:
   script:
     - composer ci:tests:functional
 
-functional-tests-php7.2-t3-v10:
-  image: php:7.2
+functional-tests-php7.4-t3-v10:
+  image: php:7.4
   services:
     - mariadb:10
   stage: test
@@ -152,8 +152,8 @@ functional-tests-php7.2-t3-v10:
   script:
     - composer ci:tests:functional
 
-unit-tests-php7.4-t3-v9:
-  image: php:7.4
+unit-tests-php7.2-t3-v9:
+  image: php:7.2
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
@@ -170,8 +170,8 @@ unit-tests-php7.3-t3-v9:
   script:
     - composer ci:tests:unit
 
-unit-tests-php7.2-t3-v9:
-  image: php:7.2
+unit-tests-php7.4-t3-v9:
+  image: php:7.4
   stage: test
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
@@ -179,8 +179,8 @@ unit-tests-php7.2-t3-v9:
   script:
     - composer ci:tests:unit
 
-functional-tests-php7.4-t3-v9:
-  image: php:7.4
+functional-tests-php7.2-t3-v9:
+  image: php:7.2
   services:
     - mariadb:10
   stage: test
@@ -201,8 +201,8 @@ functional-tests-php7.3-t3-v9:
   script:
     - composer ci:tests:functional
 
-functional-tests-php7.2-t3-v9:
-  image: php:7.2
+functional-tests-php7.4-t3-v9:
+  image: php:7.4
   services:
     - mariadb:10
   stage: test
