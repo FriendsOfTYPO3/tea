@@ -14,9 +14,6 @@ variables:
   CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
 
-default:
-  before_script:
-    - cd code
 services:
   - docker:19.03.12-dind
 
