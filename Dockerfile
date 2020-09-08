@@ -4,7 +4,7 @@ COPY ./ /code/
 RUN mkdir /var/log/php-fpm
 RUN apt-get update
 RUN apt-get -y install curl telnet net-tools mc
-RUN apt-get -y install ca-certificates apt-transport-https wget gnupg2
+RUN apt-get -y install ca-certificates apt-transport-https wget gnupg2 libxml2-utils
 RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list
 RUN apt-get update
