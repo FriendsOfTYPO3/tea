@@ -13,6 +13,7 @@ include:
 variables:
   CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  MOUNT_POINT: /builds/$CI_PROJECT_PATH/mnt
 
 services:
   - docker:19.03.12-dind
@@ -41,6 +42,8 @@ phpcs:
   stage: code_quality
   needs:
     - build
+  before_script:
+    - cd code
   script:
     - composer ci:php:sniff
 
@@ -65,6 +68,8 @@ php-lint-php7.4:
   stage: lint
   needs:
     - build
+  before_script:
+    - cd code
   script:
     - composer ci:php:lint
 
@@ -73,6 +78,8 @@ ts-lint:
   stage: lint
   needs:
     - build
+  before_script:
+    - cd code
   script:
     - composer ci:ts:lint
 
@@ -81,6 +88,8 @@ json-lint:
   stage: lint
   needs:
     - build
+  before_script:
+    - cd code
   script:
     - composer ci:json:lint
 
@@ -89,6 +98,8 @@ yaml-lint:
   stage: lint
   needs:
     - build
+  before_script:
+    - cd code
   script:
     - composer ci:yaml:lint
 
@@ -97,6 +108,8 @@ xliff-lint:
   stage: lint
   needs:
     - build
+  before_script:
+    - cd code
   script:
     - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
     - xmllint --schema ./xliff-core-1.2-strict.xsd
