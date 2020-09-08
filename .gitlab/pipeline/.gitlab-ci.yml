@@ -159,6 +159,7 @@ unit-tests-php7.2-t3-v9:
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
   script:
+    - rm .Build
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
