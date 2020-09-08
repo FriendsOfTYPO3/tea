@@ -159,6 +159,7 @@ unit-tests-php7.2-t3-v9:
     GIT_STRATEGY: "fetch"
     GIT_SUBMODULE_STRATEGY: "recursive"
   before_script:
+    - rm composer.lock
     - bash .gitlab/build/docker_install.sh > /dev/null
     - composer require typo3/minimal:"^9.5"
   script:
