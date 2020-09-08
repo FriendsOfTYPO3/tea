@@ -155,12 +155,11 @@ functional-tests-php7.4-t3-v10:
 unit-tests-php7.2-t3-v9:
   image: php:7.2
   stage: test
-  cache: {}
+  dependencies: []
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
-  script:
-    - rm .Build -rf
     - composer require typo3/minimal:"^9.5"
+  script:
     - composer ci:tests:unit
 
 unit-tests-php7.3-t3-v9:
