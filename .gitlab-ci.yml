@@ -127,24 +127,25 @@ functional-tests-php7.4-t3-v10:
   allow_failure: true
 
 functional-tests-php7.3-t3-v10:
+  image: php:7.3
   services:
     - mariadb:10
-  image: php:7.3
   stage: test
   script:
     - composer ci:tests:functional
   allow_failure: true
 
 functional-tests-php7.2-t3-v10:
+  image: php:7.2
   services:
     - mariadb:10
-  image: php:7.2
   stage: test
   script:
     - composer ci:tests:functional
   allow_failure: true
 
 unit-tests-php7.4-t3-v9:
+  image: php:7.4
   stage: test
   before_script:
     - composer require typo3/minimal:"9.5"
@@ -171,6 +172,7 @@ unit-tests-php7.2-t3-v9:
   allow_failure: true
 
 functional-tests-php7.4-t3-v9:
+  image: php:7.4
   services:
     - mariadb:10
   stage: test
@@ -181,9 +183,9 @@ functional-tests-php7.4-t3-v9:
   allow_failure: true
 
 functional-tests-php7.3-t3-v9:
+  image: php:7.3
   services:
     - mariadb:10
-  image: php:7.3
   stage: test
   before_script:
     - composer require typo3/minimal:"9.5"
@@ -192,9 +194,9 @@ functional-tests-php7.3-t3-v9:
   allow_failure: true
 
 functional-tests-php7.2-t3-v9:
+  image: php:7.2
   services:
     - mariadb:10
-  image: php:7.2
   stage: test
   before_script:
     - composer require typo3/minimal:"9.5"
