@@ -25,13 +25,13 @@ build:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
+    - mkdir -p ${MOUNT_POINT}
+    - rsync -chapvz . ${MOUNT_POINT}
+    - docker run -v ${SHARED_PATH}:/mnt ubuntu ls /mnt
     - docker pull $CONTAINER_RELEASE_IMAGE || true
     - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
     - docker push $CI_REGISTRY_IMAGE:latest
-    - mkdir -p ${MOUNT_POINT}
-    - rsync -chapvz . ${MOUNT_POINT}
-    - docker run -v ${SHARED_PATH}:/mnt ubuntu ls /mnt
   artifacts:
     when: on_success
     expire_in: 2 weeks
