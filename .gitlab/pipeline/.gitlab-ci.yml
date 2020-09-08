@@ -165,6 +165,7 @@ unit-tests-php7.2-t3-v9:
 unit-tests-php7.3-t3-v9:
   image: php:7.3
   stage: test
+  dependencies: []
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
     - composer require typo3/minimal:"^9.5"
@@ -174,7 +175,10 @@ unit-tests-php7.3-t3-v9:
 unit-tests-php7.4-t3-v9:
   image: php:7.4
   stage: test
-  cache: {}
+  dependencies: []
+  before_script:
+    - bash .gitlab/build/docker_install.sh > /dev/null
+    - composer require typo3/minimal:"^9.5"
   script:
     - composer ci:tests:unit
 
@@ -183,9 +187,7 @@ functional-tests-php7.2-t3-v9:
   services:
     - mariadb:10
   stage: test
-  variables:
-    GIT_STRATEGY: "fetch"
-    GIT_SUBMODULE_STRATEGY: "recursive"
+  dependencies: []
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
     - composer require typo3/minimal:"^9.5"
@@ -197,6 +199,7 @@ functional-tests-php7.3-t3-v9:
   services:
     - mariadb:10
   stage: test
+  dependencies: [ ]
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
     - composer require typo3/minimal:"^9.5"
@@ -209,6 +212,7 @@ functional-tests-php7.4-t3-v9:
   services:
     - mariadb:10
   stage: test
+  dependencies: [ ]
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
     - composer require typo3/minimal:"^9.5"
