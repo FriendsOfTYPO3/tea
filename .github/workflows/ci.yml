@@ -111,6 +111,7 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
+          composer config platform.php 7.2.0
           composer update --no-ansi --no-interaction \
           --no-progress --no-suggest --prefer-lowest
           composer show
@@ -167,6 +168,7 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
+          composer config platform.php 7.2.0
           composer update --no-ansi --no-interaction \
           --no-progress --no-suggest --prefer-lowest
           composer show
