@@ -159,7 +159,6 @@ unit-tests-php7.2-t3-v9:
   needs:
     - build-composer-dependencies
   script:
-    - rm .Build -rf
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
