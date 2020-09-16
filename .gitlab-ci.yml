@@ -161,6 +161,7 @@ functional-tests-php7.4-t3-v10:
 unit-tests-php7.2-t3-v9:
   image: php:7.2
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.2
@@ -171,6 +172,7 @@ unit-tests-php7.2-t3-v9:
 unit-tests-php7.3-t3-v9:
   image: php:7.3
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.3
@@ -181,6 +183,7 @@ unit-tests-php7.3-t3-v9:
 unit-tests-php7.4-t3-v9:
   image: php:7.4
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.4
@@ -193,6 +196,7 @@ functional-tests-php7.2-t3-v9:
   services:
     - mariadb:10
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.2
@@ -205,6 +209,7 @@ functional-tests-php7.3-t3-v9:
   services:
     - mariadb:10
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.3
@@ -217,6 +222,7 @@ functional-tests-php7.4-t3-v9:
   services:
     - mariadb:10
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.4
