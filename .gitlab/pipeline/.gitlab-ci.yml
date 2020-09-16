@@ -107,7 +107,7 @@ unit-php7.2-v10:
   script:
     - composer ci:tests:unit
 
-unit-tests-php7.3-t3-v10:
+unit-php7.3-v10:
   image: php:7.3
   stage: test
   needs:
@@ -116,7 +116,7 @@ unit-tests-php7.3-t3-v10:
   script:
     - composer ci:tests:unit
 
-unit-tests-php7.4-t3-v10:
+unit-php7.4-v10:
   image: php:7.4
   stage: test
   needs:
@@ -136,7 +136,7 @@ func-php7.2-v10:
   script:
     - composer ci:tests:functional
 
-functional-tests-php7.3-t3-v10:
+func-php7.3-v10:
   image: php:7.3
   services:
     - mariadb:10
@@ -147,7 +147,7 @@ functional-tests-php7.3-t3-v10:
   script:
     - composer ci:tests:functional
 
-functional-tests-php7.4-t3-v10:
+func-php7.4-v10:
   image: php:7.4
   services:
     - mariadb:10
@@ -158,9 +158,10 @@ functional-tests-php7.4-t3-v10:
   script:
     - composer ci:tests:functional
 
-unit-tests-php7.2-t3-v9:
+unit-php7.2-v9:
   image: php:7.2
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.2
@@ -168,9 +169,10 @@ unit-tests-php7.2-t3-v9:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
-unit-tests-php7.3-t3-v9:
+unit-php7.3-v9:
   image: php:7.3
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.3
@@ -178,9 +180,10 @@ unit-tests-php7.3-t3-v9:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
-unit-tests-php7.4-t3-v9:
+unit-php7.4-v9:
   image: php:7.4
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.4
@@ -188,11 +191,12 @@ unit-tests-php7.4-t3-v9:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
-functional-tests-php7.2-t3-v9:
+func-php7.2-v9:
   image: php:7.2
   services:
     - mariadb:10
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.2
@@ -200,11 +204,12 @@ functional-tests-php7.2-t3-v9:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:functional
 
-functional-tests-php7.3-t3-v9:
+func-php7.3-v9:
   image: php:7.3
   services:
     - mariadb:10
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.3
@@ -212,11 +217,12 @@ functional-tests-php7.3-t3-v9:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:functional
 
-functional-tests-php7.4-t3-v9:
+func-php7.4-v9:
   image: php:7.4
   services:
     - mariadb:10
   stage: test
+  dependencies: []
   needs:
     - build-composer-dependencies
     - php-lint-php7.4
