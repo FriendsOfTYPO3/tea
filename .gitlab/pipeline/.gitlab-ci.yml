@@ -25,9 +25,9 @@ build-php7.2:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker pull CONTAINER_TEST_7_2_IMAGE || true
-    - docker build --cache-from CONTAINER_TEST_7_2_IMAGE --tag CONTAINER_TEST_7_2_IMAGE -f .gitlab/php7.2/Dockerfile .
-    - docker push CONTAINER_TEST_7_2_IMAGE
+    - docker pull $CONTAINER_TEST_7_2_IMAGE || true
+    - docker build --cache-from $CONTAINER_TEST_7_2_IMAGE --tag $CONTAINER_TEST_7_2_IMAGE -f .gitlab/php7.2/Dockerfile .
+    - docker push $CONTAINER_TEST_7_2_IMAGE
 
 build-php7.3:
   image: docker:19.03.12
@@ -36,9 +36,9 @@ build-php7.3:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker pull CONTAINER_TEST_7_3_IMAGE || true
-    - docker build --cache-from CONTAINER_TEST_7_3_IMAGE --tag CONTAINER_TEST_7_3_IMAGE -f .gitlab/php7.3/Dockerfile .
-    - docker push CONTAINER_TEST_7_3_IMAGE
+    - docker pull $CONTAINER_TEST_7_3_IMAGE || true
+    - docker build --cache-from $CONTAINER_TEST_7_3_IMAGE --tag $CONTAINER_TEST_7_3_IMAGE -f .gitlab/php7.3/Dockerfile .
+    - docker push $CONTAINER_TEST_7_3_IMAGE
 
 build-php7.4:
   image: docker:19.03.12
@@ -47,9 +47,9 @@ build-php7.4:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker pull CONTAINER_TEST_7_4_IMAGE || true
-    - docker build --cache-from CONTAINER_TEST_7_4_IMAGE --tag CONTAINER_TEST_7_4_IMAGE -f .gitlab/php7.4/Dockerfile .
-    - docker push CONTAINER_TEST_7_4_IMAGE
+    - docker pull $CONTAINER_TEST_7_4_IMAGE || true
+    - docker build --cache-from $CONTAINER_TEST_7_4_IMAGE --tag $CONTAINER_TEST_7_4_IMAGE -f .gitlab/php7.4/Dockerfile .
+    - docker push $CONTAINER_TEST_7_4_IMAGE
 
 phpcs:
   image: $CONTAINER_TEST_7_4_IMAGE
