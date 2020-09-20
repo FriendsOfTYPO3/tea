@@ -140,3 +140,4 @@ phpcs-security-audit-sast:
 
 secrets-sast:
   before_script: []
+  
