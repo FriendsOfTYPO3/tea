@@ -11,13 +11,14 @@ include:
   - template: Code-Quality.gitlab-ci.yml
 
 variables:
-  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  CONTAINER_TEST_7_4_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-7_4
+  CONTAINER_TEST_7_3_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-7_3
+  CONTAINER_TEST_7_2_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-7_2
 
 services:
   - docker:19.03.12-dind
 
-build:
+build-php7.4:
   image: docker:19.03.12
   stage: build
   needs: []
@@ -25,19 +26,33 @@ build:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker pull $CONTAINER_RELEASE_IMAGE || true
-    - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE .
-    - docker push $CONTAINER_TEST_IMAGE
-    - docker push $CI_REGISTRY_IMAGE:latest
-  artifacts:
-    when: on_success
-    expire_in: 2 weeks
-    paths:
-      - ./code/.Build
-  cache:
-    paths:
-      - ./code/.Build
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE -f .gitlab/php7.4/Dockerfile .
+    - docker push CONTAINER_TEST_7_4_IMAGE
+
+build-php7.3:
+  image: docker:19.03.12
+  stage: build
+  needs: []
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $CONTAINER_RELEASE_IMAGE || true
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE -f .gitlab/php7.3/Dockerfile .
+    - docker push CONTAINER_TEST_7_4_IMAGE
+
+build-php7.2:
+  image: docker:19.03.12
+  stage: build
+  needs: []
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $CONTAINER_RELEASE_IMAGE || true
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE --tag $CONTAINER_TEST_IMAGE --tag $CONTAINER_RELEASE_IMAGE -f .gitlab/php7.4/Dockerfile .
+    - docker push CONTAINER_TEST_7_4_IMAGE
+
 phpcs:
-  image: $CONTAINER_TEST_IMAGE
+  image: $CONTAINER_TEST_7_4_IMAGE
   stage: code_quality
   needs:
     - build
@@ -47,7 +62,7 @@ phpcs:
     - composer ci:php:sniff
 
 php-lint-php7.2:
-  image: php:7.2
+  image: $CONTAINER_TEST_7_2_IMAGE
   stage: lint
   needs:
     - build
@@ -55,7 +70,7 @@ php-lint-php7.2:
     - composer ci:php:lint
 
 php-lint-php7.3:
-  image: php:7.3
+  image: $CONTAINER_TEST_7_3_IMAGE
   stage: lint
   needs:
     - build
@@ -63,7 +78,7 @@ php-lint-php7.3:
     - composer ci:php:lint
 
 php-lint-php7.4:
-  image: $CONTAINER_TEST_IMAGE
+  image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
     - build
@@ -73,7 +88,7 @@ php-lint-php7.4:
     - composer ci:php:lint
 
 ts-lint:
-  image: $CONTAINER_TEST_IMAGE
+  image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
     - build
@@ -83,7 +98,7 @@ ts-lint:
     - composer ci:ts:lint
 
 json-lint:
-  image: $CONTAINER_TEST_IMAGE
+  image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
     - build
@@ -93,7 +108,7 @@ json-lint:
     - composer ci:json:lint
 
 yaml-lint:
-  image: $CONTAINER_TEST_IMAGE
+  image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
     - build
@@ -103,7 +118,7 @@ yaml-lint:
     - composer ci:yaml:lint
 
 xliff-lint:
-  image: $CONTAINER_TEST_IMAGE
+  image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
     - build
