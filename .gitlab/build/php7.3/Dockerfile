@@ -1,6 +1,6 @@
 FROM php:7.3-cli
 
-COPY ../../.. /code/
+COPY ./ /code/
 RUN apt-get update \
     && apt-get -y install curl git zip unzip -q \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
