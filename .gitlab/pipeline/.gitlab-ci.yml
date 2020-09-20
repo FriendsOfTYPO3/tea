@@ -55,7 +55,7 @@ phpcs:
   image: $CONTAINER_TEST_7_4_IMAGE
   stage: code_quality
   needs:
-    - build
+    - build-php7.4
   before_script:
     - cd /code/
   script:
@@ -65,7 +65,7 @@ php-lint-php7.2:
   image: $CONTAINER_TEST_7_2_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.2
   script:
     - composer ci:php:lint
 
@@ -73,7 +73,7 @@ php-lint-php7.3:
   image: $CONTAINER_TEST_7_3_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.3
   script:
     - composer ci:php:lint
 
@@ -81,7 +81,7 @@ php-lint-php7.4:
   image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.4
   before_script:
     - cd /code/
   script:
@@ -91,7 +91,7 @@ ts-lint:
   image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.4
   before_script:
     - cd /code/
   script:
@@ -101,7 +101,7 @@ json-lint:
   image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.4
   before_script:
     - cd /code/
   script:
@@ -111,7 +111,7 @@ yaml-lint:
   image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.4
   before_script:
     - cd /code/
   script:
@@ -121,7 +121,7 @@ xliff-lint:
   image: $CONTAINER_TEST_7_4_IMAGE
   stage: lint
   needs:
-    - build
+    - build-php7.4
   before_script:
     - cd /code/
   script:
