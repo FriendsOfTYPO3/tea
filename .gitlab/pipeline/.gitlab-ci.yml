@@ -87,6 +87,7 @@ xliff-lint:
 phpcs:
   stage: codestyle
   needs:
+    - build-composer-dependencies
     - php-lint-php7.2
     - php-lint-php7.3
     - php-lint-php7.4
