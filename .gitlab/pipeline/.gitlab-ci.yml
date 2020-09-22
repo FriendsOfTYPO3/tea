@@ -1,8 +1,8 @@
 ---
 stages:
   - build
-  - code_quality
   - lint
+  - codestyle
   - test
 
 include:
@@ -39,13 +39,6 @@ build-composer-dependencies:
     paths:
       - .composer
       - .Build
-
-phpcs:
-  stage: code_quality
-  needs:
-    - build-composer-dependencies
-  script:
-    - composer ci:php:sniff
 
 php-lint-php7.2:
   image: php:7.2
@@ -229,6 +222,16 @@ func-php7.4-v9:
   script:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:functional
+
+phpcs:
+  stage: codestyle
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+    - php-lint-php7.3
+    - php-lint-php7.4
+  script:
+    - composer ci:php:sniff
 
 code_quality:
   before_script: []
