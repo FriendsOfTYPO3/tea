@@ -1,0 +1,10 @@
+/.Build/ export-ignore
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/.github/ export-ignore
+/.gitignore export-ignore
+/.gitlab/ export-ignore
+/.php_cs.dist export-ignore
+/Tests/ export-ignore
+/codeception.yml export-ignore
+/phpcs.xml.dist export-ignore
