@@ -7,4 +7,3 @@ RUN apt-get update \
     && composer install -d /code --prefer-dist --no-progress --optimize-autoloader \
     && docker-php-ext-install mysqli \
     && echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
-WORKDIR /code
