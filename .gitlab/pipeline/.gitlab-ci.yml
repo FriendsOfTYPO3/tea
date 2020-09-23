@@ -23,6 +23,10 @@ variables:
 services:
   - docker:19.03.12-dind
 
+default:
+  before_script:
+    - cd /code/
+
 build-php7.2:
   image: docker:19.03.12
   stage: build
@@ -77,8 +81,6 @@ php-lint-php7.4:
   stage: lint
   needs:
     - build-php7.4
-  before_script:
-    - cd /code/
   script:
     - composer ci:php:lint
 
@@ -87,8 +89,6 @@ ts-lint:
   stage: lint
   needs:
     - build-php7.4
-  before_script:
-    - cd /code/
   script:
     - composer ci:ts:lint
 
@@ -97,8 +97,6 @@ json-lint:
   stage: lint
   needs:
     - build-php7.4
-  before_script:
-    - cd /code/
   script:
     - composer ci:json:lint
 
@@ -107,8 +105,6 @@ yaml-lint:
   stage: lint
   needs:
     - build-php7.4
-  before_script:
-    - cd /code/
   script:
     - composer ci:yaml:lint
 
@@ -117,8 +113,6 @@ xliff-lint:
   stage: lint
   needs:
     - build-php7.4
-  before_script:
-    - cd /code/
   script:
     - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
     - xmllint --schema ./xliff-core-1.2-strict.xsd
@@ -132,8 +126,6 @@ phpcs:
     - php-lint-php7.3
     - php-lint-php7.4
     - build-php7.4
-  before_script:
-    - cd /code/
   script:
     - composer ci:php:sniff
 
