@@ -23,10 +23,6 @@ variables:
 services:
   - docker:19.03.12-dind
 
-default:
-  before_script:
-    - cd /code/
-
 build-php7.2:
   image: docker:19.03.12
   stage: build
@@ -192,10 +188,11 @@ func-php7.4-v10:
 unit-php7.2-v9:
   image: $CONTAINER_TEST_7_2_IMAGE
   stage: test
-  dependencies: []
   needs:
     - build-php7.2
     - php-lint-php7.2
+  before_script:
+    - rm .Build/vendor -rf
   script:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
@@ -207,6 +204,8 @@ unit-php7.3-v9:
   needs:
     - build-php7.3
     - php-lint-php7.3
+  before_script:
+    - rm .Build/vendor -rf
   script:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
@@ -218,6 +217,8 @@ unit-php7.4-v9:
   needs:
     - build-php7.4
     - php-lint-php7.4
+  before_script:
+    - rm .Build/vendor -rf
   script:
     - composer require typo3/minimal:"^9.5"
     - composer ci:tests:unit
