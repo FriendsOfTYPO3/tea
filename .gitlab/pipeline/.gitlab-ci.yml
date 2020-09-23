@@ -1,8 +1,8 @@
 ---
 stages:
   - build
-  - code_quality
   - lint
+  - codestyle
   - test
 
 include:
@@ -50,16 +50,6 @@ build-php7.4:
     - docker pull $CONTAINER_TEST_7_4_IMAGE || true
     - docker build --cache-from $CONTAINER_TEST_7_4_IMAGE --tag $CONTAINER_TEST_7_4_IMAGE -f .gitlab/build/php7.4/Dockerfile .
     - docker push $CONTAINER_TEST_7_4_IMAGE
-
-phpcs:
-  image: $CONTAINER_TEST_7_4_IMAGE
-  stage: code_quality
-  needs:
-    - build-php7.4
-  before_script:
-    - cd /code/
-  script:
-    - composer ci:php:sniff
 
 php-lint-php7.2:
   image: $CONTAINER_TEST_7_2_IMAGE
@@ -129,6 +119,151 @@ xliff-lint:
     - xmllint --schema ./xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
 
+phpcs:
+  image: $CONTAINER_TEST_7_4_IMAGE
+  stage: codestyle
+  needs:
+    - php-lint-php7.2
+    - php-lint-php7.3
+    - php-lint-php7.4
+    - build-php7.4
+  before_script:
+    - cd /code/
+  script:
+    - composer ci:php:sniff
+
+unit-php7.2-v10:
+  image: $CONTAINER_TEST_7_2_IMAGE
+  stage: test
+  needs:
+    - build-php7.2
+    - php-lint-php7.2
+  script:
+    - composer ci:tests:unit
+
+unit-php7.3-v10:
+  image: $CONTAINER_TEST_7_3_IMAGE
+  stage: test
+  needs:
+    - build-php7.3
+    - php-lint-php7.3
+  script:
+    - composer ci:tests:unit
+
+unit-php7.4-v10:
+  image: $CONTAINER_TEST_7_4_IMAGE
+  stage: test
+  needs:
+    - build-php7.4
+    - php-lint-php7.4
+  script:
+    - composer ci:tests:unit
+
+func-php7.2-v10:
+  image: $CONTAINER_TEST_7_2_IMAGE
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-php7.2
+    - php-lint-php7.2
+  script:
+    - composer ci:tests:functional
+
+func-php7.3-v10:
+  image: $CONTAINER_TEST_7_3_IMAGE
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-php7.3
+    - php-lint-php7.3
+  script:
+    - composer ci:tests:functional
+
+func-php7.4-v10:
+  image: $CONTAINER_TEST_7_4_IMAGE
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-php7.4
+    - php-lint-php7.4
+  script:
+    - composer ci:tests:functional
+
+unit-php7.2-v9:
+  image: $CONTAINER_TEST_7_2_IMAGE
+  stage: test
+  dependencies: []
+  needs:
+    - build-php7.2
+    - php-lint-php7.2
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:unit
+
+unit-php7.3-v9:
+  image: $CONTAINER_TEST_7_3_IMAGE
+  stage: test
+  dependencies: []
+  needs:
+    - build-php7.3
+    - php-lint-php7.3
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:unit
+
+unit-php7.4-v9:
+  image: $CONTAINER_TEST_7_4_IMAGE
+  stage: test
+  dependencies: []
+  needs:
+    - build-php7.4
+    - php-lint-php7.4
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:unit
+
+func-php7.2-v9:
+  image: $CONTAINER_TEST_7_2_IMAGE
+  services:
+    - mariadb:10
+  stage: test
+  dependencies: []
+  needs:
+    - build-php7.2
+    - php-lint-php7.2
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:functional
+
+func-php7.3-v9:
+  image: $CONTAINER_TEST_7_3_IMAGE
+  services:
+    - mariadb:10
+  stage: test
+  dependencies: []
+  needs:
+    - build-php7.3
+    - php-lint-php7.3
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:functional
+
+func-php7.4-v9:
+  image: $CONTAINER_TEST_7_4_IMAGE
+  services:
+    - mariadb:10
+  stage: test
+  dependencies: []
+  needs:
+    - build-php7.4
+    - php-lint-php7.4
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:functional
+
 code_quality:
   before_script: []
 
@@ -140,4 +275,3 @@ phpcs-security-audit-sast:
 
 secrets-sast:
   before_script: []
-  
