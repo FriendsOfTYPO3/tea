@@ -14,6 +14,11 @@ variables:
   CONTAINER_TEST_7_2_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-7_2
   CONTAINER_TEST_7_3_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-7_3
   CONTAINER_TEST_7_4_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-7_4
+  MYSQL_ROOT_PASSWORD: root
+  typo3DatabaseName: typo3
+  typo3DatabaseHost: mariadb
+  typo3DatabaseUsername: root
+  typo3DatabasePassword: root
 
 services:
   - docker:19.03.12-dind
