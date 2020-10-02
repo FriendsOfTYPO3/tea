@@ -17,7 +17,6 @@
     <!-- Classes -->
     <rule ref="Generic.Classes.DuplicateClassName"/>
     <rule ref="PSR1.Classes.ClassDeclaration">
-        <exclude-pattern>Tests/Acceptance/_support/</exclude-pattern>
     </rule>
     <rule ref="Squiz.Classes.ClassFileName"/>
     <rule ref="Squiz.Classes.DuplicateProperty"/>
