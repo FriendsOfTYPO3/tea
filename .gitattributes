@@ -4,7 +4,7 @@
 /.github/ export-ignore
 /.gitignore export-ignore
 /.gitlab/ export-ignore
-/.php_cs.dist export-ignore
+/.php_cs.php export-ignore
 /Tests/ export-ignore
 /codeception.yml export-ignore
-/phpcs.xml.dist export-ignore
+/phpcs.xml export-ignore
