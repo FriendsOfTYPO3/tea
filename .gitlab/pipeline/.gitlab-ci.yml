@@ -1,0 +1,246 @@
+---
+stages:
+  - build
+  - lint
+  - codestyle
+  - test
+
+include:
+  - template: License-Management.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
+
+default:
+  image: php:7.4
+  before_script:
+    - bash .gitlab/build/docker_install.sh > /dev/null
+
+variables:
+  MYSQL_ROOT_PASSWORD: root
+  typo3DatabaseName: typo3
+  typo3DatabaseHost: mariadb
+  typo3DatabaseUsername: root
+  typo3DatabasePassword: root
+
+build-composer-dependencies:
+  stage: build
+  needs: []
+  variables:
+    COMPOSER_CACHE_DIR: '.composer'
+  script:
+    - COMPOSER_CACHE_DIR=.composer
+      composer install --prefer-dist --no-progress --optimize-autoloader
+  artifacts:
+    when: on_success
+    expire_in: 2 weeks
+    paths:
+      - .Build
+  cache:
+    paths:
+      - .composer
+      - .Build
+
+php-lint-php7.2:
+  image: php:7.2
+  stage: lint
+  needs: []
+  script:
+    - composer ci:php:lint
+
+php-lint-php7.3:
+  image: php:7.3
+  stage: lint
+  needs: []
+  script:
+    - composer ci:php:lint
+
+php-lint-php7.4:
+  image: php:7.4
+  stage: lint
+  needs: []
+  script:
+    - composer ci:php:lint
+
+ts-lint:
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - composer ci:ts:lint
+
+json-lint:
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - composer ci:json:lint
+
+yaml-lint:
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - composer ci:yaml:lint
+
+xliff-lint:
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
+    - xmllint --schema ./xliff-core-1.2-strict.xsd
+      --noout $(find Resources -name '*.xlf')
+
+unit-php7.2-v10:
+  image: php:7.2
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+  script:
+    - composer ci:tests:unit
+
+unit-php7.3-v10:
+  image: php:7.3
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.3
+  script:
+    - composer ci:tests:unit
+
+unit-php7.4-v10:
+  image: php:7.4
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.4
+  script:
+    - composer ci:tests:unit
+
+func-php7.2-v10:
+  image: php:7.2
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+  script:
+    - composer ci:tests:functional
+
+func-php7.3-v10:
+  image: php:7.3
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.3
+  script:
+    - composer ci:tests:functional
+
+func-php7.4-v10:
+  image: php:7.4
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.4
+  script:
+    - composer ci:tests:functional
+
+unit-php7.2-v9:
+  image: php:7.2
+  stage: test
+  dependencies: []
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:unit
+
+unit-php7.3-v9:
+  image: php:7.3
+  stage: test
+  dependencies: []
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.3
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:unit
+
+unit-php7.4-v9:
+  image: php:7.4
+  stage: test
+  dependencies: []
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.4
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:unit
+
+func-php7.2-v9:
+  image: php:7.2
+  services:
+    - mariadb:10
+  stage: test
+  dependencies: []
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:functional
+
+func-php7.3-v9:
+  image: php:7.3
+  services:
+    - mariadb:10
+  stage: test
+  dependencies: []
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.3
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:functional
+
+func-php7.4-v9:
+  image: php:7.4
+  services:
+    - mariadb:10
+  stage: test
+  dependencies: []
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.4
+  script:
+    - composer require typo3/minimal:"^9.5"
+    - composer ci:tests:functional
+
+phpcs:
+  stage: codestyle
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+    - php-lint-php7.3
+    - php-lint-php7.4
+  script:
+    - composer ci:php:sniff
+
+code_quality:
+  before_script: []
+
+eslint-sast:
+  before_script: []
+
+phpcs-security-audit-sast:
+  before_script: []
+
+secrets-sast:
+  before_script: []
