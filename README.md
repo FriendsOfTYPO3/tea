@@ -78,6 +78,12 @@ For creating new extensions, I recommend taking
 [Helmut Hummel's extension skeleton](https://github.com/helhum/ext_scaffold)
 as a starting point.
 
+## Security
+
+Libraries and extensions do not need the security check as they should not have any restrictions concerning the other libraries they are installed alongside with (unless those would create breakage), and they also do not have a composer.lock which usually is the source for security checks.
+
+Instead, the projects (i.e., for TYPO3 installations) need to have the security checks.
+
 ## More Documentation
 
 * [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
