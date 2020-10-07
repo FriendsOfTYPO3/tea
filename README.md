@@ -80,7 +80,10 @@ as a starting point.
 
 ## Security
 
-Libraries and extensions do not need the security check as they should not have any restrictions concerning the other libraries they are installed alongside with (unless those would create breakage), and they also do not have a composer.lock which usually is the source for security checks.
+Libraries and extensions do not need the security check as they should not have
+any restrictions concerning the other libraries they are installed alongside with
+(unless those would create breakage), and they also do not have a `composer.lock`
+which usually is the source for security checks.
 
 Instead, the projects (i.e., for TYPO3 installations) need to have the security checks.
 
