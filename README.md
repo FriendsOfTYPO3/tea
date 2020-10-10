@@ -1,7 +1,7 @@
 # Tea example
 
 [![CI Status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg)](https://github.com/TYPO3-Documentation/tea/actions)
-[![Gitlab CI Status](https://gitlab.typo3.org/qa/example-extension/badges/master/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
+[![Gitlab CI Status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
 [![Latest Stable Version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
 [![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
 [![Latest Unstable Version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
@@ -11,7 +11,7 @@ This TYPO3 extension is an example for writing unit and functional tests for
 Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
 
 It also is an example for
-[best practices for extbase/fluid](https://github.com/oliverklee/workshop-handouts/tree/master/extbase-best-practices).
+[best practices for extbase/fluid](https://github.com/oliverklee/workshop-handouts/tree/main/extbase-best-practices).
 
 For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
@@ -91,7 +91,7 @@ Instead, the projects (i.e., for TYPO3 installations) need to have the security 
 ## More Documentation
 
 * [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
-* [Handout for best practices with extbase and fluid](https://github.com/oliverklee/workshop-handouts/blob/master/extbase-best-practices/extbase-best-practices.pdf)
+* [Handout for best practices with extbase and fluid](https://github.com/oliverklee/workshop-handouts/blob/main/extbase-best-practices/extbase-best-practices.pdf)
 
 ## Other example projects
 
