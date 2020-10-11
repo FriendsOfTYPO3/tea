@@ -1,6 +1,6 @@
 # Tea example
 
-[![CI Status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg)](https://github.com/TYPO3-Documentation/tea/actions)
+[![HitHub CI Status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg?branch=main)](https://github.com/TYPO3-Documentation/tea/actions)
 [![Gitlab CI Status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
 [![Latest Stable Version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
 [![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
