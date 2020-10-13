@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3_MODE') || die();
 
 // This makes the plugin selectable in the BE.
