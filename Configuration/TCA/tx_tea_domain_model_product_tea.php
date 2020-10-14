@@ -1,4 +1,5 @@
 <?php
+
 $tca = [
     'ctrl' => [
         'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea',
