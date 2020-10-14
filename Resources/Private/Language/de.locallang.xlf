@@ -29,7 +29,7 @@
             </trans-unit>
             <trans-unit id="tx_tea_domain_model_product_tea.title">
                 <source>Title</source>
-                <target>Title</target>
+                <target>Titel</target>
             </trans-unit>
         </body>
     </file>
