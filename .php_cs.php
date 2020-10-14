@@ -178,6 +178,8 @@ $config = \PhpCsFixer\Config::create()
     ->setRules($rules);
 
 $finder = \PhpCsFixer\Finder::create()
-    ->in('Classes')->in('Tests');
+    ->in('Classes')
+    ->in('Tests')
+    ->in('Configuration');
 
 return $config->setFinder($finder);
