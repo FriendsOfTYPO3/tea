@@ -14,10 +14,10 @@ TYPO3.tea.makeSortable = function (table) {
                 TYPO3.tea.sortTable(table, i, (dir = 1 - dir));
             });
         })(i);
-}
+};
 
 TYPO3.tea.sortTable = function (table, col, reverse) {
-    var tb = table.tBodies[0], 
+    var tb = table.tBodies[0],
         tr = Array.prototype.slice.call(tb.rows, 0),
         i;
     reverse = -(+reverse || -1);
@@ -30,7 +30,7 @@ TYPO3.tea.sortTable = function (table, col, reverse) {
         );
     });
     for (i = 0; i < tr.length; ++i) tb.appendChild(tr[i]);
-}
+};
 
 document.addEventListener("DOMContentLoaded", function () {
     var t = document.querySelectorAll(".tx-tea table"),
