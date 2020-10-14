@@ -23,6 +23,14 @@
                 <source>Our selection of assorted teas</source>
                 <target>Unsere Auswahl an erlesenen Tees</target>
             </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.uid">
+                <source>UID</source>
+                <target>UID</target>
+            </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.title">
+                <source>Title</source>
+                <target>Title</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,10 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var t = document.querySelectorAll(".tx-tea table"),
-        i = t.length;
-    while (--i >= 0) makeSortable(t[i]);
-});
+var TYPO3 = TYPO3 || {};
+TYPO3.tea = {};
 
-function makeSortable(table) {
+TYPO3.tea.makeSortable = function (table) {
     var th = table.tHead,
         i;
     th && (th = th.rows[0]) && (th = th.cells);
@@ -14,12 +11,12 @@ function makeSortable(table) {
         (function (i) {
             var dir = 1;
             th[i].addEventListener("click", function () {
-                sortTable(table, i, (dir = 1 - dir));
+                TYPO3.tea.sortTable(table, i, (dir = 1 - dir));
             });
         })(i);
 }
 
-function sortTable(table, col, reverse) {
+TYPO3.tea.sortTable = function (table, col, reverse) {
     var tb = table.tBodies[0], //
         tr = Array.prototype.slice.call(tb.rows, 0),
         i;
@@ -34,3 +31,11 @@ function sortTable(table, col, reverse) {
     });
     for (i = 0; i < tr.length; ++i) tb.appendChild(tr[i]);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    var t = document.querySelectorAll(".tx-tea table"),
+        i = t.length;
+    while (--i >= 0) {
+        TYPO3.tea.makeSortable(t[i]);
+    }
+});

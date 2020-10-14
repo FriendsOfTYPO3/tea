@@ -18,6 +18,12 @@
             <trans-unit id="index.heading">
                 <source>Our selection of assorted teas</source>
             </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.uid">
+                <source>UID</source>
+            </trans-unit>
+            <trans-unit id="tx_tea_domain_model_product_tea.title">
+                <source>Title</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
