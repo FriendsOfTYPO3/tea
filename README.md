@@ -27,7 +27,11 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:php:codestyle`
 
-### PHP Sniff by phpcs [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
+### PHP Sniff by [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
+
+`composer ci:php:copypaste`
+
+### PHP Copypaste check by [phpcpd](https://github.com/sebastianbergmann/phpcpd)
 
 `composer ci:php:sniff`
 
