@@ -60,6 +60,7 @@ jobs:
           - "json:lint"
           - "php:sniff"
           - "php:codestyle"
+          - "php:copypaste"
         php-version:
           - 7.4
   xliff-lint:

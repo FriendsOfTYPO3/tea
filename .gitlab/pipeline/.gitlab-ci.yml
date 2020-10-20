@@ -233,6 +233,16 @@ phpcs:
   script:
     - composer ci:php:sniff
 
+php-copypaste-check:
+  stage: codestyle
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+    - php-lint-php7.3
+    - php-lint-php7.4
+  script:
+    - composer ci:php:copypaste
+
 code_quality:
   before_script: []
 
