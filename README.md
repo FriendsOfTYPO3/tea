@@ -7,8 +7,8 @@
 [![Latest Unstable Version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
 [![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
 
-This TYPO3 extension is an example for writing unit and functional tests for
-Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
+This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
+writing unit and functional tests for Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
 
 It also is an example for
 [best practices for extbase/fluid](https://github.com/oliverklee/workshop-handouts/tree/main/extbase-best-practices).
@@ -16,11 +16,34 @@ It also is an example for
 For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
 
-## Running the unit tests from the command line
+## Feature list
+All of those checks are available in Github Actions and in Gitlab CI.
+####PHP Lint check by php -l
+`composer ci:php:lint`
 
-```bash
-composer ci:tests:unit
-```
+#### PHP CodeStyle check by php-cs-fixer
+`composer ci:php:codestyle`
+
+#### PHP Sniff by phpcs
+`composer ci:php:sniff`
+
+#### JSON Lint check by jsonlint
+`composer ci:json:lint`
+
+#### YAML Lint check by yaml-lint
+`composer ci:yaml:lint`
+
+#### TypoScript Lint by typoscript-lint
+`composer ci:ts:lint`
+
+#### Runinng unit tests
+`composer ci:tests:unit`
+
+#### Runinng functional tests tests
+`composer ci:tests:functional`
+
+#### Runinng all tests
+`composer ci:tests`
 
 ## Running the tests in PhpStorm
 
@@ -72,12 +95,6 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 1. make sure the "Codeception Framework" plugin is activated
 2. right-click on `Tests/Acceptance/StarterCest.php`
 3. Run 'Acceptance (Codeception)'
-
-## Creating new extensions with automated tests
-
-For creating new extensions, I recommend taking
-[Helmut Hummel's extension skeleton](https://github.com/helhum/ext_scaffold)
-as a starting point.
 
 ## Security
 
