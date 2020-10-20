@@ -81,6 +81,10 @@
         "ci:dynamic": [
             "@ci:tests"
         ],
+        "ci:php": [
+            "@ci:php:codestyle",
+            "@ci:php:sniff"
+        ],
         "ci:static": [
             "@ci:php:lint",
             "@ci:php:sniff",
@@ -95,6 +99,10 @@
         ],
         "fix:php:cs": "php-cs-fixer fix --config .php_cs.php",
         "fix:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
+        "fix:php": [
+            "@fix:php:cs",
+            "@fix:php:sniff"
+        ],
         "post-autoload-dump": [
             "@link-extension"
         ]
