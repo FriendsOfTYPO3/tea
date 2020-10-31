@@ -38,6 +38,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+      - name: "Show Composer version"
+        run: composer --version
       -
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
@@ -112,6 +114,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+      - name: "Show Composer version"
+        run: composer --version
       -
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
@@ -132,13 +136,13 @@ jobs:
         name: "Install lowest dependencies with composer"
         run: |
           composer update --no-ansi --no-interaction |
-          --no-progress --no-suggest --prefer-lowest
+          --no-progress --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress --no-suggest
+          composer update --no-ansi --no-interaction --no-progress
           composer show
       -
         name: "Run unit tests"
@@ -167,6 +171,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+      - name: "Show Composer version"
+        run: composer --version
       -
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
@@ -187,13 +193,13 @@ jobs:
         name: "Install lowest dependencies with composer"
         run: |
           composer update --no-ansi --no-interaction |
-          --no-progress --no-suggest --prefer-lowest
+          --no-progress --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress --no-suggest
+          composer update --no-ansi --no-interaction --no-progress
           composer show
       -
         name: "Start MySQL"
