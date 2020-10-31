@@ -28,6 +28,7 @@ build-composer-dependencies:
   variables:
     COMPOSER_CACHE_DIR: '.composer'
   script:
+    - composer --version
     - COMPOSER_CACHE_DIR=.composer
       composer install --prefer-dist --no-progress --optimize-autoloader
   artifacts:
