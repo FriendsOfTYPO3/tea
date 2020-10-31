@@ -180,7 +180,7 @@ jobs:
         run: "sudo /etc/init.d/mysql start"
       -
         name: "Run functional tests"
-        run: |-
+        run: |
           export typo3DatabaseName="typo3";
           export typo3DatabaseHost="127.0.0.1";
           export typo3DatabaseUsername="root";
