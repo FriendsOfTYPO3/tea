@@ -243,5 +243,5 @@ eslint-sast:
 phpcs-security-audit-sast:
   before_script: []
 
-secrets-sast:
+secret_detection:
   before_script: []
