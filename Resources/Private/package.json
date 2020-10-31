@@ -1,0 +1,27 @@
+{
+  "name": "tea",
+  "description": "",
+  "repository": {
+    "url": "https://github.com/TYPO3-Documentation/tea.git"
+  },
+  "keywords": [],
+  "author": "",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "lint:js": "eslint --config .eslintrc.json '../Public/**/*.js'",
+    "lint:js:fix": "eslint --config .eslintrc.json '../Public/**/*.js' --quiet --fix",
+    "lint:style": "stylelint --config stylelint.config.js ../Public/**/*.css",
+    "lint:style:fix": "stylelint --config stylelint.config.js ../Public/**/*.css --fix"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "stylelint": "^13",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-no-browser-hacks": "^1.2.1"
+  }
+}

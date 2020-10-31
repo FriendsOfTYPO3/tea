@@ -1,0 +1,15 @@
+.tx-tea table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tx-tea table,
+.tx-tea th,
+.tx-tea td {
+  border: 1px solid black;
+}
+
+.tx-tea thead th {
+  height: 50px;
+  cursor: pointer;
+}
