@@ -18,31 +18,41 @@ at the [handout to my workshops on test-driven development (TDD)](https://github
 
 ## Feature list
 All of those checks are available in Github Actions and in Gitlab CI.
-####PHP Lint check by php -l
+
+### PHP Lint check by php -l
+
 `composer ci:php:lint`
 
-#### PHP CodeStyle check by php-cs-fixer
+### PHP CodeStyle check by php-cs-fixer
+
 `composer ci:php:codestyle`
 
-#### PHP Sniff by phpcs
+### PHP Sniff by phpcs
+
 `composer ci:php:sniff`
 
-#### JSON Lint check by jsonlint
+### JSON Lint check by jsonlint
+
 `composer ci:json:lint`
 
-#### YAML Lint check by yaml-lint
+### YAML Lint check by yaml-lint
+
 `composer ci:yaml:lint`
 
-#### TypoScript Lint by typoscript-lint
+### TypoScript Lint by typoscript-lint
+
 `composer ci:ts:lint`
 
-#### Runinng unit tests
+### Runinng unit tests
+
 `composer ci:tests:unit`
 
-#### Runinng functional tests tests
+### Runinng functional tests tests
+
 `composer ci:tests:functional`
 
-#### Runinng all tests
+### Runinng all tests
+
 `composer ci:tests`
 
 ## Running the tests in PhpStorm
