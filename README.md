@@ -23,23 +23,23 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:php:lint`
 
-### PHP CodeStyle check by php-cs-fixer
+### PHP CodeStyle check by [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 `composer ci:php:codestyle`
 
-### PHP Sniff by phpcs
+### PHP Sniff by phpcs [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
 
 `composer ci:php:sniff`
 
-### JSON Lint check by jsonlint
+### JSON Lint check by [jsonlint](https://github.com/Seldaek/jsonlint)
 
 `composer ci:json:lint`
 
-### YAML Lint check by yaml-lint
+### YAML Lint check by [yaml-lint](https://github.com/j13k/yaml-lint)
 
 `composer ci:yaml:lint`
 
-### TypoScript Lint by typoscript-lint
+### TypoScript Lint by [typoscript-lint](https://github.com/martin-helmich/typo3-typoscript-lint)
 
 `composer ci:ts:lint`
 
