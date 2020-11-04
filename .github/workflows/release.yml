@@ -35,16 +35,16 @@ jobs:
 
       - name: Install TYPO3 TER client
         run: composer global require helhum/ter-client
-          "^0.1" --prefer-dist --no-progress --no-suggest
+          "^0.1" --prefer-dist --no-progress
 
-      - name: Remove .git folder
-        run: rm -rf CODE _OF_CONDUCT.md Tests codeception.xml phpcs.xml
+      - name: Remove files
+        run: rm -rf CODE_OF_CONDUCT.md Tests codeception.yml phpcs.xml .github .gitlab .editor .Build .gitattributes .editorconfig .gitignore .php_cs.php Resources/Private/.eslintignore Resources/Private/.eslintrc.json Resources/Private/.prettierrc.js Resources/Private/package.json Resources/Private/stylelint.config.js
 
       - name: List extension folder
         run: ls -liAsh ./
 
       - name: Upload EXT:${{ env.TYPO3_EXTENSION_KEY }}
           as ${{ github.event.ref }} to TER
-        run: php ~/.composer/vendor/bin/upload "./$TYPO3_EXTENSION_KEY"
-          "$TYPO3_USER" "$TYPO3_PASSWORD"
-          "${{ github.event.head_commit.message }}"
+        run: ter-client upload $TYPO3_EXTENSION_KEY "./$TYPO3_EXTENSION_KEY"
+          -u $TYPO3_USER -p $TYPO3_PASSWORD"
+          -m "${{ github.event.head_commit.message }}"
