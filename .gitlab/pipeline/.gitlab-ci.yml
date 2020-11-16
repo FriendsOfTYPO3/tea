@@ -11,11 +11,6 @@ include:
   - template: SAST.gitlab-ci.yml
   - template: Code-Quality.gitlab-ci.yml
 
-default:
-  image: php:7.4
-  before_script:
-    - bash .gitlab/build/docker_install.sh > /dev/null
-
 variables:
   MYSQL_ROOT_PASSWORD: root
   typo3DatabaseName: typo3
@@ -23,7 +18,13 @@ variables:
   typo3DatabaseUsername: root
   typo3DatabasePassword: root
 
+.default:
+  image: php:7.4
+  before_script:
+    - bash .gitlab/build/docker_install.sh > /dev/null
+
 build-composer-dependencies:
+  extends: .default
   stage: build
   needs: []
   variables:
@@ -43,6 +44,7 @@ build-composer-dependencies:
       - .Build
 
 php-lint-php7.2:
+  extends: .default
   image: php:7.2
   stage: lint
   needs: []
@@ -50,6 +52,7 @@ php-lint-php7.2:
     - composer ci:php:lint
 
 php-lint-php7.3:
+  extends: .default
   image: php:7.3
   stage: lint
   needs: []
@@ -57,6 +60,7 @@ php-lint-php7.3:
     - composer ci:php:lint
 
 php-lint-php7.4:
+  extends: .default
   image: php:7.4
   stage: lint
   needs: []
@@ -64,6 +68,7 @@ php-lint-php7.4:
     - composer ci:php:lint
 
 ts-lint:
+  extends: .default
   stage: lint
   needs:
     - build-composer-dependencies
@@ -71,6 +76,7 @@ ts-lint:
     - composer ci:ts:lint
 
 json-lint:
+  extends: .default
   stage: lint
   needs:
     - build-composer-dependencies
@@ -78,6 +84,7 @@ json-lint:
     - composer ci:json:lint
 
 yaml-lint:
+  extends: .default
   stage: lint
   needs:
     - build-composer-dependencies
@@ -85,6 +92,7 @@ yaml-lint:
     - composer ci:yaml:lint
 
 xliff-lint:
+  extends: .default
   stage: lint
   needs:
     - build-composer-dependencies
@@ -94,6 +102,7 @@ xliff-lint:
       --noout $(find Resources -name '*.xlf')
 
 unit-php7.2-v10:
+  extends: .default
   image: php:7.2
   stage: test
   needs:
@@ -104,6 +113,7 @@ unit-php7.2-v10:
     - composer ci:tests:unit
 
 unit-php7.3-v10:
+  extends: .default
   image: php:7.3
   stage: test
   needs:
@@ -114,6 +124,7 @@ unit-php7.3-v10:
     - composer ci:tests:unit
 
 unit-php7.4-v10:
+  extends: .default
   image: php:7.4
   stage: test
   needs:
@@ -124,6 +135,7 @@ unit-php7.4-v10:
     - composer ci:tests:unit
 
 func-php7.2-v10:
+  extends: .default
   image: php:7.2
   services:
     - mariadb:10
@@ -136,6 +148,7 @@ func-php7.2-v10:
     - composer ci:tests:functional
 
 func-php7.3-v10:
+  extends: .default
   image: php:7.3
   services:
     - mariadb:10
@@ -148,6 +161,7 @@ func-php7.3-v10:
     - composer ci:tests:functional
 
 func-php7.4-v10:
+  extends: .default
   image: php:7.4
   services:
     - mariadb:10
@@ -160,6 +174,7 @@ func-php7.4-v10:
     - composer ci:tests:functional
 
 unit-php7.2-v9:
+  extends: .default
   image: php:7.2
   stage: test
   dependencies: []
@@ -171,6 +186,7 @@ unit-php7.2-v9:
     - composer ci:tests:unit
 
 unit-php7.3-v9:
+  extends: .default
   image: php:7.3
   stage: test
   dependencies: []
@@ -182,6 +198,7 @@ unit-php7.3-v9:
     - composer ci:tests:unit
 
 unit-php7.4-v9:
+  extends: .default
   image: php:7.4
   stage: test
   dependencies: []
@@ -193,6 +210,7 @@ unit-php7.4-v9:
     - composer ci:tests:unit
 
 func-php7.2-v9:
+  extends: .default
   image: php:7.2
   services:
     - mariadb:10
@@ -206,6 +224,7 @@ func-php7.2-v9:
     - composer ci:tests:functional
 
 func-php7.3-v9:
+  extends: .default
   image: php:7.3
   services:
     - mariadb:10
@@ -219,6 +238,7 @@ func-php7.3-v9:
     - composer ci:tests:functional
 
 func-php7.4-v9:
+  extends: .default
   image: php:7.4
   services:
     - mariadb:10
@@ -232,6 +252,7 @@ func-php7.4-v9:
     - composer ci:tests:functional
 
 phpcs:
+  extends: .default
   stage: codestyle
   needs:
     - build-composer-dependencies
@@ -240,15 +261,3 @@ phpcs:
     - php-lint-php7.4
   script:
     - composer ci:php:sniff
-
-code_quality:
-  before_script: []
-
-eslint-sast:
-  before_script: []
-
-phpcs-security-audit-sast:
-  before_script: []
-
-secret_detection:
-  before_script: []
