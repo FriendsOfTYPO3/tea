@@ -54,4 +54,5 @@ or `report a problem <https://github.com/TYPO3-Documentation/tea/issues/new>`__
    :glob:
 
    Introduction/Index
+   Documentation/Rendering/Index
    Sitemap

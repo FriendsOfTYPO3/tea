@@ -88,6 +88,22 @@ which usually is the source for security checks.
 
 Instead, the projects (i.e., for TYPO3 installations) need to have the security checks.
 
+## Documentation rendering
+
+In order to render documentation, first of all, clone repository
+
+```
+git clone https://github.com/TYPO3-Documentation/tea.git
+```
+then go to extension root
+
+```
+cd tea
+```
+
+and follow [this guide](https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html).
+
+
 ## More Documentation
 
 * [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
