@@ -18,8 +18,6 @@ Example of nginx virtual host
     # Make site accessible from http://localhost/
     server_name _;
 
-    # Disable sendfile as per https://docs.vagrantup.com/v2/synced-folders/virtualbox.html
-    sendfile off;
     error_log /dev/stdout info;
     access_log /var/log/nginx/access.log;
 
