@@ -101,7 +101,7 @@ then go to extension root
 cd tea
 ```
 
-and follow [this guide](https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html).
+and follow [the TYPO3 documentation quickstart guide](https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html).
 
 
 ## More Documentation

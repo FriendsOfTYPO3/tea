@@ -14,7 +14,8 @@ EXT:tea
 
 :Description:
    This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
-   Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.	writing unit and functional tests for Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
+   Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit, writing unit and functional tests for
+   extensions for TYPO3 CMS using PHPUnit.
 
 :Keywords:
    tea, ci, continousintegration, gitlab, githubactions, actions, tests, functional, unit
@@ -35,18 +36,24 @@ EXT:tea
 :Rendered:
 	|today|
 
-**TYPO3**
+=====
+TYPO3
+=====
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
 
-**For Contributors**
+================
+For Contributors
+================
 
 You are welcome to help improve this guide if you missing something.
 Just click on "Edit me on GitHub" on the top right to submit your change request
 or `report a problem <https://github.com/TYPO3-Documentation/tea/issues/new>`__
 
-**Table of Contents**
+=================
+Table of Contents
+=================
 
 .. toctree::
    :maxdepth: 3
