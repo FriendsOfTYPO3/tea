@@ -42,7 +42,8 @@
         "typo3/cms-fluid-styled-content": "^9.5 || ^10.4",
         "seld/jsonlint": "^1.8",
         "phpdocumentor/reflection-docblock": "<= 5.1 || > 5.2",
-        "j13k/yaml-lint": "1.1.x-dev"
+        "j13k/yaml-lint": "1.1.x-dev",
+        "sebastian/phpcpd": "^4.1.0"
     },
     "replace": {
         "typo3-ter/tea": "self.version"
@@ -69,6 +70,7 @@
         "ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
         "ci:php:codestyle": "php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
         "ci:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
+        "ci:php:copypaste": ".Build/vendor/bin/phpcpd Classes Configuration Tests",
         "ci:json:lint": "find . ! -path '*.Build/*' -name '*.json' | xargs .Build/vendor/bin/jsonlint -q",
         "ci:yaml:lint": "find . ! -path '*.Build/*' -name '*.yml' | xargs .Build/vendor/bin/yaml-lint",
         "ci:ts:lint": ".Build/vendor/bin/typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
