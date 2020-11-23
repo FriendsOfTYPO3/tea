@@ -138,14 +138,13 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction |
-          --no-progress --prefer-lowest
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
       -
         name: "Run unit tests"
@@ -154,6 +153,7 @@ jobs:
       matrix:
         composer-dependencies:
           - highest
+          - lowest
         php-version:
           - 7.2
           - 7.3
@@ -195,14 +195,13 @@ jobs:
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction |
-          --no-progress --prefer-lowest
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
       -
         name: "Start MySQL"
@@ -219,6 +218,7 @@ jobs:
       matrix:
         composer-dependencies:
           - highest
+          - lowest
         php-version:
           - 7.2
           - 7.3

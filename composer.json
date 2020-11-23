@@ -34,7 +34,7 @@
     "require-dev": {
         "codeception/codeception": "^4.1.5",
         "friendsofphp/php-cs-fixer": "^2.16.3",
-        "helhum/typo3-composer-setup": "^0.5.6",
+        "helhum/typo3-composer-setup": "^0.5.7",
         "helmich/typo3-typoscript-lint": "^2.1.1",
         "nimut/testing-framework": "^5.0.3",
         "phpunit/phpunit": "^7.5.20",
@@ -44,6 +44,9 @@
         "phpdocumentor/reflection-docblock": "<= 5.1 || > 5.2",
         "j13k/yaml-lint": "1.1.x-dev",
         "sebastian/phpcpd": "^4.1.0"
+    },
+    "conflict": {
+        "typo3/class-alias-loader": "< 1.1.0"
     },
     "replace": {
         "typo3-ter/tea": "self.version"
