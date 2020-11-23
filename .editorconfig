@@ -63,3 +63,8 @@ indent_size = 2
 [{*.jsonl}]
 indent_style = space
 indent_size = 2
+
+# XML files
+[*.xml]
+indent_style = space
+indent_size = 4
