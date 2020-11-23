@@ -109,7 +109,7 @@ unit-php7.2-v10:
     - build-composer-dependencies
     - php-lint-php7.2
   script:
-    - composer require typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:unit
 
 unit-php7.3-v10:
@@ -120,7 +120,7 @@ unit-php7.3-v10:
     - build-composer-dependencies
     - php-lint-php7.3
   script:
-    - composer require typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:unit
 
 unit-php7.4-v10:
@@ -131,7 +131,7 @@ unit-php7.4-v10:
     - build-composer-dependencies
     - php-lint-php7.4
   script:
-    - composer require typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:unit
 
 func-php7.2-v10:
@@ -144,7 +144,7 @@ func-php7.2-v10:
     - build-composer-dependencies
     - php-lint-php7.2
   script:
-    - composer require typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:functional
 
 func-php7.3-v10:
@@ -157,7 +157,7 @@ func-php7.3-v10:
     - build-composer-dependencies
     - php-lint-php7.3
   script:
-    - composer require typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:functional
 
 func-php7.4-v10:
@@ -170,7 +170,7 @@ func-php7.4-v10:
     - build-composer-dependencies
     - php-lint-php7.4
   script:
-    - composer require typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:functional
 
 unit-php7.2-v9:
@@ -182,7 +182,7 @@ unit-php7.2-v9:
     - build-composer-dependencies
     - php-lint-php7.2
   script:
-    - composer require typo3/minimal:"^9.5"
+    - composer require --no-progress typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
 unit-php7.3-v9:
@@ -194,7 +194,7 @@ unit-php7.3-v9:
     - build-composer-dependencies
     - php-lint-php7.3
   script:
-    - composer require typo3/minimal:"^9.5"
+    - composer require --no-progress typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
 unit-php7.4-v9:
@@ -206,7 +206,7 @@ unit-php7.4-v9:
     - build-composer-dependencies
     - php-lint-php7.4
   script:
-    - composer require typo3/minimal:"^9.5"
+    - composer require --no-progress typo3/minimal:"^9.5"
     - composer ci:tests:unit
 
 func-php7.2-v9:
@@ -220,7 +220,7 @@ func-php7.2-v9:
     - build-composer-dependencies
     - php-lint-php7.2
   script:
-    - composer require typo3/minimal:"^9.5"
+    - composer require --no-progress typo3/minimal:"^9.5"
     - composer ci:tests:functional
 
 func-php7.3-v9:
@@ -234,7 +234,7 @@ func-php7.3-v9:
     - build-composer-dependencies
     - php-lint-php7.3
   script:
-    - composer require typo3/minimal:"^9.5"
+    - composer require --no-progress typo3/minimal:"^9.5"
     - composer ci:tests:functional
 
 func-php7.4-v9:
@@ -248,7 +248,7 @@ func-php7.4-v9:
     - build-composer-dependencies
     - php-lint-php7.4
   script:
-    - composer require typo3/minimal:"^9.5"
+    - composer require --no-progress typo3/minimal:"^9.5"
     - composer ci:tests:functional
 
 phpcs:
