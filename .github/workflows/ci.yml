@@ -12,7 +12,7 @@ on:
 jobs:
   php-lint:
     name: "PHP linter"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
           - 7.4
   code-quality:
     name: "Code quality checks"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       -
         name: "Checkout"
@@ -71,7 +71,7 @@ jobs:
           - 7.4
   code-quality-frontend:
     name: "Code quality frontend checks"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         command:
@@ -91,7 +91,7 @@ jobs:
         run: "yarn lint:${{ matrix.command }}"
   xliff-lint:
     name: "Xliff linter"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       -
         name: "Checkout"
@@ -108,7 +108,7 @@ jobs:
               --noout $(find Resources -name '*.xlf')"
   unit-tests:
     name: "Unit tests"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: php-lint
     steps:
       -
