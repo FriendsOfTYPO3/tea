@@ -20,6 +20,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Run PHP lint"
         run: "composer ci:php:lint"
     strategy:
@@ -40,6 +41,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
       -
@@ -117,6 +119,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
       -
@@ -174,6 +177,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
       -
