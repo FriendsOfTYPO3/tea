@@ -132,7 +132,7 @@ jobs:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
-          composer require typo3/minimal:"$TYPO3"
+          composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
       -
         if: "matrix.composer-dependencies == 'lowest'"
@@ -189,7 +189,7 @@ jobs:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
-          composer require typo3/minimal:"$TYPO3"
+          composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
       -
         if: "matrix.composer-dependencies == 'lowest'"
