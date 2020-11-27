@@ -48,8 +48,7 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-
-          composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -126,8 +125,7 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}
-               -composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -185,8 +183,7 @@ jobs:
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}
-          -composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
