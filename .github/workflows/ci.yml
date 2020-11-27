@@ -166,7 +166,7 @@ jobs:
           - ^10.4
   functional-tests:
     name: "Functional tests"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: php-lint
     steps:
       -
@@ -178,6 +178,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           tools: composer:v2
+          extensions: mysqli
       - name: "Show Composer version"
         run: composer --version
       -
