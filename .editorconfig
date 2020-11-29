@@ -8,58 +8,63 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# HTML-Files
+# HTML files
 [*.html]
 indent_style = space
 indent_size = 4
 
-# CSS-Files
+# CSS files
 [*.css]
 indent_style = space
 indent_size = 4
 
 
-# LESS-Files
+# LESS files
 [*.less]
 indent_style = space
 indent_size = 4
 
-# SCSS-Files
+# SCSS files
 [*.scss]
 indent_style = tab
 indent_size = 2
 
-# JS-Files
+# JS files
 [*.js]
 indent_style = space
 indent_size = 4
 
-# PHP-Files
+# PHP files
 [*.php]
 indent_style = space
 indent_size = 4
 
-# MD-Files
+# MD files
 [*.md]
 indent_style = space
 indent_size = 4
 
-# ReST-Files
+# ReST files
 [*.rst]
 indent_style = space
 indent_size = 3
 
-# TypoScript-Files
-[*.typoscript,*.ts]
+# TypoScript files
+[*.typoscript]
 indent_style = space
 indent_size = 4
 
-# YML-Files
+# YML files
 [{*.yml,*.yaml}]
 indent_style = space
 indent_size = 2
 
-# JSON-Files
+# JSON files
 [{*.jsonl}]
 indent_style = space
 indent_size = 2
+
+# XML files
+[*.xml]
+indent_style = space
+indent_size = 4

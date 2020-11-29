@@ -7,17 +7,20 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '15 3 * * 1'
 jobs:
   php-lint:
     name: "PHP linter"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout
+      - name: "Checkout"
         uses: actions/checkout@v2
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Run PHP lint"
         run: "composer ci:php:lint"
     strategy:
@@ -28,24 +31,24 @@ jobs:
           - 7.4
   code-quality:
     name: "Code quality checks"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       -
-        name: Checkout
+        name: "Checkout"
         uses: actions/checkout@v2
       -
         name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
       -
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-
-          composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -62,11 +65,12 @@ jobs:
           - "json:lint"
           - "php:sniff"
           - "php:codestyle"
+          - "php:copypaste"
         php-version:
           - 7.4
   code-quality-frontend:
     name: "Code quality frontend checks"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         command:
@@ -74,7 +78,7 @@ jobs:
           - "js"
     steps:
       -
-        name: Checkout
+        name: "Checkout"
         uses: actions/checkout@v2
       -
         name: "Install modules"
@@ -86,10 +90,10 @@ jobs:
         run: "yarn lint:${{ matrix.command }}"
   xliff-lint:
     name: "Xliff linter"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       -
-        name: Checkout
+        name: "Checkout"
         uses: actions/checkout@v2
       -
         name: "Install xmllint"
@@ -103,25 +107,25 @@ jobs:
               --noout $(find Resources -name '*.xlf')"
   unit-tests:
     name: "Unit tests"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: php-lint
     steps:
       -
-        name: Checkout
+        name: "Checkout"
         uses: actions/checkout@v2
       -
         name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
       -
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}
-               -composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -129,20 +133,19 @@ jobs:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
-          composer require typo3/minimal:"$TYPO3"
+          composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
       -
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction |
-          --no-progress --prefer-lowest
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
       -
         name: "Run unit tests"
@@ -151,6 +154,7 @@ jobs:
       matrix:
         composer-dependencies:
           - highest
+          - lowest
         php-version:
           - 7.2
           - 7.3
@@ -160,25 +164,26 @@ jobs:
           - ^10.4
   functional-tests:
     name: "Functional tests"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: php-lint
     steps:
       -
-        name: Checkout
+        name: "Checkout"
         uses: actions/checkout@v2
       -
         name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          tools: composer:v2
+          extensions: mysqli
       - name: "Show Composer version"
         run: composer --version
       -
         name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}
-          -composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       -
@@ -186,20 +191,19 @@ jobs:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
-          composer require typo3/minimal:"$TYPO3"
+          composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
       -
         if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction |
-          --no-progress --prefer-lowest
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
       -
         if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
-          composer update --no-ansi --no-interaction --no-progress
+          composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
       -
         name: "Start MySQL"
@@ -216,6 +220,7 @@ jobs:
       matrix:
         composer-dependencies:
           - highest
+          - lowest
         php-version:
           - 7.2
           - 7.3

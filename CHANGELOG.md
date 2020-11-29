@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Also run the CI build once a week (#160)
 - Run the functional tests via GitHub Actions (#55)
 - Cache Composer dependencies in build (#31)
 - Add a status badge for GitHub actions (#32)
