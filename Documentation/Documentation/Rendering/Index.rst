@@ -11,17 +11,16 @@ Documentation rendering
 How to render documentation locally?
 ====================================
 
-In order to render documentation, first of all, clone repository:
+In order to render documentation, first of all, clone the repository:
 
 .. code-block:: bash
 
    git clone https://github.com/TYPO3-Documentation/tea.git
 
-then go to extension root:
+then go to the extension root:
 
 .. code-block:: bash
 
    cd tea
-
 
 and follow `the TYPO3 documentation quickstart guide <https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html>`_

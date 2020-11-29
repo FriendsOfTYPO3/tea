@@ -103,7 +103,6 @@ cd tea
 
 and follow [the TYPO3 documentation quickstart guide](https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html).
 
-
 ## More Documentation
 
 * [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
