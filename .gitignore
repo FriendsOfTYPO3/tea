@@ -1,10 +1,10 @@
-/.Build/*
 /*.idea
+/.Build/*
 /.php_cs.cache
+/Resources/Private/node_modules/
+/Resources/Private/package-lock.json
+/Resources/Private/yarn-error.log
+/Resources/Private/yarn.lock
 /composer.lock
 /nbproject
 /var
-/Resources/Private/node_modules/
-/Resources/Private/yarn.lock
-/Resources/Private/yarn-error.log
-/Resources/Private/package-lock.json
