@@ -36,14 +36,12 @@ EXT:tea
 :Rendered:
 	|today|
 
-=====
 TYPO3
 =====
 
 The content of this document is related to TYPO3 CMS,
 a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
 
-================
 For Contributors
 ================
 
@@ -51,7 +49,6 @@ You are welcome to help improve this guide if you missing something.
 Just click on "Edit me on GitHub" on the top right to submit your change request
 or `report a problem <https://github.com/TYPO3-Documentation/tea/issues/new>`__
 
-=================
 Table of Contents
 =================
 

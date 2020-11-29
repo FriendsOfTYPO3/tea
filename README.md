@@ -92,12 +92,12 @@ Instead, the projects (i.e., for TYPO3 installations) need to have the security 
 
 In order to render documentation, first of all, clone repository
 
-```
+```bash
 git clone https://github.com/TYPO3-Documentation/tea.git
 ```
 then go to extension root
 
-```
+```bash
 cd tea
 ```
 
