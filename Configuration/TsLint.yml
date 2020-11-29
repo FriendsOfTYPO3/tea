@@ -1,24 +1,17 @@
 ---
 sniffs:
-  -
-    class: Indentation
+  - class: Indentation
     parameters:
       indentConditions: true
       indentPerLevel: 2
       useSpaces: true
-  -
-    class: DeadCode
-  -
-    class: OperatorWhitespace
-  -
-    class: RepeatingRValue
+  - class: DeadCode
+  - class: OperatorWhitespace
+  - class: RepeatingRValue
     disabled: true
-  -
-    class: DuplicateAssignment
-  -
-    class: EmptySection
+  - class: DuplicateAssignment
+  - class: EmptySection
     disabled: true
-  -
-    class: NestingConsistency
+  - class: NestingConsistency
     parameters:
       commonPathPrefixThreshold: 1

@@ -4,8 +4,7 @@ suites:
     actor: AcceptanceTester
     modules:
       enabled:
-        -
-          WebDriver:
+        - WebDriver:
             browser: chrome
             url: "https://www.oliverklee.de"
         - \Helper\Acceptance
@@ -13,7 +12,7 @@ suites:
 extensions:
   enabled:
     - Codeception\Extension\RunFailed
-gherkin: []
+gherkin: [ ]
 modules:
   config:
     WebDriver:

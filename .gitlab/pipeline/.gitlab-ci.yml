@@ -26,7 +26,7 @@ variables:
 build-composer-dependencies:
   extends: .default
   stage: build
-  needs: []
+  needs: [ ]
   variables:
     COMPOSER_CACHE_DIR: '.composer'
   script:
@@ -47,7 +47,7 @@ php-lint-php7.2:
   extends: .default
   image: php:7.2
   stage: lint
-  needs: []
+  needs: [ ]
   script:
     - composer ci:php:lint
 
@@ -55,7 +55,7 @@ php-lint-php7.3:
   extends: .default
   image: php:7.3
   stage: lint
-  needs: []
+  needs: [ ]
   script:
     - composer ci:php:lint
 
@@ -63,7 +63,7 @@ php-lint-php7.4:
   extends: .default
   image: php:7.4
   stage: lint
-  needs: []
+  needs: [ ]
   script:
     - composer ci:php:lint
 
@@ -177,7 +177,7 @@ unit-php7.2-v9:
   extends: .default
   image: php:7.2
   stage: test
-  dependencies: []
+  dependencies: [ ]
   needs:
     - build-composer-dependencies
     - php-lint-php7.2
@@ -189,7 +189,7 @@ unit-php7.3-v9:
   extends: .default
   image: php:7.3
   stage: test
-  dependencies: []
+  dependencies: [ ]
   needs:
     - build-composer-dependencies
     - php-lint-php7.3
@@ -201,7 +201,7 @@ unit-php7.4-v9:
   extends: .default
   image: php:7.4
   stage: test
-  dependencies: []
+  dependencies: [ ]
   needs:
     - build-composer-dependencies
     - php-lint-php7.4
@@ -215,7 +215,7 @@ func-php7.2-v9:
   services:
     - mariadb:10
   stage: test
-  dependencies: []
+  dependencies: [ ]
   needs:
     - build-composer-dependencies
     - php-lint-php7.2
@@ -229,7 +229,7 @@ func-php7.3-v9:
   services:
     - mariadb:10
   stage: test
-  dependencies: []
+  dependencies: [ ]
   needs:
     - build-composer-dependencies
     - php-lint-php7.3
@@ -243,7 +243,7 @@ func-php7.4-v9:
   services:
     - mariadb:10
   stage: test
-  dependencies: []
+  dependencies: [ ]
   needs:
     - build-composer-dependencies
     - php-lint-php7.4

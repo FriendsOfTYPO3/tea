@@ -33,29 +33,24 @@ jobs:
     name: "Code quality checks"
     runs-on: ubuntu-20.04
     steps:
-      -
-        name: "Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v2
-      -
-        name: "Install PHP"
+      - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
           tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
-      -
-        name: "Cache dependencies installed with composer"
+      - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      -
-        name: "Install Composer dependencies"
+      - name: "Install Composer dependencies"
         run: "composer install --no-progress"
-      -
-        name: "Run command"
+      - name: "Run command"
         run: "composer ci:${{ matrix.command }}"
     strategy:
       matrix:
@@ -77,32 +72,25 @@ jobs:
           - "style"
           - "js"
     steps:
-      -
-        name: "Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v2
-      -
-        name: "Install modules"
+      - name: "Install modules"
         working-directory: ./Resources/Private
         run: yarn
-      -
-        name: "Run command"
+      - name: "Run command"
         working-directory: ./Resources/Private
         run: "yarn lint:${{ matrix.command }}"
   xliff-lint:
     name: "Xliff linter"
     runs-on: ubuntu-20.04
     steps:
-      -
-        name: "Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v2
-      -
-        name: "Install xmllint"
+      - name: "Install xmllint"
         run: "sudo apt-get install libxml2-utils wget"
-      -
-        name: "Download xliff schema"
+      - name: "Download xliff schema"
         run: "wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd"
-      -
-        name: "Run lint"
+      - name: "Run lint"
         run: "xmllint --schema ./xliff-core-1.2-strict.xsd
               --noout $(find Resources -name '*.xlf')"
   unit-tests:
@@ -110,45 +98,38 @@ jobs:
     runs-on: ubuntu-20.04
     needs: php-lint
     steps:
-      -
-        name: "Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v2
-      -
-        name: "Install PHP"
+      - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
           tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
-      -
-        name: "Cache dependencies installed with composer"
+      - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      -
-        env:
+      - env:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
           composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
-      -
-        if: "matrix.composer-dependencies == 'lowest'"
+      - if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      -
-        if: "matrix.composer-dependencies == 'highest'"
+      - if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
-      -
-        name: "Run unit tests"
+      - name: "Run unit tests"
         run: "composer ci:tests:unit"
     strategy:
       matrix:
@@ -167,11 +148,9 @@ jobs:
     runs-on: ubuntu-18.04
     needs: php-lint
     steps:
-      -
-        name: "Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v2
-      -
-        name: "Install PHP"
+      - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
@@ -179,37 +158,31 @@ jobs:
           extensions: mysqli
       - name: "Show Composer version"
         run: composer --version
-      -
-        name: "Cache dependencies installed with composer"
+      - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.composer/cache
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      -
-        env:
+      - env:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
           composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
-      -
-        if: "matrix.composer-dependencies == 'lowest'"
+      - if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      -
-        if: "matrix.composer-dependencies == 'highest'"
+      - if: "matrix.composer-dependencies == 'highest'"
         name: "Install highest dependencies with composer"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
-      -
-        name: "Start MySQL"
+      - name: "Start MySQL"
         run: "sudo /etc/init.d/mysql start"
-      -
-        name: "Run functional tests"
+      - name: "Run functional tests"
         run: |
           export typo3DatabaseName="typo3";
           export typo3DatabaseHost="127.0.0.1";
