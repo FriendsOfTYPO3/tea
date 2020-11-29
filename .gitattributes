@@ -5,11 +5,11 @@
 /.gitignore export-ignore
 /.gitlab/ export-ignore
 /.php_cs.php export-ignore
-/Tests/ export-ignore
-/codeception.yml export-ignore
-/phpcs.xml export-ignore
 /Resources/Private/.eslintignore export-ignore
 /Resources/Private/.eslintrc.json export-ignore
 /Resources/Private/.prettierrc.js export-ignore
 /Resources/Private/package.json export-ignore
 /Resources/Private/stylelint.config.js export-ignore
+/Tests/ export-ignore
+/codeception.yml export-ignore
+/phpcs.xml export-ignore
