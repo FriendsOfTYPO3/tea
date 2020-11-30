@@ -4,7 +4,7 @@ sniffs:
     class: Indentation
     parameters:
       indentConditions: true
-      indentPerLevel: 4
+      indentPerLevel: 2
       useSpaces: true
   -
     class: DeadCode

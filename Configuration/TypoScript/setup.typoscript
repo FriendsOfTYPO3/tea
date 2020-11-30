@@ -1,15 +1,15 @@
 plugin.tx_tea {
-    view {
-        templateRootPath = {$plugin.tx_tea.view.templateRootPath}
-        partialRootPath = {$plugin.tx_tea.view.partialRootPath}
-        layoutRootPath = {$plugin.tx_tea.view.layoutRootPath}
-    }
+  view {
+    templateRootPath = {$plugin.tx_tea.view.templateRootPath}
+    partialRootPath = {$plugin.tx_tea.view.partialRootPath}
+    layoutRootPath = {$plugin.tx_tea.view.layoutRootPath}
+  }
 
-    persistence {
-        storagePid = {$plugin.tx_tea.persistence.storagePid}
-    }
+  persistence {
+    storagePid = {$plugin.tx_tea.persistence.storagePid}
+  }
 
-    settings {
-        singleViewPageUid = {$plugin.tx_tea.settings.singleViewPageUid}
-    }
+  settings {
+    singleViewPageUid = {$plugin.tx_tea.settings.singleViewPageUid}
+  }
 }
