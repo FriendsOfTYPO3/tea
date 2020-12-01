@@ -23,6 +23,11 @@ variables:
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
 
+.default-frontend:
+  image: node:latest
+  before_script:
+    - npm install -g eslint
+
 build-composer-dependencies:
   extends: .default
   stage: build
@@ -103,6 +108,7 @@ xliff-lint:
 
 javascript-lint:
   image: node:latest
+  extends: .default-frontend
   needs: [ ]
   stage: lint
   script:
@@ -111,11 +117,12 @@ javascript-lint:
 
 style-lint:
   image: node:latest
+  extends: .default-frontend
   needs: [ ]
   stage: lint
   script:
     - cd ./Resources/Private
-    - yarn lint:js
+    - yarn lint:style
 
 unit-php7.2-v10:
   extends: .default
