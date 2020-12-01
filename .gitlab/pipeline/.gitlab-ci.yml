@@ -26,11 +26,10 @@ variables:
 .default-frontend:
   image: node:latest
   cache:
-    untracked: true
     key: "$CI_PROJECT_ID"
     paths:
-      - node_modules/
-      - .yarn
+      - Resources/Private/node_modules/
+      - Resources/Private/.yarn
   before_script:
     - npm install -g eslint
     - cd ./Resources/Private
