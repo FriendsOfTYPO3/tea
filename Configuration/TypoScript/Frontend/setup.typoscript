@@ -1,8 +1,9 @@
 page {
-    includeCSS {
-        tea = EXT:tea/Resources/Public/Css/Main.css
-    }
-    includeJSFooter {
-        tea = EXT:tea/Resources/Public/JavaScript/Main.js
-    }
+  includeCSS {
+    tea = EXT:tea/Resources/Public/Css/Main.css
+  }
+
+  includeJSFooter {
+    tea = EXT:tea/Resources/Public/JavaScript/Main.js
+  }
 }
