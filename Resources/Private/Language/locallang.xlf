@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-    <file source-language="en" datatype="plaintext" original="messages">
-        <header/>
-        <body>
-            <trans-unit id="plugin.tea">
-                <source>Tea</source>
-            </trans-unit>
-            <trans-unit id="plugin.tea.view">
-                <source>View</source>
-            </trans-unit>
-            <trans-unit id="plugin.tea.index">
-                <source>Tea list</source>
-            </trans-unit>
-            <trans-unit id="plugin.tea.show">
-                <source>Tea single view</source>
-            </trans-unit>
-            <trans-unit id="index.heading">
-                <source>Our selection of assorted teas</source>
-            </trans-unit>
-            <trans-unit id="tx_tea_domain_model_product_tea.uid">
-                <source>UID</source>
-            </trans-unit>
-            <trans-unit id="tx_tea_domain_model_product_tea.title">
-                <source>Title</source>
-            </trans-unit>
-        </body>
-    </file>
+	<file source-language="en" datatype="plaintext" original="messages">
+		<header/>
+		<body>
+			<trans-unit id="plugin.tea">
+				<source>Tea</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea.view">
+				<source>View</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea.index">
+				<source>Tea list</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea.show">
+				<source>Tea single view</source>
+			</trans-unit>
+			<trans-unit id="index.heading">
+				<source>Our selection of assorted teas</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.uid">
+				<source>UID</source>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.title">
+				<source>Title</source>
+			</trans-unit>
+		</body>
+	</file>
 </xliff>
