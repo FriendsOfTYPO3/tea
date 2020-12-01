@@ -291,6 +291,7 @@ phpcs:
     - composer ci:php:sniff
 
 php-copypaste-check:
+  extends: .default
   stage: codestyle
   needs:
     - build-composer-dependencies
