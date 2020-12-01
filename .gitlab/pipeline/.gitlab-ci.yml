@@ -23,6 +23,11 @@ variables:
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
 
+.default-frontend:
+  image: php:7.4
+  before_script:
+    - npm install -g yarn
+
 build-composer-dependencies:
   extends: .default
   stage: build
@@ -100,6 +105,22 @@ xliff-lint:
     - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
     - xmllint --schema ./xliff-core-1.2-strict.xsd
       --noout $(find Resources -name '*.xlf')
+
+javascript-lint:
+  image: node:latest
+  extends: .default-frontend
+  stage: lint
+  script:
+    - cd ./Resources/Private
+    - yarn lint:js
+
+style-lint:
+  image: node:latest
+  extends: .default-frontend
+  stage: lint
+  script:
+    - cd ./Resources/Private
+    - yarn lint:js
 
 unit-php7.2-v10:
   extends: .default
