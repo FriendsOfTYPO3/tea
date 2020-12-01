@@ -25,6 +25,7 @@ variables:
 
 .default-frontend:
   image: node:latest
+  needs: [ ]
   cache:
     key: "$CI_PROJECT_ID"
     paths:
@@ -114,17 +115,13 @@ xliff-lint:
       --noout $(find Resources -name '*.xlf')
 
 javascript-lint:
-  image: node:latest
   extends: .default-frontend
-  needs: [ ]
   stage: lint
   script:
     - yarn lint:js
 
 style-lint:
-  image: node:latest
   extends: .default-frontend
-  needs: [ ]
   stage: lint
   script:
     - yarn lint:style
@@ -291,7 +288,6 @@ phpcs:
     - composer ci:php:sniff
 
 php-copypaste-check:
-  extends: .default
   stage: codestyle
   needs:
     - build-composer-dependencies
