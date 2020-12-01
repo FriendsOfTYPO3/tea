@@ -120,7 +120,6 @@ javascript-lint:
   needs: [ ]
   stage: lint
   script:
-    - cd ./Resources/Private
     - yarn lint:js
 
 style-lint:
@@ -129,7 +128,6 @@ style-lint:
   needs: [ ]
   stage: lint
   script:
-    - cd ./Resources/Private
     - yarn lint:style
 
 unit-php7.2-v10:
