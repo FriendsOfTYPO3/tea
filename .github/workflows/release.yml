@@ -7,8 +7,19 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
+  set-matrix:
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+        run: |
+          JSON=$(cat ./composer.json)
+          echo "::set-output name=${JSON//'%'/'%25'}"
+
   # The actual TER upload job
   ter-release:
+    needs: set-matrix
     name: "TYPO3 TER release"
 
     if: startsWith(github.ref, 'refs/tags/')
@@ -17,16 +28,18 @@ jobs:
     strategy:
       matrix:
         php-versions: [ 7.4 ]
+        composer-data: ${{fromJson(needs.set-matrix.outputs.matrix)}}
 
     env:
-      TYPO3_EXTENSION_KEY: tea
       TYPO3_USER: ${{ secrets.TYPO3_USER }}
       TYPO3_PASSWORD: ${{ secrets.TYPO3_PASSWORD }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: jungwinter/split@v1
+        id: split
         with:
-          path: ${{ env.TYPO3_EXTENSION_KEY }}
+          msg: ${{ matrix.composer-data.name}}
+          separator: '/'
 
       - uses: shivammathur/setup-php@v2
         with:
@@ -37,15 +50,16 @@ jobs:
         run: composer global require helhum/ter-client "^0.1.1" --prefer-dist --no-progress
 
       - name: Remove files
-        run: "rm -rf CODE_OF_CONDUCT.md Tests codeception.yml phpcs.xml .github .gitlab .editor .Build .gitattributes
-              .editorconfig .gitignore .php_cs.php Resources/Private/.eslintignore Resources/Private/.eslintrc.json
-              Resources/Private/.prettierrc.js Resources/Private/package.json Resources/Private/stylelint.config.js"
+        run: >
+          rm -rf CODE_OF_CONDUCT.md Tests codeception.yml phpcs.xml .github .gitlab .editor .Build .gitattributes
+          .editorconfig .gitignore .php_cs.php Resources/Private/.eslintignore Resources/Private/.eslintrc.json
+          Resources/Private/.prettierrc.js Resources/Private/package.json Resources/Private/stylelint.config.js"
 
       - name: List extension folder
         run: ls -liAsh ./
 
-      - name: Upload EXT:${{ env.TYPO3_EXTENSION_KEY }} as ${{ github.event.ref }} to TER
+      - name: Upload EXT:${{ steps.split.outputs._1 }} as ${{ github.event.ref }} to TER
         run: >
-          ter-client upload $TYPO3_EXTENSION_KEY "./$TYPO3_EXTENSION_KEY"
+          ter-client upload ${{ steps.split.outputs._1 }} "./${{steps.split.outputs._1}}"
           -u $TYPO3_USER -p "$TYPO3_PASSWORD"
           -m "${{ github.event.head_commit.message }}"
