@@ -109,6 +109,7 @@ xliff-lint:
 javascript-lint:
   image: node:latest
   extends: .default-frontend
+  needs: [ ]
   stage: lint
   script:
     - cd ./Resources/Private
@@ -117,6 +118,7 @@ javascript-lint:
 style-lint:
   image: node:latest
   extends: .default-frontend
+  needs: [ ]
   stage: lint
   script:
     - cd ./Resources/Private
