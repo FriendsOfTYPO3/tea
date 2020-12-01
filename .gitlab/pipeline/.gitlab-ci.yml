@@ -23,11 +23,6 @@ variables:
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
 
-.default-frontend:
-  image: php:7.4
-  before_script:
-    - npm install -g yarn
-
 build-composer-dependencies:
   extends: .default
   stage: build
@@ -108,7 +103,6 @@ xliff-lint:
 
 javascript-lint:
   image: node:latest
-  extends: .default-frontend
   needs: [ ]
   stage: lint
   script:
@@ -117,7 +111,6 @@ javascript-lint:
 
 style-lint:
   image: node:latest
-  extends: .default-frontend
   needs: [ ]
   stage: lint
   script:
