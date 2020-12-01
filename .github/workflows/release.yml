@@ -13,10 +13,10 @@ jobs:
 
     if: startsWith(github.ref, 'refs/tags/')
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        php-versions: [7.4]
+        php-versions: [ 7.4 ]
 
     env:
       TYPO3_EXTENSION_KEY: tea
@@ -34,17 +34,18 @@ jobs:
           extensions: intl, mbstring, xml, soap, zip, curl
 
       - name: Install TYPO3 TER client
-        run: composer global require helhum/ter-client
-          "^0.1" --prefer-dist --no-progress
+        run: composer global require helhum/ter-client "^0.1.1" --prefer-dist --no-progress
 
       - name: Remove files
-        run: rm -rf CODE_OF_CONDUCT.md Tests codeception.yml phpcs.xml .github .gitlab .editor .Build .gitattributes .editorconfig .gitignore .php_cs.php Resources/Private/.eslintignore Resources/Private/.eslintrc.json Resources/Private/.prettierrc.js Resources/Private/package.json Resources/Private/stylelint.config.js
+        run: "rm -rf CODE_OF_CONDUCT.md Tests codeception.yml phpcs.xml .github .gitlab .editor .Build .gitattributes
+              .editorconfig .gitignore .php_cs.php Resources/Private/.eslintignore Resources/Private/.eslintrc.json
+              Resources/Private/.prettierrc.js Resources/Private/package.json Resources/Private/stylelint.config.js"
 
       - name: List extension folder
         run: ls -liAsh ./
 
-      - name: Upload EXT:${{ env.TYPO3_EXTENSION_KEY }}
-          as ${{ github.event.ref }} to TER
-        run: ter-client upload $TYPO3_EXTENSION_KEY "./$TYPO3_EXTENSION_KEY"
-          -u $TYPO3_USER -p $TYPO3_PASSWORD"
+      - name: Upload EXT:${{ env.TYPO3_EXTENSION_KEY }} as ${{ github.event.ref }} to TER
+        run: >
+          ter-client upload $TYPO3_EXTENSION_KEY "./$TYPO3_EXTENSION_KEY"
+          -u $TYPO3_USER -p "$TYPO3_PASSWORD"
           -m "${{ github.event.head_commit.message }}"
