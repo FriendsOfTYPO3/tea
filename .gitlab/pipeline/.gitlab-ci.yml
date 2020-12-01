@@ -25,8 +25,16 @@ variables:
 
 .default-frontend:
   image: node:latest
+  cache:
+    untracked: true
+    key: "$CI_PROJECT_ID"
+    paths:
+      - node_modules/
+      - .yarn
   before_script:
-    - npm install -g eslint eslint-plugin-prettier --save-dev
+    - npm install -g eslint
+    - cd ./Resources/Private
+    - yarn install --cache-folder .yarn
 
 build-composer-dependencies:
   extends: .default
