@@ -2,9 +2,8 @@
 name: "TER deployment"
 
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+  release:
+    types: [published]
 
 jobs:
   set-matrix:
@@ -61,5 +60,5 @@ jobs:
       - name: Upload EXT:${{ steps.split.outputs._1 }} as ${{ github.event.ref }} to TER
         run: >
           ter-client upload ${{ steps.split.outputs._1 }} "./${{steps.split.outputs._1}}"
-          -u $TYPO3_USER -p "$TYPO3_PASSWORD"
+          -u "$TYPO3_USER" -p "$TYPO3_PASSWORD"
           -m "${{ github.event.head_commit.message }}"
