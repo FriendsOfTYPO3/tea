@@ -9,7 +9,6 @@ include:
   - template: License-Management.gitlab-ci.yml
   - template: Secret-Detection.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
-  - template: Code-Quality.gitlab-ci.yml
 
 variables:
   MYSQL_ROOT_PASSWORD: root
