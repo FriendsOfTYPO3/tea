@@ -1,5 +1,5 @@
 ---
-name: "TER deployment"
+name: "Publish"
 
 on:
   release:
@@ -7,6 +7,7 @@ on:
 
 jobs:
   set-matrix:
+    name: "Set extension version matrix"
     runs-on: ubuntu-20.04
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -16,17 +17,15 @@ jobs:
           JSON=$(cat ./composer.json)
           echo "::set-output name=${JSON//'%'/'%25'}"
 
-  # The actual TER upload job
-  ter-release:
+  publish:
+    name: "Publish new version to TER"
     needs: set-matrix
-    name: "TYPO3 TER release"
+    runs-on: ubuntu-20.04
 
     if: startsWith(github.ref, 'refs/tags/')
 
-    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        php-versions: [ 7.4 ]
         composer-data: ${{fromJson(needs.set-matrix.outputs.matrix)}}
 
     env:
@@ -52,12 +51,6 @@ jobs:
           msg: ${{ matrix.composer-data.name}}
           separator: '/'
 
-      - name: Remove files
-        run: >
-          rm -rf CODE_OF_CONDUCT.md Tests codeception.yml phpcs.xml .github .gitlab .editor .Build .gitattributes
-          .editorconfig .gitignore .php_cs.php Resources/Private/.eslintignore Resources/Private/.eslintrc.json
-          Resources/Private/.prettierrc.js Resources/Private/package.json Resources/Private/stylelint.config.js"
-
       - name: Get comment
         id: get-comment
         run: |
@@ -73,6 +66,8 @@ jobs:
         with:
           php-version: 7.4
           extensions: intl, mbstring, json, zip, curl
+          tools: composer:v2
+          coverage: none
 
       - name: Install tailor
         run: composer global require typo3/tailor --prefer-dist --no-progress --no-suggest
