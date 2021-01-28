@@ -113,6 +113,23 @@
 		"link-extension": [
 			"@php -r 'is_dir($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
 			"@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/tea\") || symlink(__DIR__,$extFolder);'"
+		],
+		"prepare-release": [
+			".gitignore",
+			"rm -rf .Build",
+			"rm -rf .github",
+			"rm -rf .gitlab",
+			"rm -rf Tests",
+			"rm .editorconfig",
+			"rm .gitattributes",
+			"rm .php_cs.php",
+			"rm /Resources/Private/.eslintignore",
+			"rm /Resources/Private/.eslintrc.json",
+			"rm /Resources/Private/.prettierrc.js",
+			"rm /Resources/Private/package.json",
+			"rm /Resources/Private/stylelint.config.js",
+			"rm codeception.yml",
+			"rm phpcs.xml"
 		]
 	},
 	"support": {
