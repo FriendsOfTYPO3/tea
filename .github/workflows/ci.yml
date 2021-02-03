@@ -60,21 +60,9 @@ jobs:
           - "json:lint"
           - "php:sniff"
           - "php:codestyle"
+          - "php:copypaste"
         php-version:
           - 7.4
-  copypaste-check:
-    name: "Copy paste check"
-    runs-on: ubuntu-20.04
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v2
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 7.4
-          coverage: none
-      - name: "Run command"
-        run: "php ./tools/phpcpd.phar --fuzzy Classes Configuration Tests"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-20.04
