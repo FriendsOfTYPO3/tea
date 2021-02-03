@@ -76,15 +76,7 @@ jobs:
       - name: "Download tool"
         run: "wget https://phar.phpunit.de/phpcpd.phar"
       - name: "Run command"
-          run: "php phpcpd.phar --fuzzy Classes Configuration Tests"
-    strategy:
-      matrix:
-        command:
-          - "ts:lint"
-          - "yaml:lint"
-          - "json:lint"
-          - "php:sniff"
-          - "php:codestyle"
+        run: "php phpcpd.phar --fuzzy Classes Configuration Tests"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-20.04
