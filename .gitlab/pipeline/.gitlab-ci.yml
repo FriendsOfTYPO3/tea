@@ -295,4 +295,5 @@ php-copypaste-check:
     - php-lint-php7.3
     - php-lint-php7.4
   script:
-    - composer ci:php:copypaste
+    - wget https://phar.phpunit.de/phpcpd.phar
+    - php phpcpd.phar --fuzzy Classes Configuration Tests
