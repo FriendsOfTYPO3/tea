@@ -11,5 +11,6 @@
 /Resources/Private/package.json export-ignore
 /Resources/Private/stylelint.config.js export-ignore
 /Tests/ export-ignore
+/tools/ export-ignore
 /codeception.yml export-ignore
 /phpcs.xml export-ignore

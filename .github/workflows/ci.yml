@@ -73,10 +73,8 @@ jobs:
         with:
           php-version: 7.4
           coverage: none
-      - name: "Download tool"
-        run: "wget https://phar.phpunit.de/phpcpd.phar"
       - name: "Run command"
-        run: "php phpcpd.phar --fuzzy Classes Configuration Tests"
+        run: "php ./tools/phpcpd.phar --fuzzy Classes Configuration Tests"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-20.04
