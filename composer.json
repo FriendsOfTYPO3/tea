@@ -1,7 +1,7 @@
 {
 	"name": "ttn/tea",
-	"description": "TYPO3 example extension for unit testing and best practices",
 	"type": "typo3-cms-extension",
+	"description": "TYPO3 example extension for unit testing and best practices",
 	"keywords": [
 		"typo3",
 		"example",
@@ -20,16 +20,18 @@
 			"role": "developer"
 		}
 	],
-	"support": {
-		"issues": "https://github.com/typo3-trainer-network/tea/issues",
-		"source": "https://github.com/typo3-trainer-network/tea"
-	},
 	"require": {
 		"php": "~7.2.0 || ~7.3.0 || ~7.4.0",
 		"typo3/cms-core": "^9.5 || ^10.4",
 		"typo3/cms-extbase": "^9.5 || ^10.4",
 		"typo3/cms-fluid": "^9.5 || ^10.4",
 		"typo3/cms-frontend": "^9.5 || ^10.4"
+	},
+	"replace": {
+		"typo3-ter/tea": "self.version"
+	},
+	"conflict": {
+		"typo3/class-alias-loader": "< 1.1.0"
 	},
 	"require-dev": {
 		"codeception/codeception": "^4.1.5",
@@ -44,11 +46,21 @@
 		"squizlabs/php_codesniffer": "^3.5.5",
 		"typo3/cms-fluid-styled-content": "^9.5 || ^10.4"
 	},
-	"conflict": {
-		"typo3/class-alias-loader": "< 1.1.0"
+	"config": {
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
 	},
-	"replace": {
-		"typo3-ter/tea": "self.version"
+	"extra": {
+		"branch-alias": {
+			"dev-main": "2.0.x-dev"
+		},
+		"typo3/cms": {
+			"extension-key": "tea",
+			"web-dir": ".Build/public"
+		}
 	},
 	"autoload": {
 		"psr-4": {
@@ -61,62 +73,51 @@
 		}
 	},
 	"prefer-stable": true,
-	"config": {
-		"preferred-install": {
-			"*": "dist"
-		},
-		"sort-packages": true,
-		"vendor-dir": ".Build/vendor"
-	},
 	"scripts": {
-		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
-		"ci:php:codestyle": "php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
-		"ci:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
-		"ci:json:lint": "find . ! -path '*.Build/*' -name '*.json' | xargs .Build/vendor/bin/jsonlint -q",
-		"ci:yaml:lint": "find . ! -path '*.Build/*' -name '*.yml' | xargs .Build/vendor/bin/yaml-lint",
-		"ci:ts:lint": ".Build/vendor/bin/typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
-		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit",
-		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
-		"ci:tests": [
-			"@ci:tests:unit",
-			"@ci:tests:functional"
+		"post-autoload-dump": [
+			"@link-extension"
+		],
+		"ci": [
+			"@ci:static"
 		],
 		"ci:dynamic": [
 			"@ci:tests"
 		],
+		"ci:json:lint": "find . ! -path '*.Build/*' -name '*.json' | xargs .Build/vendor/bin/jsonlint -q",
 		"ci:php": [
 			"@ci:php:codestyle",
 			"@ci:php:sniff"
 		],
+		"ci:php:codestyle": "php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
+		"ci:php:copypaste": "php ./tools/phpcpd.phar Classes Configuration Tests",
+		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+		"ci:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
 		"ci:static": [
 			"@ci:php:lint",
 			"@ci:php:sniff",
 			"@ci:ts:lint"
 		],
-		"ci": [
-			"@ci:static"
+		"ci:tests": [
+			"@ci:tests:unit",
+			"@ci:tests:functional"
 		],
-		"link-extension": [
-			"@php -r 'is_dir($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
-			"@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/tea\") || symlink(__DIR__,$extFolder);'"
-		],
-		"fix:php:cs": "php-cs-fixer fix --config .php_cs.php",
-		"fix:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
+		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
+		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit",
+		"ci:ts:lint": ".Build/vendor/bin/typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
+		"ci:yaml:lint": "find . ! -path '*.Build/*' -name '*.yml' | xargs .Build/vendor/bin/yaml-lint",
 		"fix:php": [
 			"@fix:php:cs",
 			"@fix:php:sniff"
 		],
-		"post-autoload-dump": [
-			"@link-extension"
+		"fix:php:cs": "php-cs-fixer fix --config .php_cs.php",
+		"fix:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
+		"link-extension": [
+			"@php -r 'is_dir($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
+			"@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/tea\") || symlink(__DIR__,$extFolder);'"
 		]
 	},
-	"extra": {
-		"branch-alias": {
-			"dev-main": "2.0.x-dev"
-		},
-		"typo3/cms": {
-			"extension-key": "tea",
-			"web-dir": ".Build/public"
-		}
+	"support": {
+		"issues": "https://github.com/typo3-trainer-network/tea/issues",
+		"source": "https://github.com/typo3-trainer-network/tea"
 	}
 }
