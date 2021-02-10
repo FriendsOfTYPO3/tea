@@ -49,7 +49,7 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 ### Composer Normalize by [composer-normalize](https://github.com/ergebnis/composer-normalize)
 
-`composer ci:composer:serialize`
+`composer ci:composer:normalize`
 
 ### Runinng unit tests
 
