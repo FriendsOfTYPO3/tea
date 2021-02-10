@@ -13,3 +13,4 @@
 /Tests/ export-ignore
 /codeception.yml export-ignore
 /phpcs.xml export-ignore
+/tools/ export-ignore
