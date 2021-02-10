@@ -91,7 +91,7 @@
 		"ci:php:codestyle": "php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
 		"ci:php:copypaste": "php ./tools/phpcpd.phar Classes Configuration Tests",
 		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
-		"ci:php:sniff": ".Build/vendor/bin/phpcs Classes Configuration Tests",
+		"ci:php:sniff": "php ./tools/phpcs.phar Classes Configuration Tests",
 		"ci:static": [
 			"@ci:php:lint",
 			"@ci:php:sniff",
