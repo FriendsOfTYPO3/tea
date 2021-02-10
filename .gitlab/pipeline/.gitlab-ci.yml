@@ -301,7 +301,5 @@ php-copypaste-check:
 composer-normalize:
   extends: .default
   stage: codestyle
-  needs:
-    - build-composer-dependencies
   script:
     - composer ci:composer:normalize
