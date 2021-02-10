@@ -47,15 +47,15 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:ts:lint`
 
-### Runinng unit tests
+### Running unit tests
 
 `composer ci:tests:unit`
 
-### Runinng functional tests tests
+### Running functional tests
 
 `composer ci:tests:functional`
 
-### Runinng all tests
+### Running all tests
 
 `composer ci:tests`
 
