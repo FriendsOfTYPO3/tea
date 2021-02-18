@@ -61,6 +61,7 @@ jobs:
           - "php:sniff"
           - "php:codestyle"
           - "php:copypaste"
+          - "composer:normalize"
         php-version:
           - 7.4
   code-quality-frontend:

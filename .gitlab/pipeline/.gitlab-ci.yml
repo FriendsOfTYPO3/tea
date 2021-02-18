@@ -3,6 +3,7 @@ stages:
   - build
   - lint
   - codestyle
+  - normalize
   - test
 
 include:
@@ -296,3 +297,9 @@ php-copypaste-check:
     - php-lint-php7.4
   script:
     - composer ci:php:copypaste
+
+composer-normalize:
+  extends: .default
+  stage: codestyle
+  script:
+    - composer ci:composer:normalize

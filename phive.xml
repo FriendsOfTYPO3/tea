@@ -3,4 +3,5 @@
   <phar name="phar-io/phive" version="^0.14.5" location="./tools/phive.phar" copy="true" installed="0.14.5"/>
   <phar name="phpcpd" version="^6.0.3" location="./tools/phpcpd.phar" copy="true" installed="6.0.3"/>
   <phar name="phpcs" version="^3.5.8" location="./tools/phpcs.phar" copy="true" installed="3.5.8"/>
+  <phar name="ergebnis/composer-normalize" version="^2.13.2" location="./tools/composer-normalize.phar" copy="true" installed="2.13.2"/>
 </phive>

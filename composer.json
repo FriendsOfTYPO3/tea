@@ -79,6 +79,7 @@
 		"ci": [
 			"@ci:static"
 		],
+		"ci:composer:normalize": "php ./tools/composer-normalize.phar --dry-run",
 		"ci:dynamic": [
 			"@ci:tests"
 		],

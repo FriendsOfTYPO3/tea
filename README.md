@@ -47,6 +47,10 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:ts:lint`
 
+### Composer Normalize by [composer-normalize](https://github.com/ergebnis/composer-normalize)
+
+`composer ci:composer:normalize`
+
 ### Running unit tests
 
 `composer ci:tests:unit`
