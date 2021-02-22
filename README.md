@@ -16,6 +16,8 @@ It also is an example for
 For information on the different ways to execute the tests, please have a look
 at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
 
+This manual is rendered for reading at https://docs.typo3.org/p/oliverklee/tea/master/en-us/Index.html.
+
 ## Feature list
 All of those checks are available in Github Actions and in Gitlab CI.
 
