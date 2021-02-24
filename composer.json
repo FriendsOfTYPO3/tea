@@ -119,6 +119,7 @@
 			"rm -rf .github",
 			"rm -rf .gitlab",
 			"rm -rf Tests",
+			"rm -rf tools",
 			"rm .editorconfig",
 			"rm .gitattributes",
 			"rm .php_cs.php",
@@ -128,6 +129,7 @@
 			"rm /Resources/Private/package.json",
 			"rm /Resources/Private/stylelint.config.js",
 			"rm codeception.yml",
+			"rm phive.xml",
 			"rm phpcs.xml"
 		]
 	},

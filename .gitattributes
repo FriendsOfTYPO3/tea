@@ -12,5 +12,6 @@
 /Resources/Private/stylelint.config.js export-ignore
 /Tests/ export-ignore
 /codeception.yml export-ignore
+/phive.xml
 /phpcs.xml export-ignore
 /tools/ export-ignore binary
