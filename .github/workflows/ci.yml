@@ -23,6 +23,7 @@ jobs:
       - name: "Run PHP lint"
         run: "composer ci:php:lint"
     strategy:
+      fail-fast: false
       matrix:
         php-version:
           - 7.2
@@ -53,6 +54,7 @@ jobs:
       - name: "Run command"
         run: "composer ci:${{ matrix.command }}"
     strategy:
+      fail-fast: false
       matrix:
         command:
           - "ts:lint"
@@ -68,6 +70,7 @@ jobs:
     name: "Code quality frontend checks"
     runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
         command:
           - "style"
@@ -134,6 +137,7 @@ jobs:
       - name: "Run unit tests"
         run: "composer ci:tests:unit"
     strategy:
+      fail-fast: false
       matrix:
         composer-dependencies:
           - highest
@@ -193,6 +197,7 @@ jobs:
           export typo3DatabasePassword="root";
           composer ci:tests:functional
     strategy:
+      fail-fast: false
       matrix:
         composer-dependencies:
           - highest
