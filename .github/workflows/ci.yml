@@ -95,8 +95,7 @@ jobs:
       - name: "Download xliff schema"
         run: "wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd"
       - name: "Run lint"
-        run: "xmllint --schema ./xliff-core-1.2-strict.xsd
-              --noout $(find Resources -name '*.xlf')"
+        run: "xmllint --schema ./xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')"
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-20.04
