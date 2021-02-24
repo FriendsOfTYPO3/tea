@@ -35,7 +35,6 @@
 	},
 	"require-dev": {
 		"codeception/codeception": "^4.1.5",
-		"friendsofphp/php-cs-fixer": "^2.16.3",
 		"helhum/typo3-composer-setup": "^0.5.7",
 		"helmich/typo3-typoscript-lint": "^2.1.1",
 		"j13k/yaml-lint": "1.1.x-dev",
@@ -88,7 +87,7 @@
 			"@ci:php:codestyle",
 			"@ci:php:sniff"
 		],
-		"ci:php:codestyle": "php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
+		"ci:php:codestyle": "php ./tools/php-cs-fixer.phar fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
 		"ci:php:copypaste": "php ./tools/phpcpd.phar Classes Configuration Tests",
 		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "php ./tools/phpcs.phar Classes Configuration Tests",
