@@ -122,11 +122,11 @@
 			"rm .editorconfig",
 			"rm .gitattributes",
 			"rm .php_cs.php",
-			"rm /Resources/Private/.eslintignore",
-			"rm /Resources/Private/.eslintrc.json",
-			"rm /Resources/Private/.prettierrc.js",
-			"rm /Resources/Private/package.json",
-			"rm /Resources/Private/stylelint.config.js",
+			"rm Resources/Private/.eslintignore",
+			"rm Resources/Private/.eslintrc.json",
+			"rm Resources/Private/.prettierrc.js",
+			"rm Resources/Private/package.json",
+			"rm Resources/Private/stylelint.config.js",
 			"rm codeception.yml",
 			"rm phpcs.xml"
 		]
