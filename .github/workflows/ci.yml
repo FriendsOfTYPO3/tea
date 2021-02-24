@@ -207,12 +207,7 @@ jobs:
           --database-port="${{ job.services.mysql.ports[3306] }}" --database-name="${DATABASE_NAME}"
           --admin-user-name="admin" --admin-password="password" --site-name="Test installation";
       - name: "Run functional tests"
-        run: |
-          export typo3DatabaseName="typo3";
-          export typo3DatabaseHost="127.0.0.1";
-          export typo3DatabaseUsername="root";
-          export typo3DatabasePassword="root";
-          composer ci:tests:functional
+        run: composer ci:tests:functional
     strategy:
       fail-fast: false
       matrix:
