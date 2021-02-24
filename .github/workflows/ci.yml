@@ -150,7 +150,7 @@ jobs:
           - ^10.4
   functional-tests:
     name: "Functional tests"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     needs: php-lint
     steps:
       - name: "Checkout"
