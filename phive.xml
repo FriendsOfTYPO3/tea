@@ -5,6 +5,7 @@
   <phar name="phpcs" version="^3.5.8" location="./tools/phpcs" copy="true" installed="3.5.8"/>
   <phar name="ergebnis/composer-normalize" version="^2.13.2" location="./tools/composer-normalize" copy="true" installed="2.13.2"/>
   <phar name="friendsofphp/php-cs-fixer" version="^2.18.2" location="./tools/php-cs-fixer" copy="true" installed="2.18.2"/>
+  <phar name="j13k/yaml-lint" version="^1.1.4" installed="1.1.4" location="./tools/yaml-lint" copy="true"/>
   <phar name="martin-helmich/typo3-typoscript-lint" version="^2.4.1" location="./tools/typo3-typoscript-lint" copy="true" installed="2.4.1"/>
   <phar name="phpstan" version="^0.12.81" installed="0.12.81" location="./tools/phpstan" copy="true"/>
 </phive>
