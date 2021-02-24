@@ -152,6 +152,20 @@ jobs:
     name: "Functional tests"
     runs-on: ubuntu-20.04
     needs: php-lint
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: typo3
+        ports:
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    env:
+      DATABASE_HOST: 127.0.0.1
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+      DATABASE_NAME: typo3
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
@@ -186,8 +200,12 @@ jobs:
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
-      - name: "Start MySQL"
-        run: "sudo /etc/init.d/mysql start"
+      - name: "Set up TYPO3"
+        run: >
+          .Build/vendor/bin/typo3cms install:setup --no-interaction --site-setup-type="site"
+          --database-user-name="${DATABASE_USER}" --database-host-name="${DATABASE_HOST}"
+          --database-port="${{ job.services.mysql.ports[3306] }}" --database-name="${DATABASE_NAME}"
+          --admin-user-name="admin" --admin-password="password" --site-name="Test installation";
       - name: "Run functional tests"
         run: |
           export typo3DatabaseName="typo3";
