@@ -192,7 +192,6 @@ jobs:
       - if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
         run: |
-          rm .Build/vendor -rf
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
       - if: "matrix.composer-dependencies == 'highest'"

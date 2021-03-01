@@ -41,6 +41,7 @@
 		"nimut/testing-framework": "^5.0.3",
 		"phpunit/phpunit": "^7.5.20",
 		"seld/jsonlint": "^1.8",
+		"composer/semver": "3.2.4",
 		"typo3/cms-fluid-styled-content": "^9.5 || ^10.4"
 	},
 	"config": {
