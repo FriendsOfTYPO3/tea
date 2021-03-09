@@ -4,14 +4,15 @@
 /.github/ export-ignore
 /.gitignore export-ignore
 /.gitlab/ export-ignore
+/.local/ export-ignore
 /.php_cs.php export-ignore
+/codeception.yml export-ignore
+/phive.xml export-ignore
+/phpcs.xml export-ignore
 /Resources/Private/.eslintignore export-ignore
 /Resources/Private/.eslintrc.json export-ignore
 /Resources/Private/.prettierrc.js export-ignore
 /Resources/Private/package.json export-ignore
 /Resources/Private/stylelint.config.js export-ignore
 /Tests/ export-ignore
-/codeception.yml export-ignore
-/phive.xml
-/phpcs.xml export-ignore
 /tools/ export-ignore binary
