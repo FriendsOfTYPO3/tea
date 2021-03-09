@@ -200,7 +200,12 @@ jobs:
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
       - name: "Run functional tests"
-        run: composer ci:tests:functional
+        run: |
+          export typo3DatabaseName="typo3";
+          export typo3DatabaseHost="127.0.0.1";
+          export typo3DatabaseUsername="root";
+          export typo3DatabasePassword="root"
+          composer ci:tests:functional
     strategy:
       fail-fast: false
       matrix:
