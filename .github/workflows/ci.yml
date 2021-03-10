@@ -165,6 +165,10 @@ jobs:
       DATABASE_USER: root
       DATABASE_PASSWORD: root
       DATABASE_NAME: typo3
+      typo3DatabaseHost: 127.0.0.1
+      typo3DatabaseUser: root
+      typo3DatabasePassword: root
+      typo3DatabaseName: typo3
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
