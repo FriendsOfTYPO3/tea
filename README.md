@@ -65,6 +65,33 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:tests`
 
+## Running tests locally
+
+In order to run tests and lints locally, we implemented solution that is already used by TYPO3 Core.
+
+First of all, you should install your dependencies
+```
+./.local/scripts/runTests.sh -s composerInstall
+```
+Then, you can run unit tests using
+
+```
+./.local/scripts/runTests.sh -s unit
+```
+
+also, if you want to specify type of tests you can pass `-s` parameter, e.g.
+
+```
+./.local/scripts/runTests.sh -s functional
+```
+
+You can specify version of PHP to use by using `-p` parameter
+```
+./.local/scripts/runTests.sh -p 7.4 -s composerValidate
+```
+
+For more information, go [here](https://docs.typo3.org/m/typo3/reference-coreapi/10.4/en-us/Testing/ExtensionTesting.html#basic-setup).
+
 ## Running the tests in PhpStorm
 
 File > Settings > Languages & Frameworks > PHP > Test Frameworks

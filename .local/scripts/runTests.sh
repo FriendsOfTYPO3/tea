@@ -94,7 +94,8 @@ EOF
 if ! type "docker-compose" > /dev/null; then
   echo "This script relies on docker and docker-compose. Please install" >&2
   exit 1
-f
+fi
+
 # Go to the directory this script is located, so everything else is relative
 # to this dir, no matter from where this script is called.
 THIS_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
@@ -104,7 +105,7 @@ cd "$THIS_SCRIPT_DIR" || exit 1
 cd ../ || exit 1
 
 # Option defaults
-ROOT_DIR=`readlink -f ${PWD}/../../`
+ROOT_DIR=`readlink -f ${PWD}/../`
 TEST_SUITE="unit"
 DBMS="mariadb"
 PHP_VERSION="7.2"
@@ -175,14 +176,14 @@ DOCKER_PHP_IMAGE=`echo "php${PHP_VERSION}" | sed -e 's/\.//'`
 # Set $1 to first mass argument, this is the optional test file or test directory to execute
 shift $((OPTIND - 1))
 if [ -n "${1}" ]; then
-    TEST_FILE="Web/typo3conf/ext/enetcache/${1}"
+    TEST_FILE="Web/typo3conf/ext/tea/${1}"
 else
     case ${TEST_SUITE} in
         functional)
-            TEST_FILE="Web/typo3conf/ext/enetcache/Tests/Functional"
+            TEST_FILE="Tests/Functional/"
             ;;
         unit)
-            TEST_FILE="Web/typo3conf/ext/enetcache/Tests/Unit"
+            TEST_FILE="Tests/Unit/"
             ;;
     esac
 fi
@@ -250,6 +251,11 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
+    exec)
+        setUpDockerComposeDotEnv
+        docker-compose run exec
+        docker-compose down
+        ;;
     unit)
         setUpDockerComposeDotEnv
         docker-compose run unit
@@ -268,3 +274,5 @@ case ${TEST_SUITE} in
         echo "${HELP}" >&2
         exit 1
 esac
+
+exit $SUITE_EXIT_CODE
