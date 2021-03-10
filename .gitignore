@@ -8,4 +8,5 @@
 /Resources/Private/yarn.lock
 /composer.lock
 /nbproject
+/phive.phar.asc
 /var
