@@ -201,10 +201,6 @@ jobs:
           composer show
       - name: "Run functional tests"
         run: |
-          export typo3DatabaseName="typo3";
-          export typo3DatabaseHost="mysql";
-          export typo3DatabaseUsername="root";
-          export typo3DatabasePassword="root";
           composer ci:tests:functional
     strategy:
       fail-fast: false
