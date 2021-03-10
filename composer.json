@@ -22,11 +22,11 @@
 	],
 	"require": {
 		"php": "~7.2.0 || ~7.3.0 || ~7.4.0",
+		"composer/semver": "^2.0.0",
 		"typo3/cms-core": "^9.5 || ^10.4",
 		"typo3/cms-extbase": "^9.5 || ^10.4",
 		"typo3/cms-fluid": "^9.5 || ^10.4",
-		"typo3/cms-frontend": "^9.5 || ^10.4",
-		"composer/semver": "^2.0.0"
+		"typo3/cms-frontend": "^9.5 || ^10.4"
 	},
 	"replace": {
 		"typo3-ter/tea": "self.version"
