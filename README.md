@@ -37,6 +37,10 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:php:copypaste`
 
+### PHP type checking by [PHPStan](https://github.com/phpstan/phpstan)
+
+`composer ci:php:stan`
+
 ### JSON Lint check by [jsonlint](https://github.com/Seldaek/jsonlint)
 
 `composer ci:json:lint`

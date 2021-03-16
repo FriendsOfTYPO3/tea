@@ -63,6 +63,7 @@ jobs:
           - "php:sniff"
           - "php:codestyle"
           - "php:copypaste"
+          - "php:stan"
           - "composer:normalize"
         php-version:
           - 7.4
