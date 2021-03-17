@@ -14,4 +14,5 @@
 /codeception.yml export-ignore
 /phive.xml
 /phpcs.xml export-ignore
+/phpstan.neon export-ignore
 /tools/ export-ignore binary

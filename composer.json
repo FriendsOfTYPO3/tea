@@ -89,6 +89,7 @@
 		"ci:php:copypaste": "php ./tools/phpcpd Classes Configuration Tests",
 		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "php ./tools/phpcs Classes Configuration Tests",
+		"ci:php:stan": "php ./tools/phpstan analyse Classes",
 		"ci:static": [
 			"@ci:php:lint",
 			"@ci:php:sniff",
