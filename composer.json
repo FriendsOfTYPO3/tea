@@ -36,7 +36,6 @@
 	"require-dev": {
 		"codeception/codeception": "^4.1.5",
 		"helhum/typo3-composer-setup": "^0.5.7",
-		"j13k/yaml-lint": "1.1.x-dev",
 		"nimut/testing-framework": "^5.0.3",
 		"phpunit/phpunit": "^7.5.20",
 		"seld/jsonlint": "^1.8",
@@ -102,7 +101,7 @@
 		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "php ./tools/typo3-typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
-		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs .Build/vendor/bin/yaml-lint",
+		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs php ./tools/yaml-lint",
 		"fix:php": [
 			"@fix:php:cs",
 			"@fix:php:sniff"
