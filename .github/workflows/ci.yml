@@ -36,7 +36,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v2
       - name: "Run TypoScript lint"
-        uses: typo3-continous-integration/typo3-ci-typoscript-lint@v1
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v1
     strategy:
       fail-fast: false
   code-quality:
