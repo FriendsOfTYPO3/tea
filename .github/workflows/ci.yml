@@ -29,6 +29,16 @@ jobs:
           - 7.2
           - 7.3
           - 7.4
+  typoscript-lint:
+    name: "TypoScript linter"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Run TypoScript lint"
+        uses: typo3-continous-integration/typo3-ci-typoscript-lint@v1
+    strategy:
+      fail-fast: false
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-20.04
@@ -57,7 +67,6 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - "ts:lint"
           - "yaml:lint"
           - "json:lint"
           - "php:sniff"
