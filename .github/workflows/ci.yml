@@ -38,13 +38,13 @@ jobs:
       - name: "Run TypoScript lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v1
   yaml-lint:
-    name: "Yaml linter"
+    name: "YAML linter"
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-      - name: "Run TypoScript lint"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Yaml-Lint@v1
+      - name: "Run YAML lint"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-20.04
