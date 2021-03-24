@@ -46,7 +46,7 @@ jobs:
       - name: "Run YAML lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
   codestyle-check:
-    name: "Codestyle-check"
+    name: "Codestyle check"
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
