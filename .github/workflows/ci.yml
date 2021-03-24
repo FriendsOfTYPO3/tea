@@ -45,6 +45,14 @@ jobs:
         uses: actions/checkout@v2
       - name: "Run YAML lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
+  codestyle-check:
+    name: "Codestyle-check"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Run Copypaste Detector"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Codestyle@v1
   copypaste-detector:
     name: "Copy'n'paste detector"
     runs-on: ubuntu-20.04
@@ -86,6 +94,7 @@ jobs:
           - "json:lint"
           - "php:cs-fixer"
           - "php:sniff"
+          - "php:copypaste"
           - "php:stan"
         php-version:
           - 7.4
