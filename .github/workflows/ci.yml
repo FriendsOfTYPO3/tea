@@ -82,11 +82,11 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - "json:lint"
-          - "php:sniff"
-          - "php:codestyle"
-          - "php:stan"
           - "composer:normalize"
+          - "json:lint"
+          - "php:cs-fixer"
+          - "php:sniff"
+          - "php:stan"
         php-version:
           - 7.4
   code-quality-frontend:

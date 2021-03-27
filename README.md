@@ -25,15 +25,15 @@ All of those checks are available in Github Actions and in Gitlab CI.
 
 `composer ci:php:lint`
 
-### PHP CodeStyle check by [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+### PHP code style fixer checks by [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
-`composer ci:php:codestyle`
+`composer ci:php:cs-fixer`
 
-### PHP Sniff by [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
+### PHP code sniffing by [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
 
 `composer ci:php:sniff`
 
-### PHP Copypaste check by [phpcpd](https://github.com/sebastianbergmann/phpcpd)
+### PHP copy'n'paste check by [phpcpd](https://github.com/sebastianbergmann/phpcpd)
 
 `composer ci:php:copypaste`
 
