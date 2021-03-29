@@ -48,6 +48,7 @@ jobs:
   php-cs-fixer:
     name: "PHP CS Fixer"
     runs-on: ubuntu-20.04
+    needs: php-lint
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
@@ -92,7 +93,6 @@ jobs:
         command:
           - "composer:normalize"
           - "json:lint"
-          - "php:cs-fixer"
           - "php:sniff"
           - "php:stan"
         php-version:
