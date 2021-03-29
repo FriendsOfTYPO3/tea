@@ -94,7 +94,6 @@ jobs:
           - "json:lint"
           - "php:cs-fixer"
           - "php:sniff"
-          - "php:copypaste"
           - "php:stan"
         php-version:
           - 7.4
