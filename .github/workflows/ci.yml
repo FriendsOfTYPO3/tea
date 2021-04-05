@@ -38,6 +38,8 @@ jobs:
       - name: "Run TypoScript lint"
         id: testvalue
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v3
+        with:
+          files: './Configuration/Typoscript'
       - name: "test output"
         run: echo "Output was ${{ steps.testvalue.outputs.test }}"
   php-codesniffer:
