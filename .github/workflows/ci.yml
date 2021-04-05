@@ -36,9 +36,9 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v2
       - name: "Run TypoScript lint"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v5
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v6
         with:
-          files: './Configuration/Typoscript'
+          files: './Configuration/TypoScript'
   php-codesniffer:
     name: "PHP Codesniffer"
     runs-on: ubuntu-20.04
