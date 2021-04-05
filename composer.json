@@ -81,8 +81,11 @@
 		],
 		"ci:json:lint": "find . ! -path '*.Build/*' -name '*.json' | xargs .Build/vendor/bin/jsonlint -q",
 		"ci:php": [
+			"@ci:php:copypaste",
 			"@ci:php:cs-fixer",
-			"@ci:php:sniff"
+			"@ci:php:lint",
+			"@ci:php:sniff",
+			"@ci:php:stan"
 		],
 		"ci:php:copypaste": "php ./tools/phpcpd Classes Configuration Tests",
 		"ci:php:cs-fixer": "php ./tools/php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
@@ -90,9 +93,15 @@
 		"ci:php:sniff": "php ./tools/phpcs Classes Configuration Tests",
 		"ci:php:stan": "php ./tools/phpstan analyse Classes",
 		"ci:static": [
+			"@ci:composer:normalize",
+			"@ci:json:lint",
+			"@ci:php:copypaste",
+			"@ci:php:cs-fixer",
 			"@ci:php:lint",
 			"@ci:php:sniff",
-			"@ci:ts:lint"
+			"@ci:php:stan",
+			"@ci:ts:lint",
+			"@ci:yaml:lint"
 		],
 		"ci:tests": [
 			"@ci:tests:unit",
