@@ -1,4 +1,5 @@
-plugin.tx_tea {
+plugin.tx_tea
+{
   view {
     templateRootPath = {$plugin.tx_tea.view.templateRootPath}
     partialRootPath = {$plugin.tx_tea.view.partialRootPath}
