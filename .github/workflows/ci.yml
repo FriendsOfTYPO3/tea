@@ -45,6 +45,15 @@ jobs:
         uses: actions/checkout@v2
       - name: "Run YAML lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
+  php-cs-fixer:
+    name: "PHP CS Fixer"
+    runs-on: ubuntu-20.04
+    needs: php-lint
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Run PHP CS Fixer"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-PHP-CS-Fixer@v1
   copypaste-detector:
     name: "Copy'n'paste detector"
     runs-on: ubuntu-20.04
@@ -84,7 +93,6 @@ jobs:
         command:
           - "composer:normalize"
           - "json:lint"
-          - "php:cs-fixer"
           - "php:sniff"
           - "php:stan"
         php-version:
