@@ -20,7 +20,7 @@ composer_version: ""
 
 # This config.yaml was created with ddev version v1.16.7
 # webimage: drud/ddev-webserver:v1.16.7
-# dbimage: drud/ddev-dbserver-mariadb-10.2:v1.16.0
+# dbimage: drud/ddev-dbserver-mariadb-10.5:v1.16.7
 # dbaimage: phpmyadmin:5
 # However we do not recommend explicitly wiring these images into the
 # config.yaml as they may break future versions of ddev.
