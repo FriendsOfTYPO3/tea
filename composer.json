@@ -79,7 +79,7 @@
 		"ci:dynamic": [
 			"@ci:tests"
 		],
-		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/* -name '*.json' | xargs .Build/vendor/bin/jsonlint -q",
+		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.json' | xargs .Build/vendor/bin/jsonlint -q",
 		"ci:php": [
 			"@ci:php:cs-fixer",
 			"@ci:php:sniff"
