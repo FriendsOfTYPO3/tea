@@ -130,8 +130,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-      - name: "Run the Copy'n'paste Detector"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Copy-Paste-Detector@v1
+      - name: "Run the xliff lint"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-20.04
