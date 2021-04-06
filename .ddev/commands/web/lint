@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run lint
+## Usage: lint
+## Example: "ddev lint ci:ts:lint"
+
+composer $1

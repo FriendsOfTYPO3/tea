@@ -121,6 +121,17 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 2. right-click on `Tests/Acceptance/StarterCest.php`
 3. Run 'Acceptance (Codeception)'
 
+## Developing locally
+
+In order to work on extension locally, you can use local environment (local PHP, server) or use
+widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), which we recommend.
+
+## Running lints locally
+
+If you use ddev, then you can use commands that we prepared.
+
+Example: `ddev lint ci:ts:lint`
+
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
