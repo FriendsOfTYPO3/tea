@@ -130,12 +130,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-      - name: "Install xmllint"
-        run: "sudo apt-get install libxml2-utils wget"
-      - name: "Download xliff schema"
-        run: "wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd"
-      - name: "Run lint"
-        run: "xmllint --schema ./xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')"
+      - name: "Run the Copy'n'paste Detector"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Copy-Paste-Detector@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-20.04
