@@ -126,7 +126,7 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 In order to work on the extension locally, you can use a local environment (local PHP, server) or use
 a widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), which we recommend.
 
-## Running lints locally
+## Running Composer commands in the DDEV container
 
 If you use ddev, then you can use the provided command.
 
