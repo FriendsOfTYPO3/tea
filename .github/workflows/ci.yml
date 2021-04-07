@@ -54,6 +54,14 @@ jobs:
         uses: actions/checkout@v2
       - name: "Run YAML lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
+  json-lint:
+    name: "JSON linter"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Run JSON lint"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-JSON-Lint@v1
   php-cs-fixer:
     name: "PHP CS Fixer"
     runs-on: ubuntu-20.04
@@ -101,7 +109,6 @@ jobs:
       matrix:
         command:
           - "composer:normalize"
-          - "json:lint"
           - "php:sniff"
           - "php:stan"
         php-version:
