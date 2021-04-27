@@ -128,7 +128,7 @@ a widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), 
 
 ## Running Composer commands in the DDEV container
 
-If you use ddev, then you can use the provided command.
+If you use ddev, then you can use the provided command in root of your repository.
 
 Example:
 
