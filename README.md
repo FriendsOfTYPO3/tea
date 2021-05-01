@@ -6,6 +6,7 @@
 [![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
 [![Latest Unstable Version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
 [![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.4-4baaaa.svg)](CODE_OF_CONDUCT.md) 
 
 This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
 writing unit and functional tests for Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
