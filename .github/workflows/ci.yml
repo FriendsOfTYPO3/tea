@@ -81,7 +81,7 @@ jobs:
       - name: "Run PHPStan"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHPStan@v1
         with:
-          config_file: '/.configuration/phpstan.neon'
+          config_file: '/phpstan.neon'
   copypaste-detector:
     name: "Copy'n'paste detector"
     runs-on: ubuntu-20.04
