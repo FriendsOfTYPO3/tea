@@ -47,3 +47,7 @@ indent_style = tab
 # .htaccess
 [.htaccess]
 indent_style = tab
+
+# Markdown files
+[*.md]
+max_line_length = 80
