@@ -80,7 +80,7 @@
 		"ci:dynamic": [
 			"@ci:tests"
 		],
-		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.json' | xargs @php .Build/vendor/bin/jsonlint -q",
+		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.json' | xargs php .Build/vendor/bin/jsonlint -q",
 		"ci:php": [
 			"@ci:php:copypaste",
 			"@ci:php:cs-fixer",
@@ -111,7 +111,7 @@
 		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "@php ./tools/typo3-typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
-		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs @php ./tools/yaml-lint",
+		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs php ./tools/yaml-lint",
 		"fix:php": [
 			"@fix:php:cs",
 			"@fix:php:sniff"
