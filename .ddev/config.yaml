@@ -12,11 +12,12 @@ mariadb_version: "10.5"
 mysql_version: ""
 hooks:
   post-start:
-  - exec: composer install --no-progress
+    - exec: composer install --no-progress
 omit_containers: [dba, ddev-ssh-agent]
 use_dns_when_possible: true
 composer_version: ""
 web_environment: []
+webimage_extra_packages: [parallel]
 
 
 # This config.yaml was created with ddev version v1.17.2

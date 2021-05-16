@@ -137,6 +137,16 @@ Example:
 ddev composer ci:ts:lint
 ```
 
+## Running tests locally via DDEV
+
+###Unit tests
+
+To run unit tests, type:
+
+```bash
+composer ci:tests:unit
+```
+
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
