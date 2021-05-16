@@ -128,7 +128,8 @@ a widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), 
 
 ## Running Composer commands in the DDEV container
 
-If you use ddev, then you can use the provided command in root of your repository.
+If you use ddev, then you can use the provided command in root of your repository. You don't need to
+manually startup containers, you can run commands straight away, and project will automatically boot up.
 
 Example:
 
