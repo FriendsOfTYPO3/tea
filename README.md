@@ -121,6 +121,32 @@ In the Run configurations, copy the PHPUnit configuration and use these settings
 2. right-click on `Tests/Acceptance/StarterCest.php`
 3. Run 'Acceptance (Codeception)'
 
+## Developing locally
+
+In order to work on the extension locally, you can use a local environment (local PHP, server) or use
+a widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), which we recommend.
+
+## Running Composer commands in the DDEV container
+
+If you use ddev, then you can use the provided command in root of your repository. You don't need to
+manually startup containers, you can run commands straight away, and project will automatically boot up.
+
+Example:
+
+```bash
+ddev composer ci:ts:lint
+```
+
+## Running tests locally via DDEV
+
+###Unit tests
+
+To run unit tests, type:
+
+```bash
+composer ci:tests:unit
+```
+
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
