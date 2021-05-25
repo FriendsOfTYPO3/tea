@@ -61,10 +61,11 @@ jobs:
           - "yaml:lint"
           - "json:lint"
           - "php:sniff"
-          - "php:codestyle"
           - "php:copypaste"
           - "php:stan"
           - "composer:normalize"
+          - "json:lint"
+          - "php:cs-fixer"
         php-version:
           - 7.4
   code-quality-frontend:
