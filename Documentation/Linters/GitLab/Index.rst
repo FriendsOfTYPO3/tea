@@ -5,5 +5,9 @@
 =======================
 Running lints in GitLab
 =======================
+In GitLab CI you should use composer scripts.
 
-For GitLab, please use pipeline that is defined in `.gitlab-ci.yml`.
+Composer scripts
+================
+You can run your lints using composer scripts. Example workflow is defined in
+`.gitlab-ci.yml`.
