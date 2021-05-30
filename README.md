@@ -6,7 +6,7 @@
 [![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
 [![Latest Unstable Version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
 [![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.4-4baaaa.svg)](CODE_OF_CONDUCT.md) 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.4-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
 writing unit and functional tests for Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
@@ -139,7 +139,7 @@ ddev composer ci:ts:lint
 
 ## Running tests locally via DDEV
 
-###Unit tests
+### Unit tests
 
 To run unit tests, type:
 
@@ -147,6 +147,20 @@ To run unit tests, type:
 composer ci:tests:unit
 ```
 
+## Running lints in CI
+### GitHub
+For GitHub, we prepared two ways of running lints. First one relies on executing
+composer scripts, and second is using exported, prepared GitHub Actions in your
+workflow.
+#### Composer scripts
+You can run your lints using composer scripts. Example workflow is defined in
+`ci-composer-scripts.yml`.
+#### Ready to use GitHub Actions
+You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
+[TYPO3 Continuous Integration organisation](https://github.com/TYPO3-Continuous-Integration).
+Example workflow is defined in `ci.yml`.
+### GitLab
+For GitLab, please use pipeline that is defined in `.gitlab-ci.yml`.
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
