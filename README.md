@@ -158,7 +158,7 @@ You can run your lints using composer scripts. Example workflow is defined in
 #### Ready to use GitHub Actions
 You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
 [TYPO3 Continuous Integration organisation](https://github.com/TYPO3-Continuous-Integration).
-Example workflow is defined in `ci.yml`.
+An example workflow is defined in `ci.yml`
 ### GitLab
 For GitLab, please use the pipeline that is defined in `.gitlab-ci.yml`.
 ## Security
