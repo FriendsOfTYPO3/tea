@@ -12,7 +12,7 @@ workflow.
 
 Composer scripts
 ================
-You can run your lints using composer scripts. Example workflow is defined in
+You can run your lints using composer scripts. An example workflow is defined in
 `ci-composer-scripts.yml`.
 
 Ready to use GitHub Actions
