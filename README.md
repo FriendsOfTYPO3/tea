@@ -160,7 +160,7 @@ You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
 [TYPO3 Continuous Integration organisation](https://github.com/TYPO3-Continuous-Integration).
 Example workflow is defined in `ci.yml`.
 ### GitLab
-For GitLab, please use pipeline that is defined in `.gitlab-ci.yml`.
+For GitLab, please use the pipeline that is defined in `.gitlab-ci.yml`.
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
