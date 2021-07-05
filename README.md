@@ -149,7 +149,7 @@ composer ci:tests:unit
 
 ## Running lints in CI
 ### GitHub
-For GitHub, we prepared two ways of running lints. First one relies on executing
+For GitHub, we prepared two ways of running lints:
 composer scripts, and second is using exported, prepared GitHub Actions in your
 workflow.
 #### Composer scripts
