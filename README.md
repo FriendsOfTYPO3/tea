@@ -153,7 +153,7 @@ For GitHub, we prepared two ways of running lints:
 1. relies on executing composer scripts
 2. using exported, prepared GitHub Actions in your workflow.
 #### Composer scripts
-You can run your lints using composer scripts. Example workflow is defined in
+You can run your lints using composer scripts. An example workflow is defined in
 `ci-composer-scripts.yml`.
 #### Ready to use GitHub Actions
 You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
