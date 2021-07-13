@@ -147,6 +147,7 @@ To run unit tests, type:
 composer ci:tests:unit
 ```
 
+<<<<<<< HEAD
 ## Running lints in CI
 ### GitHub
 For GitHub, we prepared two ways of running lints:
@@ -161,6 +162,15 @@ You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
 An example workflow is defined in `ci.yml`
 ### GitLab
 For GitLab, please use the pipeline that is defined in `.gitlab-ci.yml`.
+
+### Functional tests
+
+To run functional tests, type:
+
+```bash
+composer ci:tests:functional
+```
+
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
