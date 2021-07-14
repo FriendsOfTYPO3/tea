@@ -1,5 +1,5 @@
 parameters:
-    level: 3
+    level: 8
     bootstrapFiles:
       - .Build/vendor/autoload.php
     scanDirectories:
