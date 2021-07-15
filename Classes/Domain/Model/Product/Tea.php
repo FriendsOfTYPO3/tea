@@ -54,8 +54,7 @@ class Tea extends AbstractEntity
 
     public function getImage(): ?FileReference
     {
-        // @phpstan-ignore-next-line
-        if ($this->image instanceof LazyLoadingProxy) { 
+        if ($this->image instanceof LazyLoadingProxy) {
             $this->image = $this->image->_loadRealInstance();
         }
 

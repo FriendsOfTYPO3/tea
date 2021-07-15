@@ -5,3 +5,7 @@ parameters:
     scanDirectories:
       - Classes
       - Tests
+    ignoreErrors:
+        -
+          message: '#Instanceof between TYPO3\\CMS\\Extbase\\Domain\\Model\\FileReference and TYPO3\\CMS\\Extbase\\Persistence\\Generic\\LazyLoadingProxy will always evaluate to false#'
+          path: %currentWorkingDirectory%/Classes/Domain/Model/Product/Tea.php
