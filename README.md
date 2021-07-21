@@ -129,7 +129,7 @@ a widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), 
 ## Running Composer commands in the DDEV container
 
 If you use ddev, then you can use the provided command in root of your repository. You don't need to
-manually startup containers, you can run commands straight away, and project will automatically boot up.
+manually startup containers, you can run commands straight away, and project will automatically boot up. Please remember to keep ddev up to date.
 
 Example:
 
@@ -147,6 +147,14 @@ To run unit tests, type:
 composer ci:tests:unit
 ```
 
+### Functional tests
+
+To run functional tests, type:
+
+```bash
+composer ci:tests:functional
+```
+
 ## Running lints in CI
 ### GitHub
 For GitHub, we prepared two ways of running lints:
@@ -161,6 +169,7 @@ You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
 An example workflow is defined in `ci.yml`
 ### GitLab
 For GitLab, please use the pipeline that is defined in `.gitlab-ci.yml`.
+
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
