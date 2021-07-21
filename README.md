@@ -139,7 +139,7 @@ ddev composer ci:ts:lint
 
 ## Running tests locally via DDEV
 
-###Unit tests
+### Unit tests
 
 To run unit tests, type:
 
@@ -147,6 +147,20 @@ To run unit tests, type:
 composer ci:tests:unit
 ```
 
+## Running lints in CI
+### GitHub
+For GitHub, we prepared two ways of running lints:
+1. relies on executing composer scripts
+2. using exported, prepared GitHub Actions in your workflow.
+#### Composer scripts
+You can run your lints using composer scripts. An example workflow is defined in
+`ci-composer-scripts.yml`.
+#### Ready to use GitHub Actions
+You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
+[TYPO3 Continuous Integration organisation](https://github.com/TYPO3-Continuous-Integration).
+An example workflow is defined in `ci.yml`
+### GitLab
+For GitLab, please use the pipeline that is defined in `.gitlab-ci.yml`.
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
