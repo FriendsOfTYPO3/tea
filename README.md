@@ -1,78 +1,174 @@
-# Tea example
+# Example TYPO3 extension for code quality checks and automated tests
 
-[![GitHub CI Status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg?branch=main)](https://github.com/TYPO3-Documentation/tea/actions)
-[![Gitlab CI Status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
-[![Latest Stable Version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
-[![Total Downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
-[![Latest Unstable Version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
+[![GitHub CI status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg?branch=main)](https://github.com/TYPO3-Documentation/tea/actions)
+[![GitLab CI status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
+[![Latest stable version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
+[![Total downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
+[![Latest unstable version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
 [![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
-writing unit and functional tests for Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit.
+## What is this all about?
 
-It also is an example for
-[best practices for extbase/fluid](https://github.com/oliverklee/workshop-handouts/tree/main/extbase-best-practices).
+This Extbase/Fluid-based TYPO3 extension is an example showcase for best
+practices in continuous integration, automated code checks and unit and
+functional testing.
 
-For information on the different ways to execute the tests, please have a look
-at the [handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader).
+You can also use this extension to manage your collection of delicious teas.
 
-This manual is rendered for reading [on docs.typo3.org](https://docs.typo3.org/p/ttn/tea/master/en-us/).
+## Extension manual
 
-## Feature list
-All of those checks are available in Github Actions and in Gitlab CI.
+The rendered extension manual is available
+[on docs.typo3.org](https://docs.typo3.org/p/ttn/tea/master/en-us/).
 
-### PHP Lint check by php -l
+## Used testing framework and approach to TYPO3 version support
 
-`composer ci:php:lint`
+Extensions usually needs to support two LTS versions of TYPO3 in parallel
+(assuming that they should support all currently supported TYPO3 LTS versions).
+To achieve this, there are two different approaches, which also affect the
+choice of a testing framework for unit and functional tests:
 
-### PHP code style fixer checks by [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+### Approach 1: single branch with multi-version support
 
-`composer ci:php:cs-fixer`
+With this approach, there is one main branch that gets new features. It needs to
+support two TYPO3 LTS versions in parallel.
 
-### PHP code sniffing by [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
+The downside is that this slightly increases code complexity (as
+version-dependent code switches might be necessary). The upside is that there
+is only one branch to maintain, which makes adding new features (and all other
+code changes) a lot less of a hassle.
 
-`composer ci:php:sniff`
+As the [TYPO3 testing framework](https://github.com/TYPO3/testing-framework)
+supports only one TYPO3 LTS version at a time, you will need to use the
+[Nimut testing framework](https://github.com/Nimut/testing-framework) instead.
+This testing framework can support multiple TYPO3 versions at a time, and
+it provides version-independent abstractions for testing.
 
-### PHP copy'n'paste check by [phpcpd](https://github.com/sebastianbergmann/phpcpd)
+(This is the approach that we have chosen for this extension as we do not want
+to maintain two branches in parallel.)
 
-`composer ci:php:copypaste`
+### Approach 2: multiple branches for each TYPO3 version
 
-### PHP type checking by [PHPStan](https://github.com/phpstan/phpstan)
+With this approach, there is are two main branches that get new features in
+parallel. Each branch supports exactly one TYPO3 LTS version.
 
-`composer ci:php:stan`
+The upside is that this slightly decreases code complexity (as
+version-dependent code switches are not necessary). The downside is that there
+are two branches to maintain, which makes adding new features (and all other
+code changes) more of a hassle.
 
-### JSON Lint check by [jsonlint](https://github.com/Seldaek/jsonlint)
+For this approach, the
+[TYPO3 testing framework](https://github.com/TYPO3/testing-framework) (which
+supports only one TYPO3 LTS version at a time) will work just fine.
 
-`composer ci:json:lint`
+## Working locally or Docker-based with ddev
 
-### YAML Lint check by [yaml-lint](https://github.com/j13k/yaml-lint)
+You can run the automated tests and code quality checks either locally (with a
+local PHP, Composer and database), or you can use
+[ddev](https://github.com/drud/ddev) for a Docker-based setup.
 
-`composer ci:yaml:lint`
+## Composer, PHIVE, GitHub Actions and GitLab CI
 
-### TypoScript Lint by [typoscript-lint](https://github.com/martin-helmich/typo3-typoscript-lint)
+### Development tools: Composer, PHIVE and dependency hell
 
-`composer ci:ts:lint`
+Most development tools (e.g., PHP_CodeSniffer) are installed with
+[PHIVE](https://phar.io/), not with Composer. PHIVE packages each tool with all
+its dependencies as a separate PHAR. This helps avoid dependency hell (which
+means that you cannot install or upgrade some tool as the tool's dependencies
+conflict with the dependencies on another library). It also allows running
+versions of tools that require a PHP version that is higher than the lowest
+allowed PHP version for this project.
 
-### Composer Normalize by [composer-normalize](https://github.com/ergebnis/composer-normalize)
+Some tools are not available via PHIVE, e.g., the Nimut testing framework or
+the JSON linter. For these tools, we keep using Composer for the time being.
 
-`composer ci:composer:normalize`
+### Running the code quality checks locally and in a CI environment
 
-### Running unit tests
+As an example, this extension provides several redundant ways to run the code
+quality checks. (Running the unit and functional tests is a bit different.)
+You can copy the corresponding configuration depending on which Git hosting
+service and which CI platform you plan to use and whether you would like to run
+the code quality checks locally:
 
-`composer ci:tests:unit`
+#### GitHub Actions
 
-### Running functional tests
+This extension has two code-checking workflows for
+[GitHub Actions](https://github.com/TYPO3-Documentation/tea/actions):
 
-`composer ci:tests:functional`
+- [one that completely relies on predefined actions](.github/workflows/ci.yml):
+  This workflow does not need the development tools to be installed via PHIVE.
+  Use this workflow if you only want to run the code quality checks in GitHub
+  Actions, but not locally.
 
-### Running all tests
+- [one that uses the PHIVE-installed tools](.github/workflows/ci-composer-scripts.yml):
+  This workflow uses the development tools installed via PHIVE and calls them
+  using the provided Composer scripts. Use this workflow if want to run the code
+  quality checks locally as well as in GitHub Actions.
 
-`composer ci:tests`
+#### GitLab CI
 
-## Running the tests in PhpStorm
+This extension also provides [configuration](.gitlab/pipeline/.gitlab-ci.yml)
+for [GitLab CI](https://gitlab.typo3.org/qa/example-extension/-/pipelines).
 
-File > Settings > Languages & Frameworks > PHP > Test Frameworks
+## Composer scripts
+
+For most development-related tasks, this extension provides Composer scripts.
+If you are working locally, you can run them using `composer <scriptname>`. If
+you are working with ddev, you can run them with `ddev composer <scriptname>`.
+(You do not need to start or build the containers for this as this happens
+automatically.)
+
+The code-quality-related Composer scripts make use of the PHIVE-installed tools.
+This means that for non-ddev-based development, you need to run `phive install`
+before you can use the Composer scripts.
+
+### Available Composer scripts
+
+You can run `composer` (or `ddev composer`) to display a list of all available
+Composer commands and scripts.
+
+| Script name            | Action                        | Tool                                                                            |
+|------------------------|-------------------------------|---------------------------------------------------------------------------------|
+|`ci`                    | run code checks               | the tools listed for the individual checks                                      |
+|`ci:composer:normalize` | normalize `composer.json`     | [composer-normalize](https://github.com/ergebnis/composer-normalize)            |
+|`ci:json:lint`          | lint the JSON files           | [JSON Lint](https://github.com/Seldaek/jsonlint)                                |
+|`ci:php`                | run all static checks for PHP | the tools listed for the individual checks                                      |
+|`ci:php:copypaste`      | check for copy'n'pasted code  | [PHP Copy/Paste Detector (PHPCPD)](https://github.com/sebastianbergmann/phpcpd) |
+|`ci:php:cs-fixer`       | check the code style          | [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)      |
+|`ci:php:lint`           | lint the PHP files            | `php -l`                                                                        |
+|`ci:php:sniff`          | check the code style          | [PHP_CodeSniffer (PHPCS)](https://github.com/squizlabs/PHP_CodeSniffer)         |
+|`ci:php:stan`           | check the types               | [PHPStan](https://github.com/phpstan/phpstan)                                   |
+|`ci:tests:functional`   | run the functional tests      | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
+|`ci:tests:tests`        | run all PHPUnit tests         | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
+|`ci:tests:unit`         | run the unit tests            | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
+|`ci:ts:lint`            | lint the TypoScript files     | [TypoScript Lint:](https://github.com/martin-helmich/typo3-typoscript-lint)     |
+|`ci:yaml:lint`          | lint the YAML files           | [yaml-lint](https://github.com/j13k/yaml-lint)                                  |
+|`fix:php`               | fix the code style            | PHP Coding Standards Fixer and PHP_CodeSniffer (PHPCS)                          |
+|`fix:php:cs`            | fix the code style            | [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)      |
+|`fix:php:sniff`         | fix the code style            | [PHP_CodeSniffer (PHPCS)](https://github.com/squizlabs/PHP_CodeSniffer)         |
+
+## Running the unit and functional tests
+
+### On the command line
+
+To run the unit tests with ddev, use this command:
+
+```bash
+ddev composer ci:tests:unit
+```
+To run the functional tests with ddev, use this command:
+
+```bash
+ddev composer ci:tests:functional
+```
+
+If you are working locally without ddev, omit the `ddev` part.
+
+### In PhpStorm
+
+#### General setup for PHPUnit
+
+File > Settings > PHP > Test Frameworks
 
 - (*) Use Composer autoloader
 - Path to script: select `.Build/vendor/autoload.php` in your project folder
@@ -90,122 +186,51 @@ settings so this configuration can serve as a template:
   - typo3DatabaseHost
   - typo3DatabaseName
 
-### Unit tests configuration
+#### Unit tests configuration
 
-In the Run configurations, copy the PHPUnit configuration and use these settings:
+In the Run configurations, copy the PHPUnit configuration and use these
+settings:
 
 - Directory: use the `Tests/Unit` directory in your project
 
-### Functional tests configuration
+#### Functional tests configuration
 
-In the Run configurations, copy the PHPUnit configuration and use these settings:
+In the Run configurations, copy the PHPUnit configuration and use these
+settings:
 
 - Directory: use the `Tests/Functional` directory in your project
-- (x) Use alternative configuration file
-- use `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
+- (*) Use alternative configuration file
+- use
+  `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
 
-### Running the acceptance tests
+## Running the acceptance tests
 
-#### On the command line
+### On the command line
 
 1. make sure you have Chrome installed on your machine
-2. `composer update codeception/codeception` (just in case)
-3. [download the latest version of ChromeDriver](http://chromedriver.chromium.org/downloads)
-4. unzip it
-5. `chromedriver --url-base=wd/hub`
-6. `.Build/vendor/bin/codecept run` (in another terminal)
+1. [download the latest version of ChromeDriver](http://chromedriver.chromium.org/downloads)
+1. unzip it
+1. `chromedriver --url-base=wd/hub`
+1. `.Build/vendor/bin/codecept run` (in another terminal)
 
-#### In PhpStorm
+### In PhpStorm
 
 1. make sure the "Codeception Framework" plugin is activated
 2. right-click on `Tests/Acceptance/StarterCest.php`
 3. Run 'Acceptance (Codeception)'
 
-## Developing locally
-
-In order to work on the extension locally, you can use a local environment (local PHP, server) or use
-a widely adopted tool in TYPO3 Community, [ddev](https://github.com/drud/ddev), which we recommend.
-
-## Running Composer commands in the DDEV container
-
-If you use ddev, then you can use the provided command in root of your repository. You don't need to
-manually startup containers, you can run commands straight away, and project will automatically boot up. Please remember to keep ddev up to date.
-
-Example:
-
-```bash
-ddev composer ci:ts:lint
-```
-
-## Running tests locally via DDEV
-
-### Unit tests
-
-To run unit tests, type:
-
-```bash
-composer ci:tests:unit
-```
-
-### Functional tests
-
-To run functional tests, type:
-
-```bash
-composer ci:tests:functional
-```
-
-## Running lints in CI
-### GitHub
-For GitHub, we prepared two ways of running lints:
-1. relies on executing composer scripts
-2. using exported, prepared GitHub Actions in your workflow.
-#### Composer scripts
-You can run your lints using composer scripts. An example workflow is defined in
-`ci-composer-scripts.yml`.
-#### Ready to use GitHub Actions
-You can use prepared GitHub Actions. All of ready to use GitHub Actions are in
-[TYPO3 Continuous Integration organisation](https://github.com/TYPO3-Continuous-Integration).
-An example workflow is defined in `ci.yml`
-### GitLab
-For GitLab, please use the pipeline that is defined in `.gitlab-ci.yml`.
-
 ## Security
 
 Libraries and extensions do not need the security check as they should not have
-any restrictions concerning the other libraries they are installed alongside with
-(unless those would create breakage), and they also do not have a `composer.lock`
-which usually is the source for security checks.
+any restrictions concerning the other libraries they are installed alongside
+with (unless those would create breakage). Libraries and extension also should
+not have a version-controlled `composer.lock` (which usually is used for
+security checks).
 
-Instead, the projects (i.e., for TYPO3 installations) need to have the security checks.
+Instead, the projects and distributions (i.e., for TYPO3 installations) need to
+have the security checks.
 
-## Documentation rendering
+## Rendering the documentation
 
-In order to render documentation, first of all, clone repository
-
-```bash
-git clone https://github.com/TYPO3-Documentation/tea.git
-```
-then go to extension root
-
-```bash
-cd tea
-```
-
-and follow [the TYPO3 documentation quickstart guide](https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html).
-
-## More Documentation
-
-* [Handout to my workshops on test-driven development (TDD)](https://github.com/oliverklee/tdd-reader)
-* [Handout for best practices with extbase and fluid](https://github.com/oliverklee/workshop-handouts/blob/main/extbase-best-practices/extbase-best-practices.pdf)
-
-## Other example projects
-
-* [Selenium demo](https://github.com/oliverklee/selenium-demo)
-  for using Selenium with PHPUnit
-* [Anagram finder](https://github.com/oliverklee/anagram-finder)
-  is the finished result of a code kata for TDD
-* [Coffee example](https://github.com/oliverklee/coffee)
-  is my starting point for demonstrating TDD with TYPO3 CMS
-* [TDD Seed](https://github.com/oliverklee/tdd-seed)
-  for starting PHPUnit projects with Composer (without TYPO3 CMS)
+After you have cloned the git repository, follow
+[the TYPO3 documentation quickstart guide](https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html).
