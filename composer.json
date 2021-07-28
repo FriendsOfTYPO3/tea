@@ -120,8 +120,15 @@
 			"@ci:tests:unit",
 			"@ci:tests:functional"
 		],
-		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
-		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit",
+		"ci:coverage": [
+			"@ci:coverage:unit",
+			"@ci:coverage:functional"
+		],
+		"ci:tests:functional": ".Build/vendor/bin/phpunit -c Tests/Functional/phpunit.xml",
+		"ci:tests:unit": ".Build/vendor/bin/phpunit -c Tests/Unit/phpunit.xml",
+		"ci:coverage:unit": ".Build/vendor/bin/phpunit --whitelist Tests/Unit --coverage-php=coverage/unit.cov Tests/Unit",
+		"ci:coverage:functional": ".Build/vendor/bin/phpunit --whitelist Tests/Functional --coverage-php=coverage/functional.cov Tests/Functional",
+		"ci:coverage:merge": "@php ./tools/phpcov merge --clover=clover.xml coverage/",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs php ./.Build/vendor/bin/yaml-lint",
 		"docs:generate": [

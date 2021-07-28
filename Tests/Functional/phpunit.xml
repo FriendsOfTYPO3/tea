@@ -1,12 +1,12 @@
 <phpunit
     backupGlobals="true"
     backupStaticAttributes="false"
-    bootstrap="../../.Build/vendor/nimut/testing-framework/res/Configuration/UnitTestsBootstrap.php"
+    bootstrap="../../.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTestsBootstrap.php"
     colors="true"
     convertErrorsToExceptions="true"
     convertWarningsToExceptions="true"
     forceCoversAnnotation="false"
-    processIsolation="false"
+    processIsolation="true"
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
@@ -14,7 +14,7 @@
     verbose="false"
 >
     <testsuites>
-        <testsuite name="Unit">
+        <testsuite name="Functional">
             <directory>./</directory>
         </testsuite>
     </testsuites>
