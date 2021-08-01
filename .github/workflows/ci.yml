@@ -68,7 +68,6 @@ jobs:
           - "composer:normalize"
           - "json:lint"
           - "php:cs-fixer"
-          - "ci:coverage:"
         php-version:
           - 7.4
   code-quality-frontend:
