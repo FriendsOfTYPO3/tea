@@ -239,7 +239,7 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - "ci:coverage:unit"
-          - "ci:coverage:functional"
+          - "coverage:unit"
+          - "coverage:functional"
         php-version:
           - 7.4
