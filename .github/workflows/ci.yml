@@ -240,5 +240,6 @@ jobs:
         command:
           - "coverage:unit"
           - "coverage:functional"
+          - "coverage:merge"
         php-version:
           - 7.4
