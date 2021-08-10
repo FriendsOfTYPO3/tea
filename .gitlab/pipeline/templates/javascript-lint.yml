@@ -1,0 +1,11 @@
+javascript-lint:
+  extends: .default-frontend
+  stage: lint
+  script:
+    - yarn lint:js
+
+style-lint:
+  extends: .default-frontend
+  stage: lint
+  script:
+    - yarn lint:style

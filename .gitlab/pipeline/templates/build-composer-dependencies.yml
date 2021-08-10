@@ -1,0 +1,19 @@
+build-composer-dependencies:
+  extends: .default
+  stage: build
+  needs: [ ]
+  variables:
+    COMPOSER_CACHE_DIR: '.composer'
+  script:
+    - composer --version
+    - COMPOSER_CACHE_DIR=.composer
+      composer install --prefer-dist --no-progress --optimize-autoloader
+  artifacts:
+    when: on_success
+    expire_in: 2 weeks
+    paths:
+      - .Build
+  cache:
+    paths:
+      - .composer
+      - .Build

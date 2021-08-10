@@ -7,6 +7,17 @@ stages:
   - test
 
 include:
+  - '/templates/.default.yml'
+  - '/templates/.default-frontend.yml'
+  - '/templates/build-composer-dependencies.yml'
+  - '/templates/php-lint-php7.2.yml'
+  - '/templates/php-lint-php7.3.yml'
+  - '/templates/php-lint-php7.4.yml'
+  - '/templates/ts-lint.yml'
+  - '/templates/json-lint.yml'
+  - '/templates/yaml-lint.yml'
+  - '/templates/xliff-lint.yml'
+  - '/templates/javascript-lint.yml'
   - template: Security/License-Scanning.gitlab-ci.yml
   - template: Security/Secret-Detection.gitlab-ci.yml
   - template: Security/SAST.gitlab-ci.yml
@@ -17,114 +28,6 @@ variables:
   typo3DatabaseHost: mariadb
   typo3DatabaseUsername: root
   typo3DatabasePassword: root
-
-.default:
-  image: php:7.4
-  before_script:
-    - bash .gitlab/build/docker_install.sh > /dev/null
-
-.default-frontend:
-  image: node:latest
-  needs: [ ]
-  cache:
-    key: "$CI_PROJECT_ID"
-    paths:
-      - Resources/Private/node_modules/
-      - Resources/Private/.yarn
-  before_script:
-    - npm install -g eslint
-    - cd ./Resources/Private
-    - yarn install --cache-folder .yarn
-
-build-composer-dependencies:
-  extends: .default
-  stage: build
-  needs: [ ]
-  variables:
-    COMPOSER_CACHE_DIR: '.composer'
-  script:
-    - composer --version
-    - COMPOSER_CACHE_DIR=.composer
-      composer install --prefer-dist --no-progress --optimize-autoloader
-  artifacts:
-    when: on_success
-    expire_in: 2 weeks
-    paths:
-      - .Build
-  cache:
-    paths:
-      - .composer
-      - .Build
-
-php-lint-php7.2:
-  extends: .default
-  image: php:7.2
-  stage: lint
-  needs: [ ]
-  script:
-    - composer ci:php:lint
-
-php-lint-php7.3:
-  extends: .default
-  image: php:7.3
-  stage: lint
-  needs: [ ]
-  script:
-    - composer ci:php:lint
-
-php-lint-php7.4:
-  extends: .default
-  image: php:7.4
-  stage: lint
-  needs: [ ]
-  script:
-    - composer ci:php:lint
-
-ts-lint:
-  extends: .default
-  stage: lint
-  needs:
-    - build-composer-dependencies
-  script:
-    - composer ci:ts:lint
-
-json-lint:
-  extends: .default
-  stage: lint
-  needs:
-    - build-composer-dependencies
-  script:
-    - composer ci:json:lint
-
-yaml-lint:
-  extends: .default
-  stage: lint
-  needs:
-    - build-composer-dependencies
-  script:
-    - composer ci:yaml:lint
-
-xliff-lint:
-  extends: .default
-  stage: lint
-  needs:
-    - build-composer-dependencies
-  script:
-    - wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd
-    - xmllint --schema ./xliff-core-1.2-strict.xsd
-      --noout $(find Resources -name '*.xlf')
-
-javascript-lint:
-  extends: .default-frontend
-  stage: lint
-  script:
-    - yarn lint:js
-
-style-lint:
-  extends: .default-frontend
-  stage: lint
-  script:
-    - yarn lint:style
 
 unit-php7.2-v10:
   extends: .default
