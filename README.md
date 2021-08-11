@@ -141,9 +141,9 @@ Composer commands and scripts.
 |`ci:tests:functional`   | run the functional tests      | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
 |`ci:tests:tests`        | run all PHPUnit tests         | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
 |`ci:tests:unit`         | run the unit tests            | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
-|`ci:ts:lint`            | lint the TypoScript files     | [TypoScript Lint:](https://github.com/martin-helmich/typo3-typoscript-lint)     |
+|`ci:ts:lint`            | lint the TypoScript files     | [TypoScript Lint](https://github.com/martin-helmich/typo3-typoscript-lint)      |
 |`ci:yaml:lint`          | lint the YAML files           | [yaml-lint](https://github.com/j13k/yaml-lint)                                  |
-|`fix:php`               | fix the code style            | PHP Coding Standards Fixer and PHP_CodeSniffer (PHPCS)                          |
+|`fix:php`               | run all fixes for PHP         | the tools listed for the individual checks                                      |
 |`fix:php:cs`            | fix the code style            | [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)      |
 |`fix:php:sniff`         | fix the code style            | [PHP_CodeSniffer (PHPCS)](https://github.com/squizlabs/PHP_CodeSniffer)         |
 
