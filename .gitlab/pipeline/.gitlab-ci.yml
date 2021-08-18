@@ -7,7 +7,7 @@ stages:
   - test
 
 include:
-  - '/templates/.default.yml'
+  - '/.gitlab/pipeline/templates/.default.yml'
   - '/templates/.default-frontend.yml'
   - '/templates/.variables.yml'
   - '/templates/build-composer-dependencies.yml'
