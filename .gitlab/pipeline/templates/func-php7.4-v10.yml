@@ -1,0 +1,12 @@
+func-php7.4-v10:
+  extends: .default
+  image: php:7.4
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.4
+  script:
+    - composer require --no-progress typo3/minimal:"^10.4"
+    - composer ci:tests:functional
