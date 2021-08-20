@@ -143,6 +143,7 @@ Composer commands and scripts.
 |`ci:tests:unit`         | run the unit tests            | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
 |`ci:ts:lint`            | lint the TypoScript files     | [TypoScript Lint](https://github.com/martin-helmich/typo3-typoscript-lint)      |
 |`ci:yaml:lint`          | lint the YAML files           | [yaml-lint](https://github.com/j13k/yaml-lint)                                  |
+|`docs:generate`         | render documentation          | [dockrun_t3rd](https://github.com/t3docs/docker-render-documentation#readme)    |
 |`fix:php`               | run all fixes for PHP         | the tools listed for the individual checks                                      |
 |`fix:php:cs`            | fix the code style            | [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)      |
 |`fix:php:sniff`         | fix the code style            | [PHP_CodeSniffer (PHPCS)](https://github.com/squizlabs/PHP_CodeSniffer)         |
