@@ -1,0 +1,117 @@
+commit 4220c0be53a7c07af67e3e26c25dcf6d9d92aada
+Author: Oliver Klee <typo3-coding@oliverklee.de>
+Date:   Thu Aug 19 22:26:24 2021 +0200
+
+    [TASK] Only truncate tables that have been touched
+    
+    "Touched" means "the auto increment has been changed (if there is
+    one)" or "there are some records in it".
+    
+    This massively speeds up functional tests (as the table truncation
+    usually is the slowest part of the test setup).
+
+diff --git a/src/TestingFramework/TestSystem/AbstractTestSystem.php b/src/TestingFramework/TestSystem/AbstractTestSystem.php
+index 468ba3b..8532ba6 100644
+--- a/src/TestingFramework/TestSystem/AbstractTestSystem.php
++++ b/src/TestingFramework/TestSystem/AbstractTestSystem.php
+@@ -15,10 +15,12 @@ namespace Nimut\TestingFramework\TestSystem;
+ 
+ use Doctrine\DBAL\DBALException;
+ use Doctrine\DBAL\DriverManager;
++use Doctrine\DBAL\Platforms\MySqlPlatform;
+ use Nimut\TestingFramework\Exception\Exception;
+ use Nimut\TestingFramework\File\NtfStreamWrapper;
+ use TYPO3\CMS\Core\Core\Bootstrap;
+ use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
++use TYPO3\CMS\Core\Database\Connection;
+ use TYPO3\CMS\Core\Database\ConnectionPool;
+ use TYPO3\CMS\Core\Utility\GeneralUtility;
+ 
+@@ -224,8 +226,87 @@ abstract class AbstractTestSystem
+      */
+     protected function initializeTestDatabase()
+     {
++        /** @var Connection $connection */
+         $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+             ->getConnectionByName(ConnectionPool::DEFAULT_CONNECTION_NAME);
++        $platform = $connection->getDatabasePlatform();
++        if ($platform instanceof MySqlPlatform) {
++            $this->truncateAllTablesForMysql();
++        } else {
++            $this->truncateAllTablesForOtherDatabases();
++        }
++    }
++
++    /**
++     * Truncates all tables for MySQL databases in an optimized way.
++     *
++     * This method tries to avoid the (expensive) truncate if possible:
++     * - If the table has an auto-increment value (which usually is the `uid` column`) and that value has changed,
++     *   this method will truncate the table.
++     * - If the table does not have an auto-increment value, but it has at least one row (where the exact number does
++     *   not matter), this method will truncate the table.
++     * - Otherwise, this method will skip the truncate. (For tables without an auto-increment value, this means that
++     *   the table either has not been touched at all beforehand, or that all records have already been deleted).
++     */
++    private function truncateAllTablesForMysql()
++    {
++        /** @var Connection $connection */
++        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
++            ->getConnectionByName(ConnectionPool::DEFAULT_CONNECTION_NAME);
++        $databaseName = $connection->getDatabase();
++        $tableNames = $connection->getSchemaManager()->listTableNames();
++
++        if (empty($tableNames)) {
++            // No tables to process
++            return;
++        }
++
++        // Build a sub select to get joinable table with information if table has at least one row.
++        // This is needed because information_schema.table_rows is not reliable enough for innodb engine.
++        // see https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-tables-table.html TABLE_ROWS
++        $fromTableUnionSubSelectQuery = [];
++        foreach($tableNames as $tableName) {
++            $fromTableUnionSubSelectQuery[] = sprintf(
++                ' SELECT %s AS table_name, exists(SELECT * FROm %s LIMIT 1) AS has_rows',
++                $connection->quote($tableName),
++                $connection->quoteIdentifier($tableName)
++            );
++        }
++        $fromTableUnionSubSelectQuery = implode(' UNION ', $fromTableUnionSubSelectQuery);
++        $query = sprintf('
++            SELECT
++                table_real_rowcounts.*,
++                information_schema.tables.AUTO_INCREMENT AS auto_increment
++            FROM (%s) AS table_real_rowcounts
++            INNER JOIN information_schema.tables ON (
++                information_schema.tables.TABLE_SCHEMA = %s
++                AND information_schema.tables.TABLE_NAME = table_real_rowcounts.table_name
++            )',
++            $fromTableUnionSubSelectQuery,
++            $connection->quote($databaseName)
++        );
++        // @todo: Switch to fetchAllAssociative() when core v10 compat is dropped.
++        $result = $connection->executeQuery($query)->fetchAll();
++        foreach ($result as $tableData) {
++            $hasChangedAutoIncrement = ((int)$tableData['auto_increment']) > 1;
++            $hasAtLeastOneRow = (bool)$tableData['has_rows'];
++            $isChanged = $hasChangedAutoIncrement || $hasAtLeastOneRow;
++            if ($isChanged) {
++                $tableName = $tableData['table_name'];
++                $connection->truncate($tableName);
++            }
++        }
++    }
++
++    /**
++     * Truncates all tables without any database-specific optimizations.
++     */
++    private function truncateAllTablesForOtherDatabases()
++    {
++        /** @var Connection $connection */
++        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
++            ->getConnectionByName(ConnectionPool::DEFAULT_CONNECTION_NAME);
++
+         $schemaManager = $connection->getSchemaManager();
+         foreach ($schemaManager->listTables() as $table) {
+             $connection->truncate($table->getName());

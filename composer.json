@@ -36,6 +36,7 @@
 	},
 	"require-dev": {
 		"codeception/codeception": "^4.1.5",
+		"cweagans/composer-patches": "^1.7",
 		"ergebnis/composer-normalize": "^2.15",
 		"friendsofphp/php-cs-fixer": "^2.19.2",
 		"helhum/typo3-composer-setup": "^0.5.7",
@@ -62,6 +63,12 @@
 	"extra": {
 		"branch-alias": {
 			"dev-main": "2.0.x-dev"
+		},
+		"composer-exit-on-patch-failure": true,
+		"patches": {
+			"nimut/testing-framework": {
+				"Only truncate changed tables": "build/patches/testing-framework/faster-truncate.diff"
+			}
 		},
 		"typo3/cms": {
 			"extension-key": "tea",
