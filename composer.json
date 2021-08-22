@@ -145,6 +145,28 @@
 			"rm phpcs.xml"
 		]
 	},
+	"scripts-descriptions": {
+		"ci": "Runs all dynamic and static code checks.",
+		"ci:composer:normalize": "Checks the composer.json.",
+		"ci:dynamic": "Runs alle PHPUnit tests (unit and functional).",
+		"ci:json:lint": "Lints the JSON files.",
+		"ci:php": "Runs all static checks for the PHP files.",
+		"ci:php:copypaste": "Checks for copy'n'pasted PHP code.",
+		"ci:php:cs-fixer": "Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).",
+		"ci:php:lint": "Lints the PHP files for syntax errors.",
+		"ci:php:sniff": "Checks the code style with PHP_CodeSniffer (PHPCS).",
+		"ci:php:stan": "Checks the PHP types using PHPStan.",
+		"ci:static": "Runs all static code checks (syntax, style, types).",
+		"ci:tests": "Runs alle PHPUnit tests (unit and functional).",
+		"ci:tests:functional": "Runs the functional tests.",
+		"ci:tests:unit": "Runs the unit tests.",
+		"ci:ts:lint": "Lints the TypoScript files.",
+		"ci:yaml:lint": "Lints the YAML files.",
+		"docs:generate": "Renders the extension ReST documentation.",
+		"fix:php": "Runs all fixers for the PHP code.",
+		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",
+		"fix:php:sniff": "Fixes the code style with PHP_CodeSniffer."
+	},
 	"support": {
 		"issues": "https://github.com/TYPO3-Documentation/tea/issues",
 		"source": "https://github.com/TYPO3-Documentation/tea"

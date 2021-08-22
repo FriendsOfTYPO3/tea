@@ -127,27 +127,6 @@ before you can use the Composer scripts.
 You can run `composer` (or `ddev composer`) to display a list of all available
 Composer commands and scripts.
 
-| Script name            | Action                        | Tool                                                                            |
-|------------------------|-------------------------------|---------------------------------------------------------------------------------|
-|`ci`                    | run code checks               | the tools listed for the individual checks                                      |
-|`ci:composer:normalize` | normalize `composer.json`     | [composer-normalize](https://github.com/ergebnis/composer-normalize)            |
-|`ci:json:lint`          | lint the JSON files           | [JSON Lint](https://github.com/Seldaek/jsonlint)                                |
-|`ci:php`                | run all static checks for PHP | the tools listed for the individual checks                                      |
-|`ci:php:copypaste`      | check for copy'n'pasted code  | [PHP Copy/Paste Detector (PHPCPD)](https://github.com/sebastianbergmann/phpcpd) |
-|`ci:php:cs-fixer`       | check the code style          | [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)      |
-|`ci:php:lint`           | lint the PHP files            | `php -l`                                                                        |
-|`ci:php:sniff`          | check the code style          | [PHP_CodeSniffer (PHPCS)](https://github.com/squizlabs/PHP_CodeSniffer)         |
-|`ci:php:stan`           | check the types               | [PHPStan](https://github.com/phpstan/phpstan)                                   |
-|`ci:tests:functional`   | run the functional tests      | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
-|`ci:tests:tests`        | run all PHPUnit tests         | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
-|`ci:tests:unit`         | run the unit tests            | [PHPUnit](https://github.com/sebastianbergmann/phpunit/)                        |
-|`ci:ts:lint`            | lint the TypoScript files     | [TypoScript Lint](https://github.com/martin-helmich/typo3-typoscript-lint)      |
-|`ci:yaml:lint`          | lint the YAML files           | [yaml-lint](https://github.com/j13k/yaml-lint)                                  |
-|`docs:generate`         | render documentation          | [dockrun_t3rd](https://github.com/t3docs/docker-render-documentation#readme)    |
-|`fix:php`               | run all fixes for PHP         | the tools listed for the individual checks                                      |
-|`fix:php:cs`            | fix the code style            | [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)      |
-|`fix:php:sniff`         | fix the code style            | [PHP_CodeSniffer (PHPCS)](https://github.com/squizlabs/PHP_CodeSniffer)         |
-
 ## Running the unit and functional tests
 
 ### On the command line
