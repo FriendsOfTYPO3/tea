@@ -71,16 +71,21 @@ local PHP, Composer and database), or you can use
 
 ### Development tools: Composer, PHIVE and dependency hell
 
-Most development tools (e.g., PHP_CodeSniffer) are installed with
-[PHIVE](https://phar.io/), not with Composer. PHIVE packages each tool with all
-its dependencies as a separate PHAR. This helps avoid dependency hell (which
-means that you cannot install or upgrade some tool as the tool's dependencies
-conflict with the dependencies on another library). It also allows running
-versions of tools that require a PHP version that is higher than the lowest
-allowed PHP version for this project.
+To keep things simple, most development tools (e.g., PHP_CodeSniffer) are
+installed as development Composer dependencies.
 
-Some tools are not available via PHIVE, e.g., the Nimut testing framework or
-the JSON linter. For these tools, we keep using Composer for the time being.
+For cases where an installation via Composer is not possible, we are using
+[PHIVE](https://phar.io/). PHIVE packages each tool with all its dependencies as
+a separate PHAR. This helps avoid dependency hell (which means that you cannot
+install or upgrade some tool as the tool's dependencies conflict with the
+dependencies on another library). It also allows running versions of tools
+that require a PHP version that is higher than the lowest allowed PHP version
+for this project.
+
+Currently, this is the case for
+[PHP Copy/Paste Detector (PHPCPD)](https://github.com/sebastianbergmann/phpcpd),
+which requires PHP >= 7.3, which conflicts with this project's PHP version
+support (we also support PHP 7.2).
 
 ### Running the code quality checks locally and in a CI environment
 
