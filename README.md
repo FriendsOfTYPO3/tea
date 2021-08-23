@@ -125,7 +125,8 @@ before you can use the Composer scripts.
 ### Available Composer scripts
 
 You can run `composer` (or `ddev composer`) to display a list of all available
-Composer commands and scripts.
+Composer commands and scripts. (For all custom Composer scripts, are descriptions
+in the `composer.json` in the `script-description` section.)
 
 ## Running the unit and functional tests
 
