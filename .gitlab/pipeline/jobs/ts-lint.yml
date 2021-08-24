@@ -1,0 +1,7 @@
+ts-lint:
+  extends: .default
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - composer ci:ts:lint

@@ -1,0 +1,7 @@
+yaml-lint:
+  extends: .default
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - composer ci:yaml:lint

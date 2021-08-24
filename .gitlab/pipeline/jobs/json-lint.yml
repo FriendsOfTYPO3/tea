@@ -1,0 +1,7 @@
+json-lint:
+  extends: .default
+  stage: lint
+  needs:
+    - build-composer-dependencies
+  script:
+    - composer ci:json:lint

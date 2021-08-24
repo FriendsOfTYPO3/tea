@@ -1,0 +1,10 @@
+phpstan:
+  extends: .default
+  stage: codestyle
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.2
+    - php-lint-php7.3
+    - php-lint-php7.4
+  script:
+    - composer ci:php:stan
