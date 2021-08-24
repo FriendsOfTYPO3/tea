@@ -95,15 +95,16 @@ the code quality checks locally:
 This extension has two code-checking workflows for
 [GitHub Actions](https://github.com/TYPO3-Documentation/tea/actions):
 
-- [one that completely relies on predefined actions](.github/workflows/ci.yml):
-  This workflow does not need the development tools to be installed via PHIVE.
+- [one that uses the local tools](.github/workflows/ci.yml):
+  This is the workflow you most probably would want to use:
+  This workflow uses the development tools installed via Composer and PHIVE and
+  calls them using the provided Composer scripts. Use this workflow if you want
+  to run the code quality checks locally as well as in GitHub Actions.
+
+- [one that completely relies on predefined actions](.github/workflows/predefined.yml):
+  This workflow does not need the development tools to be installed locally.
   Use this workflow if you only want to run the code quality checks in GitHub
   Actions, but not locally.
-
-- [one that uses the PHIVE-installed tools](.github/workflows/ci-composer-scripts.yml):
-  This workflow uses the development tools installed via PHIVE and calls them
-  using the provided Composer scripts. Use this workflow if want to run the code
-  quality checks locally as well as in GitHub Actions.
 
 #### GitLab CI
 
