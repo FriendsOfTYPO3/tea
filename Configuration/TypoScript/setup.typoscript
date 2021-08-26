@@ -14,10 +14,10 @@ plugin.tx_tea {
   }
 
   persistence {
-    storagePid = {$plugin.tx_tea.persistence.storagePid}
+      storagePid = {$plugin.tx_tea.persistence.storagePid}
   }
 
   settings {
-    singleViewPageUid = {$plugin.tx_tea.settings.singleViewPageUid}
+      singleViewPageUid = {$plugin.tx_tea.settings.singleViewPageUid}
   }
 }
