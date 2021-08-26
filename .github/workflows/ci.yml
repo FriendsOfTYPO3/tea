@@ -104,7 +104,6 @@ jobs:
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-22.04
-    needs: php-lint
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
@@ -197,7 +196,6 @@ jobs:
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-22.04
-    needs: php-lint
     env:
       DB_DATABASE: typo3
       DB_USER: root
