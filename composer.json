@@ -72,7 +72,6 @@
 	"conflict": {
 		"typo3/class-alias-loader": "< 1.1.0"
 	},
-	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
 			"TTN\\Tea\\": "Classes/"
@@ -83,6 +82,7 @@
 			"TTN\\Tea\\Tests\\": "Tests/"
 		}
 	},
+	"prefer-stable": true,
 	"config": {
 		"allow-plugins": {
 			"ergebnis/composer-normalize": true,
