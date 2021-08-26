@@ -25,7 +25,9 @@ class Tea extends AbstractEntity
      */
     protected string $description = '';
 
-    /**
+     private string $internalNotes;
+
+     /**
      * @var FileReference|null
      * @phpstan-var FileReference|LazyLoadingProxy|null
      * @Extbase\ORM\Lazy
@@ -57,6 +59,14 @@ class Tea extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }
+
+    public function getInternalNotes(): string {
+        return $this->internalNotes;
+    }
+
+    public function setInternalNotes(string $notes): void {
+        $this->internalNotes = $notes;
     }
 
     public function getImage(): ?FileReference
