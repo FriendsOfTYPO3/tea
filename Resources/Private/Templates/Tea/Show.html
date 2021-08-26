@@ -8,5 +8,11 @@
         </h2>
 
         {tea.description -> f:format.html()}
+
+        <f:if condition="{tea.internalNotes}">
+            <p>
+                {tea.internalNotes}
+            </p>
+        </f:if>
     </f:section>
 </html>
