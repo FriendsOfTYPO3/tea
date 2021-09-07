@@ -6,8 +6,6 @@ namespace TTN\Tea\Tests\Acceptance;
 
 /**
  * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de>
  */
 class StarterCest
 {

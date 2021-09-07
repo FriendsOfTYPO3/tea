@@ -11,8 +11,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
  */
 class TeaTest extends UnitTestCase
 {

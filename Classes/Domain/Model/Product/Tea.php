@@ -11,8 +11,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * This class represents a tea (flavor), e.g., "Earl Grey".
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
  */
 class Tea extends AbstractEntity
 {
