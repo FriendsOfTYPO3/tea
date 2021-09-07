@@ -10,8 +10,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Controller for the main "Tea" FE plugin.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
  */
 class TeaController extends ActionController
 {

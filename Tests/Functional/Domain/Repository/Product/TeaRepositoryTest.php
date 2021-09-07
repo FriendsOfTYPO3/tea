@@ -14,8 +14,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
  * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
  */
 class TeaRepositoryTest extends FunctionalTestCase
 {

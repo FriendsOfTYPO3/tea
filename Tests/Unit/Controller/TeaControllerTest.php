@@ -16,8 +16,6 @@ use TYPO3\CMS\Fluid\View\TemplateView;
 
 /**
  * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
  */
 class TeaControllerTest extends UnitTestCase
 {
