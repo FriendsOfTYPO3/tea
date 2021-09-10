@@ -64,7 +64,9 @@
 			"dev-main": "2.0.x-dev"
 		},
 		"typo3/cms": {
+			"app-dir": ".Build",
 			"extension-key": "tea",
+			"ignore-as-root": false,
 			"web-dir": ".Build/public"
 		}
 	},
