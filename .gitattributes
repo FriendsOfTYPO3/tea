@@ -15,4 +15,5 @@
 /phive.xml
 /phpcs.xml export-ignore
 /phpstan.neon export-ignore
+/phpstan-baseline.neon export-ignore
 /tools/ export-ignore binary
