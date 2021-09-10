@@ -25,7 +25,8 @@ class Tea extends AbstractEntity
     protected $description = '';
 
     /**
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @phpstan-var \TYPO3\CMS\Extbase\Domain\Model\FileReference|LazyLoadingProxy|null
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference|null
      * @Lazy
      */
     protected $image = null;
@@ -53,7 +54,9 @@ class Tea extends AbstractEntity
     public function getImage(): ?FileReference
     {
         if ($this->image instanceof LazyLoadingProxy) {
-            $this->image = $this->image->_loadRealInstance();
+            /** @var FileReference $image */
+            $image = $this->image->_loadRealInstance();
+            $this->image = $image;
         }
 
         return $this->image;
