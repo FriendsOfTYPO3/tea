@@ -21,7 +21,7 @@ class TeaRepositoryTest extends UnitTestCase
     private $subject = null;
 
     /**
-     * @var ObjectManagerInterface|ProphecySubjectInterface
+     * @var ObjectManagerInterface&ProphecySubjectInterface
      */
     protected $objectManager = null;
 
