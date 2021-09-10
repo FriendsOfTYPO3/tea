@@ -8,7 +8,7 @@ use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 /**
- * Test case.
+ * @covers \TTN\Tea\Controller\TeaController
  */
 class TeaControllerTest extends FunctionalTestCase
 {

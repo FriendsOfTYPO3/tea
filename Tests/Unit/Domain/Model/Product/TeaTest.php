@@ -10,7 +10,7 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Test case.
+ * @covers \TTN\Tea\Domain\Model\Product\Tea
  */
 class TeaTest extends UnitTestCase
 {
