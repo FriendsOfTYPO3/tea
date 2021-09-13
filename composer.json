@@ -104,7 +104,7 @@
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php_cs.php -v --dry-run --using-cache false --diff --diff-format=udiff",
 		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
-		"ci:php:stan": "phpstan analyse Classes",
+		"ci:php:stan": "phpstan --no-progress",
 		"ci:static": [
 			"@ci:composer:normalize",
 			"@ci:json:lint",
@@ -137,6 +137,7 @@
 			"@php -r 'is_dir($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/\") || mkdir($extFolder, 0777, true);'",
 			"@php -r 'file_exists($extFolder=__DIR__.\"/.Build/public/typo3conf/ext/tea\") || symlink(__DIR__,$extFolder);'"
 		],
+		"phpstan:baseline": ".Build/vendor/bin/phpstan  --generate-baseline=phpstan-baseline.neon",
 		"prepare-release": [
 			"rm .gitignore",
 			"rm -rf .Build",
@@ -154,6 +155,8 @@
 			"rm Resources/Private/stylelint.config.js",
 			"rm codeception.yml",
 			"rm phive.xml",
+			"rm phpstan-baseline.neon",
+			"rm phpstan.neon",
 			"rm phpcs.xml"
 		]
 	},
@@ -177,7 +180,8 @@
 		"docs:generate": "Renders the extension ReST documentation.",
 		"fix:php": "Runs all fixers for the PHP code.",
 		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",
-		"fix:php:sniff": "Fixes the code style with PHP_CodeSniffer."
+		"fix:php:sniff": "Fixes the code style with PHP_CodeSniffer.",
+		"phpstan:baseline": "Updates the PHPStan baseline file to match the code."
 	},
 	"support": {
 		"issues": "https://github.com/TYPO3-Documentation/tea/issues",
