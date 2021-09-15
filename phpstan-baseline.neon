@@ -1,2 +1,17 @@
 parameters:
 	ignoreErrors:
+		-
+			message: "#^Constant TYPO3_version not found\\.$#"
+			count: 1
+			path: Configuration/TCA/tx_tea_domain_model_product_tea.php
+
+		-
+			message: "#^Constant TYPO3_version not found\\.$#"
+			count: 1
+			path: Tests/Functional/Controller/TeaControllerTest.php
+
+		-
+			message: "#^Property TTN\\\\Tea\\\\Tests\\\\Unit\\\\Domain\\\\Repository\\\\Product\\\\TeaRepositoryTest\\:\\:\\$objectManager \\(Prophecy\\\\Prophecy\\\\ProphecySubjectInterface&TYPO3\\\\CMS\\\\Extbase\\\\Object\\\\ObjectManagerInterface\\) does not accept TYPO3\\\\CMS\\\\Extbase\\\\Object\\\\ObjectManagerInterface\\.$#"
+			count: 1
+			path: Tests/Unit/Domain/Repository/Product/TeaRepositoryTest.php
+
