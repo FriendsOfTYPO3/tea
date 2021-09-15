@@ -25,12 +25,12 @@ class TeaControllerTest extends UnitTestCase
     private $subject = null;
 
     /**
-     * @var TemplateView|ObjectProphecy
+     * @var ObjectProphecy
      */
     private $viewProphecy = null;
 
     /**
-     * @var TeaRepository|ObjectProphecy
+     * @var ObjectProphecy
      */
     private $teaRepositoryProphecy = null;
 
@@ -43,7 +43,7 @@ class TeaControllerTest extends UnitTestCase
         $this->inject($this->subject, 'view', $view);
 
         $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
-        /** @var TeaRepository|ProphecySubjectInterface $teaRepository */
+        /** @var TeaRepository&ProphecySubjectInterface $teaRepository */
         $teaRepository = $this->teaRepositoryProphecy->reveal();
         $this->subject->injectTeaRepository($teaRepository);
     }
