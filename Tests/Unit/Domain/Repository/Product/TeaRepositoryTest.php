@@ -11,7 +11,7 @@ use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Test case.
+ * @covers \TTN\Tea\Domain\Repository\Product\TeaRepository
  */
 class TeaRepositoryTest extends UnitTestCase
 {

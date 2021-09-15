@@ -15,7 +15,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
 
 /**
- * Test case.
+ * @covers \TTN\Tea\Controller\TeaController
  */
 class TeaControllerTest extends UnitTestCase
 {

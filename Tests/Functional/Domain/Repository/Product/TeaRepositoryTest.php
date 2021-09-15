@@ -13,7 +13,7 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
- * Test case.
+ * @covers \TTN\Tea\Domain\Repository\Product\TeaRepository
  */
 class TeaRepositoryTest extends FunctionalTestCase
 {
