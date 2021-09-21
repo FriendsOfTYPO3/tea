@@ -160,6 +160,7 @@
 			"rm Resources/Private/.prettierrc.js",
 			"rm Resources/Private/package.json",
 			"rm Resources/Private/stylelint.config.js",
+			"rm badge.svg",
 			"rm codeception.yml",
 			"rm phive.xml",
 			"rm phpstan-baseline.neon",
