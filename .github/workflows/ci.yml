@@ -218,7 +218,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
-          coverage: none
+          coverage: xdebug
+          extensions: xdebug
           tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
@@ -240,6 +241,5 @@ jobs:
         command:
           - "coverage:unit"
           - "coverage:functional"
-          - "coverage:merge"
         php-version:
           - 7.4

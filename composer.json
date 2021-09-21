@@ -92,9 +92,9 @@
 			"@ci:coverage:unit",
 			"@ci:coverage:functional"
 		],
-		"ci:coverage:functional": ".Build/vendor/bin/phpunit --whitelist Tests/Functional --coverage-php=coverage/functional.cov Tests/Functional",
+		"ci:coverage:functional": ".Build/vendor/bin/phpunit -c Tests/Functional/phpunit.xml --whitelist Tests/Functional --coverage-php=coverage/functional.cov Tests/Functional",
 		"ci:coverage:merge": "@php ./tools/phpcov merge --clover=clover.xml coverage/",
-		"ci:coverage:unit": ".Build/vendor/bin/phpunit --whitelist Tests/Unit --coverage-php=coverage/unit.cov Tests/Unit",
+		"ci:coverage:unit": ".Build/vendor/bin/phpunit -c Tests/Unit/phpunit.xml --whitelist Tests/Unit --coverage-php=coverage/unit.cov Tests/Unit",
 		"ci:composer:normalize": "@composer normalize --dry-run",
 		"ci:dynamic": [
 			"@ci:tests"
@@ -129,9 +129,6 @@
 		],
 		"ci:tests:functional": ".Build/vendor/bin/phpunit -c Tests/Functional/phpunit.xml",
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c Tests/Unit/phpunit.xml",
-		"ci:coverage:unit": ".Build/vendor/bin/phpunit --whitelist Tests/Unit --coverage-php=coverage/unit.cov Tests/Unit",
-		"ci:coverage:functional": ".Build/vendor/bin/phpunit --whitelist Tests/Functional --coverage-php=coverage/functional.cov Tests/Functional",
-		"ci:coverage:merge": "@php ./tools/phpcov merge --clover=clover.xml coverage/",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs php ./.Build/vendor/bin/yaml-lint",
 		"docs:generate": [
