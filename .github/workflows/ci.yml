@@ -210,7 +210,7 @@ jobs:
           - ^10.4
   code-coverage:
     name: "Code coverage check"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
@@ -219,7 +219,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: xdebug
-          extensions: xdebug
+          extensions: xdebug, mysqli
           tools: composer:v2
       - name: "Show Composer version"
         run: composer --version
@@ -229,17 +229,29 @@ jobs:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - name: "Install Composer dependencies"
-        run: "composer install --no-progress"
-      - name: "Run command"
-        run: "composer ci:${{ matrix.command }}"
+      - env:
+          TYPO3: "${{ matrix.typo3-version }}"
+        name: "Install TYPO3 Core"
+        run: |
+          composer require --no-progress typo3/minimal:"$TYPO3"
+          composer show
+      - name: "Start MySQL"
+        run: "sudo /etc/init.d/mysql start"
+      - name: "Run functional tests coverage"
+        run: |
+          export typo3DatabaseName="typo3";
+          export typo3DatabaseHost="127.0.0.1";
+          export typo3DatabaseUsername="root";
+          export typo3DatabasePassword="root";
+          composer ci:coverage:functional
+      - name: "Run unit tests coverage"
+        run: composer ci:coverage:unit
       - name: phpunit-coverage-badge
         uses: timkrase/phpunit-coverage-badge@v1.2.0
     strategy:
       fail-fast: false
       matrix:
-        command:
-          - "coverage:unit"
-          - "coverage:functional"
         php-version:
           - 7.4
+        typo3-version:
+          - ^10.4
