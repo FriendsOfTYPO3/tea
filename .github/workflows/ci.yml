@@ -246,6 +246,8 @@ jobs:
           composer ci:coverage:functional
       - name: "Run unit tests coverage"
         run: composer ci:coverage:unit
+      - name: "Merge coverage results"
+        run: composer ci:coverage:merge
       - name: phpunit-coverage-badge
         uses: timkrase/phpunit-coverage-badge@v1.2.0
     strategy:
