@@ -250,6 +250,9 @@ jobs:
         run: composer ci:coverage:merge
       - name: phpunit-coverage-badge
         uses: timkrase/phpunit-coverage-badge@v1.2.0
+        with:
+          push_badge: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       fail-fast: false
       matrix:
