@@ -162,6 +162,7 @@
 			"rm Resources/Private/stylelint.config.js",
 			"rm badge.svg",
 			"rm codeception.yml",
+			"rm clover.xml",
 			"rm phive.xml",
 			"rm phpstan-baseline.neon",
 			"rm phpstan.neon",
