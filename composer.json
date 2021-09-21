@@ -141,6 +141,7 @@
 		"prepare-release": [
 			"rm .gitignore",
 			"rm -rf .Build",
+			"rm -rf .ddev",
 			"rm -rf .github",
 			"rm -rf .gitlab",
 			"rm -rf Tests",
