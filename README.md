@@ -7,6 +7,7 @@
 [![Latest unstable version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
 [![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![Code Coverage Badge](./badge.svg)
 
 ## What is this all about?
 
