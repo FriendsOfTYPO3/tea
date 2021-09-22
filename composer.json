@@ -22,10 +22,10 @@
 	],
 	"require": {
 		"php": "~7.2.0 || ~7.3.0 || ~7.4.0",
-		"typo3/cms-core": "^10.4 || ^11.4",
-		"typo3/cms-extbase": "^10.4 || ^11.4",
-		"typo3/cms-fluid": "^10.4 || ^11.4",
-		"typo3/cms-frontend": "^10.4 || ^11.4"
+		"typo3/cms-core": "^9.5 || ^10.4 || ^11.4",
+		"typo3/cms-extbase": "^9.5 || ^10.4 || ^11.4",
+		"typo3/cms-fluid": "^9.5 || ^10.4 || ^11.4",
+		"typo3/cms-frontend": "^9.5 || ^10.4 || ^11.4"
 	},
 	"replace": {
 		"typo3-ter/tea": "self.version"
