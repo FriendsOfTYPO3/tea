@@ -31,6 +31,7 @@ jobs:
           - 7.2
           - 7.3
           - 7.4
+          - 8.0
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-20.04
