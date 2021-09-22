@@ -1,4 +1,5 @@
 /.Build/ export-ignore
+/.ddev/ export-ignore
 /.editorconfig export-ignore
 /.gitattributes export-ignore
 /.github/ export-ignore
