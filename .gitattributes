@@ -13,7 +13,6 @@
 /Tests/ export-ignore
 /badge.svg export-ignore
 /codeception.yml export-ignore
-/clover.xml export-ignore
 /phive.xml
 /phpcs.xml export-ignore
 /phpstan.neon export-ignore

@@ -172,6 +172,8 @@
 	"scripts-descriptions": {
 		"ci": "Runs all dynamic and static code checks.",
 		"ci:composer:normalize": "Checks the composer.json.",
+		"ci:coverage:functional": "Generates code coverage raport out of functional tests.",
+		"ci:coverage:unit": "Generates code coverage raport out of unit tests.",
 		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
 		"ci:json:lint": "Lints the JSON files.",
 		"ci:php": "Runs all static checks for the PHP files.",
