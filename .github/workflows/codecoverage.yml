@@ -46,14 +46,14 @@ jobs:
       - name: phpunit-coverage-badge
         uses: timkrase/phpunit-coverage-badge@v1.2.0
         with:
-          coverage_badge_path: 'badge.svg'
-      - name: Commit PHPUnit coverage badge
-        uses: EndBug/add-and-commit@v7
-        with:
-          add: 'badge.svg --force'
-          author_email: '43463463+github-actions[bot]@users.noreply.github.com'
-          message: 'Update PHPUnit coverage badge'
-          branch: code-coverage-badge
+          coverage_badge_path: './badge/badge.svg'
+      - name: "Commit PHPUnit coverage badge"
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: code-coverage-badge
+          FOLDER: badge
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       fail-fast: false
       matrix:
