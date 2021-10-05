@@ -46,13 +46,13 @@ jobs:
       - name: phpunit-coverage-badge
         uses: timkrase/phpunit-coverage-badge@v1.2.0
         with:
-          coverage_badge_path: './badge/badge.svg'
+          coverage_badge_path: './coverage/badge.svg'
       - name: "Commit PHPUnit coverage badge"
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
           BRANCH: code-coverage-badge
-          FOLDER: badge
+          FOLDER: coverage
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       fail-fast: false
