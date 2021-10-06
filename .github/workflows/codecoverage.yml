@@ -47,7 +47,9 @@ jobs:
         uses: timkrase/phpunit-coverage-badge@v1.2.0
         with:
           coverage_badge_path: './coverage/badge.svg'
-      - name: "Commit PHPUnit coverage badge"
+      - name: "Copy result to coverage directory"
+        run: cp clover.xml ./coverage/clover.xml
+      - name: "Commit PHPUnit coverage results"
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
