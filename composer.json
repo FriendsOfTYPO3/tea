@@ -171,7 +171,7 @@
 		"ci": "Runs all dynamic and static code checks.",
 		"ci:composer:normalize": "Checks the composer.json.",
 		"ci:coverage:functional": "Generates the code coverage report for functional tests.",
-		"ci:coverage:merge": "Merges the code coverage reports form unit and functional tests.",
+		"ci:coverage:merge": "Merges the code coverage reports for unit and functional tests.",
 		"ci:coverage:unit": "Generates the code coverage report for unit tests.",
 		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
 		"ci:json:lint": "Lints the JSON files.",
