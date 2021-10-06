@@ -94,7 +94,7 @@
 			"@ci:coverage:functional"
 		],
 		"ci:coverage:functional": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml --whitelist Classes --coverage-php=coverage/functional.cov Tests/Functional",
-		"ci:coverage:merge": ".Build/vendor/bin/phpcov merge --clover=clover.xml coverage/",
+		"ci:coverage:merge": "@php tools/phpcov merge --clover=clover.xml coverage/",
 		"ci:coverage:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml --whitelist Classes --coverage-php=coverage/unit.cov Tests/Unit",
 		"ci:dynamic": [
 			"@ci:tests"
