@@ -35,23 +35,22 @@ jobs:
           composer show
       - name: "Start MySQL"
         run: "sudo /etc/init.d/mysql start"
-      - name: "Run functional tests coverage"
+      - name: "Run functional tests with coverage"
         run: |
           export typo3DatabaseName="typo3";
           export typo3DatabaseHost="127.0.0.1";
           export typo3DatabaseUsername="root";
           export typo3DatabasePassword="root";
           composer ci:coverage:functional
-      - name: "Run unit tests coverage"
+      - name: "Run unit tests with coverage"
         run: composer ci:coverage:unit
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
-      - name: phpunit-coverage-badge
+      - name: "Generate coverage badge"
         uses: timkrase/phpunit-coverage-badge@v1.2.0
         with:
+          report: './coverage/clover.xml'
           coverage_badge_path: './coverage/badge.svg'
-      - name: "Copy result to coverage directory"
-        run: cp clover.xml ./coverage/clover.xml
       - name: "Commit PHPUnit coverage results"
         uses: s0/git-publish-subdir-action@develop
         env:
@@ -65,4 +64,4 @@ jobs:
         php-version:
           - 7.4
         typo3-version:
-          - ^10.4
+          - ^11.5

@@ -94,7 +94,7 @@
 			"@ci:coverage:functional"
 		],
 		"ci:coverage:functional": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml --whitelist Classes --coverage-php=coverage/functional.cov Tests/Functional",
-		"ci:coverage:merge": "@php tools/phpcov merge --clover=clover.xml coverage/",
+		"ci:coverage:merge": "@php tools/phpcov merge --clover=./coverage/clover.xml coverage/",
 		"ci:coverage:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml --whitelist Classes --coverage-php=coverage/unit.cov Tests/Unit",
 		"ci:dynamic": [
 			"@ci:tests"
@@ -170,9 +170,9 @@
 	"scripts-descriptions": {
 		"ci": "Runs all dynamic and static code checks.",
 		"ci:composer:normalize": "Checks the composer.json.",
-		"ci:coverage:functional": "Generates code coverage raport out of functional tests.",
-		"ci:coverage:merge": "Merges unit and functional tests report.",
-		"ci:coverage:unit": "Generates code coverage raport out of unit tests.",
+		"ci:coverage:functional": "Generates the code coverage report for functional tests.",
+		"ci:coverage:merge": "Merges the code coverage reports form unit and functional tests.",
+		"ci:coverage:unit": "Generates the code coverage report for unit tests.",
 		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
 		"ci:json:lint": "Lints the JSON files.",
 		"ci:php": "Runs all static checks for the PHP files.",
