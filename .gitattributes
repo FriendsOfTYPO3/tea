@@ -11,7 +11,6 @@
 /Resources/Private/package.json export-ignore
 /Resources/Private/stylelint.config.js export-ignore
 /Tests/ export-ignore
-/badge.svg export-ignore
 /codeception.yml export-ignore
 /phive.xml
 /phpcs.xml export-ignore
