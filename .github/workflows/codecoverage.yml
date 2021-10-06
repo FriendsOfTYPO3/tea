@@ -3,8 +3,6 @@
 name: Code coverage
 on:
   push:
-    branches:
-      - main
 jobs:
   code-coverage:
     name: "Calculate code coverage"
