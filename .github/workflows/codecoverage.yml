@@ -1,7 +1,10 @@
 ---
 # This GitHub Actions workflow is calculating code coverage of extension and creates a badge for it.
 name: Code coverage
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
   code-coverage:
     name: "Calculate code coverage"

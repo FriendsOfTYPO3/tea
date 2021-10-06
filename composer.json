@@ -45,7 +45,6 @@
 		"phpstan/extension-installer": "^1.1.0",
 		"phpstan/phpstan": "^0.12.98",
 		"phpstan/phpstan-phpunit": "^0.12.22",
-		"phpunit/phpcov": "^5.0",
 		"phpunit/phpunit": "^7.5.20",
 		"saschaegerer/phpstan-typo3": "^0.13.3",
 		"seld/jsonlint": "^1.8.3",
@@ -95,7 +94,6 @@
 			"@ci:coverage:functional"
 		],
 		"ci:coverage:functional": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml --whitelist Classes --coverage-php=coverage/functional.cov Tests/Functional",
-		"ci:coverage:report:functional": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml --whitelist Classes --coverage-php=coverage/functional.cov Tests/Functional",
 		"ci:coverage:merge": ".Build/vendor/bin/phpcov merge --clover=clover.xml coverage/",
 		"ci:coverage:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml --whitelist Classes --coverage-php=coverage/unit.cov Tests/Unit",
 		"ci:dynamic": [
@@ -175,6 +173,7 @@
 		"ci": "Runs all dynamic and static code checks.",
 		"ci:composer:normalize": "Checks the composer.json.",
 		"ci:coverage:functional": "Generates code coverage raport out of functional tests.",
+		"ci:coverage:merge": "Merges unit and functional tests report.",
 		"ci:coverage:unit": "Generates code coverage raport out of unit tests.",
 		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
 		"ci:json:lint": "Lints the JSON files.",
