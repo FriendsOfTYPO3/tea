@@ -3,6 +3,8 @@
 name: Code coverage
 on:
   push:
+    branches:
+      - main
 jobs:
   code-coverage:
     name: "Calculate code coverage"
@@ -62,4 +64,4 @@ jobs:
         php-version:
           - 7.4
         typo3-version:
-          - ^11.5
+          - ^10.4
