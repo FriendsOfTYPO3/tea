@@ -2,7 +2,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Tea example',
     'description' => 'Example extension for unit testing and best practices',
-    'version' => '2.0.x-dev',
+    'version' => '1.0.0',
     'category' => 'example',
     'constraints' => [
         'depends' => [

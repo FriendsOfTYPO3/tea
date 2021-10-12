@@ -21,7 +21,7 @@ EXT:tea
    tea, ci, continousintegration, gitlab, githubactions, actions, tests, functional, unit
 
 :Copyright:
-   2020 by TYPO3 Association
+   2021 by TYPO3 Association
 
 :Authors:
    * Oliver Klee
