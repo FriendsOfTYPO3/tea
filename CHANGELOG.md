@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Removed
 
 ### Fixed
+- Only publish to the TER if the tag is a valid version number (#329)
 
 ## 1.0.0
 
