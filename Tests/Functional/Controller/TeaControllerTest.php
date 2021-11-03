@@ -48,7 +48,7 @@ class TeaControllerTest extends FunctionalTestCase
         $responseContent = $this->getFrontendResponse(1)->getContent();
 
         $teaTitle = 'Earl Grey';
-        self::assertContains($teaTitle, $responseContent);
+        self::assertStringContainsString($teaTitle, $responseContent);
     }
 
     /**

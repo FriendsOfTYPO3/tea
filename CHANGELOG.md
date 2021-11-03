@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Allow installations on TYPO3 11LTS
 
 ### Changed
+- Upgrade to PHPUnit 8.5 (#328)
 
 ### Deprecated
 
