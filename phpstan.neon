@@ -1,5 +1,6 @@
 includes:
     - phpstan-baseline.neon
+    - Build/vendor/schnitzler/phpstan-typo3-extbase/extension.neon
 
 parameters:
   parallel:
