@@ -38,7 +38,6 @@
 		"codeception/codeception": "^4.1.22",
 		"ergebnis/composer-normalize": "^2.15.0",
 		"friendsofphp/php-cs-fixer": "^2.19.2",
-		"helhum/typo3-composer-setup": "^0.5.7",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^0.8.1",
 		"nimut/testing-framework": "^6.0.0",
