@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Also run the unit tests with V11 in the CI pipeline (#336)
 - Allow installations on TYPO3 11LTS
 
 ### Changed
