@@ -18,12 +18,12 @@ class TeaRepositoryTest extends UnitTestCase
     /**
      * @var TeaRepository
      */
-    private $subject = null;
+    private $subject;
 
     /**
      * @var ObjectManagerInterface&ProphecySubjectInterface
      */
-    protected $objectManager = null;
+    protected $objectManager;
 
     protected function setUp(): void
     {

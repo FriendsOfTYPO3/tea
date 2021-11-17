@@ -29,7 +29,7 @@ class Tea extends AbstractEntity
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference|null
      * @Lazy
      */
-    protected $image = null;
+    protected $image;
 
     public function getTitle(): string
     {

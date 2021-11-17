@@ -17,7 +17,7 @@ class TeaTest extends UnitTestCase
     /**
      * @var Tea
      */
-    private $subject = null;
+    private $subject;
 
     protected function setUp(): void
     {

@@ -22,17 +22,17 @@ class TeaControllerTest extends UnitTestCase
     /**
      * @var TeaController
      */
-    private $subject = null;
+    private $subject;
 
     /**
      * @var ObjectProphecy
      */
-    private $viewProphecy = null;
+    private $viewProphecy;
 
     /**
      * @var ObjectProphecy
      */
-    private $teaRepositoryProphecy = null;
+    private $teaRepositoryProphecy;
 
     protected function setUp(): void
     {

@@ -16,7 +16,7 @@ class TeaController extends ActionController
     /**
      * @var TeaRepository
      */
-    private $teaRepository = null;
+    private $teaRepository;
 
     public function injectTeaRepository(TeaRepository $teaRepository): void
     {

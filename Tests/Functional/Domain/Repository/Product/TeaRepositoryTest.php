@@ -25,12 +25,12 @@ class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @var TeaRepository
      */
-    private $subject = null;
+    private $subject;
 
     /**
      * @var PersistenceManager
      */
-    private $persistenceManager = null;
+    private $persistenceManager;
 
     protected function setUp(): void
     {
