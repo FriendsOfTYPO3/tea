@@ -154,7 +154,7 @@
 			"rm -rf tools",
 			"rm .editorconfig",
 			"rm .gitattributes",
-			"rm .php_cs.php",
+			"rm .php-cs-fixer.php",
 			"rm Resources/Private/.eslintignore",
 			"rm Resources/Private/.eslintrc.json",
 			"rm Resources/Private/.prettierrc.js",
