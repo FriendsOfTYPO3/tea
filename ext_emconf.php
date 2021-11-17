@@ -1,4 +1,5 @@
 <?php
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Tea example',
     'description' => 'Example extension for unit testing and best practices',
