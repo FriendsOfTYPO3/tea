@@ -8,7 +8,6 @@
 [![TYPO3](https://img.shields.io/badge/TYPO3-11-orange.svg)](https://get.typo3.org/version)
 [![Code Coverage Badge](https://github.com/TYPO3-Documentation/tea/blob/code-coverage-badge/badge.svg)](https://github.com/TYPO3-Documentation/tea/blob/code-coverage-badge/clover.xml)
 [![Total downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
-[![Latest unstable version](https://poser.pugx.org/ttn/tea/v/unstable.svg)](https://packagist.org/packages/ttn/tea)
 [![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
