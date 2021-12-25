@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace TTN\Tea\Tests\Unit\Domain\Repository\Product;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
-use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -21,7 +20,7 @@ class TeaRepositoryTest extends UnitTestCase
     private $subject;
 
     /**
-     * @var ObjectManagerInterface&ProphecySubjectInterface
+     * @var ObjectManagerInterface
      */
     protected $objectManager;
 
