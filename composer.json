@@ -1,7 +1,8 @@
 {
 	"name": "ttn/tea",
-	"type": "typo3-cms-extension",
 	"description": "TYPO3 example extension for unit testing and best practices",
+	"license": "GPL-2.0-or-later",
+	"type": "typo3-cms-extension",
 	"keywords": [
 		"typo3",
 		"example",
@@ -11,7 +12,6 @@
 		"unit testing",
 		"best practices"
 	],
-	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Oliver Klee",
@@ -20,6 +20,10 @@
 			"role": "developer"
 		}
 	],
+	"support": {
+		"issues": "https://github.com/TYPO3-Documentation/tea/issues",
+		"source": "https://github.com/TYPO3-Documentation/tea"
+	},
 	"require": {
 		"php": "~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0",
 		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5.2",
@@ -27,16 +31,9 @@
 		"typo3/cms-fluid": "^9.5 || ^10.4 || ^11.5.2",
 		"typo3/cms-frontend": "^9.5 || ^10.4 || ^11.5.2"
 	},
-	"replace": {
-		"typo3-ter/tea": "self.version"
-	},
-	"conflict": {
-		"doctrine/dbal": "2.13.1",
-		"typo3/class-alias-loader": "< 1.1.0"
-	},
 	"require-dev": {
 		"codeception/codeception": "^4.1.22",
-		"ergebnis/composer-normalize": "^2.15.0",
+		"ergebnis/composer-normalize": "^2.18.0",
 		"friendsofphp/php-cs-fixer": "^3.2",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^1.0.0",
@@ -51,6 +48,24 @@
 		"symfony/yaml": "^4.4.29 || ^5.3.6 || ^6.0",
 		"typo3/cms-fluid-styled-content": "^9.5 || ^10.4 || ^11.5.2",
 		"typo3/coding-standards": "^0.5.0"
+	},
+	"replace": {
+		"typo3-ter/tea": "self.version"
+	},
+	"conflict": {
+		"doctrine/dbal": "2.13.1",
+		"typo3/class-alias-loader": "< 1.1.0"
+	},
+	"prefer-stable": true,
+	"autoload": {
+		"psr-4": {
+			"TTN\\Tea\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"TTN\\Tea\\Tests\\": "Tests/"
+		}
 	},
 	"config": {
 		"preferred-install": {
@@ -69,17 +84,6 @@
 			"web-dir": ".Build/public"
 		}
 	},
-	"autoload": {
-		"psr-4": {
-			"TTN\\Tea\\": "Classes/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"TTN\\Tea\\Tests\\": "Tests/"
-		}
-	},
-	"prefer-stable": true,
 	"scripts": {
 		"post-autoload-dump": [
 			"@link-extension"
@@ -192,9 +196,5 @@
 		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",
 		"fix:php:sniff": "Fixes the code style with PHP_CodeSniffer.",
 		"phpstan:baseline": "Updates the PHPStan baseline file to match the code."
-	},
-	"support": {
-		"issues": "https://github.com/TYPO3-Documentation/tea/issues",
-		"source": "https://github.com/TYPO3-Documentation/tea"
 	}
 }
