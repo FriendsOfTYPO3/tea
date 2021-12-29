@@ -69,10 +69,10 @@
 	},
 	"config": {
 		"allow-plugins": {
-			"ergebnis/composer-normalize": false,
-			"phpstan/extension-installer": false,
-			"typo3/class-alias-loader": false,
-			"typo3/cms-composer-installers": false
+			"ergebnis/composer-normalize": true,
+			"phpstan/extension-installer": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
 		},
 		"preferred-install": {
 			"*": "dist"
