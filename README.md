@@ -1,3 +1,5 @@
+PR Test
+
 # Example TYPO3 extension for code quality checks and automated tests
 
 [![GitHub CI status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg?branch=main)](https://github.com/TYPO3-Documentation/tea/actions)
