@@ -18,7 +18,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: xdebug
           extensions: xdebug, mysqli
-          tools: composer:v2.1
+          tools: composer:v2.2
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
