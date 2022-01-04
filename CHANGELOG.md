@@ -6,16 +6,24 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## 1.1.0
+
+### Added
 - Also run the unit tests with V11 in the CI pipeline (#336)
 - Allow installations on TYPO3 11LTS
 
 ### Changed
 - Require at least TYPO3 11.5.2 for 11LTS (#335)
 - Upgrade to PHPUnit 8.5 (#328)
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 - Only publish to the TER if the tag is a valid version number (#329)
