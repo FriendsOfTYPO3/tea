@@ -54,6 +54,7 @@
 	},
 	"conflict": {
 		"doctrine/dbal": "2.13.1",
+		"friendsofphp/php-cs-fixer": "3.5.0",
 		"typo3/class-alias-loader": "< 1.1.0"
 	},
 	"prefer-stable": true,
