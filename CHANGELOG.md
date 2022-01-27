@@ -12,7 +12,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
-- Drop support for TYPO3 9LTS (#363)
+- Drop support for TYPO3 9LTS (#363, #372)
 
 ### Fixed
 
