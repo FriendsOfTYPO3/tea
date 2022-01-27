@@ -109,7 +109,7 @@
 		"ci:dynamic": [
 			"@ci:tests"
 		],
-		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.json' | xargs php .Build/vendor/bin/jsonlint -q",
+		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.json' | xargs -r php .Build/vendor/bin/jsonlint -q",
 		"ci:php": [
 			"@ci:php:copypaste",
 			"@ci:php:cs-fixer",
@@ -119,7 +119,7 @@
 		],
 		"ci:php:copypaste": "@php ./tools/phpcpd Classes Configuration Tests",
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff",
-		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
 		"ci:static": [
@@ -140,7 +140,7 @@
 		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}';",
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
-		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs php ./.Build/vendor/bin/yaml-lint",
+		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs -r php ./.Build/vendor/bin/yaml-lint",
 		"docs:generate": [
 			"docker run --rm t3docs/render-documentation show-shell-commands > tempfile.sh; echo 'dockrun_t3rd makehtml' >> tempfile.sh; bash tempfile.sh; rm tempfile.sh"
 		],
