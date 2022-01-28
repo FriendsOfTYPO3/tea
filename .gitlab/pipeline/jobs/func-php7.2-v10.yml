@@ -9,4 +9,4 @@ func-php7.2-v10:
     - php-lint-php7.2
   script:
     - composer require --no-progress typo3/minimal:"^10.4"
-    - composer ci:tests:functional
+    - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional
