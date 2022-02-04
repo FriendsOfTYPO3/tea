@@ -1,6 +1,7 @@
 /*.idea
 /.Build/*
-/.php_cs.cache
+/.php-cs-fixer.cache
+/.phpunit.result.cache
 /Documentation-GENERATED-temp/
 /Resources/Private/node_modules/
 /Resources/Private/package-lock.json
