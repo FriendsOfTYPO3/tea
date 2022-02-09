@@ -12,6 +12,7 @@ include:
   - '/.gitlab/pipeline/jobs/.variables.yml'
   - '/.gitlab/pipeline/jobs/build-composer-dependencies.yml'
   - '/.gitlab/pipeline/jobs/composer-normalize.yml'
+  - '/.gitlab/pipeline/jobs/composer-require-checker.yml'
   - '/.gitlab/pipeline/jobs/func-php7.2-v9.yml'
   - '/.gitlab/pipeline/jobs/func-php7.2-v10.yml'
   - '/.gitlab/pipeline/jobs/func-php7.3-v9.yml'

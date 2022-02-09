@@ -67,6 +67,7 @@ jobs:
           - "php:copypaste"
           - "php:stan"
           - "composer:normalize"
+          - "composer:require-checker"
           - "json:lint"
           - "php:cs-fixer"
         php-version:

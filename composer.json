@@ -37,6 +37,7 @@
 		"friendsofphp/php-cs-fixer": "^3.4.0",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^1.0.0",
+		"maglnet/composer-require-checker": "^3.8",
 		"nimut/testing-framework": "^6.0.0",
 		"phpstan/extension-installer": "^1.1.0",
 		"phpstan/phpstan": "^1.2.0",
@@ -99,6 +100,7 @@
 			"@ci:static"
 		],
 		"ci:composer:normalize": "@composer normalize --dry-run",
+		"ci:composer:require-checker": ".Build/vendor/bin/composer-require-checker check",
 		"ci:coverage": [
 			"@ci:coverage:unit",
 			"@ci:coverage:functional"
@@ -181,6 +183,7 @@
 	"scripts-descriptions": {
 		"ci": "Runs all dynamic and static code checks.",
 		"ci:composer:normalize": "Checks the composer.json.",
+		"ci:composer:require-checker": "Analyze composer dependencies and verify that no unknown symbols are used.",
 		"ci:coverage:functional": "Generates the code coverage report for functional tests.",
 		"ci:coverage:merge": "Merges the code coverage reports for unit and functional tests.",
 		"ci:coverage:unit": "Generates the code coverage report for unit tests.",
