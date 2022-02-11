@@ -227,6 +227,7 @@ jobs:
           composer show
       - name: "Set up TYPO3"
         run: >
+          composer req helhum/typo3-console
           .Build/vendor/bin/typo3cms install:setup --no-interaction --site-setup-type="site"
           --database-user-name="${DATABASE_USER}" --database-host-name="${DATABASE_HOST}"
           --database-port="${{ job.services.mysql.ports[3306] }}" --database-name="${DATABASE_NAME}"
