@@ -225,6 +225,12 @@ jobs:
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
+      - name: "Set up TYPO3"
+        run: >
+          .Build/vendor/bin/typo3cms install:setup --no-interaction --site-setup-type="site"
+          --database-user-name="${DATABASE_USER}" --database-host-name="${DATABASE_HOST}"
+          --database-port="${{ job.services.mysql.ports[3306] }}" --database-name="${DATABASE_NAME}"
+          --admin-user-name="admin" --admin-password="password" --site-name="Test installation";
       - name: "Run functional tests"
         run: |
           composer ci:tests:functional
