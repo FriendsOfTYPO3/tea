@@ -1,5 +1,7 @@
 ---
-name: CI
+# This GitHub Actions workflow uses the same development tools that are also installed locally
+# via Composer or PHIVE and calls them using the Composer scripts.
+name: CI with Composer scripts
 on:
   push:
     branches:
@@ -19,7 +21,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2
+          tools: composer:v2.2
       - name: "Run PHP lint"
         run: "composer ci:php:lint"
     strategy:
@@ -29,6 +31,7 @@ jobs:
           - 7.2
           - 7.3
           - 7.4
+          - 8.0
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-20.04
@@ -40,7 +43,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2
+          tools: composer:v2.2
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
@@ -61,9 +64,11 @@ jobs:
           - "yaml:lint"
           - "json:lint"
           - "php:sniff"
-          - "php:codestyle"
           - "php:copypaste"
+          - "php:stan"
           - "composer:normalize"
+          - "json:lint"
+          - "php:cs-fixer"
         php-version:
           - 7.4
   code-quality-frontend:
@@ -90,12 +95,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-      - name: "Install xmllint"
-        run: "sudo apt-get install libxml2-utils wget"
-      - name: "Download xliff schema"
-        run: "wget https://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd"
-      - name: "Run lint"
-        run: "xmllint --schema ./xliff-core-1.2-strict.xsd --noout $(find Resources -name '*.xlf')"
+      - name: "Run the xliff lint"
+        uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-20.04
@@ -108,7 +109,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2
+          tools: composer:v2.2
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
@@ -121,7 +122,7 @@ jobs:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
-          composer require --no-progress typo3/minimal:"$TYPO3"
+          composer require --no-ansi --no-interaction --no-progress --no-install typo3/minimal:"$TYPO3"
           composer show
       - if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
@@ -138,16 +139,37 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        composer-dependencies:
-          - highest
-          - lowest
-        php-version:
-          - 7.2
-          - 7.3
-          - 7.4
-        typo3-version:
-          - ^9.5
-          - ^10.4
+        include:
+          - typo3-version: ^10.4
+            php-version: 7.2
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.2
+            composer-dependencies: lowest
+          - typo3-version: ^10.4
+            php-version: 7.3
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.3
+            composer-dependencies: lowest
+          - typo3-version: ^10.4
+            php-version: 7.4
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.4
+            composer-dependencies: lowest
+          - typo3-version: ^11.5
+            php-version: 7.4
+            composer-dependencies: highest
+          - typo3-version: ^11.5
+            php-version: 7.4
+            composer-dependencies: lowest
+          - typo3-version: ^11.5
+            php-version: 8.0
+            composer-dependencies: highest
+          - typo3-version: ^11.5
+            php-version: 8.0
+            composer-dependencies: lowest
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-20.04
@@ -176,7 +198,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
-          tools: composer:v2
+          tools: composer:v2.2
           extensions: mysqli
           coverage: none
       - name: "Show Composer version"
@@ -191,7 +213,7 @@ jobs:
           TYPO3: "${{ matrix.typo3-version }}"
         name: "Install TYPO3 Core"
         run: |
-          composer require --no-progress typo3/minimal:"$TYPO3"
+          composer require --no-ansi --no-interaction --no-progress --no-install typo3/minimal:"$TYPO3"
           composer show
       - if: "matrix.composer-dependencies == 'lowest'"
         name: "Install lowest dependencies with composer"
@@ -217,5 +239,4 @@ jobs:
           - 7.3
           - 7.4
         typo3-version:
-          - ^9.5
           - ^10.4

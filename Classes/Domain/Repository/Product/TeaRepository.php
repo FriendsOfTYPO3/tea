@@ -10,8 +10,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Repository for Tea models.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
  */
 class TeaRepository extends Repository
 {

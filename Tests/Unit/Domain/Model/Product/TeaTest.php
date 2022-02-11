@@ -10,16 +10,14 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
+ * @covers \TTN\Tea\Domain\Model\Product\Tea
  */
 class TeaTest extends UnitTestCase
 {
     /**
      * @var Tea
      */
-    private $subject = null;
+    private $subject;
 
     protected function setUp(): void
     {

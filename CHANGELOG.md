@@ -6,6 +6,32 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+- Drop support for TYPO3 9LTS (#363, #372)
+
+### Fixed
+
+## 1.1.0
+
+### Added
+- Also run the unit tests with V11 in the CI pipeline (#336)
+- Allow installations on TYPO3 11LTS
+
+### Changed
+- Require at least TYPO3 11.5.2 for 11LTS (#335)
+- Upgrade to PHPUnit 8.5 (#328)
+
+### Fixed
+- Only publish to the TER if the tag is a valid version number (#329)
+
+## 1.0.0
+
+### Added
 - Also run the CI build once a week (#160)
 - Run the functional tests via GitHub Actions (#55)
 - Cache Composer dependencies in build (#31)
@@ -35,8 +61,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Upgrade PHPUnit to 7.5.14
 - Change from GPL V3+ to GPL V2+
 - Streamline `ext_emconf.php`
-
-### Deprecated
+- Complete rewrite. Usable with TYPO3 7.6 and 8.7.
 
 ### Removed
 - Drop the Travis CI builds (#56)
@@ -65,6 +90,3 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop an obsolete "replace" entry from `composer.json`
 - Explicitly require MySQL on Travis CI
 - Add `.php_cs.cache` to the `.gitignore`
-
-## 2.0.0
-- Complete rewrite. Usable with TYPO3 7.6 and 8.7.

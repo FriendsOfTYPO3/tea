@@ -13,9 +13,7 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
- * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
+ * @covers \TTN\Tea\Domain\Repository\Product\TeaRepository
  */
 class TeaRepositoryTest extends FunctionalTestCase
 {
@@ -27,12 +25,12 @@ class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @var TeaRepository
      */
-    private $subject = null;
+    private $subject;
 
     /**
      * @var PersistenceManager
      */
-    private $persistenceManager = null;
+    private $persistenceManager;
 
     protected function setUp(): void
     {

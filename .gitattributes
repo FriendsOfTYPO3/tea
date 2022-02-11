@@ -1,10 +1,12 @@
 /.Build/ export-ignore
+/.ddev/ export-ignore
 /.editorconfig export-ignore
 /.gitattributes export-ignore
 /.github/ export-ignore
 /.gitignore export-ignore
 /.gitlab/ export-ignore
-/.php_cs.php export-ignore
+/.php-cs-fixer.php export-ignore
+/.phpstorm.meta.php export-ignore
 /Resources/Private/.eslintignore export-ignore
 /Resources/Private/.eslintrc.json export-ignore
 /Resources/Private/.prettierrc.js export-ignore
@@ -12,6 +14,8 @@
 /Resources/Private/stylelint.config.js export-ignore
 /Tests/ export-ignore
 /codeception.yml export-ignore
-/phive.xml
+/phive.xml export-ignore
 /phpcs.xml export-ignore
+/phpstan-baseline.neon export-ignore
+/phpstan.neon export-ignore
 /tools/ export-ignore binary

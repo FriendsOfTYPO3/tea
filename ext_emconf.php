@@ -1,13 +1,14 @@
 <?php
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Tea example',
     'description' => 'Example extension for unit testing and best practices',
-    'version' => '2.0.x-dev',
+    'version' => '1.1.0',
     'category' => 'example',
     'constraints' => [
         'depends' => [
             'php' => '7.2.0-7.4.99',
-            'typo3' => '9.5.0-10.99.99',
+            'typo3' => '10.4.0-11.5.99',
         ],
     ],
     'state' => 'stable',

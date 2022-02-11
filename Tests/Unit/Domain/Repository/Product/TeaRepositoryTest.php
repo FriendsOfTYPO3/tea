@@ -5,27 +5,24 @@ declare(strict_types=1);
 namespace TTN\Tea\Tests\Unit\Domain\Repository\Product;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
-use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
+ * @covers \TTN\Tea\Domain\Repository\Product\TeaRepository
  */
 class TeaRepositoryTest extends UnitTestCase
 {
     /**
      * @var TeaRepository
      */
-    private $subject = null;
+    private $subject;
 
     /**
-     * @var ObjectManagerInterface|ProphecySubjectInterface
+     * @var ObjectManagerInterface
      */
-    protected $objectManager = null;
+    protected $objectManager;
 
     protected function setUp(): void
     {

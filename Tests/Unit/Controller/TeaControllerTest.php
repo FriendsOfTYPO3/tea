@@ -15,26 +15,24 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
 
 /**
- * Test case.
- *
- * @author Oliver Klee <typo3-coding@oliverklee.de
+ * @covers \TTN\Tea\Controller\TeaController
  */
 class TeaControllerTest extends UnitTestCase
 {
     /**
      * @var TeaController
      */
-    private $subject = null;
+    private $subject;
 
     /**
-     * @var TemplateView|ObjectProphecy
+     * @var ObjectProphecy
      */
-    private $viewProphecy = null;
+    private $viewProphecy;
 
     /**
-     * @var TeaRepository|ObjectProphecy
+     * @var ObjectProphecy
      */
-    private $teaRepositoryProphecy = null;
+    private $teaRepositoryProphecy;
 
     protected function setUp(): void
     {
@@ -45,7 +43,7 @@ class TeaControllerTest extends UnitTestCase
         $this->inject($this->subject, 'view', $view);
 
         $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
-        /** @var TeaRepository|ProphecySubjectInterface $teaRepository */
+        /** @var TeaRepository&ProphecySubjectInterface $teaRepository */
         $teaRepository = $this->teaRepositoryProphecy->reveal();
         $this->subject->injectTeaRepository($teaRepository);
     }
