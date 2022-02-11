@@ -1,4 +1,4 @@
-composer-normalize:
+composer-require-checker:
   extends: .default
   stage: codestyle
   script:
