@@ -181,7 +181,7 @@ settings so this configuration can serve as a template:
 
 - Directory: use the `Tests/Unit` directory in your project
 - (*) Use alternative configuration file
-- use `.Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml`
+- use `.Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml`
   in your project folder
 - add the following environment variables:
   - typo3DatabaseUsername
@@ -204,7 +204,7 @@ settings:
 - Directory: use the `Tests/Functional` directory in your project
 - (*) Use alternative configuration file
 - use
-  `.Build/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml`
+  `.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml`
 
 ## Running the acceptance tests
 
