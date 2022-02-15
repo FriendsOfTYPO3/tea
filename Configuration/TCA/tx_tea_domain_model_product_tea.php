@@ -12,9 +12,6 @@ $tca = [
         'iconfile' => 'EXT:tea/Resources/Public/Icons/Record.svg',
         'searchFields' => 'title, description',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'title, description, image',
-    ],
     'types' => [
         '1' => ['showitem' => 'title, description, image'],
     ],
