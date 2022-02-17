@@ -136,7 +136,9 @@ namespace PHPSTORM_META {
         'normalizedParams',
         'site',
         'language',
-        'routing'
+        'routing',
+        'module',
+        'moduleData'
     );
 
     override(\Psr\Http\Message\ServerRequestInterface::getAttribute(), map([
@@ -146,6 +148,8 @@ namespace PHPSTORM_META {
         'site' => \TYPO3\CMS\Core\Site\Entity\SiteInterface::class,
         'language' => \TYPO3\CMS\Core\Site\Entity\SiteLanguage::class,
         'routing' => '\TYPO3\CMS\Core\Routing\SiteRouteResult|\TYPO3\CMS\Core\Routing\PageArguments',
+        'module' => \TYPO3\CMS\Backend\Module\ModuleInterface::class,
+        'moduleData' => \TYPO3\CMS\Backend\Module\ModuleData::class,
     ]));
 
     expectedArguments(
@@ -156,7 +160,9 @@ namespace PHPSTORM_META {
         'normalizedParams',
         'site',
         'language',
-        'routing'
+        'routing',
+        'module',
+        'moduleData'
     );
 
     override(\TYPO3\CMS\Core\Http\ServerRequest::getAttribute(), map([
@@ -166,6 +172,8 @@ namespace PHPSTORM_META {
         'site' => \TYPO3\CMS\Core\Site\Entity\SiteInterface::class,
         'language' => \TYPO3\CMS\Core\Site\Entity\SiteLanguage::class,
         'routing' => '\TYPO3\CMS\Core\Routing\SiteRouteResult|\TYPO3\CMS\Core\Routing\PageArguments',
+        'module' => \TYPO3\CMS\Backend\Module\ModuleInterface::class,
+        'moduleData' => \TYPO3\CMS\Backend\Module\ModuleData::class,
     ]));
 
     override(\TYPO3\CMS\Core\Routing\SiteMatcher::matchRequest(), type(
