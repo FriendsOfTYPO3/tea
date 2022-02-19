@@ -125,7 +125,7 @@ class TeaRepositoryTest extends FunctionalTestCase
         $connection = $this->getConnectionPool()
             ->getConnectionForTable('tx_tea_domain_model_product_tea');
         $databaseRow = $connection->select(['*'], 'tx_tea_domain_model_product_tea', ['uid' => $model->getUid()])
-            ->fetchAssociative();
+            ->fetch(\PDO::FETCH_ASSOC);
 
         self::assertSame($title, $databaseRow['title']);
     }
