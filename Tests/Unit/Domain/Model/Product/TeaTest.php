@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace TTN\Tea\Tests\Unit\Domain\Model\Product;
 
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * @covers \TTN\Tea\Domain\Model\Product\Tea
@@ -21,6 +21,8 @@ class TeaTest extends UnitTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->subject = new Tea();
     }
 

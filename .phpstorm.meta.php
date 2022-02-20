@@ -29,27 +29,6 @@ namespace PHPSTORM_META {
         )
     );
 
-    // Nimut testing framework
-    // The accesible mock will be of type `self` as well as `MockObject` and `AccessibleMockObjectInterface`.
-    override(
-        \Nimut\TestingFramework\TestCase\AbstractTestCase::getAccessibleMock(0),
-        map(
-            [
-                '' => '@|\\PHPUnit\\Framework\\MockObject\\MockObject'
-                    . '|\\Nimut\\TestingFramework\\MockObject\\AccessibleMockObjectInterface',
-            ]
-        )
-    );
-    override(
-        \Nimut\TestingFramework\TestCase\AbstractTestCase::getAccessibleMockForAbstractClass(0),
-        map(
-            [
-                '' => '@|\\PHPUnit\\Framework\\MockObject\\MockObject'
-                    . '|\\Nimut\TestingFramework\\MockObject\\AccessibleMockObjectInterface',
-            ]
-        )
-    );
-
     // Contexts
     // @see https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/9.4/Feature-85389-ContextAPIForConsistentDataHandling.html
     expectedArguments(
