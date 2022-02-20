@@ -227,12 +227,43 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        composer-dependencies:
-          - highest
-          - lowest
-        php-version:
-          - 7.2
-          - 7.3
-          - 7.4
-        typo3-version:
-          - ^10.4
+        strategy:
+          fail-fast: false
+          matrix:
+            include:
+              - typo3-version: ^10.4
+                php-version: 7.2
+                composer-dependencies: highest
+              - typo3-version: ^10.4
+                php-version: 7.2
+                composer-dependencies: lowest
+              - typo3-version: ^10.4
+                php-version: 7.3
+                composer-dependencies: highest
+              - typo3-version: ^10.4
+                php-version: 7.3
+                composer-dependencies: lowest
+              - typo3-version: ^10.4
+                php-version: 7.4
+                composer-dependencies: highest
+              - typo3-version: ^10.4
+                php-version: 7.4
+                composer-dependencies: lowest
+              - typo3-version: ^11.5
+                php-version: 7.4
+                composer-dependencies: highest
+              - typo3-version: ^11.5
+                php-version: 7.4
+                composer-dependencies: lowest
+              - typo3-version: ^11.5
+                php-version: 8.0
+                composer-dependencies: highest
+              - typo3-version: ^11.5
+                php-version: 8.0
+                composer-dependencies: lowest
+              - typo3-version: ^11.5
+                php-version: 8.1
+                composer-dependencies: highest
+              - typo3-version: ^11.5
+                php-version: 8.1
+                composer-dependencies: lowest
