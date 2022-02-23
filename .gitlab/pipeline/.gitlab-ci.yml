@@ -22,6 +22,7 @@ include:
   - '/.gitlab/pipeline/jobs/php-lint-php7.3.yml'
   - '/.gitlab/pipeline/jobs/php-lint-php7.4.yml'
   - '/.gitlab/pipeline/jobs/php-lint-php8.0.yml'
+  - '/.gitlab/pipeline/jobs/php-lint-php8.1.yml'
   - '/.gitlab/pipeline/jobs/phpcs.yml'
   - '/.gitlab/pipeline/jobs/ts-lint.yml'
   - '/.gitlab/pipeline/jobs/unit-php7.2-v10.yml'

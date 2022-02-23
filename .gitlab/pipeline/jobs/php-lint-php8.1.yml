@@ -1,0 +1,7 @@
+php-lint-php8.0:
+  extends: .default
+  image: php:8.1
+  stage: lint
+  needs: [ ]
+  script:
+    - composer ci:php:lint
