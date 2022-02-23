@@ -25,7 +25,7 @@
 		"source": "https://github.com/TYPO3-Documentation/tea"
 	},
 	"require": {
-		"php": "~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0",
+		"php": "~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0 || ~8.1",
 		"typo3/cms-core": "^10.4 || ^11.5.2",
 		"typo3/cms-extbase": "^10.4 || ^11.5.2",
 		"typo3/cms-fluid": "^10.4 || ^11.5.2",
