@@ -170,19 +170,19 @@ jobs:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - env:
+      - name: "Install TYPO3 Core"
+        env:
           TYPO3: "${{ matrix.typo3-version }}"
-        name: "Install TYPO3 Core"
         run: |
           composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
-      - if: "matrix.composer-dependencies == 'lowest'"
-        name: "Install lowest dependencies with composer"
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.composer-dependencies == 'lowest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      - if: "matrix.composer-dependencies == 'highest'"
-        name: "Install highest dependencies with composer"
+      - name: "Install highest dependencies with composer"
+        if: "matrix.composer-dependencies == 'highest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
@@ -223,19 +223,19 @@ jobs:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - env:
+      - name: "Install TYPO3 Core"
+        env:
           TYPO3: "${{ matrix.typo3-version }}"
-        name: "Install TYPO3 Core"
         run: |
           composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
-      - if: "matrix.composer-dependencies == 'lowest'"
-        name: "Install lowest dependencies with composer"
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.composer-dependencies == 'lowest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      - if: "matrix.composer-dependencies == 'highest'"
-        name: "Install highest dependencies with composer"
+      - name: "Install highest dependencies with composer"
+        if: "matrix.composer-dependencies == 'highest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
