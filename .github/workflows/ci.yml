@@ -115,9 +115,9 @@ jobs:
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
+          restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
       - name: "Install TYPO3 Core"
         env:
           TYPO3: "${{ matrix.typo3-version }}"
@@ -195,9 +195,9 @@ jobs:
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
+          restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
       - name: "Install TYPO3 Core"
         env:
           TYPO3: "${{ matrix.typo3-version }}"
