@@ -61,15 +61,14 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - "ts:lint"
-          - "yaml:lint"
-          - "json:lint"
-          - "php:sniff"
-          - "php:copypaste"
-          - "php:stan"
           - "composer:normalize"
           - "json:lint"
+          - "php:copypaste"
           - "php:cs-fixer"
+          - "php:sniff"
+          - "ts:lint"
+          - "php:stan"
+          - "yaml:lint"
         php-version:
           - 7.4
   code-quality-frontend:
