@@ -112,7 +112,9 @@ jobs:
           coverage: none
           tools: composer:v2.2
       - name: "Show Composer version"
-        run: composer --version
+        run: |
+          composer --version
+          composer config --list
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
