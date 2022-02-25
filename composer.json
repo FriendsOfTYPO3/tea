@@ -203,6 +203,7 @@
 		"fix:php": "Runs all fixers for the PHP code.",
 		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",
 		"fix:php:sniff": "Fixes the code style with PHP_CodeSniffer.",
-		"phpstan:baseline": "Updates the PHPStan baseline file to match the code."
+		"phpstan:baseline": "Updates the PHPStan baseline file to match the code.",
+		"prepare-release": "Removes development-only files in preparation of a TER release."
 	}
 }
