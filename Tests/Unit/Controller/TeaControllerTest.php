@@ -25,12 +25,12 @@ class TeaControllerTest extends UnitTestCase
     private $subject;
 
     /**
-     * @var ObjectProphecy
+     * @var ObjectProphecy<TemplateView>
      */
     private $viewProphecy;
 
     /**
-     * @var ObjectProphecy
+     * @var ObjectProphecy<TeaRepository>
      */
     private $teaRepositoryProphecy;
 
