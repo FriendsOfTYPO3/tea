@@ -61,7 +61,7 @@ jobs:
         typo3-version:
           - ^10.4
   finish:
-    needs: build
+    needs: code-coverage
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls Finished
