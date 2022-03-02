@@ -52,7 +52,7 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COREVALLS_TOKEN }}
           COVERALLS_PARALLEL: true
           COVERALLS_FLAG_NAME: php-${{ matrix.php }}
-        run: vendor/bin/php-coveralls
+        run: .Build/vendor/bin/php-coveralls
     strategy:
       fail-fast: false
       matrix:
