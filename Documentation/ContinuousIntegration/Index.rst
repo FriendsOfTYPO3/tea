@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
 
+.. _continuous-integration:
+
 ======================
 Continuous integration
 ======================
@@ -14,6 +16,8 @@ platform you want to use.
    :class: compact-list
    :depth: 2
    :local:
+
+.. _github-actions:
 
 GitHub Actions
 ==============
@@ -31,6 +35,8 @@ This extension has two code-checking workflows for
   This workflow does not need the development tools to be installed locally.
   Use this workflow if you only want to run the code quality checks in GitHub
   Actions, but not locally.
+
+.. _gitlab-ci:
 
 GitLab CI
 =========

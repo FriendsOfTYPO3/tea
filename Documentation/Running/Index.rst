@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
 
+.. _running-checks-and-tests:
+
 ======================
 Running checks & tests
 ======================
@@ -11,6 +13,8 @@ Most code checks and tests can be run via Composer commands.
    :class: compact-list
    :depth: 1
    :local:
+
+.. _composer-scripts:
 
 Composer scripts
 ================
@@ -28,6 +32,8 @@ before you can use the Composer scripts.
 You can run :bash:`composer` (or :bash:`ddev composer`) to display a list of all available
 Composer commands and scripts. For all custom Composer scripts there are descriptions
 in the `script-description` section of the `composer.json`.
+
+.. _running-code-checks:
 
 Running code checks
 ===================
@@ -146,6 +152,8 @@ Fixes the code style with PHP_CodeSniffer.
 
 Updates the PHPStan baseline file to match the code.
 
+.. _running-unit-and-functional-tests:
+
 Running unit and functional tests
 =================================
 
@@ -207,6 +215,8 @@ Runs the functional tests.
 
 Runs the unit tests.
 
+.. _running-unit-and-functional-tests-in-phpstorm:
+
 Running unit and functional tests in PHPStorm
 =============================================
 
@@ -250,6 +260,8 @@ settings:
 -  Use
    `.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml`.
 
+.. _running-acceptance-tests:
+
 Running acceptance tests
 ========================
 
@@ -258,6 +270,8 @@ Running acceptance tests
 3. Unzip it.
 4. Execute `chromedriver --url-base=wd/hub`.
 5. In another terminal, run `.Build/vendor/bin/codecept run`.
+
+.. _running-acceptance-tests-in-phpstorm:
 
 Running acceptance tests in PhpStorm
 ====================================

@@ -15,6 +15,8 @@ This TYPO3 extension, based on Extbase and Fluid, is an example of best
 practices in automated code checks, unit/functional/acceptance testing and
 continuous integration (CI).
 
+.. _presentation-online-days-2021:
+
 Presentation at the TYPO3 Online Days 2021
 ==========================================
 

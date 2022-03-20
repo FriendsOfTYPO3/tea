@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
 
+.. _security:
+
 ========
 Security
 ========

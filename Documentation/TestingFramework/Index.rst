@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
 
+.. _testing-framework:
+
 =================
 Testing framework
 =================
@@ -14,6 +16,8 @@ choice of a testing framework for unit and functional tests.
    :class: compact-list
    :depth: 2
    :local:
+
+.. _testing-framework-approach-many-versions:
 
 Approach 1: One branch for many TYPO3 LTS versions
 ==================================================
@@ -33,6 +37,8 @@ companion for this approach.
 
 This is the approach that we have chosen for this extension as we do not want
 to maintain two branches in parallel.
+
+.. _testing-framework-approach-one-version:
 
 Approach 2: One branch per TYPO3 LTS version
 ============================================
