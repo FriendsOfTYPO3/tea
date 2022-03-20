@@ -34,7 +34,7 @@ of extensions. Have a look at the slides and the video!
 
          .. container:: card-body
 
-            .. image:: https://files.speakerdeck.com/presentations/e81870d463e84158afb9f93398ed062b/preview_slide_0.jpg?19017900
+            .. image:: /Images/SlidesCover.jpg
                :target: https://speakerdeck.com/oliverklee/automating-the-code-quality-of-your-extensions
 
    .. container:: col-md-6 pl-0 pr-3 py-3 m-0
@@ -47,5 +47,5 @@ of extensions. Have a look at the slides and the video!
 
          .. container:: card-body
 
-            .. image:: https://img.youtube.com/vi/_oe8ku2GM84/0.jpg
+            .. image:: /Images/VideoCover.jpg
                :target: https://youtu.be/_oe8ku2GM84?t=6983
