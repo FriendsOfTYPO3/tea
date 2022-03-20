@@ -9,6 +9,7 @@ Documentation rendering
 In order to render the documentation, this extension provides a Composer script
 that you can run locally via
 
+.. index:: Commands; composer docs:generate
 .. code-block:: bash
 
    composer docs:generate
