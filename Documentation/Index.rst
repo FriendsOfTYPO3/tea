@@ -2,9 +2,9 @@
 
 .. _start:
 
-=======
-EXT:tea
-=======
+=======================
+TYPO3 extension ``tea``
+=======================
 
 :Extension key:
    tea
@@ -31,8 +31,8 @@ EXT:tea
 ----
 
 This TYPO3 extension, based on Extbase and Fluid, is an example of best
-practices in automated code checks, unit and functional testing, and continuous
-integration.
+practices in automated code checks, unit/functional/acceptance testing and
+continuous integration.
 
 ----
 

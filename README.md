@@ -10,8 +10,8 @@
 # TYPO3 extension `tea`
 
 This TYPO3 extension, based on Extbase and Fluid, is an example of best
-practices in automated code checks, unit and functional testing, and continuous
-integration.
+practices in automated code checks, unit/functional/acceptance testing and
+continuous integration.
 
 You can also use this extension to manage your collection of delicious teas.
 

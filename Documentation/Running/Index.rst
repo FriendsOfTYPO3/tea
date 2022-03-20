@@ -254,7 +254,7 @@ Running acceptance tests
 ========================
 
 1. Make sure you have Chrome installed on your machine.
-2. `Download the latest version of ChromeDriver <https://chromedriver.chromium.org/downloads>`.
+2. `Download the latest version of ChromeDriver <https://chromedriver.chromium.org/downloads>`__.
 3. Unzip it.
 4. Execute `chromedriver --url-base=wd/hub`.
 5. In another terminal, run `.Build/vendor/bin/codecept run`.

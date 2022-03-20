@@ -11,16 +11,16 @@ Introduction
 What does it do?
 ================
 
-This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
-writing unit and functional tests with PHPUnit in Extbase/Fluid-based extensions for TYPO3 CMS, and then running them
-in a pipeline.
+This TYPO3 extension, based on Extbase and Fluid, is an example of best
+practices in automated code checks, unit/functional/acceptance testing and
+continuous integration (CI).
 
 Presentation at the TYPO3 Online Days 2021
 ==========================================
 
 At the TYPO3 Online Days 2021, `Oliver Klee <https://www.oliverklee.de/>`__
-held a session where her presented our approach for automating the code quality
-of extensions. Have a look at the slides and the video!
+held a session presenting our approach to automate extension code quality.
+Have a look at the slides and the video of the presentation!
 
 .. container:: row m-0 p-0
 
@@ -43,7 +43,7 @@ of extensions. Have a look at the slides and the video!
 
          .. rst-class:: card-header h3
 
-            .. rubric:: Video recording
+            .. rubric:: Video
 
          .. container:: card-body
 

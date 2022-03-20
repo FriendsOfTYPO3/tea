@@ -4,10 +4,10 @@
 Continuous integration
 ======================
 
-As an example, this extension provides several ways to run the code
-quality checks and tests.
-You can copy the corresponding configuration depending on which Git hosting
-service and which CI platform you plan to use.
+As an example, this extension provides several ways to perform the code quality
+checks and tests in a CI pipeline. You can copy the
+appropriate configuration depending on which Git hosting service and CI
+platform you want to use.
 
 .. contents:: Table of Contents:
    :backlinks: top
@@ -35,5 +35,6 @@ This extension has two code-checking workflows for
 GitLab CI
 =========
 
-This extension also provides `configuration <https://github.com/TYPO3-Documentation/tea/blob/main/.gitlab/pipeline/.gitlab-ci.yml>`__
+This extension also provides
+`configuration <https://github.com/TYPO3-Documentation/tea/blob/main/.gitlab/pipeline/.gitlab-ci.yml>`__
 for `GitLab CI <https://gitlab.typo3.org/qa/example-extension/-/pipelines>`__.

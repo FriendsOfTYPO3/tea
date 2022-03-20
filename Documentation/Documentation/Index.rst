@@ -18,4 +18,4 @@ automatically.
 
 .. seealso::
 
-   For further details read the `TYPO3 Documentation Quickstart Guide <https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html>`__.
+   For further details read the :doc:`TYPO3 Documentation Rendering Guide <h2document:RenderingDocs/Quickstart>`.

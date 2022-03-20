@@ -5,9 +5,8 @@ Dependency manager
 ==================
 
 To keep things simple, most development tools, for example PHP_CodeSniffer, are
-installed by Composer as development requirements and in some cases where an
-installation via Composer is not possible, we are using
-`PHIVE <https://phar.io/>`__.
+installed by Composer as development requirements and in some cases where
+installation via Composer is not possible, we use `PHIVE <https://phar.io/>`__.
 
 PHIVE packages each tool with all its dependencies as
 a separate PHAR. This helps avoid dependency hell (which means that you cannot
