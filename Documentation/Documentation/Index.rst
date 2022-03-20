@@ -6,21 +6,16 @@
 Documentation rendering
 =======================
 
-.. _how-to-render-documentation-locally:
-
-How to render documentation locally?
-====================================
-
-In order to render documentation, first of all, clone the repository:
+In order to render the documentation, this extension provides a Composer script
+that you can run locally via
 
 .. code-block:: bash
 
-   git clone https://github.com/TYPO3-Documentation/tea.git
+   composer docs:generate
 
-then go to the extension root:
+You do not need to start or build the containers for this as this happens
+automatically.
 
-.. code-block:: bash
+.. seealso::
 
-   cd tea
-
-and follow `the TYPO3 documentation quickstart guide <https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html>`_
+   For further details read the `TYPO3 Documentation Quickstart Guide <https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/RenderingDocs/Quickstart.html>`__.
