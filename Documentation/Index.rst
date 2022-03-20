@@ -48,9 +48,8 @@ integration.
    DependencyManager/Index
    Running/Index
    ContinuousIntegration/Index
-   Linters/Index
-   Security/Index
    Documentation/Index
+   Security/Index
 
 .. Meta Menu
 

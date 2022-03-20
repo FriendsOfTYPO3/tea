@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 =================
-Testing Framework
+Testing framework
 =================
 
 Extensions usually need to support two LTS versions of TYPO3 in parallel,

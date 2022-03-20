@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 =======================
-Development Environment
+Development environment
 =======================
 
 You can either run the code quality checks and automated tests locally (using a

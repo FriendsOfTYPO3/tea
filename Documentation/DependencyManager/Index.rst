@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 ==================
-Dependency Manager
+Dependency manager
 ==================
 
 To keep things simple, most development tools, for example PHP_CodeSniffer, are

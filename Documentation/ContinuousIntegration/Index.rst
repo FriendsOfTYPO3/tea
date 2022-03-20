@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 
 ======================
-Continuous Integration
+Continuous integration
 ======================
 
 As an example, this extension provides several ways to run the code
