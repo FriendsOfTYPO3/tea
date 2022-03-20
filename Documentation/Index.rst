@@ -30,10 +30,9 @@ EXT:tea
 
 ----
 
-This TYPO3 extension is an example of best practices in continuous integration
-and automated code checks, also Extbase/Fluid-based extensions for TYPO3 CMS
-using PHPUnit, writing unit and functional tests for extensions for TYPO3 CMS
-using PHPUnit.
+This TYPO3 extension, based on Extbase and Fluid, is an example of best
+practices in automated code checks, unit and functional testing, and continuous
+integration.
 
 ----
 
@@ -44,8 +43,14 @@ using PHPUnit.
    :titlesonly:
 
    Introduction/Index
+   TestingFramework/Index
+   Environment/Index
+   DependencyManager/Index
+   Running/Index
+   ContinuousIntegration/Index
    Linters/Index
-   Documentation/Rendering/Index
+   Security/Index
+   Documentation/Index
 
 .. Meta Menu
 
