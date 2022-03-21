@@ -34,7 +34,7 @@
 	"require-dev": {
 		"codeception/codeception": "^4.1.27",
 		"doctrine/dbal": "^2.13.5",
-		"ergebnis/composer-normalize": "2.18.0 || ~2.23.1",
+		"ergebnis/composer-normalize": "2.18.0",
 		"friendsofphp/php-cs-fixer": "^3.4.0",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^1.0.0",
