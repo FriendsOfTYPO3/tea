@@ -66,8 +66,8 @@ jobs:
           - "php:copypaste"
           - "php:cs-fixer"
           - "php:sniff"
-          - "ts:lint"
           - "php:stan"
+          - "ts:lint"
           - "yaml:lint"
         php-version:
           - 7.4
