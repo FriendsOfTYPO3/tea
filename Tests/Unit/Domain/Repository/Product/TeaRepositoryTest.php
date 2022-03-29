@@ -19,17 +19,12 @@ class TeaRepositoryTest extends UnitTestCase
      */
     private $subject;
 
-    /**
-     * @var ObjectManagerInterface
-     */
-    protected $objectManager;
-
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
-        $this->subject = new TeaRepository($this->objectManager);
+        $objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
+        $this->subject = new TeaRepository($objectManager);
     }
 
     /**
