@@ -18,7 +18,7 @@ hooks:
 omit_containers: [dba, ddev-ssh-agent]
 webimage_extra_packages: [parallel]
 use_dns_when_possible: true
-composer_version: "2.1.14"
+composer_version: "2.3.4"
 web_environment:
 - typo3DatabaseName=typo3
 - typo3DatabaseHost=db
