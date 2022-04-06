@@ -7,13 +7,14 @@
 ---
 name: CI with predefined GitHub actions
 on:
+  workflow_dispatch:
 jobs:
   php-lint:
     name: "PHP linter"
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -34,7 +35,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run TypoScript lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v1
   php-codesniffer:
@@ -43,7 +44,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run PHP Codesniffer"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHP-Codesniffer@v1
   yaml-lint:
@@ -51,7 +52,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run YAML lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
   json-lint:
@@ -59,7 +60,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run JSON lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-JSON-Lint@v1
   php-cs-fixer:
@@ -68,7 +69,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run PHP CS Fixer"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHP-CS-Fixer@v1
   phpstan-check:
@@ -77,7 +78,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run PHPStan"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHPStan@v1
         with:
@@ -88,7 +89,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run the Copy'n'paste Detector"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Copy-Paste-Detector@v1
   code-quality:
@@ -96,7 +97,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -106,7 +107,7 @@ jobs:
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
@@ -134,7 +135,7 @@ jobs:
           - "js"
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install modules"
         working-directory: ./Resources/Private
         run: yarn
@@ -146,7 +147,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run the xliff lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
@@ -155,7 +156,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -165,24 +166,24 @@ jobs:
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - env:
+          restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+      - name: "Install TYPO3 Core"
+        env:
           TYPO3: "${{ matrix.typo3-version }}"
-        name: "Install TYPO3 Core"
         run: |
           composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
-      - if: "matrix.composer-dependencies == 'lowest'"
-        name: "Install lowest dependencies with composer"
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.composer-dependencies == 'lowest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      - if: "matrix.composer-dependencies == 'highest'"
-        name: "Install highest dependencies with composer"
+      - name: "Install highest dependencies with composer"
+        if: "matrix.composer-dependencies == 'highest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
@@ -207,7 +208,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -218,24 +219,24 @@ jobs:
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - env:
+          restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+      - name: "Install TYPO3 Core"
+        env:
           TYPO3: "${{ matrix.typo3-version }}"
-        name: "Install TYPO3 Core"
         run: |
           composer require --no-progress typo3/minimal:"$TYPO3"
           composer show
-      - if: "matrix.composer-dependencies == 'lowest'"
-        name: "Install lowest dependencies with composer"
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.composer-dependencies == 'lowest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      - if: "matrix.composer-dependencies == 'highest'"
-        name: "Install highest dependencies with composer"
+      - name: "Install highest dependencies with composer"
+        if: "matrix.composer-dependencies == 'highest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
@@ -251,13 +252,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        composer-dependencies:
-          - highest
-          - lowest
-        php-version:
-          - 7.2
-          - 7.3
-          - 7.4
-        typo3-version:
-          - ^9.5
-          - ^10.4
+        include:
+          - typo3-version: ^10.4
+            php-version: 7.2
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.2
+            composer-dependencies: lowest
+          - typo3-version: ^10.4
+            php-version: 7.3
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.3
+            composer-dependencies: lowest
+          - typo3-version: ^10.4
+            php-version: 7.4
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.4
+            composer-dependencies: lowest

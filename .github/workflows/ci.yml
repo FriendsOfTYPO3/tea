@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -32,12 +32,13 @@ jobs:
           - 7.3
           - 7.4
           - 8.0
+          - 8.1
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -47,7 +48,7 @@ jobs:
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
@@ -60,16 +61,15 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - "ts:lint"
-          - "yaml:lint"
-          - "json:lint"
-          - "php:sniff"
-          - "php:copypaste"
-          - "php:stan"
           - "composer:normalize"
           - "composer:require-checker"
           - "json:lint"
+          - "php:copypaste"
           - "php:cs-fixer"
+          - "php:sniff"
+          - "php:stan"
+          - "ts:lint"
+          - "yaml:lint"
         php-version:
           - 7.4
   code-quality-frontend:
@@ -83,7 +83,7 @@ jobs:
           - "js"
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install modules"
         working-directory: ./Resources/Private
         run: yarn
@@ -95,7 +95,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Run the xliff lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
@@ -104,7 +104,7 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -114,24 +114,24 @@ jobs:
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - env:
+          restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+      - name: "Install TYPO3 Core"
+        env:
           TYPO3: "${{ matrix.typo3-version }}"
-        name: "Install TYPO3 Core"
         run: |
           composer require --no-ansi --no-interaction --no-progress --no-install typo3/minimal:"$TYPO3"
           composer show
-      - if: "matrix.composer-dependencies == 'lowest'"
-        name: "Install lowest dependencies with composer"
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.composer-dependencies == 'lowest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      - if: "matrix.composer-dependencies == 'highest'"
-        name: "Install highest dependencies with composer"
+      - name: "Install highest dependencies with composer"
+        if: "matrix.composer-dependencies == 'highest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
@@ -171,13 +171,19 @@ jobs:
           - typo3-version: ^11.5
             php-version: 8.0
             composer-dependencies: lowest
+          - typo3-version: ^11.5
+            php-version: 8.1
+            composer-dependencies: highest
+          - typo3-version: ^11.5
+            php-version: 8.1
+            composer-dependencies: lowest
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-18.04
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -188,24 +194,24 @@ jobs:
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - env:
+          restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+      - name: "Install TYPO3 Core"
+        env:
           TYPO3: "${{ matrix.typo3-version }}"
-        name: "Install TYPO3 Core"
         run: |
           composer require --no-ansi --no-interaction --no-progress --no-install typo3/minimal:"$TYPO3"
           composer show
-      - if: "matrix.composer-dependencies == 'lowest'"
-        name: "Install lowest dependencies with composer"
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.composer-dependencies == 'lowest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
           composer show
-      - if: "matrix.composer-dependencies == 'highest'"
-        name: "Install highest dependencies with composer"
+      - name: "Install highest dependencies with composer"
+        if: "matrix.composer-dependencies == 'highest'"
         run: |
           composer update --no-ansi --no-interaction --no-progress --with-dependencies
           composer show
@@ -221,12 +227,40 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        composer-dependencies:
-          - highest
-          - lowest
-        php-version:
-          - 7.2
-          - 7.3
-          - 7.4
-        typo3-version:
-          - ^10.4
+        include:
+          - typo3-version: ^10.4
+            php-version: 7.2
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.2
+            composer-dependencies: lowest
+          - typo3-version: ^10.4
+            php-version: 7.3
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.3
+            composer-dependencies: lowest
+          - typo3-version: ^10.4
+            php-version: 7.4
+            composer-dependencies: highest
+          - typo3-version: ^10.4
+            php-version: 7.4
+            composer-dependencies: lowest
+          - typo3-version: ^11.5
+            php-version: 7.4
+            composer-dependencies: highest
+          - typo3-version: ^11.5
+            php-version: 7.4
+            composer-dependencies: lowest
+          - typo3-version: ^11.5
+            php-version: 8.0
+            composer-dependencies: highest
+          - typo3-version: ^11.5
+            php-version: 8.0
+            composer-dependencies: lowest
+          - typo3-version: ^11.5
+            php-version: 8.1
+            composer-dependencies: highest
+          - typo3-version: ^11.5
+            php-version: 8.1
+            composer-dependencies: lowest

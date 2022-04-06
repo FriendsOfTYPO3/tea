@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace TTN\Tea\Tests\Unit\Controller;
 
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Controller\TeaController;
@@ -13,6 +12,7 @@ use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * @covers \TTN\Tea\Controller\TeaController
@@ -25,22 +25,25 @@ class TeaControllerTest extends UnitTestCase
     private $subject;
 
     /**
-     * @var ObjectProphecy
+     * @var ObjectProphecy<TemplateView>
      */
     private $viewProphecy;
 
     /**
-     * @var ObjectProphecy
+     * @var ObjectProphecy<TeaRepository>
      */
     private $teaRepositoryProphecy;
 
     protected function setUp(): void
     {
-        $this->subject = new TeaController();
+        parent::setUp();
+
+        // We need to create an accessible mock in order to be able to set the protected `view`.
+        $this->subject = $this->getAccessibleMock(TeaController::class, ['redirect', 'forward']);
 
         $this->viewProphecy = $this->prophesize(TemplateView::class);
         $view = $this->viewProphecy->reveal();
-        $this->inject($this->subject, 'view', $view);
+        $this->subject->_set('view', $view);
 
         $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
         /** @var TeaRepository&ProphecySubjectInterface $teaRepository */

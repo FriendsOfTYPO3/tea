@@ -7,7 +7,7 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'example',
     'constraints' => [
         'depends' => [
-            'php' => '7.2.0-7.4.99',
+            'php' => '7.2.0-8.1.99',
             'typo3' => '10.4.0-11.5.99',
         ],
     ],
