@@ -20,9 +20,11 @@
 			"role": "developer"
 		}
 	],
+	"homepage": "https://extensions.typo3.org/extension/tea/",
 	"support": {
+		"source": "https://github.com/TYPO3-Documentation/tea",
 		"issues": "https://github.com/TYPO3-Documentation/tea/issues",
-		"source": "https://github.com/TYPO3-Documentation/tea"
+		"docs": "https://docs.typo3.org/p/ttn/tea/main/en-us/"
 	},
 	"require": {
 		"php": "~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0 || ~8.1",
