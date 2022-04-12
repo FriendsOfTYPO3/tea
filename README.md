@@ -23,3 +23,17 @@ You can also use this extension to manage your collection of delicious teas.
 | **Repository:**  | https://github.com/TYPO3-Documentation/tea   |
 | **Read online:** | https://docs.typo3.org/p/ttn/tea/main/en-us/ |
 | **TER:**         | https://extensions.typo3.org/extension/tea/  |
+
+## Presentation at the TYPO3 Online Days 2021
+
+At the TYPO3 Online Days 2021, [Oliver Klee](https://www.oliverklee.de/) held a
+session where her presented our approach for automating the code quality of
+extensions.
+
+### Slides
+
+[![cover slide](https://files.speakerdeck.com/presentations/e81870d463e84158afb9f93398ed062b/preview_slide_0.jpg?19017900)](https://speakerdeck.com/oliverklee/automating-the-code-quality-of-your-extensions)
+
+### Video recording
+
+[![video still](https://img.youtube.com/vi/_oe8ku2GM84/0.jpg)](https://youtu.be/_oe8ku2GM84?t=6983)
