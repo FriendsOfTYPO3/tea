@@ -42,14 +42,14 @@ continuous integration.
    :maxdepth: 2
    :titlesonly:
 
-   Introduction/Index
-   TestingFramework/Index
-   Environment/Index
-   DependencyManager/Index
-   Running/Index
-   ContinuousIntegration/Index
-   Documentation/Index
-   Security/Index
+   Introduction
+   TestingFramework
+   Environment
+   DependencyManager
+   Running
+   ContinuousIntegration
+   Documentation
+   Security
 
 .. Meta Menu
 
