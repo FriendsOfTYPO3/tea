@@ -1,10 +1,16 @@
-.. include:: Includes.txt
+.. include:: /Includes.rst.txt
 
 .. _start:
 
-=============================================================
-EXT:tea
-=============================================================
+=======================
+TYPO3 extension ``tea``
+=======================
+
+:Extension key:
+   tea
+
+:Package name:
+   ttn/tea
 
 :Version:
    |release|
@@ -12,52 +18,43 @@ EXT:tea
 :Language:
    en
 
-:Description:
-   This TYPO3 extension is an example of best practices in continuous integration and automated code checks, also
-   Extbase/Fluid-based extensions for TYPO3 CMS using PHPUnit, writing unit and functional tests for
-   extensions for TYPO3 CMS using PHPUnit.
-
-:Keywords:
-   tea, ci, continousintegration, gitlab, githubactions, actions, tests, functional, unit
-
-:Copyright:
-   2022 by TYPO3 Association
-
-:Authors:
-   * Oliver Klee
-
-:Email:
-   typo3-coding@oliverklee.de
+:Author:
+   Oliver Klee & Contributors
 
 :License:
    This extension is published under the
-   `GNU General Public License v2.0 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html>`__
+   `GNU General Public License v2.0 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html>`__.
 
 :Rendered:
-	|today|
+   |today|
 
-TYPO3
-=====
+----
 
-The content of this document is related to TYPO3 CMS,
-a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
+This TYPO3 extension, based on Extbase and Fluid, is an example of best
+practices in automated code checks, unit/functional/acceptance testing and
+continuous integration.
 
-For Contributors
-================
+----
 
-You are welcome to help improve this guide if you missing something.
-Just click on "Edit me on GitHub" on the top right to submit your change request
-or `report a problem <https://github.com/TYPO3-Documentation/tea/issues/new>`__
-
-Table of Contents
-=================
+**Table of Contents:**
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 2
    :titlesonly:
-   :glob:
 
-   Introduction/Index
-   Linters/Index
-   Documentation/Rendering/Index
+   Introduction
+   TestingFramework
+   Environment
+   DependencyManager
+   Running
+   ContinuousIntegration
+   Documentation
+   Security
+
+.. Meta Menu
+
+.. toctree::
+   :hidden:
+
    Sitemap
+   genindex
