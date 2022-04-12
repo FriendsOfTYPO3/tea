@@ -1,3 +1,5 @@
+# Example TYPO3 extension for code quality checks and automated tests
+
 [![Latest stable version](https://poser.pugx.org/ttn/tea/v/stable.svg)](https://packagist.org/packages/ttn/tea)
 [![Total downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
 [![Monthly Downloads](https://poser.pugx.org/ttn/tea/d/monthly)](https://packagist.org/packages/ttn/tea)
@@ -7,8 +9,6 @@
 [![GitLab CI status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
 [![Code Coverage Badge](https://github.com/TYPO3-Documentation/tea/blob/code-coverage-badge/badge.svg)](https://github.com/TYPO3-Documentation/tea/blob/code-coverage-badge/clover.xml)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
-
-# TYPO3 extension `tea`
 
 This TYPO3 extension, based on Extbase and Fluid, is an example of best
 practices in automated code checks, unit/functional/acceptance testing and
