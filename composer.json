@@ -22,8 +22,8 @@
 	],
 	"homepage": "https://extensions.typo3.org/extension/tea/",
 	"support": {
-		"source": "https://github.com/TYPO3-Documentation/tea",
 		"issues": "https://github.com/TYPO3-Documentation/tea/issues",
+		"source": "https://github.com/TYPO3-Documentation/tea",
 		"docs": "https://docs.typo3.org/p/ttn/tea/main/en-us/"
 	},
 	"require": {
