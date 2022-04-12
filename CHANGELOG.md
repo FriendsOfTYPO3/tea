@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Use Coveralls for the code coverage (#425)
 
 ### Changed
 - Use the TYPO3 Code of Conduct (#430)

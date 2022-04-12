@@ -40,6 +40,7 @@
 		"friendsofphp/php-cs-fixer": "^3.4.0",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^1.0.0",
+		"php-coveralls/php-coveralls": "^2.5.2",
 		"phpstan/extension-installer": "^1.1.0",
 		"phpstan/phpstan": "^1.4.9",
 		"phpstan/phpstan-phpunit": "^1.0.0",
