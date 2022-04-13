@@ -49,7 +49,7 @@ jobs:
       - name: "Generate coverage badge"
         uses: timkrase/phpunit-coverage-badge@v1.2.0
         with:
-          report: './coverage/clover.xml'
+          report: './build/logs/clover.xml'
           coverage_badge_path: './coverage/badge.svg'
       - name: "Commit PHPUnit coverage results"
         uses: s0/git-publish-subdir-action@develop

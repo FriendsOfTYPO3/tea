@@ -106,9 +106,18 @@
 			"@ci:coverage:unit",
 			"@ci:coverage:functional"
 		],
-		"ci:coverage:functional": ".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --whitelist Classes --coverage-php=coverage/functional.cov Tests/Functional",
-		"ci:coverage:merge": "@php tools/phpcov merge --clover=./coverage/clover.xml coverage/",
-		"ci:coverage:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml --whitelist Classes --coverage-php=coverage/unit.cov Tests/Unit",
+		"ci:coverage:functional": [
+			"@coverage:create-directories",
+			".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
+		],
+		"ci:coverage:merge": [
+			"@coverage:create-directories",
+			"@php tools/phpcov merge --clover=./build/logs/clover.xml ./.Build/coverage/"
+		],
+		"ci:coverage:unit": [
+			"@coverage:create-directories",
+			".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
+		],
 		"ci:dynamic": [
 			"@ci:tests"
 		],
@@ -144,6 +153,7 @@
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs -r php ./.Build/vendor/bin/yaml-lint",
+		"coverage:create-directories": "mkdir -p build/logs .Build/coverage",
 		"docs:generate": [
 			"docker run --rm t3docs/render-documentation show-shell-commands > tempfile.sh; echo 'dockrun_t3rd makehtml' >> tempfile.sh; bash tempfile.sh; rm tempfile.sh"
 		],
@@ -201,6 +211,7 @@
 		"ci:tests:unit": "Runs the unit tests.",
 		"ci:ts:lint": "Lints the TypoScript files.",
 		"ci:yaml:lint": "Lints the YAML files.",
+		"coverage:create-directories": "Creates the directories needed for recording and merging the code coverage reports.",
 		"docs:generate": "Renders the extension ReST documentation.",
 		"fix:php": "Runs all fixers for the PHP code.",
 		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",
