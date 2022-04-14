@@ -16,4 +16,3 @@ build-composer-dependencies:
   cache:
     paths:
       - .composer
-      - .Build
