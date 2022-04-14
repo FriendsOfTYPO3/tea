@@ -35,6 +35,8 @@ jobs:
           composer show
       - name: "Start MySQL"
         run: "sudo /etc/init.d/mysql start"
+      - name: "Run unit tests with coverage"
+        run: composer ci:coverage:unit
       - name: "Run functional tests with coverage"
         run: |
           export typo3DatabaseName="typo3";
@@ -42,8 +44,6 @@ jobs:
           export typo3DatabaseUsername="root";
           export typo3DatabasePassword="root";
           composer ci:coverage:functional
-      - name: "Run unit tests with coverage"
-        run: composer ci:coverage:unit
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
       - name: "Generate coverage badge"
