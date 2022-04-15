@@ -1,10 +1,11 @@
 ---
-# This GitHub Actions workflow is calculating code coverage of extension and creates a badge for it.
+# This GitHub Actions workflow calculates the code coverage of the extension and uploads it to coveralls.io.
 name: Code coverage
 on:
   push:
     branches:
       - main
+  pull_request:
 jobs:
   code-coverage:
     name: "Calculate code coverage"
@@ -56,18 +57,10 @@ jobs:
           composer ci:coverage:functional
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
-      - name: "Generate coverage badge"
-        uses: timkrase/phpunit-coverage-badge@v1.2.0
-        with:
-          report: './build/logs/clover.xml'
-          coverage_badge_path: './coverage/badge.svg'
-      - name: "Commit PHPUnit coverage results"
-        uses: s0/git-publish-subdir-action@develop
+      - name: "Upload coverage results to Coveralls"
         env:
-          REPO: self
-          BRANCH: code-coverage-badge
-          FOLDER: coverage
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./.Build/vendor/bin/php-coveralls --coverage_clover=build/logs/clover.xml -v
     strategy:
       fail-fast: false
       matrix:
