@@ -2,7 +2,7 @@
 
 defined('TYPO3_MODE') or die('Access denied.');
 
-(static function () {
+(static function (): void {
     // This makes the plugin available for front-end rendering.
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         // extension name, matching the PHP namespaces (but without the vendor)
