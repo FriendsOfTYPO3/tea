@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TTN\Tea\Tests\Unit\Controller;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Controller\TeaController;
@@ -12,6 +13,7 @@ use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
+use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -20,7 +22,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 class TeaControllerTest extends UnitTestCase
 {
     /**
-     * @var TeaController
+     * @var TeaController&MockObject&AccessibleObjectInterface
      */
     private $subject;
 
