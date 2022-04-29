@@ -9,10 +9,10 @@
 	"version": "1.0.0",
 	"license": "ISC",
 	"scripts": {
-		"lint:js": "eslint --config .eslintrc.json 'Resources/Public/**/*.js'",
-		"lint:js:fix": "eslint --config .eslintrc.json 'Resources/Public/**/*.js' --quiet --fix",
-		"lint:style": "stylelint --config stylelint.config.js Resources/Public/**/*.css",
-		"lint:style:fix": "stylelint --config stylelint.config.js Resources/Public/**/*.css --fix"
+		"lint:js": "eslint 'Resources/Public/**/*.js'",
+		"lint:js:fix": "eslint 'Resources/Public/**/*.js' --quiet --fix",
+		"lint:style": "stylelint Resources/Public/**/*.css",
+		"lint:style:fix": "stylelint Resources/Public/**/*.css --fix"
 	},
 	"devDependencies": {
 		"eslint": "^6.8.0",
