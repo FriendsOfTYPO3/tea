@@ -137,10 +137,8 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v3
       - name: "Install modules"
-        working-directory: ./Resources/Private
         run: yarn
       - name: "Run command"
-        working-directory: ./Resources/Private
         run: "yarn lint:${{ matrix.command }}"
   xliff-lint:
     name: "Xliff linter"

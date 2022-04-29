@@ -7,11 +7,11 @@
 /.gitlab/ export-ignore
 /.php-cs-fixer.php export-ignore
 /.phpstorm.meta.php export-ignore
-/Resources/Private/.eslintignore export-ignore
-/Resources/Private/.eslintrc.json export-ignore
-/Resources/Private/.prettierrc.js export-ignore
-/Resources/Private/package.json export-ignore
-/Resources/Private/stylelint.config.js export-ignore
+/.eslintignore export-ignore
+/.eslintrc.json export-ignore
+/.prettierrc.js export-ignore
+/package.json export-ignore
+/stylelint.config.js export-ignore
 /Tests/ export-ignore
 /codeception.yml export-ignore
 /phive.xml export-ignore
