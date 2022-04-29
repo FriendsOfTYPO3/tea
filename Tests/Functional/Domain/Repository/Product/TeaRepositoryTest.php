@@ -15,6 +15,7 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
  * @covers \TTN\Tea\Domain\Repository\Product\TeaRepository
+ * @covers \TTN\Tea\Domain\Model\Product\Tea
  */
 class TeaRepositoryTest extends FunctionalTestCase
 {
