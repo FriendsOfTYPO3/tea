@@ -7,6 +7,4 @@
       - Resources/Private/node_modules/
       - Resources/Private/.yarn
   before_script:
-    - npm install -g eslint
-    - cd ./Resources/Private
     - yarn install --cache-folder .yarn

@@ -3,12 +3,12 @@
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /Documentation-GENERATED-temp/
-/Resources/Private/node_modules/
-/Resources/Private/package-lock.json
-/Resources/Private/yarn-error.log
-/Resources/Private/yarn.lock
 /build
 /clover.xml
 /composer.lock
 /nbproject
+/node_modules/
+/package-lock.json
 /var
+/yarn-error.log
+/yarn.lock
