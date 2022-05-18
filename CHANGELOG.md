@@ -9,8 +9,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use Coveralls for the code coverage (#425)
 
 ### Changed
-- Use the TYPO3 Code of Conduct (#430)
 - Move npm tools and config to default locations (#444)
+- Use the TYPO3 Code of Conduct (#430)
 
 ### Deprecated
 
