@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add a Dependabot action for updating GitHub actions (#452)
 - Use Coveralls for the code coverage (#425)
 
 ### Changed
