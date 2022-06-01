@@ -11,7 +11,7 @@ on:
 jobs:
   php-lint:
     name: "PHP linter"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
           - 7.4
   typoscript-lint:
     name: "TypoScript linter"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Typoscript-Lint@v1
   php-codesniffer:
     name: "PHP Codesniffer"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: php-lint
     steps:
       - name: "Checkout"
@@ -49,7 +49,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHP-Codesniffer@v1
   yaml-lint:
     name: "YAML linter"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -57,7 +57,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-YAML-Lint@v1
   json-lint:
     name: "JSON linter"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -65,7 +65,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-JSON-Lint@v1
   php-cs-fixer:
     name: "PHP CS Fixer"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: php-lint
     steps:
       - name: "Checkout"
@@ -74,7 +74,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHP-CS-Fixer@v1
   phpstan-check:
     name: "PHPStan check"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: php-lint
     steps:
       - name: "Checkout"
@@ -85,7 +85,7 @@ jobs:
           config_file: './phpstan.neon'
   copypaste-detector:
     name: "Copy'n'paste detector"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: php-lint
     steps:
       - name: "Checkout"
@@ -94,7 +94,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Copy-Paste-Detector@v1
   code-quality:
     name: "Code quality checks"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -126,7 +126,7 @@ jobs:
           - 7.4
   code-quality-frontend:
     name: "Code quality frontend checks"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -142,7 +142,7 @@ jobs:
         run: "yarn lint:${{ matrix.command }}"
   xliff-lint:
     name: "Xliff linter"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -150,7 +150,7 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
     name: "Unit tests"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: php-lint
     steps:
       - name: "Checkout"
