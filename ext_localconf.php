@@ -11,11 +11,11 @@ defined('TYPO3_MODE') or die('Access denied.');
         'Tea',
         // all actions
         [
-            'Tea' => 'index, show',
+            \TTN\Tea\Controller\TeaController::class => 'index, show',
         ],
         // non-cacheable actions
         [
-            'Tea' => '',
+            \TTN\Tea\Controller\TeaController::class => '',
         ]
     );
 })();
