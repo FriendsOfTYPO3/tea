@@ -28,11 +28,11 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - 7.2
-          - 7.3
-          - 7.4
-          - 8.0
-          - 8.1
+          - "7.2"
+          - "7.3"
+          - "7.4"
+          - "8.0"
+          - "8.1"
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-22.04
@@ -70,7 +70,7 @@ jobs:
           - "ts:lint"
           - "yaml:lint"
         php-version:
-          - 7.4
+          - "7.4"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-22.04
@@ -138,41 +138,41 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: ^10.4
-            php-version: 7.2
+          - typo3-version: "^10.4"
+            php-version: "7.2"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.2
+          - typo3-version: "^10.4"
+            php-version: "7.2"
             composer-dependencies: lowest
-          - typo3-version: ^10.4
-            php-version: 7.3
+          - typo3-version: "^10.4"
+            php-version: "7.3"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.3
+          - typo3-version: "^10.4"
+            php-version: "7.3"
             composer-dependencies: lowest
-          - typo3-version: ^10.4
-            php-version: 7.4
+          - typo3-version: "^10.4"
+            php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.4
+          - typo3-version: "^10.4"
+            php-version: "7.4"
             composer-dependencies: lowest
-          - typo3-version: ^11.5
-            php-version: 7.4
+          - typo3-version: "^11.5"
+            php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: ^11.5
-            php-version: 7.4
+          - typo3-version: "^11.5"
+            php-version: "7.4"
             composer-dependencies: lowest
-          - typo3-version: ^11.5
-            php-version: 8.0
+          - typo3-version: "^11.5"
+            php-version: "8.0"
             composer-dependencies: highest
-          - typo3-version: ^11.5
-            php-version: 8.0
+          - typo3-version: "^11.5"
+            php-version: "8.0"
             composer-dependencies: lowest
-          - typo3-version: ^11.5
-            php-version: 8.1
+          - typo3-version: "^11.5"
+            php-version: "8.1"
             composer-dependencies: highest
-          - typo3-version: ^11.5
-            php-version: 8.1
+          - typo3-version: "^11.5"
+            php-version: "8.1"
             composer-dependencies: lowest
   functional-tests:
     name: "Functional tests"
@@ -225,39 +225,39 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: ^10.4
-            php-version: 7.2
+          - typo3-version: "^10.4"
+            php-version: "7.2"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.2
+          - typo3-version: "^10.4"
+            php-version: "7.2"
             composer-dependencies: lowest
-          - typo3-version: ^10.4
-            php-version: 7.3
+          - typo3-version: "^10.4"
+            php-version: "7.3"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.3
+          - typo3-version: "^10.4"
+            php-version: "7.3"
             composer-dependencies: lowest
-          - typo3-version: ^10.4
-            php-version: 7.4
+          - typo3-version: "^10.4"
+            php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.4
+          - typo3-version: "^10.4"
+            php-version: "7.4"
             composer-dependencies: lowest
-          - typo3-version: ^11.5
-            php-version: 7.4
+          - typo3-version: "^11.5"
+            php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: ^11.5
-            php-version: 7.4
+          - typo3-version: "^11.5"
+            php-version: "7.4"
             composer-dependencies: lowest
-          - typo3-version: ^11.5
-            php-version: 8.0
+          - typo3-version: "^11.5"
+            php-version: "8.0"
             composer-dependencies: highest
-          - typo3-version: ^11.5
-            php-version: 8.0
+          - typo3-version: "^11.5"
+            php-version: "8.0"
             composer-dependencies: lowest
-          - typo3-version: ^11.5
-            php-version: 8.1
+          - typo3-version: "^11.5"
+            php-version: "8.1"
             composer-dependencies: highest
-          - typo3-version: ^11.5
-            php-version: 8.1
+          - typo3-version: "^11.5"
+            php-version: "8.1"
             composer-dependencies: lowest

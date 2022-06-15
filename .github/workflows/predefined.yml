@@ -27,9 +27,9 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - 7.2
-          - 7.3
-          - 7.4
+          - "7.2"
+          - "7.3"
+          - "7.4"
   typoscript-lint:
     name: "TypoScript linter"
     runs-on: ubuntu-22.04
@@ -123,7 +123,7 @@ jobs:
           - "composer:normalize"
           - "php:sniff"
         php-version:
-          - 7.4
+          - "7.4"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-22.04
@@ -194,12 +194,12 @@ jobs:
           - highest
           - lowest
         php-version:
-          - 7.2
-          - 7.3
-          - 7.4
+          - "7.2"
+          - "7.3"
+          - "7.4"
         typo3-version:
-          - ^9.5
-          - ^10.4
+          - "^9.5"
+          - "^10.4"
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-18.04
@@ -251,21 +251,21 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: ^10.4
-            php-version: 7.2
+          - typo3-version: "^10.4"
+            php-version: "7.2"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.2
+          - typo3-version: "^10.4"
+            php-version: "7.2"
             composer-dependencies: lowest
-          - typo3-version: ^10.4
-            php-version: 7.3
+          - typo3-version: "^10.4"
+            php-version: "7.3"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.3
+          - typo3-version: "^10.4"
+            php-version: "7.3"
             composer-dependencies: lowest
-          - typo3-version: ^10.4
-            php-version: 7.4
+          - typo3-version: "^10.4"
+            php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: ^10.4
-            php-version: 7.4
+          - typo3-version: "^10.4"
+            php-version: "7.4"
             composer-dependencies: lowest
