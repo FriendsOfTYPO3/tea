@@ -47,7 +47,7 @@
 		"phpunit/phpunit": "^8.5.26",
 		"saschaegerer/phpstan-typo3": "^1.1.2",
 		"seld/jsonlint": "^1.9.0",
-		"squizlabs/php_codesniffer": "^3.6.2",
+		"squizlabs/php_codesniffer": "^3.7.1",
 		"symfony/yaml": "^4.4.29 || ^5.3.6 || ^6.0",
 		"typo3/cms-fluid-styled-content": "^10.4 || ^11.5.2",
 		"typo3/coding-standards": "^0.5.2",
