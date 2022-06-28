@@ -1,2 +1,6 @@
 parameters:
 	ignoreErrors:
+		-
+			message: "#^PHPDoc type array\\<string\\> of property TTN\\\\Tea\\\\Domain\\\\Repository\\\\Product\\\\TeaRepository\\:\\:\\$defaultOrderings is not the same as PHPDoc type array of overridden property TYPO3\\\\CMS\\\\Extbase\\\\Persistence\\\\Repository\\<TTN\\\\Tea\\\\Domain\\\\Model\\\\Product\\\\Tea\\>\\:\\:\\$defaultOrderings\\.$#"
+			count: 1
+			path: Classes/Domain/Repository/Product/TeaRepository.php
