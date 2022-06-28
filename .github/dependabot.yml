@@ -15,6 +15,10 @@ updates:
     allow:
       - dependency-type: "development"
     ignore:
+      - dependency-name: "ergebnis/composer-normalize"
+        versions: [ "^2.20" ]
+      - dependency-name: "phpunit/phpunit"
+        versions: [ "^9.0", "^10.0" ]
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
     versioning-strategy: "increase"
