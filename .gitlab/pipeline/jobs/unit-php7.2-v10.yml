@@ -5,5 +5,5 @@ unit-php7.2-v10:
   needs:
     - php-lint-php7.2
   script:
-    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/minimal:"^10.4"
+    - composer require --prefer-dist --no-progress typo3/minimal:"^10.4"
     - composer ci:tests:unit
