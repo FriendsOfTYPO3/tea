@@ -14,12 +14,12 @@ continuous integration.
 
 You can also use this extension to manage your collection of delicious teas.
 
-|                  | URL                                          |
-|------------------|----------------------------------------------|
-| **Repository:**  | https://github.com/TYPO3-Documentation/tea   |
-| **Read online:** | https://docs.typo3.org/p/ttn/tea/main/en-us/ |
-| **TER:**         | https://extensions.typo3.org/extension/tea/  |
-| **Slack:**       | https://typo3.slack.com/#qa-best-practices   |
+|                  | URL                                                |
+|------------------|----------------------------------------------------|
+| **Repository:**  | https://github.com/TYPO3-Documentation/tea         |
+| **Read online:** | https://docs.typo3.org/p/ttn/tea/main/en-us/       |
+| **TER:**         | https://extensions.typo3.org/extension/tea/        |
+| **Slack:**       | https://typo3.slack.com/channels/qa-best-practices |
 
 ## Presentation at the TYPO3 Online Days 2021
 
