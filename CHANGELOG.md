@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 - Add the PHPStan strict rules (#471)
-- Add a Dependabot action for updating GitHub actions (#452)
+- Add a Dependabot action for updating dependencies (#452, #461, #469, #481)
 - Use Coveralls for the code coverage (#425)
 
 ### Changed

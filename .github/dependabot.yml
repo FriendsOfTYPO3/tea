@@ -23,3 +23,10 @@ updates:
       - dependency-name: "typo3/cms-*"
     versioning-strategy: "increase"
     milestone: 5
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    versioning-strategy: "increase"
+    milestone: 5
