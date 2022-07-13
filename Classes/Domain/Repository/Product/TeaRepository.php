@@ -16,8 +16,5 @@ class TeaRepository extends Repository
 {
     use StoragePageAgnosticTrait;
 
-    /**
-     * @var string[]
-     */
     protected $defaultOrderings = ['title' => QueryInterface::ORDER_ASCENDING];
 }
