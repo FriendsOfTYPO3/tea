@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## 2.0.0
+
+### Added
 - Add the PHPStan strict rules (#471)
 - Add a Dependabot action for updating dependencies (#452, #461, #469, #481)
 - Use Coveralls for the code coverage (#425)
@@ -14,12 +26,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Move npm tools and config to default locations (#444)
 - Use the TYPO3 Code of Conduct (#430)
 
-### Deprecated
-
 ### Removed
 - Drop support for TYPO3 9LTS (#363, #372)
-
-### Fixed
 
 ## 1.1.0
 
