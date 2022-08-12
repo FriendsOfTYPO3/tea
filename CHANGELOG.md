@@ -18,58 +18,58 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## 2.0.0
 
 ### Added
-- Add the PHPStan strict rules (#471)
-- Add a Dependabot action for updating dependencies (#452, #461, #469, #481)
-- Use Coveralls for the code coverage (#425)
+- Add the PHPStan strict rules ([#471](#471))
+- Add a Dependabot action for updating dependencies ([#452](#452), [#461](#461), [#469](#469), [#481](#481))
+- Use Coveralls for the code coverage ([#425](#425))
 
 ### Changed
-- Move npm tools and config to default locations (#444)
-- Use the TYPO3 Code of Conduct (#430)
+- Move npm tools and config to default locations ([#444](#444))
+- Use the TYPO3 Code of Conduct ([#430](#430))
 
 ### Removed
-- Drop support for TYPO3 9LTS (#363, #372)
+- Drop support for TYPO3 9LTS ([#363](#363), [#372](#372))
 
 ## 1.1.0
 
 ### Added
-- Also run the unit tests with V11 in the CI pipeline (#336)
+- Also run the unit tests with V11 in the CI pipeline ([#336](#336))
 - Allow installations on TYPO3 11LTS
 
 ### Changed
-- Require at least TYPO3 11.5.2 for 11LTS (#335)
-- Upgrade to PHPUnit 8.5 (#328)
+- Require at least TYPO3 11.5.2 for 11LTS ([#335](#335))
+- Upgrade to PHPUnit 8.5 ([#328](#328))
 
 ### Fixed
-- Only publish to the TER if the tag is a valid version number (#329)
+- Only publish to the TER if the tag is a valid version number ([#329](#329))
 
 ## 1.0.0
 
 ### Added
-- Also run the CI build once a week (#160)
-- Run the functional tests via GitHub Actions (#55)
-- Cache Composer dependencies in build (#31)
-- Add a status badge for GitHub actions (#32)
-- Composer script for PHP code sniffer fixing (#21)
+- Also run the CI build once a week ([#160](#160))
+- Run the functional tests via GitHub Actions ([#55](#55))
+- Cache Composer dependencies in build ([#31](#31))
+- Add a status badge for GitHub actions ([#32](#32))
+- Composer script for PHP code sniffer fixing ([#21](#21))
 - Run the functional tests in parallel
 - Add PHP-CS-Fixer
 - Add support for PHP 7.3 and 7.4
-- Add support for TYPO3 9.5 and 10.x (#27)
+- Add support for TYPO3 9.5 and 10.x ([#27](#27))
 - Add PHP_CodeSniffer to the Travis CI build
 - Auto-release to the TER
 - Composer script for PHP linting
 
 ### Changed
-- Disable running with lower dependencies on GitHub actions (#54)
-- Move the project to the TYPO3 Documentation Team (#47)
-- Run unit tests with GitHub actions (#37)
-- Switch from PSR-2 to PSR-12 (#3, #35)
-- Move TypoScript linting to GitHub actions (#14)
-- Move PHP code sniffing to GitHub actions (#13)
-- Move PHP linting to GitHub actions (#12)
-- Use `.typoscript` as file extension for TS files (#19)
-- Convert the PHP namespaces to "TTN" (#8)
-- Update the contact email in the CoC document (#6)
-- Switch to the `TTN` PHP vendor namespace (#1, #5)
+- Disable running with lower dependencies on GitHub actions ([#54](#54))
+- Move the project to the TYPO3 Documentation Team ([#47](#47))
+- Run unit tests with GitHub actions ([#37](#37))
+- Switch from PSR-2 to PSR-12 ([#3](#3), [#35](#35))
+- Move TypoScript linting to GitHub actions ([#14](#14))
+- Move PHP code sniffing to GitHub actions ([#13](#13))
+- Move PHP linting to GitHub actions ([#12](#12))
+- Use `.typoscript` as file extension for TS files ([#19](#19))
+- Convert the PHP namespaces to "TTN" ([#8](#8))
+- Update the contact email in the CoC document ([#6](#6))
+- Switch to the `TTN` PHP vendor namespace ([#1](#1), [#5](#5))
 - Sort the Composer dependencies
 - Upgrade PHPUnit to 7.5.14
 - Change from GPL V3+ to GPL V2+
@@ -77,9 +77,9 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Complete rewrite. Usable with TYPO3 7.6 and 8.7.
 
 ### Removed
-- Drop the Travis CI builds (#56)
-- Drop obsolete `dividers2tabs` from the TCA (#44)
-- Drop obsolete parts from the README (#34)
+- Drop the Travis CI builds ([#56](#56))
+- Drop obsolete `dividers2tabs` from the TCA ([#44](#44))
+- Drop obsolete parts from the README ([#34](#34))
 - Drop unneeded Travis CI configuration settings
 - Drop `ext_icon.svg`
 - Stop building with the lowest Composer dependencies
@@ -90,13 +90,13 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the dependency of `roave/security-advisories`
 
 ### Fixed
-- Always use the Composer-installed tools (#49)
-- Avoid unwanted higher PHP versions (#50)
-- Stop caching `vendor/` on Travis CI (#51)
-- Use the PHP version from the matrix in the CI (#48)
-- Re-add the static TypoScript registration (#41)
-- Keep the global namespace clean in `ext_localconf.php` (#40)
-- Update the badge URLs in the `README` (#29, #22)
+- Always use the Composer-installed tools ([#49](#49))
+- Avoid unwanted higher PHP versions ([#50](#50))
+- Stop caching `vendor/` on Travis CI ([#51](#51))
+- Use the PHP version from the matrix in the CI ([#48](#48))
+- Re-add the static TypoScript registration ([#41](#41))
+- Keep the global namespace clean in `ext_localconf.php` ([#40](#40))
+- Update the badge URLs in the `README` ([#29](#29), [#22](#22))
 - Fix code inspection warnings
 - Use the new annotations for lazy loading
 - Update and pin the dev dependencies
