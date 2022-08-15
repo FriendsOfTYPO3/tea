@@ -34,7 +34,7 @@
 		"typo3/cms-frontend": "^10.4 || ^11.5.2"
 	},
 	"require-dev": {
-		"codeception/codeception": "^4.2.1",
+		"codeception/codeception": "^4.2.2",
 		"doctrine/dbal": "^2.13.8",
 		"ergebnis/composer-normalize": "^2.19.0",
 		"friendsofphp/php-cs-fixer": "^3.4.0",
