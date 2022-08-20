@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- Change the default indentation for rst files to 4 spaces (https://github.com/TYPO3-Documentation/T3DocTeam/issues/194)
 
 ### Deprecated
 
@@ -25,7 +26,6 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 - Move npm tools and config to default locations (#444)
 - Use the TYPO3 Code of Conduct (#430)
-- Change the default indentation for rst files to 4 spaces (https://github.com/TYPO3-Documentation/T3DocTeam/issues/194)
 
 ### Removed
 - Drop support for TYPO3 9LTS (#363, #372)
