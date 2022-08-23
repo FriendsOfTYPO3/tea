@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Removed
 
 ### Fixed
+- Bump the minimal 10.4 Extbase requirement (#514)
 - Explicitly require Prophecy (#511)
 
 ## 2.0.0
