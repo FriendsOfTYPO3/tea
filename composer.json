@@ -34,7 +34,6 @@
 		"typo3/cms-frontend": "^10.4 || ^11.5.2"
 	},
 	"require-dev": {
-		"codeception/codeception": "^4.2.2",
 		"doctrine/dbal": "^2.13.8",
 		"ergebnis/composer-normalize": "^2.19.0",
 		"friendsofphp/php-cs-fixer": "^3.4.0",
@@ -187,7 +186,6 @@
 			"rm .prettierrc.js",
 			"rm package.json",
 			"rm stylelint.config.js",
-			"rm codeception.yml",
 			"rm phive.xml",
 			"rm phpstan-baseline.neon",
 			"rm phpstan.neon",

@@ -16,9 +16,7 @@
 
     <!-- Classes -->
     <rule ref="Generic.Classes.DuplicateClassName"/>
-    <rule ref="PSR1.Classes.ClassDeclaration">
-        <exclude-pattern>Tests/Acceptance/_support/</exclude-pattern>
-    </rule>
+    <rule ref="PSR1.Classes.ClassDeclaration"/>
     <rule ref="Squiz.Classes.ClassFileName"/>
     <rule ref="Squiz.Classes.DuplicateProperty"/>
     <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
@@ -67,9 +65,7 @@
     <rule ref="Squiz.Functions.GlobalFunction"/>
 
     <!-- Methods -->
-    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
-        <exclude-pattern>Tests/Acceptance/</exclude-pattern>
-    </rule>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore"/>
 
     <!-- Metrics -->
     <rule ref="Generic.Metrics.CyclomaticComplexity"/>

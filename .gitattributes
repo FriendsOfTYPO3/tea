@@ -11,7 +11,6 @@
 /.phpstorm.meta.php export-ignore
 /.prettierrc.js export-ignore
 /Tests/ export-ignore
-/codeception.yml export-ignore
 /package.json export-ignore
 /phive.xml export-ignore
 /phpcs.xml export-ignore
