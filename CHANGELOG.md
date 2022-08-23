@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Removed
 
 ### Fixed
+- Have all extension dependencies in the `ext_emconf.php` as well (#515)
 - Bump the minimal 10.4 Extbase requirement (#514)
 - Explicitly require Prophecy (#511)
 
