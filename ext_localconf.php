@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') or die('Access denied.');
+defined('TYPO3') or die('Access denied.');
 
 (static function (): void {
     // This makes the plugin available for front-end rendering.
