@@ -9,7 +9,6 @@ use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -39,13 +38,7 @@ class TeaRepositoryTest extends FunctionalTestCase
 
         /** @var Typo3Version $versionInformation */
         $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
-        if ($versionInformation->getMajorVersion() >= 11) {
-            $this->subject = $this->getContainer()->get(TeaRepository::class);
-        } else {
-            /** @var ObjectManager $objectManager */
-            $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-            $this->subject = $objectManager->get(TeaRepository::class);
-        }
+        $this->subject = $this->getContainer()->get(TeaRepository::class);
     }
 
     /**
@@ -63,7 +56,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findAllWithRecordsFindsRecordsFromAllPages(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $result = $this->subject->findAll();
 
@@ -75,7 +68,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findAllSortsByTitleInAscendingOrder(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $result = $this->subject->findAll();
 
@@ -88,7 +81,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findByUidForExistingRecordReturnsModelWithData(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $uid = 1;
         /** @var Tea $model */
@@ -104,7 +97,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function fillsImageRelation(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $uid = 3;
         /** @var Tea $model */

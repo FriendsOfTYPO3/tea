@@ -1,0 +1,8 @@
+"tx_tea_domain_model_product_tea"
+,"uid","pid","title","description","image"
+,"1","1","Earl Grey","Fresh and hot."
+,"2","1","Assam","Dark and strong."
+,"3","1","Gunpowder","Bitter and very green.",1
+"sys_file_reference"
+,"uid","pid","uid_foreign","tablenames","fieldname"
+,"1","1","3","tx_tea_domain_model_product_tea","image"
