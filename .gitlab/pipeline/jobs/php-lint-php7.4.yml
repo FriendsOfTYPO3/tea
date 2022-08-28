@@ -1,7 +1,0 @@
-php-lint-php7.4:
-  extends: .default
-  image: php:7.4
-  stage: lint
-  needs: [ ]
-  script:
-    - composer ci:php:lint
