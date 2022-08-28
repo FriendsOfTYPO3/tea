@@ -16,6 +16,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 class TeaTest extends UnitTestCase
 {
     use ProphecyTrait;
+
     /**
      * @var Tea
      */

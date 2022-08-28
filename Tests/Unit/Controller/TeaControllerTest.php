@@ -23,6 +23,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 class TeaControllerTest extends UnitTestCase
 {
     use ProphecyTrait;
+
     /**
      * @var TeaController&MockObject&AccessibleObjectInterface
      */
