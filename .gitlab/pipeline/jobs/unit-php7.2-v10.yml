@@ -1,9 +1,0 @@
-unit-php7.2-v10:
-  extends: .default
-  image: php:7.2
-  stage: test
-  needs:
-    - php-lint-php7.2
-  script:
-    - composer require --prefer-dist --no-progress typo3/minimal:"^10.4"
-    - composer ci:tests:unit
