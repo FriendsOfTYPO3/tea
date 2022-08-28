@@ -73,8 +73,8 @@
 			"url": "https://github.com/linawolf/typo3-typoscript-lint.git"
 		}
 	},
-	"prefer-stable": true,
 	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
 			"TTN\\Tea\\": "Classes/"
