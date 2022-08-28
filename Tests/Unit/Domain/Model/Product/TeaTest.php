@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TTN\Tea\Tests\Unit\Domain\Model\Product;
 
+use Prophecy\PhpUnit\ProphecyTrait;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -14,6 +15,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class TeaTest extends UnitTestCase
 {
+    use ProphecyTrait;
     /**
      * @var Tea
      */
