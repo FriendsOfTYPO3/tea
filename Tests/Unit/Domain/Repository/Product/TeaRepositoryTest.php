@@ -26,8 +26,7 @@ class TeaRepositoryTest extends UnitTestCase
     {
         parent::setUp();
 
-        $objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
-        $this->subject = new TeaRepository($objectManager);
+        $this->subject = new TeaRepository();
     }
 
     /**
