@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') || die();
+defined('TYPO3') || die();
 
 // This makes the plugin selectable in the BE.
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
