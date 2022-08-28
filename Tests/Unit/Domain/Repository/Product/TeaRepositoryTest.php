@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace TTN\Tea\Tests\Unit\Domain\Repository\Product;
 
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
@@ -18,6 +18,11 @@ class TeaRepositoryTest extends UnitTestCase
     use ProphecyTrait;
 
     /**
+     * @var ObjectProphecy<TeaRepository>
+     */
+    private $teaRepositoryProphecy;
+
+    /**
      * @var TeaRepository
      */
     private $subject;
@@ -25,8 +30,8 @@ class TeaRepositoryTest extends UnitTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->subject = GeneralUtility::makeInstance(TeaRepository::class);
+        $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
+        $this->subject = $this->teaRepositoryProphecy->reveal();
     }
 
     /**
