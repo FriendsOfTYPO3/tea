@@ -6,5 +6,5 @@ unit-php7.3-v10:
     - build-composer-dependencies
     - php-lint-php7.3
   script:
-    - composer require --no-progress typo3/minimal:"^10.4"
+    - composer require --no-progress typo3/cms-core:"^10.4"
     - composer ci:tests:unit
