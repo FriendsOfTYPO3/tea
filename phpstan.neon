@@ -20,6 +20,3 @@ parameters:
     - Classes
     - Configuration
     - Tests
-
-  excludePaths:
-    - Tests/Acceptance/

@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Remove the ancient acceptance tests (#512)
 
 ### Fixed
 - Have all extension dependencies in the `ext_emconf.php` as well (#515)
