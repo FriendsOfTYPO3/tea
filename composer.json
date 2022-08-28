@@ -50,7 +50,7 @@
 		"seld/jsonlint": "^1.9.0",
 		"squizlabs/php_codesniffer": "^3.7.1",
 		"symfony/yaml": "^4.4.29 || ^5.3.6 || ^6.0",
-		"typo3/cms-fluid-styled-content": "^10.4 || ^11.5.2",
+		"typo3/cms-fluid-styled-content": "^11.5.2 || ^12.0.x-dev",
 		"typo3/coding-standards": "^0.5.5",
 		"typo3/testing-framework": "^6.16.6 || 7.x-dev"
 	},
