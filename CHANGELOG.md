@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add support for TYPO3 12LTS
 
 ### Changed
 - Use CamelCase for the TsConfig folder (#522)
@@ -16,6 +17,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop support for TYPO3 10LTS
+- Drop support for PHP below 7.4
 - Remove the ancient acceptance tests (#512)
 
 ### Fixed
