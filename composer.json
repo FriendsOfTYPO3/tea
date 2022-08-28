@@ -12,13 +12,6 @@
 		"unit testing",
 		"best practices"
 	],
-
-	"repositories": {
-		"1_phpstan-typo3_fork": {
-			"type": "vcs",
-			"url": "https://github.com/linawolf/phpstan-typo3.git"
-		}
-	},
 	"authors": [
 		{
 			"name": "Oliver Klee",
@@ -35,10 +28,10 @@
 	},
 	"require": {
 		"php": "~7.4.0 || ~8.0.0 || ~8.1.0",
-		"typo3/cms-core": "^11.5.2 || ^12.0",
-		"typo3/cms-extbase": "^11.5.2 || ^12.0",
-		"typo3/cms-fluid": "^11.5.2 || ^12.0",
-		"typo3/cms-frontend": "^11.5.2 || ^12.0"
+		"typo3/cms-core": "^11.5.2 || ^12.0.x-dev",
+		"typo3/cms-extbase": "^11.5.2 || ^12.0.x-dev",
+		"typo3/cms-fluid": "^11.5.2 || ^12.0.x-dev",
+		"typo3/cms-frontend": "^11.5.2 || ^12.0.x-dev"
 	},
 	"require-dev": {
 		"doctrine/dbal": "^2.13.8 || ^3.3.7",
@@ -68,6 +61,12 @@
 		"doctrine/dbal": "2.13.1",
 		"friendsofphp/php-cs-fixer": "3.5.0",
 		"typo3/class-alias-loader": "< 1.1.0"
+	},
+	"repositories": {
+		"1_phpstan-typo3_fork": {
+			"type": "vcs",
+			"url": "https://github.com/linawolf/phpstan-typo3.git"
+		}
 	},
 	"prefer-stable": true,
 	"autoload": {
