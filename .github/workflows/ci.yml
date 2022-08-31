@@ -5,7 +5,7 @@ name: CI with Composer scripts
 on:
   push:
     branches:
-      - main
+      - main  
   pull_request:
   schedule:
     - cron: '15 3 * * 1'
