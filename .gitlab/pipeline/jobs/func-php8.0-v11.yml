@@ -8,5 +8,5 @@ func-php8.0-v11:
     - build-composer-dependencies
     - php-lint-php8.0
   script:
-    - composer require --no-progress typo3/minimal:"^11.5"
+    - composer require --no-progress typo3/cms-core:"^11.5"
     - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional
