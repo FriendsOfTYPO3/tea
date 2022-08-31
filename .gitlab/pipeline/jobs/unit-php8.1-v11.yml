@@ -6,5 +6,5 @@ unit-php8.1-v11:
     - build-composer-dependencies
     - php-lint-php8.1
   script:
-    - composer require --no-progress typo3/minimal:"^11.5"
+    - composer require --no-progress typo3/cms-core:"^11.5"
     - composer ci:tests:unit
