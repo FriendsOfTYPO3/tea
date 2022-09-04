@@ -75,6 +75,25 @@ class TeaTest extends UnitTestCase
     /**
      * @test
      */
+    public function getDefaultDescriptionInitiallyReturnsEmptyString(): void
+    {
+        self::assertSame('', $this->subject->getDefaultDescription());
+    }
+
+    /**
+     * @test
+     */
+    public function setDefaultDescriptionSetsDefaultDescription(): void
+    {
+        $value = 'Club-Mate';
+        $this->subject->setDefaultDescription($value);
+
+        self::assertSame($value, $this->subject->getDefaultDescription());
+    }
+
+    /**
+     * @test
+     */
     public function getImageInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getImage());
