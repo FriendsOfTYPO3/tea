@@ -78,7 +78,7 @@ class TeaControllerTest extends UnitTestCase
     public function indexActionAssignsAllTeaAsTeasToView(): void
     {
         $teas = $this->prophesize(QueryResultInterface::class)->reveal();
-        $this->teaRepositoryProphecy->findAll()->willReturn($teas);
+        $this->teaRepositoryProphecy->findAllEnriched()->willReturn($teas);
         $this->viewProphecy->assign('teas', $teas)->shouldBeCalled();
 
         $this->subject->indexAction();

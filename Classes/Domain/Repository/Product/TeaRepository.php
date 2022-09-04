@@ -8,6 +8,7 @@ use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Traits\StoragePageAgnosticTrait;
 use TTN\Tea\Service\TeaInformationService;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -31,20 +32,16 @@ class TeaRepository extends Repository
 
     /**
      * Returns all objects of this repository enriched with default descriptions.
+     * @return QueryResultInterface|array
      */
-    public function findAllEnriched(): array
+    public function findAllEnriched()
     {
-        /*
-        $results = $this->createQuery()->execute()->toArray();
-        if (is_null($results)) {
-            return [];
-        }
+        $results = $this->createQuery()->execute();
         foreach ($results as $tea) {
             /* @var Tea $tea */
-          /*  $this->enrichTea($tea);
+            $this->enrichTea($tea);
         }
-        return $results;*/
-        return [];
+        return $results;
     }
 
     /**
