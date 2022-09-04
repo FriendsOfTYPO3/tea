@@ -41,7 +41,7 @@ class TeaControllerTest extends UnitTestCase
         parent::setUp();
 
         // We need to create an accessible mock in order to be able to set the protected `view`.
-        $this->subject = $this->getAccessibleMock(TeaController::class, ['redirect', 'forward']);
+        $this->subject = $this->getAccessibleMock(TeaController::class, ['forward', 'redirect', 'redirectToUri']);
 
         $this->viewProphecy = $this->prophesize(TemplateView::class);
         $view = $this->viewProphecy->reveal();
