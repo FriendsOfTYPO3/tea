@@ -17,10 +17,7 @@ class TeaTest extends UnitTestCase
 {
     use ProphecyTrait;
 
-    /**
-     * @var Tea
-     */
-    private $subject;
+    private Tea $subject;
 
     protected function setUp(): void
     {

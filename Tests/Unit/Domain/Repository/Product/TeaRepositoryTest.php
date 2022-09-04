@@ -20,12 +20,9 @@ class TeaRepositoryTest extends UnitTestCase
     /**
      * @var ObjectProphecy<TeaRepository>
      */
-    private $teaRepositoryProphecy;
+    private ObjectProphecy $teaRepositoryProphecy;
 
-    /**
-     * @var TeaRepository
-     */
-    private $subject;
+    private TeaRepository $subject;
 
     protected function setUp(): void
     {
