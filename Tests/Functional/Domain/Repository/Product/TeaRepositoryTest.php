@@ -61,6 +61,16 @@ class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
+    public function findAllEnrichedForNoRecordsReturnsEmptyContainer(): void
+    {
+        $result = $this->subject->findAllEnriched();
+
+        self::assertCount(0, $result);
+    }
+
+    /**
+     * @test
+     */
     public function findAllWithRecordsFindsRecordsFromAllPages(): void
     {
         $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
@@ -68,6 +78,19 @@ class TeaRepositoryTest extends FunctionalTestCase
         $result = $this->subject->findAll();
 
         self::assertGreaterThanOrEqual(1, \count($result));
+    }
+
+    /**
+     * @test
+     */
+    public function findAllAndFindAllEnrichedFindSameCount(): void
+    {
+        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+
+        $resultFindAll = $this->subject->findAll();
+        $resultFindAllEnriched = $this->subject->findAllEnriched();
+
+        self::assertEquals(\count($resultFindAll), \count($resultFindAllEnriched));
     }
 
     /**

@@ -25,11 +25,12 @@ class TeaController extends ActionController
 
     public function indexAction(): void
     {
-        $this->view->assign('teas', $this->teaRepository->findAll());
+        $this->view->assign('teas', $this->teaRepository->findAllEnriched());
     }
 
     public function showAction(Tea $tea): void
     {
+        $this->teaRepository->enrichTea($tea);
         $this->view->assign('tea', $tea);
     }
 }

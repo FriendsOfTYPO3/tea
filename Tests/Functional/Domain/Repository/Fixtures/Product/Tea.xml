@@ -19,6 +19,18 @@
         <description>Bitter and very green.</description>
         <image>1</image>
     </tx_tea_domain_model_product_tea>
+    <tx_tea_domain_model_product_tea>
+        <uid>4</uid>
+        <pid>1</pid>
+        <title>Oolong tea</title>
+        <description>Oolong is a traditional semi-oxidized Chinese tea</description>
+    </tx_tea_domain_model_product_tea>
+    <tx_tea_domain_model_product_tea>
+        <uid>5</uid>
+        <pid>1</pid>
+        <title>Fermented tea</title>
+        <description>The most famous fermented tea is pu'er produced in Yunnan province</description>
+    </tx_tea_domain_model_product_tea>
     <sys_file_reference>
         <uid>1</uid>
         <pid>1</pid>

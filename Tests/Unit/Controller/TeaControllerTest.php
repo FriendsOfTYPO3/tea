@@ -10,6 +10,7 @@ use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Service\TeaInformationService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
@@ -36,6 +37,11 @@ class TeaControllerTest extends UnitTestCase
      */
     private $teaRepositoryProphecy;
 
+    /**
+     * @var ObjectProphecy<TeaInformationService>
+     */
+    private $teaInformationServiceProphecy;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -51,6 +57,11 @@ class TeaControllerTest extends UnitTestCase
         /** @var TeaRepository&ProphecySubjectInterface $teaRepository */
         $teaRepository = $this->teaRepositoryProphecy->reveal();
         $this->subject->injectTeaRepository($teaRepository);
+
+        $this->teaInformationServiceProphecy = $this->prophesize(TeaInformationService::class);
+        /** @var TeaInformationService&ProphecySubjectInterface $teaInformationService */
+        $teaInformationService = $this->teaInformationServiceProphecy->reveal();
+        $teaRepository->injectTeaInformationService($teaInformationService);
     }
 
     /**

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TTN\Tea\Domain\Model\Product;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation\ORM\Transient;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
@@ -23,6 +24,12 @@ class Tea extends AbstractEntity
      * @var string
      */
     protected $description = '';
+
+    /**
+     * @var string
+     * @Transient
+     */
+    protected $defaultDescription = '';
 
     /**
      * @phpstan-var \TYPO3\CMS\Extbase\Domain\Model\FileReference|LazyLoadingProxy|null
@@ -44,6 +51,22 @@ class Tea extends AbstractEntity
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultDescription(): string
+    {
+        return $this->defaultDescription;
+    }
+
+    /**
+     * @param string $defaultDescription
+     */
+    public function setDefaultDescription(string $defaultDescription): void
+    {
+        $this->defaultDescription = $defaultDescription;
     }
 
     public function setDescription(string $description): void
