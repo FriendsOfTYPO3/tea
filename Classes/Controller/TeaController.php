@@ -13,10 +13,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class TeaController extends ActionController
 {
-    /**
-     * @var TeaRepository
-     */
-    private $teaRepository;
+    private TeaRepository $teaRepository;
 
     public function injectTeaRepository(TeaRepository $teaRepository): void
     {
