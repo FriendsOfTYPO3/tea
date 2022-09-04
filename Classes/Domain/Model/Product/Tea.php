@@ -53,17 +53,11 @@ class Tea extends AbstractEntity
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
     public function getDefaultDescription(): string
     {
         return $this->defaultDescription;
     }
 
-    /**
-     * @param string $defaultDescription
-     */
     public function setDefaultDescription(string $defaultDescription): void
     {
         $this->defaultDescription = $defaultDescription;
