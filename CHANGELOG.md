@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add support for TYPO3 12LTS
 
 ### Changed
+- Use typed properties and remove @var annotations where redundant (#550)
 - Use CamelCase for the TsConfig folder (#522)
 - Stop using the `typo3/minimal` package on CI (#520, #531)
 - Update to Composer 2.4 (#513)
