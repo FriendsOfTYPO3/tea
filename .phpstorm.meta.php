@@ -157,12 +157,12 @@ namespace PHPSTORM_META {
 
     override(\TYPO3\CMS\Core\Routing\SiteMatcher::matchRequest(), type(
             \TYPO3\CMS\Core\Routing\SiteRouteResult::class,
-            \TYPO3\CMS\Core\Routing\RouteResultInterface::class,
+            \TYPO3\CMS\Core\Routing\RouteResultInterface::class
         )
     );
 
     override(\TYPO3\CMS\Core\Routing\PageRouter::matchRequest(), type(
         \TYPO3\CMS\Core\Routing\PageArguments::class,
-        \TYPO3\CMS\Core\Routing\RouteResultInterface::class,
+        \TYPO3\CMS\Core\Routing\RouteResultInterface::class
     ));
 }
