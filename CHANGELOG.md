@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add support for TYPO3 12LTS
 
 ### Changed
+- Controller actions return Psr\Http\Message\ResponseInterface (#564)
 - Use typed properties and remove @var annotations where redundant (#550)
 - Use CamelCase for the TsConfig folder (#522)
 - Stop using the `typo3/minimal` package on CI (#520, #531)
