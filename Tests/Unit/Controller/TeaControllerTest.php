@@ -7,6 +7,7 @@ namespace TTN\Tea\Tests\Unit\Controller;
 use PHPUnit\Framework\MockObject\MockObject;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophecy\ProphecySubjectInterface;
+use Prophecy\PhpUnit\ProphecyTrait;
 use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
@@ -21,6 +22,8 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class TeaControllerTest extends UnitTestCase
 {
+    use ProphecyTrait;
+
     /**
      * @var TeaController&MockObject&AccessibleObjectInterface
      */

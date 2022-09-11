@@ -41,6 +41,7 @@
 		"jangregor/phpstan-prophecy": "^1.0.0",
 		"php-coveralls/php-coveralls": "^2.5.2",
 		"phpspec/prophecy": "^1.15.0",
+		"phpspec/prophecy-phpunit": "^2.0.1",
 		"phpstan/extension-installer": "^1.1.0",
 		"phpstan/phpstan": "^1.8.5",
 		"phpstan/phpstan-phpunit": "^1.1.1",
