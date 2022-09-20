@@ -22,6 +22,8 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           tools: composer:v2.4
+      - name: "Show the Composer configuration"
+        run: "composer config --global --list"
       - name: "Run PHP lint"
         run: "composer ci:php:lint"
     strategy:
@@ -46,7 +48,9 @@ jobs:
           coverage: none
           tools: composer:v2.4
       - name: "Show Composer version"
-        run: composer --version
+        run: "composer --version"
+      - name: "Show the Composer configuration"
+        run: "composer config --global --list"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
@@ -109,7 +113,9 @@ jobs:
           coverage: none
           tools: composer:v2.4
       - name: "Show Composer version"
-        run: composer --version
+        run: "composer --version"
+      - name: "Show the Composer configuration"
+        run: "composer config --global --list"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
@@ -189,7 +195,9 @@ jobs:
           extensions: mysqli
           coverage: none
       - name: "Show Composer version"
-        run: composer --version
+        run: "composer --version"
+      - name: "Show the Composer configuration"
+        run: "composer config --global --list"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
