@@ -21,10 +21,9 @@ defined('TYPO3') || die();
     'EXT:tea/Resources/Public/Icons/Extension.svg'
 );
 
-
 // This removes the default controls from the plugin.
 $controlsToRemove = 'recursive,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'] = [
     'tea_teaindex' => $controlsToRemove,
-    'tea_teashow' => $controlsToRemove
+    'tea_teashow' => $controlsToRemove,
 ];
