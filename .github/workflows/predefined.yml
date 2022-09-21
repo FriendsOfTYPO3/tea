@@ -202,8 +202,13 @@ jobs:
           - "^10.4"
   functional-tests:
     name: "Functional tests"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     needs: php-lint
+    env:
+      DB_DATABASE: typo3
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_HOST: localhost
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -240,12 +245,15 @@ jobs:
           composer show
       - name: "Start MySQL"
         run: "sudo /etc/init.d/mysql start"
+      # This workaround for MySQL 8 can be removed once we drop support for PHP 7.2/7.3.
+      - name: "Configure the MySQL user to work with PHP 7.2/7.3"
+        run: mysql -u root --password=root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'"
       - name: "Run functional tests"
         run: |
-          export typo3DatabaseName="typo3";
-          export typo3DatabaseHost="127.0.0.1";
-          export typo3DatabaseUsername="root";
-          export typo3DatabasePassword="root";
+          export typo3DatabaseName="$DB_DATABASE";
+          export typo3DatabaseHost="$DB_HOST";
+          export typo3DatabaseUsername="$DB_USER";
+          export typo3DatabasePassword="$DB_PASSWORD";
           composer ci:tests:functional
     strategy:
       fail-fast: false
