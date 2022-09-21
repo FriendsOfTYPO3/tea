@@ -3,12 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="plugin.tea">
-				<source>Tea</source>
-			</trans-unit>
-			<trans-unit id="plugin.tea.view">
-				<source>View</source>
-			</trans-unit>
 			<trans-unit id="plugin.tea_index">
 				<source>Tea list</source>
 			</trans-unit>

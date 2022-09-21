@@ -3,19 +3,11 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="plugin.tea">
-				<source>Tea</source>
-				<target>Tee</target>
-			</trans-unit>
-			<trans-unit id="plugin.tea.view">
-				<source>View</source>
-				<target>Ansicht</target>
-			</trans-unit>
-			<trans-unit id="plugin.tea.index">
+			<trans-unit id="plugin.tea_index">
 				<source>Tea list</source>
 				<target>Teeliste</target>
 			</trans-unit>
-			<trans-unit id="plugin.tea.show">
+			<trans-unit id="plugin.tea_show">
 				<source>Tea single view</source>
 				<target>Tee-Einzelansicht</target>
 			</trans-unit>
