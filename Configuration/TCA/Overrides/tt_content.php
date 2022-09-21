@@ -16,9 +16,3 @@ defined('TYPO3') || die();
 
 // This removes the default controls from the plugin.
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tea_tea'] = 'recursive,select_key,pages';
-// These two commands add the flexform configuration for the plugin.
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['tea_tea'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    'tea_tea',
-    'FILE:EXT:tea/Configuration/FlexForms/Plugin.xml'
-);
