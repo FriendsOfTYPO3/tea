@@ -27,9 +27,9 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "7.2"
-          - "7.3"
           - "7.4"
+          - "8.0"
+          - "8.1"
   typoscript-lint:
     name: "TypoScript linter"
     runs-on: ubuntu-22.04
@@ -190,16 +190,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        composer-dependencies:
-          - highest
-          - lowest
-        php-version:
-          - "7.2"
-          - "7.3"
-          - "7.4"
-        typo3-version:
-          - "^9.5"
-          - "^10.4"
+        include:
+          - typo3-version: "^10.4"
+            php-version: "7.4"
+            composer-dependencies: highest
+          - typo3-version: "^10.4"
+            php-version: "7.4"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "7.4"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "7.4"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.0"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "8.0"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.1"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "8.1"
+            composer-dependencies: lowest
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-22.04
@@ -245,9 +260,6 @@ jobs:
           composer show
       - name: "Start MySQL"
         run: "sudo /etc/init.d/mysql start"
-      # This workaround for MySQL 8 can be removed once we drop support for PHP 7.2/7.3.
-      - name: "Configure the MySQL user to work with PHP 7.2/7.3"
-        run: mysql -u root --password=root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'"
       - name: "Run functional tests"
         run: |
           export typo3DatabaseName="$DB_DATABASE";
@@ -260,20 +272,26 @@ jobs:
       matrix:
         include:
           - typo3-version: "^10.4"
-            php-version: "7.2"
-            composer-dependencies: highest
-          - typo3-version: "^10.4"
-            php-version: "7.2"
-            composer-dependencies: lowest
-          - typo3-version: "^10.4"
-            php-version: "7.3"
-            composer-dependencies: highest
-          - typo3-version: "^10.4"
-            php-version: "7.3"
-            composer-dependencies: lowest
-          - typo3-version: "^10.4"
             php-version: "7.4"
             composer-dependencies: highest
           - typo3-version: "^10.4"
             php-version: "7.4"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "7.4"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "7.4"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.0"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "8.0"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.1"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "8.1"
             composer-dependencies: lowest
