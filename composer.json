@@ -35,7 +35,7 @@
 	},
 	"require-dev": {
 		"doctrine/dbal": "^2.13.8 || ^3.3.7",
-		"ergebnis/composer-normalize": "^2.19.0",
+		"ergebnis/composer-normalize": "^2.28.3",
 		"friendsofphp/php-cs-fixer": "^3.4.0",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^1.0.0",
