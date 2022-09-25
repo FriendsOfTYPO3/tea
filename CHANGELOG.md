@@ -8,11 +8,11 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- Replace switchable controller actions with separate plugins (#569)
 - Use CamelCase for the TsConfig folder (#522)
 - Stop using the `typo3/minimal` package on CI (#520, #531)
 - Update to Composer 2.4 (#513)
 - Change the default indentation for rst files to 4 spaces (#194)
-- Replace switchable controller actions with separate plugins (#569)
 
 ### Deprecated
 
