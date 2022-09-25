@@ -9,12 +9,21 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - Replace switchable controller actions with separate plugins (#569)
+
+### Deprecated
+
+### Removed
+- Drop support for PHP 7.2 and 7.3 (#581)
+
+### Fixed
+
+## 2.0.1
+
+### Changed
 - Use CamelCase for the TsConfig folder (#522)
 - Stop using the `typo3/minimal` package on CI (#520, #531)
 - Update to Composer 2.4 (#513)
 - Change the default indentation for rst files to 4 spaces (#194)
-
-### Deprecated
 
 ### Removed
 - Remove the ancient acceptance tests (#512)

@@ -27,7 +27,7 @@
 		"docs": "https://docs.typo3.org/p/ttn/tea/main/en-us/"
 	},
 	"require": {
-		"php": "~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0",
+		"php": "~7.4.0 || ~8.0.0 || ~8.1.0",
 		"typo3/cms-core": "^10.4.11 || ^11.5.2",
 		"typo3/cms-extbase": "^10.4.11 || ^11.5.2",
 		"typo3/cms-fluid": "^10.4.11 || ^11.5.2",
@@ -35,16 +35,16 @@
 	},
 	"require-dev": {
 		"doctrine/dbal": "^2.13.8 || ^3.3.7",
-		"ergebnis/composer-normalize": "^2.19.0",
+		"ergebnis/composer-normalize": "^2.28.3",
 		"friendsofphp/php-cs-fixer": "^3.4.0",
 		"helmich/typo3-typoscript-lint": "^2.5.2",
 		"jangregor/phpstan-prophecy": "^1.0.0",
 		"php-coveralls/php-coveralls": "^2.5.3",
 		"phpspec/prophecy": "^1.15.0",
 		"phpstan/extension-installer": "^1.1.0",
-		"phpstan/phpstan": "^1.8.5",
+		"phpstan/phpstan": "^1.8.6",
 		"phpstan/phpstan-phpunit": "^1.1.1",
-		"phpstan/phpstan-strict-rules": "^1.4.3",
+		"phpstan/phpstan-strict-rules": "^1.4.4",
 		"phpunit/phpunit": "^8.5.29",
 		"saschaegerer/phpstan-typo3": "^1.1.2",
 		"seld/jsonlint": "^1.9.0",
@@ -154,7 +154,7 @@
 		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml {}';",
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
-		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -name '*.yml' | xargs -r php ./.Build/vendor/bin/yaml-lint",
+		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -regextype egrep -regex '.*.ya?ml$' | xargs -r php ./.Build/vendor/bin/yaml-lint",
 		"coverage:create-directories": "mkdir -p build/logs .Build/coverage",
 		"docs:generate": [
 			"docker run --rm t3docs/render-documentation show-shell-commands > tempfile.sh; echo 'dockrun_t3rd makehtml' >> tempfile.sh; bash tempfile.sh; rm tempfile.sh"
