@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
-- Replace switchable controller actions with separate plugins (#569)
+- Replace switchable controller actions with separate plugins (#575)
 
 ### Deprecated
 
