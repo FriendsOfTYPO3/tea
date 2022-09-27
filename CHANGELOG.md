@@ -12,7 +12,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
-- Drop support for TYPO3 10LTS (#589)
+- Drop support for TYPO3 10LTS (#594)
 - Drop support for PHP 7.2 and 7.3 (#581)
 
 ### Fixed
