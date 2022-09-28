@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - Replace switchable controller actions with separate plugins (#575)
+- Controller actions return ResponseInterface (#597)
 
 ### Deprecated
 
