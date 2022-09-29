@@ -19,10 +19,9 @@ class TeaController extends ActionController
      */
     private $teaRepository;
 
-    public function injectTeaRepository(TeaRepository $teaRepository): ResponseInterface
+    public function injectTeaRepository(TeaRepository $teaRepository): void
     {
         $this->teaRepository = $teaRepository;
-        return $this->htmlResponse();
     }
 
     public function indexAction(): ResponseInterface
