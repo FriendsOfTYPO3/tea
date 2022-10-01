@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- Convert functional test fixtures to CSV (#601)
 - Replace switchable controller actions with separate plugins (#575)
 
 ### Deprecated
