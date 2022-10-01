@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
-- Return ResponseInterface in controller actions (#597)
+- Return `ResponseInterface` in controller actions (#597)
 - Replace switchable controller actions with separate plugins (#575)
 
 ### Deprecated

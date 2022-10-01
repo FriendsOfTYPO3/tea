@@ -11,9 +11,6 @@ use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Http\HtmlResponse;
-use TYPO3\CMS\Core\Http\ResponseFactory;
-use TYPO3\CMS\Core\Http\Stream;
-use TYPO3\CMS\Core\Http\StreamFactory;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
@@ -40,22 +37,15 @@ class TeaControllerTest extends UnitTestCase
      */
     private $teaRepositoryProphecy;
 
-    /**
-     * @var ObjectProphecy<ResponseFactory>
-     */
-    private $responseFactoryProphecy;
-
-    /**
-     * @var ObjectProphecy<StreamFactory>
-     */
-    protected $streamFactoryProphecy;
-
     protected function setUp(): void
     {
         parent::setUp();
 
         // We need to create an accessible mock in order to be able to set the protected `view`.
-        $this->subject = $this->getAccessibleMock(TeaController::class, ['forward', 'redirect', 'redirectToUri']);
+        $this->subject = $this->getAccessibleMock(
+            TeaController::class,
+            ['forward', 'redirect', 'redirectToUri', 'htmlResponse']
+        );
 
         $this->viewProphecy = $this->prophesize(TemplateView::class);
         $view = $this->viewProphecy->reveal();
@@ -66,15 +56,8 @@ class TeaControllerTest extends UnitTestCase
         $teaRepository = $this->teaRepositoryProphecy->reveal();
         $this->subject->injectTeaRepository($teaRepository);
 
-        $this->responseFactoryProphecy = $this->prophesize(ResponseFactory::class);
-        /** @var ResponseFactory&ProphecySubjectInterface $responseFactory */
-        $responseFactory = $this->responseFactoryProphecy->reveal();
-        $this->subject->injectResponseFactory($responseFactory);
-
-        $this->streamFactoryProphecy = $this->prophesize(StreamFactory::class);
-        /** @var StreamFactory&ProphecySubjectInterface $streamFactory */
-        $streamFactory = $this->streamFactoryProphecy->reveal();
-        $this->subject->injectStreamFactory($streamFactory);
+        $response = $this->prophesize(HtmlResponse::class)->reveal();
+        $this->subject->method('htmlResponse')->willReturn($response);
     }
 
     /**
@@ -94,10 +77,11 @@ class TeaControllerTest extends UnitTestCase
         $this->teaRepositoryProphecy->findAll()->willReturn($teas);
         $this->viewProphecy->assign('teas', $teas)->shouldBeCalled();
         $this->viewProphecy->render()->willReturn('');
-        $this->responseFactoryProphecy->createResponse()->willReturn(new HtmlResponse(''));
-        $this->streamFactoryProphecy->createStream('')->willReturn(new Stream('php://temp', 'r+'));
 
-        $this->subject->indexAction();
+        self::assertInstanceOf(
+            HtmlResponse::class,
+            $this->subject->indexAction()
+        );
     }
 
     /**
@@ -108,9 +92,10 @@ class TeaControllerTest extends UnitTestCase
         $tea = new Tea();
         $this->viewProphecy->assign('tea', $tea)->shouldBeCalled();
         $this->viewProphecy->render()->willReturn('');
-        $this->responseFactoryProphecy->createResponse()->willReturn(new HtmlResponse(''));
-        $this->streamFactoryProphecy->createStream('')->willReturn(new Stream('php://temp', 'r+'));
 
-        $this->subject->showAction($tea);
+        self::assertInstanceOf(
+            HtmlResponse::class,
+            $this->subject->showAction($tea)
+        );
     }
 }
