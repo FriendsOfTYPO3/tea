@@ -10,6 +10,7 @@ use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
+use TYPO3\CMS\Core\Http\HtmlResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
@@ -41,7 +42,10 @@ class TeaControllerTest extends UnitTestCase
         parent::setUp();
 
         // We need to create an accessible mock in order to be able to set the protected `view`.
-        $this->subject = $this->getAccessibleMock(TeaController::class, ['forward', 'redirect', 'redirectToUri']);
+        $this->subject = $this->getAccessibleMock(
+            TeaController::class,
+            ['forward', 'redirect', 'redirectToUri', 'htmlResponse']
+        );
 
         $this->viewProphecy = $this->prophesize(TemplateView::class);
         $view = $this->viewProphecy->reveal();
@@ -51,6 +55,9 @@ class TeaControllerTest extends UnitTestCase
         /** @var TeaRepository&ProphecySubjectInterface $teaRepository */
         $teaRepository = $this->teaRepositoryProphecy->reveal();
         $this->subject->injectTeaRepository($teaRepository);
+
+        $response = $this->prophesize(HtmlResponse::class)->reveal();
+        $this->subject->method('htmlResponse')->willReturn($response);
     }
 
     /**
@@ -69,8 +76,12 @@ class TeaControllerTest extends UnitTestCase
         $teas = $this->prophesize(QueryResultInterface::class)->reveal();
         $this->teaRepositoryProphecy->findAll()->willReturn($teas);
         $this->viewProphecy->assign('teas', $teas)->shouldBeCalled();
+        $this->viewProphecy->render()->willReturn('');
 
-        $this->subject->indexAction();
+        self::assertInstanceOf(
+            HtmlResponse::class,
+            $this->subject->indexAction()
+        );
     }
 
     /**
@@ -80,7 +91,11 @@ class TeaControllerTest extends UnitTestCase
     {
         $tea = new Tea();
         $this->viewProphecy->assign('tea', $tea)->shouldBeCalled();
+        $this->viewProphecy->render()->willReturn('');
 
-        $this->subject->showAction($tea);
+        self::assertInstanceOf(
+            HtmlResponse::class,
+            $this->subject->showAction($tea)
+        );
     }
 }
