@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - Convert functional test fixtures to CSV (#601)
+- Use typed properties instead of `@var` annotations (#599)
+- Return `ResponseInterface` in controller actions (#597)
 - Replace switchable controller actions with separate plugins (#575)
 
 ### Deprecated

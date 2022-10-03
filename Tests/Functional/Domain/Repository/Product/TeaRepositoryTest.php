@@ -21,15 +21,9 @@ class TeaRepositoryTest extends FunctionalTestCase
 {
     protected $testExtensionsToLoad = ['typo3conf/ext/tea'];
 
-    /**
-     * @var TeaRepository
-     */
-    private $subject;
+    private TeaRepository $subject;
 
-    /**
-     * @var PersistenceManager
-     */
-    private $persistenceManager;
+    private PersistenceManager $persistenceManager;
 
     protected function setUp(): void
     {
