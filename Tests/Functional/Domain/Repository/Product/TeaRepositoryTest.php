@@ -57,7 +57,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findAllWithRecordsFindsRecordsFromAllPages(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $result = $this->subject->findAll();
 
@@ -69,7 +69,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findAllSortsByTitleInAscendingOrder(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $result = $this->subject->findAll();
 
@@ -82,7 +82,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findByUidForExistingRecordReturnsModelWithData(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $uid = 1;
         /** @var Tea $model */
@@ -98,7 +98,7 @@ class TeaRepositoryTest extends FunctionalTestCase
      */
     public function fillsImageRelation(): void
     {
-        $this->importDataSet(__DIR__ . '/../Fixtures/Product/Tea.xml');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $uid = 3;
         /** @var Tea $model */
