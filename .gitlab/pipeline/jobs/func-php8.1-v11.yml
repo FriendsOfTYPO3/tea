@@ -6,7 +6,7 @@ func-php8.1-v11:
   stage: test
   needs:
     - build-composer-dependencies
-    - php-lint-php8.0
+    - php-lint-php8.1
   script:
     - composer require --no-progress typo3/cms-core:"^11.5"
     - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional
