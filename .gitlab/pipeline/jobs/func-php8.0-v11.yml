@@ -1,0 +1,12 @@
+func-php8.0-v11:
+  extends: .default
+  image: php:8.0
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php8.0
+  script:
+    - composer require --no-progress typo3/cms-core:"^11.5"
+    - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional
