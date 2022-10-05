@@ -23,6 +23,9 @@ include:
   - '/.gitlab/pipeline/jobs/php-lint-php8.1.yml'
   - '/.gitlab/pipeline/jobs/phpcs.yml'
   - '/.gitlab/pipeline/jobs/ts-lint.yml'
+  - '/.gitlab/pipeline/jobs/unit-php7.4-v11.yml'
+  - '/.gitlab/pipeline/jobs/unit-php8.0-v11.yml'
+  - '/.gitlab/pipeline/jobs/unit-php8.1-v11.yml'
   - '/.gitlab/pipeline/jobs/xliff-lint.yml'
   - '/.gitlab/pipeline/jobs/yaml-lint.yml'
   - template: Security/License-Scanning.gitlab-ci.yml
