@@ -30,12 +30,12 @@ class TeaControllerTest extends UnitTestCase
     /**
      * @var ObjectProphecy<TemplateView>
      */
-    private $viewProphecy;
+    private ObjectProphecy $viewProphecy;
 
     /**
      * @var ObjectProphecy<TeaRepository>
      */
-    private $teaRepositoryProphecy;
+    private ObjectProphecy $teaRepositoryProphecy;
 
     protected function setUp(): void
     {
