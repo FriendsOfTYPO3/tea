@@ -20,6 +20,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop support for PHP 7.2 and 7.3 (#581)
 
 ### Fixed
+- Stop relying on transitive dependencies for `psr/http-message` (#613)
 
 ## 2.0.1
 
