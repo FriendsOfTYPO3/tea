@@ -31,12 +31,10 @@ class TeaRepositoryTest extends FunctionalTestCase
 
         $this->persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
 
-        /** @var Typo3Version $versionInformation */
         $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
         if ($versionInformation->getMajorVersion() >= 11) {
             $this->subject = $this->getContainer()->get(TeaRepository::class);
         } else {
-            /** @var ObjectManager $objectManager */
             $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
             $this->subject = $objectManager->get(TeaRepository::class);
         }
@@ -85,7 +83,6 @@ class TeaRepositoryTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $uid = 1;
-        /** @var Tea $model */
         $model = $this->subject->findByUid($uid);
 
         self::assertNotNull($model);
@@ -101,7 +98,6 @@ class TeaRepositoryTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
         $uid = 3;
-        /** @var Tea $model */
         $model = $this->subject->findByUid($uid);
 
         $image = $model->getImage();
