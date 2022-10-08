@@ -6,10 +6,8 @@ namespace TTN\Tea\Tests\Functional\Domain\Repository\Product;
 
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -31,13 +29,7 @@ class TeaRepositoryTest extends FunctionalTestCase
 
         $this->persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
 
-        $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
-        if ($versionInformation->getMajorVersion() >= 11) {
-            $this->subject = $this->getContainer()->get(TeaRepository::class);
-        } else {
-            $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-            $this->subject = $objectManager->get(TeaRepository::class);
-        }
+        $this->subject = $this->getContainer()->get(TeaRepository::class);
     }
 
     /**
