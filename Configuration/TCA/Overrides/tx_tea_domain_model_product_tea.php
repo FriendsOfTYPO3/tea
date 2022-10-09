@@ -15,6 +15,22 @@ if ($typo3Version->getMajorVersion() < 12) {
                     'eval' => 'trim,required',
                 ],
             ],
+            'image' => [
+                'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
+                'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                    'image',
+                    [
+                        'maxitems' => 1,
+                        'appearance' => [
+                            'collapseAll' => true,
+                            'useSortable' => false,
+                            'enabledControls' => [
+                                'hide' => false,
+                            ],
+                        ],
+                    ]
+                ),
+            ],
         ],
     ];
 
