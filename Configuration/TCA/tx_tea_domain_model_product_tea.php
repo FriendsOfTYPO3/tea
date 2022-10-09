@@ -6,7 +6,6 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'delete' => 'deleted',
         'default_sortby' => 'title',
         'iconfile' => 'EXT:tea/Resources/Public/Icons/Record.svg',
@@ -22,7 +21,8 @@ return [
                 'type' => 'input',
                 'size' => 40,
                 'max' => 255,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
+                'required' => true,
             ],
         ],
         'description' => [
