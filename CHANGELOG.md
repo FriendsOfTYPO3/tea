@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- Upgrade to PHPUnit 9 and PHPCOV 8 (#610)
 - Convert functional test fixtures to CSV (#601)
 - Use typed properties instead of `@var` annotations (#599)
 - Return `ResponseInterface` in controller actions (#597)
