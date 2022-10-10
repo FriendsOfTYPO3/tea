@@ -23,8 +23,13 @@ class TeaRepositoryTest extends UnitTestCase
     {
         parent::setUp();
 
-        $objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
-        $this->subject = new TeaRepository($objectManager);
+        if (\interface_exists(ObjectManagerInterface::class)) {
+            $objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
+            $this->subject = new TeaRepository($objectManager);
+        } else {
+            // @phpstan-ignore-next-line This line is valid in TYPO3 12LTS, but PHPStan uses 11LTS.
+            $this->subject = new TeaRepository();
+        }
     }
 
     /**
