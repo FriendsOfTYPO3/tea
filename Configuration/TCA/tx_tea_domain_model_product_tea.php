@@ -1,6 +1,6 @@
 <?php
 
-return [
+$tca = [
     'ctrl' => [
         'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea',
         'label' => 'title',
@@ -53,3 +53,40 @@ return [
         ],
     ],
 ];
+$typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
+if ($typo3Version->getMajorVersion() < 12) {
+    $tca = array_replace_recursive(
+        $tca,
+        [
+            'ctrl' => [
+                'cruser_id' => 'cruser_id',
+            ],
+            'columns' => [
+                'title' => [
+                    'config' => [
+                        'eval' => 'trim,required',
+                    ],
+                ],
+            ],
+        ]
+    );
+    unset($tca['columns']['title']['required']);
+    $tca['columns']['image'] = [
+        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
+        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'image',
+            [
+                'maxitems' => 1,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'useSortable' => false,
+                    'enabledControls' => [
+                        'hide' => false,
+                    ],
+                ],
+            ]
+        ),
+    ];
+}
+
+return $tca;
