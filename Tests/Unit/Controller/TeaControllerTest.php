@@ -28,7 +28,7 @@ class TeaControllerTest extends UnitTestCase
     /**
      * @var TeaController&MockObject&AccessibleObjectInterface
      */
-    private $subject;
+    private TeaController $subject;
 
     /**
      * @var ObjectProphecy<TemplateView>
