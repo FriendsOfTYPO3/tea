@@ -15,6 +15,7 @@ updates:
     allow:
       - dependency-type: "development"
     ignore:
+      - dependency-name: "doctrine/dbal"
       - dependency-name: "phpunit/phpunit"
         versions: [ "^10.0" ]
       - dependency-name: "symfony/yaml"
