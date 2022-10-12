@@ -1,12 +1,11 @@
 <?php
 
-return [
+$tca = [
     'ctrl' => [
         'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'delete' => 'deleted',
         'default_sortby' => 'title',
         'iconfile' => 'EXT:tea/Resources/Public/Icons/Record.svg',
@@ -22,7 +21,8 @@ return [
                 'type' => 'input',
                 'size' => 40,
                 'max' => 255,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
+                'required' => true,
             ],
         ],
         'description' => [
@@ -38,19 +38,55 @@ return [
         ],
         'image' => [
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'image',
-                [
-                    'maxitems' => 1,
-                    'appearance' => [
-                        'collapseAll' => true,
-                        'useSortable' => false,
-                        'enabledControls' => [
-                            'hide' => false,
-                        ],
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 1,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'useSortable' => false,
+                    'enabledControls' => [
+                        'hide' => false,
                     ],
-                ]
-            ),
+                ],
+                'allowed' => 'common-image-types',
+            ],
         ],
     ],
 ];
+$typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
+if ($typo3Version->getMajorVersion() < 12) {
+    $tca = array_replace_recursive(
+        $tca,
+        [
+            'ctrl' => [
+                'cruser_id' => 'cruser_id',
+            ],
+            'columns' => [
+                'title' => [
+                    'config' => [
+                        'eval' => 'trim,required',
+                    ],
+                ],
+            ],
+        ]
+    );
+    unset($tca['columns']['title']['required']);
+    $tca['columns']['image'] = [
+        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
+        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'image',
+            [
+                'maxitems' => 1,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'useSortable' => false,
+                    'enabledControls' => [
+                        'hide' => false,
+                    ],
+                ],
+            ]
+        ),
+    ];
+}
+
+return $tca;
