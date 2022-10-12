@@ -17,7 +17,7 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class TeaRepositoryTest extends FunctionalTestCase
 {
-    protected $testExtensionsToLoad = ['typo3conf/ext/tea'];
+    protected array $testExtensionsToLoad = ['typo3conf/ext/tea'];
 
     private TeaRepository $subject;
 

@@ -54,7 +54,7 @@
 		"symfony/yaml": "^5.4 || ^6.1",
 		"typo3/cms-fluid-styled-content": "^11.5.2",
 		"typo3/coding-standards": "^0.5.5",
-		"typo3/testing-framework": "^6.16.6"
+		"typo3/testing-framework": "^7.0@dev"
 	},
 	"replace": {
 		"typo3-ter/tea": "self.version"
