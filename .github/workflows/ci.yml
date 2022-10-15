@@ -72,7 +72,7 @@ jobs:
           - "ts:lint"
           - "yaml:lint"
         php-version:
-          - "7.4"
+          - "8.1"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-22.04
