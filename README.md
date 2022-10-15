@@ -1,7 +1,7 @@
 # Example TYPO3 extension for code quality checks and automated tests
 
 [![TYPO3 V11](https://img.shields.io/badge/TYPO3-11-orange.svg)](https://get.typo3.org/version/11)
-[![License](https://poser.pugx.org/ttn/tea/license.svg)](https://packagist.org/packages/ttn/tea)
+[![License](https://img.shields.io/github/license/TYPO3-Documentation/tea)](https://packagist.org/packages/ttn/tea)
 [![Total downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
 [![GitHub CI status](https://github.com/TYPO3-Documentation/tea/workflows/CI/badge.svg?branch=main)](https://github.com/TYPO3-Documentation/tea/actions)
 [![GitLab CI status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
