@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Removed
 
 ### Fixed
+- Avoid race condition on case-insensitive filesystems (#657)
 
 ## 3.0.0
 
