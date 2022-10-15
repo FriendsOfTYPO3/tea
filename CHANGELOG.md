@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add `.gitignore` entry for JetBrains Fleet editor (#642)
 
 ### Changed
 - Upgrade to the testing framework v7 (#629)
