@@ -232,7 +232,7 @@ settings so this configuration can serve as a template:
 
 -  Directory: use the `Tests/Unit` directory in your project.
 -  (*) Use alternative configuration file.
--  Use `.Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml`
+-  Use `.Build/public/typo3conf/tea/Build/phpunit/UnitTests.xml`
    in your project folder.
 -  Add the following environment variables:
 
@@ -258,4 +258,4 @@ settings:
 -  Directory: use the `Tests/Functional` directory in your project.
 -  (*) Use alternative configuration file.
 -  Use
-   `.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml`.
+   `.Build/public/typo3conf/tea/Build/phpunit/FunctionalTests.xml`.
