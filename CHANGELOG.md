@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add support for TYPO3 12LTS (#637)
 
 ### Changed
 - Upgrade to the testing framework v7 (#629)
