@@ -127,7 +127,7 @@
 		],
 		"ci:coverage:merge": [
 			"@coverage:create-directories",
-			"@php tools/phpcov merge --clover=./build/logs/clover.xml ./.Build/coverage/"
+			"@php tools/phpcov merge --clover=./.Build/logs/clover.xml ./.Build/coverage/"
 		],
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
@@ -168,7 +168,7 @@
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -regextype egrep -regex '.*.ya?ml$' | xargs -r php ./.Build/vendor/bin/yaml-lint",
-		"coverage:create-directories": "mkdir -p build/logs .Build/coverage",
+		"coverage:create-directories": "mkdir -p .Build/logs .Build/coverage",
 		"docs:generate": [
 			"docker run --rm t3docs/render-documentation show-shell-commands > tempfile.sh; echo 'dockrun_t3rd makehtml' >> tempfile.sh; bash tempfile.sh; rm tempfile.sh"
 		],

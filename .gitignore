@@ -4,7 +4,6 @@
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /Documentation-GENERATED-temp/
-/build
 /clover.xml
 /composer.lock
 /nbproject
