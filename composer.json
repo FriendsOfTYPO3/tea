@@ -105,7 +105,7 @@
 		"ci": [
 			"@ci:static"
 		],
-		"ci:composer:normalize": "@composer normalize --dry-run",
+		"ci:composer:normalize": "@composer normalize --no-check-lock --dry-run",
 		"ci:coverage": [
 			"@ci:coverage:unit",
 			"@ci:coverage:functional"
