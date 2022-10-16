@@ -6,9 +6,13 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add `Build/Scripts/runTests.sh` (#634)
 - Add support for TYPO3 v12 (#637)
 
 ### Changed
+- Migrated GitHub Action workflows to use `Build/Scripts/runTests.sh` (#634)
+- Changed forks for 3rd party dev dependencies to allow installation with core v12 (#634)
+- Raised v11 core version to min 11.5.4 to solve issues during min version tests (#634)
 - Upgrade to the testing framework v7 (#629)
 - Make the TCA ready for TYPO3 v12 (#625)
 - Upgrade to PHPUnit 9 and PHPCOV 8 (#610)
