@@ -25,9 +25,9 @@ class TeaRepositoryTest extends UnitTestCase
 
         if (\interface_exists(ObjectManagerInterface::class)) {
             $objectManager = $this->prophesize(ObjectManagerInterface::class)->reveal();
+            // @phpstan-ignore-next-line This line is 11LTS-specific, but we're running PHPStan on TYPO3 12.
             $this->subject = new TeaRepository($objectManager);
         } else {
-            // @phpstan-ignore-next-line This line is valid in TYPO3 12LTS, but PHPStan uses 11LTS.
             $this->subject = new TeaRepository();
         }
     }
