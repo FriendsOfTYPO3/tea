@@ -367,7 +367,8 @@ services:
           set -x
         fi
         php -v | grep '^PHP';
-        php -dxdebug.mode=off .Build/vendor/bin/php-coveralls --coverage_clover=./.Build/logs/clover.xml --json_path=./.Build/logs/coveralls-upload.json -v
+        XDEBUG_MODE=\"coverage\" \
+        php -dxdebug.mode=off ./.Build/vendor/bin/php-coveralls --coverage_clover=./.Build/logs/clover.xml --json_path=./.Build/logs/coveralls-upload.json -v
       "
 
   phpstan:

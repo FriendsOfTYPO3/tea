@@ -16,16 +16,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "${{ matrix.php-version }}"
-          coverage: none
-          tools: composer:v2.4
+      - name: "Set composer token"
+        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ github.token }}'"
       - name: "Show the Composer configuration"
-        run: "composer config --global --list"
+        run: "Build/Scripts/runTests.sh -t 11 -p ${{ matrix.php-version }} -s composer -e 'config --global --list'"
       - name: "Run PHP lint"
-        run: "composer ci:php:lint"
+        run: "Build/Scripts/runTests.sh -t 11 -p ${{ matrix.php-version }} -s composer -e 'ci:php:lint'"
     strategy:
       fail-fast: false
       matrix:
@@ -39,16 +35,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "${{ matrix.php-version }}"
-          coverage: none
-          tools: composer:v2.4
+      - name: "Set composer token"
+        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ github.token }}'"
       - name: "Show Composer version"
-        run: "composer --version"
+        run: "Build/Scripts/runTests.sh -t 11 -p ${{ matrix.php-version }} -s composer -e '--version'"
       - name: "Show the Composer configuration"
-        run: "composer config --global --list"
+        run: "Build/Scripts/runTests.sh -t 11 -p ${{ matrix.php-version }} -s composer -e 'config --global --list'"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
@@ -56,14 +48,18 @@ jobs:
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       - name: "Install Composer dependencies"
-        run: "composer install --no-progress"
+        run: "Build/Scripts/runTests.sh -t 11 -p ${{ matrix.php-version }} -s composerInstall"
       - name: "Run command"
-        run: "composer ci:${{ matrix.command }}"
+        run: "Build/Scripts/runTests.sh -t 11 -p ${{ matrix.php-version }} -s composer -e 'ci:${{ matrix.command }}'"
     strategy:
       fail-fast: false
       matrix:
         command:
-          - "composer:normalize"
+          # @todo disabled composer:normalize temporarly, as this does not work out due composer.json <-> lock
+          #       discrepancy with keep json file unchanged logic of runTests.sh. Does this tests make sense for
+          #       extension/package development as this does not have fixed composer.lock files, thus always having
+          #       valid composer.json <-> lock if not proceeded like runTests.sh ?
+          # - "composer:normalize"
           - "json:lint"
           - "php:copypaste"
           - "php:cs-fixer"
@@ -76,6 +72,8 @@ jobs:
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-22.04
+    env:
+      GITHUB_COMPOSER_TOKEN: ${{ github.token }}
     strategy:
       fail-fast: false
       matrix:
@@ -104,135 +102,128 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "${{ matrix.php-version }}"
-          coverage: none
-          tools: composer:v2.4
+      - name: "Set composer token"
+        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ github.token }}'"
       - name: "Show Composer version"
-        run: "composer --version"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e '--version'"
       - name: "Show the Composer configuration"
-        run: "composer config --global --list"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'config --global --list'"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
           key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
-      - name: "Install TYPO3 Core"
-        env:
-          TYPO3: "${{ matrix.typo3-version }}"
-        run: |
-          composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"$TYPO3"
-          composer show
       - name: "Install lowest dependencies with composer"
         if: "matrix.composer-dependencies == 'lowest'"
-        run: |
-          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
-          composer show
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composerInstallLowest"
       - name: "Install highest dependencies with composer"
         if: "matrix.composer-dependencies == 'highest'"
-        run: |
-          composer update --no-ansi --no-interaction --no-progress --with-dependencies
-          composer show
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composerInstallHighest"
       - name: "Run unit tests"
-        run: "composer ci:tests:unit"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s unit"
     strategy:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "7.4"
             composer-dependencies: lowest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "8.0"
             composer-dependencies: lowest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "8.0"
             composer-dependencies: highest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "8.1"
             composer-dependencies: lowest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
+            php-version: "8.1"
+            composer-dependencies: highest
+          - typo3-version: "12"
+            php-version: "8.1"
+            composer-dependencies: lowest
+          - typo3-version: "12"
             php-version: "8.1"
             composer-dependencies: highest
   functional-tests:
     name: "Functional tests"
     runs-on: ubuntu-22.04
     needs: php-lint
-    env:
-      DB_DATABASE: typo3
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_HOST: localhost
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "${{ matrix.php-version }}"
-          tools: composer:v2.4
-          extensions: mysqli
-          coverage: none
+      - name: "Set composer token"
+        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ github.token }}'"
       - name: "Show Composer version"
-        run: "composer --version"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e '--version'"
       - name: "Show the Composer configuration"
-        run: "composer config --global --list"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'config --global --list'"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
           key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
-      - name: "Install TYPO3 Core"
-        env:
-          TYPO3: "${{ matrix.typo3-version }}"
-        run: |
-          composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"$TYPO3"
-          composer show
+      - name: "Set composer token"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}'"
       - name: "Install lowest dependencies with composer"
         if: "matrix.composer-dependencies == 'lowest'"
-        run: |
-          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
-          composer show
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composerInstallLowest"
       - name: "Install highest dependencies with composer"
         if: "matrix.composer-dependencies == 'highest'"
-        run: |
-          composer update --no-ansi --no-interaction --no-progress --with-dependencies
-          composer show
-      - name: "Start MySQL"
-        run: "sudo /etc/init.d/mysql start"
-      - name: "Run functional tests"
-        run: |
-          export typo3DatabaseName="$DB_DATABASE";
-          export typo3DatabaseHost="$DB_HOST";
-          export typo3DatabaseUsername="$DB_USER";
-          export typo3DatabasePassword="$DB_PASSWORD";
-          composer ci:tests:functional
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composerInstallHighest"
+      - name: "Run functional tests (sqlite)"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d sqlite"
+      - name: "Run functional tests (MySQL 5.5 mysqli)"
+        if: "matrix.typo3-version == '11'"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mysql -a mysqli -j 5.5"
+      # TYPO3v12 has min requirement MySQL 8.0, so use this for minimum test compared to TYPO3v11 testing (MySQL 5.5) with mysqli
+      - name: "Run functional tests (MySQL 8.0 mysqli)"
+        if: "matrix.typo3-version == '12'"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mysql -a mysqli -j 5.5"
+      - name: "Run functional tests (MySQL 8.0 pdo_mysql)"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mysql -a pdo_mysql -j 8.0"
+      - name: "Run functional tests (MariaDB 10.2 mysqli)"
+        if: "matrix.typo3-version == '11'"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mariadb -a mysqli -i 10.2"
+      # TYPO3v12 has min requirement MariaDB 10.3, so use this for minimum test compared to TYPO3v11 testing (MariaDB 10.2)
+      - name: "Run functional tests (MariaDB 10.3 mysqli)"
+        if: "matrix.typo3-version == '12'"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mariadb -a mysqli -i 10.3"
+      - name: "Run functional tests (MariaDB 10.7 pdo_mysql)"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mariadb -a pdo_mysql -i 10.7"
+      - name: "Run functional tests (PostgresSQL 10)"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d postgres -k 10"
     strategy:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "7.4"
             composer-dependencies: lowest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "7.4"
             composer-dependencies: highest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "8.0"
             composer-dependencies: lowest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "8.0"
             composer-dependencies: highest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "8.1"
             composer-dependencies: lowest
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
+            php-version: "8.1"
+            composer-dependencies: highest
+          - typo3-version: "12"
+            php-version: "8.1"
+            composer-dependencies: lowest
+          - typo3-version: "12"
             php-version: "8.1"
             composer-dependencies: highest

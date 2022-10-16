@@ -34,12 +34,6 @@ setUpDockerComposeDotEnv() {
         echo "MYSQL_VERSION=${MYSQL_VERSION}"
         echo "POSTGRES_VERSION=${POSTGRES_VERSION}"
         echo "USED_XDEBUG_MODES=${USED_XDEBUG_MODES}"
-        # needed for coveralls upload
-        echo "COVERALLS_REPO_TOKEN='${COVERALLS_REPO_TOKEN}'"
-        echo "GITHUB_REF='${GITHUB_REF}'"
-        echo "GITHUB_ACTIONS='${GITHUB_ACTIONS}'"
-        echo "GITHUB_RUN_ID='${GITHUB_RUN_ID}'"
-        echo "GITHUB_EVENT_NAME='${GITHUB_EVENT_NAME}'"
     } > .env
 }
 
