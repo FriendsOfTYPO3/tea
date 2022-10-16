@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- Upgrade to `helmich/typo3-typoscript-lint` V3 (#645)
 - Upgrade to the testing framework v7 (#629)
 - Make the TCA ready for TYPO3 v12 (#625)
 - Upgrade to PHPUnit 9 and PHPCOV 8 (#610)
