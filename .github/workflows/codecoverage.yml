@@ -18,9 +18,10 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: xdebug, mysqli
+          tools: composer:v2.4
           coverage: xdebug
       - name: "Set composer token"
-        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ github.token }}'"
+        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}'"
       - name: "Show Composer version"
         run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e '--version'"
       - name: "Show the Composer configuration"
@@ -44,11 +45,12 @@ jobs:
       - name: "Run functional tests with coverage"
         run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mysql -a mysqli -j 8.0 -x -z 'coverage' -e '--whitelist Classes --coverage-php=.Build/coverage/functional.cov'"
       - name: "Merge coverage results"
-        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'ci:coverage:merge'"
+        #run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'ci:coverage:merge'"
+        run: composer ci:coverage:merge
       - name: "Upload coverage results to Coveralls"
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./.Build/vendor/bin/php-coveralls --coverage_clover=./.Build/logs/clover.xml --json_path=./.Build/logs/coveralls-upload.json -v
+        run: ./.Build/vendor/bin/php-coveralls --coverage_clover=.Build/logs/clover.xml --json_path=.Build/logs/coveralls-upload.json -v
     strategy:
       fail-fast: false
       matrix:
