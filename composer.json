@@ -29,16 +29,16 @@
 	"require": {
 		"php": "~7.4.0 || ~8.0.0 || ~8.1.0",
 		"psr/http-message": "^1.0.1",
-		"typo3/cms-core": "^11.5.2 || ^12.0",
-		"typo3/cms-extbase": "^11.5.2 || ^12.0",
-		"typo3/cms-fluid": "^11.5.2 || ^12.0",
-		"typo3/cms-frontend": "^11.5.2 || ^12.0"
+		"typo3/cms-core": "^11.5.4 || ^12.0",
+		"typo3/cms-extbase": "^11.5.4 || ^12.0",
+		"typo3/cms-fluid": "^11.5.4 || ^12.0",
+		"typo3/cms-frontend": "^11.5.4 || ^12.0"
 	},
 	"require-dev": {
 		"doctrine/dbal": "^2.13.8 || ^3.3.7",
 		"ergebnis/composer-normalize": "^2.28.3",
 		"friendsofphp/php-cs-fixer": "^3.12.0",
-		"helmich/typo3-typoscript-lint": "^2.5.2",
+		"helmich/typo3-typoscript-lint": "lwolf-php81-support-dev",
 		"jangregor/phpstan-prophecy": "^1.0.0",
 		"php-coveralls/php-coveralls": "^2.5.3",
 		"phpspec/prophecy": "^1.15.0",
@@ -48,12 +48,12 @@
 		"phpstan/phpstan-phpunit": "^1.1.1",
 		"phpstan/phpstan-strict-rules": "^1.4.4",
 		"phpunit/phpunit": "^9.5.25",
-		"saschaegerer/phpstan-typo3": "^1.1.2",
+		"saschaegerer/phpstan-typo3": "12.0.x-dev",
 		"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": "^0.0.1",
 		"seld/jsonlint": "^1.9.0",
 		"squizlabs/php_codesniffer": "^3.7.1",
 		"symfony/yaml": "^5.4 || ^6.1",
-		"typo3/cms-fluid-styled-content": "^11.5.2 || ^12.0",
+		"typo3/cms-fluid-styled-content": "^11.5.4 || ^12.0",
 		"typo3/coding-standards": "^0.5.5",
 		"typo3/testing-framework": "^7.0@dev"
 	},
@@ -63,6 +63,17 @@
 	"conflict": {
 		"typo3/class-alias-loader": "< 1.1.0"
 	},
+	"repositories": {
+		"1_phpstan-typo3_fork": {
+			"type": "vcs",
+			"url": "https://github.com/linawolf/phpstan-typo3.git"
+		},
+		"2_typo3-typoscript-lint_fork": {
+			"type": "vcs",
+			"url": "https://github.com/linawolf/typo3-typoscript-lint.git"
+		}
+	},
+	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
@@ -112,15 +123,15 @@
 		],
 		"ci:coverage:functional": [
 			"@coverage:create-directories",
-			".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
+			".Build/vendor/bin/phpunit -c .Build/public/typo3conf/ext/tea/Build/phpunit/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
 		],
 		"ci:coverage:merge": [
 			"@coverage:create-directories",
-			"@php tools/phpcov merge --clover=./build/logs/clover.xml ./.Build/coverage/"
+			"@php tools/phpcov merge --clover=./.Build/logs/clover.xml ./.Build/coverage/"
 		],
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
-			".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
+			".Build/vendor/bin/phpunit -c .Build/public/typo3conf/ext/tea/Build/phpunit/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
 		],
 		"ci:dynamic": [
 			"@ci:tests"
@@ -153,11 +164,11 @@
 			"@ci:tests:unit",
 			"@ci:tests:functional"
 		],
-		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml {}';",
-		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit",
+		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/public/typo3conf/ext/tea/Build/phpunit/FunctionalTests.xml {}';",
+		"ci:tests:unit": ".Build/vendor/bin/phpunit -c .Build/public/typo3conf/ext/tea/Build/phpunit/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -regextype egrep -regex '.*.ya?ml$' | xargs -r php ./.Build/vendor/bin/yaml-lint",
-		"coverage:create-directories": "mkdir -p build/logs .Build/coverage",
+		"coverage:create-directories": "mkdir -p .Build/logs .Build/coverage",
 		"docs:generate": [
 			"docker run --rm t3docs/render-documentation show-shell-commands > tempfile.sh; echo 'dockrun_t3rd makehtml' >> tempfile.sh; bash tempfile.sh; rm tempfile.sh"
 		],

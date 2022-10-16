@@ -1,10 +1,13 @@
 /*.idea
+/.fleet
 /.Build/*
+/.cache/*
 /.php-cs-fixer.cache
 /.phpunit.result.cache
+/Build/testing-docker/.env
 /Documentation-GENERATED-temp/
-/build
 /clover.xml
+/composer.json.*
 /composer.lock
 /nbproject
 /node_modules/

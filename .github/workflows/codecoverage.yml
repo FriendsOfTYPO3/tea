@@ -10,11 +10,6 @@ jobs:
   code-coverage:
     name: "Calculate code coverage"
     runs-on: ubuntu-22.04
-    env:
-      DB_DATABASE: typo3
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_HOST: localhost
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -22,54 +17,44 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
-          tools: composer:v2.4
           extensions: xdebug, mysqli
+          tools: composer:v2.4
           coverage: xdebug
+      - name: "Set composer token"
+        run: "Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer -e 'config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}'"
       - name: "Show Composer version"
-        run: composer --version
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e '--version'"
+      - name: "Show the Composer configuration"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'config --global --list'"
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v3
         with:
           key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
-      - name: "Install TYPO3 Core"
-        env:
-          TYPO3: "${{ matrix.typo3-version }}"
-        run: |
-          composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"$TYPO3"
-          composer show
       - name: "Install lowest dependencies with composer"
         if: "matrix.composer-dependencies == 'lowest'"
-        run: |
-          composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
-          composer show
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composerInstallLowest"
       - name: "Install highest dependencies with composer"
         if: "matrix.composer-dependencies == 'highest'"
-        run: |
-          composer update --no-ansi --no-interaction --no-progress --with-dependencies
-          composer show
-      - name: "Start MySQL"
-        run: "sudo /etc/init.d/mysql start"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composerInstallHighest"
+      - name: "Create coverage directory structure"
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'coverage:create-directories'"
       - name: "Run unit tests with coverage"
-        run: composer ci:coverage:unit
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s unit -x -z 'coverage' -e '--whitelist Classes --coverage-php=.Build/coverage/unit.cov'"
       - name: "Run functional tests with coverage"
-        run: |
-          export typo3DatabaseName="$DB_DATABASE";
-          export typo3DatabaseHost="$DB_HOST";
-          export typo3DatabaseUsername="$DB_USER";
-          export typo3DatabasePassword="$DB_PASSWORD";
-          composer ci:coverage:functional
+        run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s functional -d mysql -a mysqli -j 8.0 -x -z 'coverage' -e '--whitelist Classes --coverage-php=.Build/coverage/functional.cov'"
       - name: "Merge coverage results"
+        #run: "Build/Scripts/runTests.sh -t ${{ matrix.typo3-version }} -p ${{ matrix.php-version }} -s composer -e 'ci:coverage:merge'"
         run: composer ci:coverage:merge
       - name: "Upload coverage results to Coveralls"
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./.Build/vendor/bin/php-coveralls --coverage_clover=build/logs/clover.xml -v
+        run: ./.Build/vendor/bin/php-coveralls --coverage_clover=.Build/logs/clover.xml --json_path=.Build/logs/coveralls-upload.json -v
     strategy:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: "^11.5"
+          - typo3-version: "11"
             php-version: "7.4"
             composer-dependencies: highest
