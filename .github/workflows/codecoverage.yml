@@ -22,9 +22,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
-          tools: composer:v2.4
-          extensions: xdebug, mysqli
-          coverage: xdebug
+          tools: composer:v2, phive
+          extensions: mysqli
+          coverage: pcov
+          ini-values: pcov.directory=Classes
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
