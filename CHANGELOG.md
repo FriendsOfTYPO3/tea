@@ -27,6 +27,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop support for PHP 7.2 and 7.3 (#581)
 
 ### Fixed
+- Stop injecting QuerySettings (#650)
 - Do not check `composer.lock` during `composer normalize` (#641)
 - Require TYPO3 >= 11.5.4 (#643)
 - Stop relying on transitive dependencies for `psr/http-message` (#613)
