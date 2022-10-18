@@ -6,9 +6,13 @@ on:
     branches:
       - main
   pull_request:
+permissions:
+  contents: read
 jobs:
   code-coverage:
     name: "Calculate code coverage"
+    permissions:
+      actions: write
     runs-on: ubuntu-22.04
     env:
       DB_DATABASE: typo3
