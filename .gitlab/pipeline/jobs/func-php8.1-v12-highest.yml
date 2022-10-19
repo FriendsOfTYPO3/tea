@@ -1,0 +1,13 @@
+func-php8.1-v11-highest:
+  extends: .default
+  image: php:8.1
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php8.1
+  script:
+    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^12.0"
+    - composer update --no-ansi --no-interaction --no-progress --with-dependencies
+    - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional
