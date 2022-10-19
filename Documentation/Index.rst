@@ -43,6 +43,7 @@ continuous integration.
    :titlesonly:
 
    Introduction
+   PHPVersionSupport
    TestingFramework
    Environment
    DependencyManager
