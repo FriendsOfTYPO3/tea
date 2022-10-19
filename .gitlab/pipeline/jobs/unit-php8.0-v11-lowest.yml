@@ -1,0 +1,11 @@
+unit-php8.0-v11-lowest:
+  extends: .default
+  image: php:8.0
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php8.0
+  script:
+    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^11.5"
+    - composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
+    - composer ci:tests:unit
