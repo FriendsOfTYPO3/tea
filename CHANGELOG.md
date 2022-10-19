@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## 3.0.0
+
+### Added
 - Harden the GitHub Actions workflows (#649)
 - Add support for TYPO3 12 (#615, #652, #653)
 - Add `.gitignore` entry for JetBrains Fleet editor (#642)
@@ -20,8 +32,6 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Use typed properties instead of `@var` annotations (#599, #612, #628)
 - Return `ResponseInterface` in controller actions (#597)
 - Replace switchable controller actions with separate plugins (#575)
-
-### Deprecated
 
 ### Removed
 - Drop support for Symfony 4.4 (#622)
