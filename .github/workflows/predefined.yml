@@ -8,6 +8,8 @@
 name: CI with predefined GitHub actions
 on:
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   php-lint:
     name: "PHP linter"

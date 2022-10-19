@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Harden the GitHub Actions workflows (#649)
 - Add support for TYPO3 12 (#652)
 - Add `.gitignore` entry for JetBrains Fleet editor (#642)
 
