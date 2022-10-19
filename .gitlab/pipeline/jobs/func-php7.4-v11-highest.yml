@@ -1,0 +1,13 @@
+func-php7.4-v11-highest:
+  extends: .default
+  image: php:7.4
+  services:
+    - mariadb:10
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php7.4
+  script:
+    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^11.5"
+    - composer update --no-ansi --no-interaction --no-progress --with-dependencies
+    - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional
