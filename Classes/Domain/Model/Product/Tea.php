@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TTN\Tea\Domain\Model\Product;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
@@ -30,6 +31,9 @@ class Tea extends AbstractEntity
         return $this->title;
     }
 
+    /**
+     * @Validate("StringLength", options={"maximum": 255})
+     */
     public function setTitle(string $title): void
     {
         $this->title = $title;
@@ -40,6 +44,9 @@ class Tea extends AbstractEntity
         return $this->description;
     }
 
+    /**
+     * @Validate("StringLength", options={"maximum": 2000})
+     */
     public function setDescription(string $description): void
     {
         $this->description = $description;

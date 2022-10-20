@@ -101,4 +101,24 @@ class TeaControllerTest extends UnitTestCase
             $this->subject->showAction($tea)
         );
     }
+
+
+    /**
+     * @test
+     */
+    public function showActionWithOverlongTeaTitleCallsErrorAction(): void
+    {
+        $tea = new Tea();
+        $stringLength256 = 'Lorem ipsum dolor sit amet, consetetur sadipscing '
+            .'elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore'
+            .' magna aliquyam erat, sed diam voluptua. At vero eos et accusam'
+            .' et justo duo dolores et ea rebum. Stet clita kasd gubergren, '
+            .'no sea takimata xxx';
+        $tea->setTitle($stringLength256);
+
+        self::assertEquals(
+            400,
+            $this->subject->showAction($tea)->getStatusCode(),
+        );
+    }
 }
