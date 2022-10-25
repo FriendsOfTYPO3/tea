@@ -70,7 +70,7 @@ jobs:
           - "php:copypaste"
           - "php:cs-fixer"
           - "php:sniff"
-          - "php:stan"
+          - "php:stan:github"
           - "ts:lint"
           - "yaml:lint"
         php-version:
