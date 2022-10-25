@@ -142,6 +142,7 @@
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
+		"ci:php:stan:github": "phpstan --no-progress --error-format=github",
 		"ci:static": [
 			"@ci:composer:normalize",
 			"@ci:json:lint",
@@ -215,6 +216,7 @@
 		"ci:php:lint": "Lints the PHP files for syntax errors.",
 		"ci:php:sniff": "Checks the code style with PHP_CodeSniffer (PHPCS).",
 		"ci:php:stan": "Checks the PHP types using PHPStan.",
+		"ci:php:stan:github": "Checks the PHP types using PHPStan and output errors with GitHub format.",
 		"ci:static": "Runs all static code checks (syntax, style, types).",
 		"ci:tests:create-directories": "Creates the directories required to smoothely run the functional tests.",
 		"ci:tests:functional": "Runs the functional tests.",
