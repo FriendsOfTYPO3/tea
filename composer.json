@@ -47,7 +47,7 @@
 		"phpstan/phpstan": "^1.8.11",
 		"phpstan/phpstan-phpunit": "^1.2.1",
 		"phpstan/phpstan-strict-rules": "^1.4.4",
-		"phpunit/phpunit": "^9.5.25",
+		"phpunit/phpunit": "^9.5.26",
 		"saschaegerer/phpstan-typo3": "^1.8.1",
 		"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": "^0.0.1",
 		"seld/jsonlint": "^1.9.0",
