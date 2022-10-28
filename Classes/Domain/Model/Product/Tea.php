@@ -14,7 +14,7 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
  */
 class Tea extends AbstractEntity
 {
-    protected string $title = '';
+    protected string $title = 12;
 
     protected string $description = '';
 
