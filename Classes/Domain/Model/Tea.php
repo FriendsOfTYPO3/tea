@@ -18,7 +18,7 @@ class Tea extends AbstractEntity
      * @Extbase\Validate("StringLength", options={"maximum": 255})
      * @Extbase\Validate("NotEmpty")
      */
-    protected string $title = '';
+    protected string $title = 12;
 
     /**
      * @Extbase\Validate("StringLength", options={"maximum": 2000})
