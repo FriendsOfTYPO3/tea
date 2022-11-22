@@ -1,13 +1,4 @@
 plugin.tx_tea {
-  view {
-    # cat=plugin.tx_tea/file; type=string; label=Path to template root (FE)
-    templateRootPaths = EXT:tea/Resources/Private/Templates/
-    # cat=plugin.tx_tea/file; type=string; label=Path to template partials (FE)
-    partialRootPaths = EXT:tea/Resources/Private/Partials/
-    # cat=plugin.tx_tea/file; type=string; label=Path to template layouts (FE)
-    layoutRootPaths = EXT:tea/Resources/Private/Layouts/
-  }
-
   persistence {
     # cat=plugin.tx_tea//a; type=string; label=Default storage PID
     storagePid =
