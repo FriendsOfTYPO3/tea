@@ -2,17 +2,14 @@ plugin.tx_tea {
   view {
     templateRootPaths {
       0 = EXT:tea/Resources/Private/Templates/
-      10 = {$plugin.tx_tea.view.templateRootPath}
     }
 
     partialRootPaths {
       0 = EXT:tea/Resources/Private/Partials/
-      10 = {$plugin.tx_tea.view.partialRootPath}
     }
 
     layoutRootPaths {
       0 = EXT:tea/Resources/Private/Layouts/
-      10 = {$plugin.tx_tea.view.layoutRootPath}
     }
   }
 
