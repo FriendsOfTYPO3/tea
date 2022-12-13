@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- Set the minimal 12LTS version to 12.1 (#702)
 
 ### Deprecated
 
