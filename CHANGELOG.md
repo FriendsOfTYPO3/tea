@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Stop using Prophecy (#676)
 
 ### Fixed
+- Get the functional tests to work with TYPO3 >= 12.1 (#704)
 - Avoid race condition on case-insensitive filesystems (#657)
 
 ## 3.0.0
