@@ -162,10 +162,10 @@ jobs:
           - typo3-version: "^11.5"
             php-version: "8.1"
             composer-dependencies: highest
-          - typo3-version: "^12.0"
+          - typo3-version: "^12.1"
             php-version: "8.1"
             composer-dependencies: lowest
-          - typo3-version: "^12.0"
+          - typo3-version: "^12.1"
             php-version: "8.1"
             composer-dependencies: highest
   functional-tests:
@@ -244,9 +244,9 @@ jobs:
           - typo3-version: "^11.5"
             php-version: "8.1"
             composer-dependencies: highest
-          - typo3-version: "^12.0"
+          - typo3-version: "^12.1"
             php-version: "8.1"
             composer-dependencies: lowest
-          - typo3-version: "^12.0"
+          - typo3-version: "^12.1"
             php-version: "8.1"
             composer-dependencies: highest
