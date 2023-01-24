@@ -11,4 +11,3 @@ php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/u
 chmod +x /usr/local/bin/composer
 
 docker-php-ext-install pdo_mysql zip mysqli intl
-docker-php-ext-configure intl
