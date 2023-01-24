@@ -14,7 +14,7 @@ $tca = [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ]
+        ],
     ],
     'types' => [
         '1' => ['showitem' => 'title, description, image'],
@@ -30,10 +30,10 @@ $tca = [
                     [
                         0 => '',
                         1 => '',
-                        'invertStateDisplay' => true
-                    ]
+                        'invertStateDisplay' => true,
+                    ],
                 ],
-            ]
+            ],
         ],
         'starttime' => [
             'exclude' => true,
