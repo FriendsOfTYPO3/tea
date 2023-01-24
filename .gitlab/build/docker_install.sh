@@ -10,4 +10,4 @@ apt-get install git libzip-dev unzip parallel libxml2-utils wget wait-for-it -yq
 php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin/ --filename=composer
 chmod +x /usr/local/bin/composer
 
-docker-php-ext-install pdo_mysql zip mysqli
+docker-php-ext-install pdo_mysql zip mysqli intl
