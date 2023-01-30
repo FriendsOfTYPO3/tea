@@ -37,7 +37,7 @@
 	"require-dev": {
 		"doctrine/dbal": "^2.13.8 || ^3.3.7",
 		"ergebnis/composer-normalize": "^2.28.3",
-		"friendsofphp/php-cs-fixer": "^3.13.2",
+		"friendsofphp/php-cs-fixer": "^3.14.1",
 		"helmich/typo3-typoscript-lint": "^3.0.0",
 		"php-coveralls/php-coveralls": "^2.5.3",
 		"phpstan/extension-installer": "^1.2.0",
