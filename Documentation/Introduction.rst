@@ -24,6 +24,19 @@ continuous integration (CI).
    Use `EXT:extension_builder <https://extensions.typo3.org/extension/extension_builder>`__
    in order to kickstart a new extension.
 
+.. _why-is-this-extension-called-tea:
+
+Why is this extension called "tea"?
+===================================
+
+Good extension names cover the domain of their purpose.
+This extension is about managing teas. That's why the name "tea" is a good fit.
+
+We could also add `example_` to the name in order to state that this extension is an example.
+But that would already break with our goal to provide a best practice.
+
+This is not related to the `tea package manager <https://tea.xyz/>`__.
+
 .. _presentation-online-days-2021:
 
 Presentation at the TYPO3 Online Days 2021
