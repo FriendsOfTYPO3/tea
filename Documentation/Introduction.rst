@@ -17,7 +17,7 @@ continuous integration (CI).
 
 .. note::
 
-   This is not a kickstarter extension
+   This is not a kickstarter extension.
 
    This extension should not be used to kickstart other extensions.
    Instead, this extension should serve as an example for best practices.
