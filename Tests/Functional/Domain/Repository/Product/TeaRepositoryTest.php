@@ -29,11 +29,6 @@ class TeaRepositoryTest extends FunctionalTestCase
     {
         parent::setUp();
 
-        // This is needed to make the functional tests work with TYPO3 12.1. We might be able to remove this in the
-        // once we've updated to TYPO3 12.1.3 or 12.2.
-        $request = (new ServerRequest())->withAttribute('applicationType', SystemEnvironmentBuilder::REQUESTTYPE_CLI);
-        $GLOBALS['TYPO3_REQUEST'] = $request;
-
         $this->persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
 
         $this->subject = $this->getContainer()->get(TeaRepository::class);
