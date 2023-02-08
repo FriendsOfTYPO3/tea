@@ -32,7 +32,7 @@ Why is this extension called "tea"?
 Good extension names cover the domain of their purpose.
 This extension is about managing teas. That's why the name "tea" is a good fit.
 
-We could also add `example_` to the name in order to state that this extension is an example.
+We could also add `_example` to the name in order to state that this extension is an example.
 But that would already break with our goal to provide a best practice.
 
 This is not related to the `tea package manager <https://tea.xyz/>`__.
