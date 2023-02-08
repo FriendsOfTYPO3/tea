@@ -15,6 +15,15 @@ This TYPO3 extension, based on Extbase and Fluid, is an example of best
 practices in automated code checks, unit/functional/acceptance testing and
 continuous integration (CI).
 
+.. note::
+
+   This is not a kickstarter extension
+
+   This extension should not be used to kickstart other extensions.
+   Instead, this extension should serve as an example for best practices.
+   Use `EXT:extension_builder <https://extensions.typo3.org/extension/extension_builder>`__
+   in order to kickstart a new extension.
+
 .. _presentation-online-days-2021:
 
 Presentation at the TYPO3 Online Days 2021
