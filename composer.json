@@ -41,7 +41,7 @@
 		"helmich/typo3-typoscript-lint": "^3.0.0",
 		"php-coveralls/php-coveralls": "^2.5.3",
 		"phpstan/extension-installer": "^1.2.0",
-		"phpstan/phpstan": "^1.9.16",
+		"phpstan/phpstan": "^1.9.17",
 		"phpstan/phpstan-phpunit": "^1.3.3",
 		"phpstan/phpstan-strict-rules": "^1.4.5",
 		"phpunit/phpunit": "^9.6.3",
