@@ -130,6 +130,18 @@ if ($typo3Version->getMajorVersion() < 12) {
             ]
         ),
     ];
+    $tca['columns']['starttime']['config'] = [
+        'type' => 'input',
+        'renderType' => 'inputDateTime',
+        'eval' => 'datetime,int',
+        'default' => 0,
+    ];
+    $tca['columns']['endtime']['config'] = [
+        'type' => 'input',
+        'renderType' => 'inputDateTime',
+        'eval' => 'datetime,int',
+        'default' => 0,
+    ];
 }
 
 return $tca;
