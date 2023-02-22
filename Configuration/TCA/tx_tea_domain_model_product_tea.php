@@ -48,14 +48,13 @@ $tca = [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        '',
-                        0,
+                        '', 0,
                     ],
                 ],
-                'foreign_table' => 'tx_myextension_domain_model_something',
+                'foreign_table' => 'tx_tea_domain_model_product_tea',
                 'foreign_table_where' =>
-                    'AND {#tx_myextension_domain_model_something}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_myextension_domain_model_something}.{#sys_language_uid} IN (-1,0)',
+                    'AND {#tx_tea_domain_model_product_tea}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_tea_domain_model_product_tea}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
