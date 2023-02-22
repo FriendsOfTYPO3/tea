@@ -8,6 +8,6 @@ func-php8.1-v11-highest:
     - build-composer-dependencies
     - php-lint-php8.1
   script:
-    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^12.1"
+    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^12.2"
     - composer update --no-ansi --no-interaction --no-progress --with-dependencies
     - wait-for-it mariadb:3306 -t 60 --strict -- composer ci:tests:functional

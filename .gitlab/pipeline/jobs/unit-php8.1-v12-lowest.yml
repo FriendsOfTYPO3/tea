@@ -6,6 +6,6 @@ unit-php8.1-v12-lowest:
     - build-composer-dependencies
     - php-lint-php8.1
   script:
-    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^12.1"
+    - composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^12.2"
     - composer update --no-ansi --no-interaction --no-progress --with-dependencies --prefer-lowest
     - composer ci:tests:unit
