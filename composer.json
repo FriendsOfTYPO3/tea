@@ -48,7 +48,7 @@
 		"saschaegerer/phpstan-typo3": "^1.8.2",
 		"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": "^0.1.2",
 		"seld/jsonlint": "^1.9.0",
-		"squizlabs/php_codesniffer": "^3.7.1",
+		"squizlabs/php_codesniffer": "^3.7.2",
 		"symfony/yaml": "^5.4 || ^6.1",
 		"typo3/cms-fluid-styled-content": "^11.5.4 || ^12.2",
 		"typo3/coding-standards": "^0.6.1",
