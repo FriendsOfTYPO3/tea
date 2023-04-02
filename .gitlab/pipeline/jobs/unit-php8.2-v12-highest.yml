@@ -1,0 +1,10 @@
+unit-php8.2-v12-highest:
+  extends: .default
+  image: php:8.2
+  stage: test
+  needs:
+    - build-composer-dependencies
+    - php-lint-php8.2
+  script:
+    - composer require --no-progress typo3/cms-core:"^12.3"
+    - composer ci:tests:unit
