@@ -17,7 +17,7 @@ $tca = [
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'title, description, image'],
+        '1' => ['showitem' => 'hidden, starttime, endtime, title, description, image'],
     ],
     'columns' => [
         'hidden' => [
@@ -28,8 +28,7 @@ $tca = [
                 'renderType' => 'checkboxToggle',
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        'label' => '',
                         'invertStateDisplay' => true,
                     ],
                 ],
