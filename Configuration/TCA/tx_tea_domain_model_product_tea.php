@@ -129,6 +129,12 @@ if ($typo3Version->getMajorVersion() < 12) {
             ]
         ),
     ];
+    $tca['columns']['hidden']['config']['items'] = [
+        [
+            0 => '',
+            1 => '',
+        ],
+    ];
     $tca['columns']['starttime']['config'] = [
         'type' => 'input',
         'renderType' => 'inputDateTime',
