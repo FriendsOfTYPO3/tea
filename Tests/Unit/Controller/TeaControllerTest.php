@@ -9,6 +9,7 @@ use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Http\HtmlResponse;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
@@ -40,9 +41,13 @@ class TeaControllerTest extends UnitTestCase
         parent::setUp();
 
         // We need to create an accessible mock in order to be able to set the protected `view`.
+        $methodsToMock = ['redirectToUri', 'htmlResponse'];
+        if ((new Typo3Version())->getMajorVersion() <= 11) {
+            $methodsToMock = array_merge($methodsToMock, ['forward', 'redirect']);
+        }
         $this->subject = $this->getAccessibleMock(
             TeaController::class,
-            ['forward', 'redirect', 'redirectToUri', 'htmlResponse']
+            $methodsToMock
         );
 
         $this->viewMock = $this->createMock(TemplateView::class);
