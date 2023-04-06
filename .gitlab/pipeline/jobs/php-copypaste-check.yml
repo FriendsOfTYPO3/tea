@@ -1,8 +1,0 @@
-php-copypaste-check:
-  extends: .default
-  stage: codestyle
-  needs:
-    - build-composer-dependencies
-    - php-lint-php7.4
-  script:
-    - composer ci:php:copypaste
