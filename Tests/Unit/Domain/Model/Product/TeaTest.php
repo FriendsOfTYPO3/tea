@@ -12,7 +12,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 /**
  * @covers \TTN\Tea\Domain\Model\Product\Tea
  */
-class TeaTest extends UnitTestCase
+final class TeaTest extends UnitTestCase
 {
     private Tea $subject;
 
