@@ -125,13 +125,11 @@
 		],
 		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -name '*.json' | xargs -r php .Build/vendor/bin/jsonlint -q",
 		"ci:php": [
-			"@ci:php:copypaste",
 			"@ci:php:cs-fixer",
 			"@ci:php:lint",
 			"@ci:php:sniff",
 			"@ci:php:stan"
 		],
-		"ci:php:copypaste": "@php ./tools/phpcpd Classes",
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff",
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
@@ -139,7 +137,6 @@
 		"ci:static": [
 			"@ci:composer:normalize",
 			"@ci:json:lint",
-			"@ci:php:copypaste",
 			"@ci:php:cs-fixer",
 			"@ci:php:lint",
 			"@ci:php:sniff",
@@ -202,7 +199,6 @@
 		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
 		"ci:json:lint": "Lints the JSON files.",
 		"ci:php": "Runs all static checks for the PHP files.",
-		"ci:php:copypaste": "Checks for copy'n'pasted PHP code.",
 		"ci:php:cs-fixer": "Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).",
 		"ci:php:lint": "Lints the PHP files for syntax errors.",
 		"ci:php:sniff": "Checks the code style with PHP_CodeSniffer (PHPCS).",

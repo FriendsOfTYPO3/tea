@@ -68,13 +68,6 @@ Lints the JSON files.
 
 Runs all static checks for the PHP files.
 
-.. index:: Commands; composer ci:php:copypaste
-.. code-block:: bash
-
-   ddev composer ci:php:copypaste
-
-Checks for copy\'n\'pasted PHP code.
-
 .. index:: Commands; composer ci:php:cs-fixer
 .. code-block:: bash
 
