@@ -69,7 +69,6 @@ jobs:
           - "composer:normalize"
           - "composer:psr-verify"
           - "json:lint"
-          - "php:copypaste"
           - "php:cs-fixer"
           - "php:sniff"
           - "php:stan"

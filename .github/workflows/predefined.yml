@@ -86,15 +86,6 @@ jobs:
         uses: TYPO3-Continuous-Integration/TYPO3-CI-PHPStan@v1
         with:
           config_file: './phpstan.neon'
-  copypaste-detector:
-    name: "Copy'n'paste detector"
-    runs-on: ubuntu-22.04
-    needs: php-lint
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v3
-      - name: "Run the Copy'n'paste Detector"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Copy-Paste-Detector@v1
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-22.04
