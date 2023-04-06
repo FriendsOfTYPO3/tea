@@ -19,7 +19,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 /**
  * @covers \TTN\Tea\Controller\TeaController
  */
-class TeaControllerTest extends UnitTestCase
+final class TeaControllerTest extends UnitTestCase
 {
     /**
      * @var TeaController&MockObject&AccessibleObjectInterface
