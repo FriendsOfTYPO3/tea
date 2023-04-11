@@ -79,12 +79,12 @@
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
 		},
+		"bin-dir": ".Build/bin",
 		"preferred-install": {
 			"*": "dist"
 		},
 		"sort-packages": true,
-		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin"
+		"vendor-dir": ".Build/vendor"
 	},
 	"extra": {
 		"branch-alias": {
