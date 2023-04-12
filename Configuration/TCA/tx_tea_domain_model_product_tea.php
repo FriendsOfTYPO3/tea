@@ -48,7 +48,8 @@ $tca = [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        '', 0,
+                        'label' => '',
+                        'value' => 0,
                     ],
                 ],
                 'foreign_table' => 'tx_tea_domain_model_product_tea',
@@ -152,6 +153,13 @@ if ($typo3Version->getMajorVersion() < 12) {
         ]
     );
     unset($tca['columns']['title']['required']);
+
+    $tca['columns']['l18n_parent']['config']['items'] = [
+        [
+            0 => '',
+            1 => 0,
+        ],
+    ];
     $tca['columns']['image'] = [
         'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
         'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
