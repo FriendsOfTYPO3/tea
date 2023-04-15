@@ -7,6 +7,10 @@
 				<source>Tea</source>
 				<target>Tee</target>
 			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.tabs.access">
+				<source>Access</source>
+				<target>Zugriff</target>
+			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.title">
 				<source>Title</source>
 				<target>Titel</target>
@@ -18,6 +22,10 @@
 			<trans-unit id="tx_tea_domain_model_product_tea.image">
 				<source>Image</source>
 				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.fe_group">
+				<source>Usergroup Access Rights</source>
+				<target>Zugriffsrechte für Benutzergruppen</target>
 			</trans-unit>
 		</body>
 	</file>

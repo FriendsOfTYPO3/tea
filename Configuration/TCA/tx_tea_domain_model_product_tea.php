@@ -10,9 +10,23 @@ $tca = [
         'default_sortby' => 'title',
         'iconfile' => 'EXT:tea/Resources/Public/Icons/Record.svg',
         'searchFields' => 'title, description',
+        'enablecolumns' => [
+            'fe_group' => 'fe_group',
+        ],
     ],
     'types' => [
-        '1' => ['showitem' => 'title, description, image'],
+        '1' => ['showitem' => '
+            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                title, description, image,
+            --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.tabs.access,
+                --palette--;;access,
+        '],
+    ],
+    'palettes' => [
+        'access' => [
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.palettes.access',
+            'showitem' => 'fe_group',
+        ],
     ],
     'columns' => [
         'title' => [
@@ -51,6 +65,33 @@ $tca = [
                 'allowed' => 'common-image-types',
             ],
         ],
+        'fe_group' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.fe_group',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'size' => 7,
+                'maxitems' => 20,
+                'items' => [
+                    [
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
+                        'value' => -1,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
+                        'value' => -2,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
+                        'value' => '--div--',
+                    ],
+                ],
+                'exclusiveKeys' => '-1,-2',
+                'foreign_table' => 'fe_groups',
+            ],
+        ],
     ],
 ];
 $typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
@@ -86,6 +127,20 @@ if ($typo3Version->getMajorVersion() < 12) {
                 ],
             ]
         ),
+    ];
+    $tca['columns']['fe_group']['config']['items'] = [
+        [
+            0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
+            1 => -1,
+        ],
+        [
+            0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
+            1 => -2,
+        ],
+        [
+            0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
+            1 => '--div--',
+        ],
     ];
 }
 
