@@ -19,8 +19,8 @@ class Tea extends AbstractEntity
     protected string $description = '';
 
     /**
-     * @phpstan-var FileReference|LazyLoadingProxy|null
      * @var FileReference|null
+     * @phpstan-var FileReference|LazyLoadingProxy|null
      * @Lazy
      */
     protected $image;
