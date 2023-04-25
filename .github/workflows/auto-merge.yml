@@ -1,4 +1,5 @@
-name: automerge
+# https://docs.github.com/en/github-ae@latest/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+name: auto-merge
 
 on:
   # We're using pull_request_target instead of pull_request due to permission issues with the pull_request target:
@@ -6,7 +7,7 @@ on:
   pull_request_target:
 
 jobs:
-  automerge:
+  auto-merge:
     name: Dependabot auto-merge
 
     runs-on: ubuntu-22.04
@@ -14,8 +15,7 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
 
     steps:
-      - name: Enable automerge
-        shell: bash
+      - name: Enable auto-merge
         run: gh pr merge -R "${{ github.repository }}" --squash --auto "${{ github.event.pull_request.number }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
