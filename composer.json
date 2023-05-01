@@ -35,7 +35,7 @@
 		"typo3/cms-frontend": "^11.5.4 || ^12.4"
 	},
 	"require-dev": {
-		"doctrine/dbal": "^2.13.8 || ^3.3.7",
+		"doctrine/dbal": "^2.13.5 || ^3.6.2",
 		"ergebnis/composer-normalize": "^2.28.3",
 		"friendsofphp/php-cs-fixer": "^3.14.1",
 		"helmich/typo3-typoscript-lint": "^3.1.0",
@@ -48,8 +48,8 @@
 		"saschaegerer/phpstan-typo3": "^1.8.4",
 		"seld/jsonlint": "^1.9.0",
 		"squizlabs/php_codesniffer": "^3.7.2",
-		"symfony/yaml": "^5.4 || ^6.1",
-		"typo3/cms-fluid-styled-content": "^11.5.4 || ^12.4",
+		"symfony/yaml": "^5.3.6 || ^6.2.0",
+		"typo3/cms-fluid-styled-content": "^11.5.4 || ^12.4.0",
 		"typo3/coding-standards": "^0.6.1",
 		"typo3/testing-framework": "^7.0.1"
 	},
