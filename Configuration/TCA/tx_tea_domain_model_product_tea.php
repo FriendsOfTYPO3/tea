@@ -13,6 +13,10 @@ $tca = [
         'enablecolumns' => [
             'fe_group' => 'fe_group',
         ],
+        'transOrigPointerField' => 'l18n_parent',
+        'transOrigDiffSourceField' => 'l18n_diffsource',
+        'languageField' => 'sys_language_uid',
+        'translationSource' => 'l10n_source',
     ],
     'types' => [
         '1' => ['showitem' => '
@@ -29,6 +33,43 @@ $tca = [
         ],
     ],
     'columns' => [
+        'sys_language_uid' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => [
+                'type' => 'language',
+            ],
+        ],
+        'l18n_parent' => [
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
+                'foreign_table' => 'tx_tea_domain_model_product_tea',
+                'foreign_table_where' =>
+                    'AND {#tx_tea_domain_model_product_tea}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_tea_domain_model_product_tea}.{#sys_language_uid} IN (-1,0)',
+                'default' => 0,
+            ],
+        ],
+        'l10n_source' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
+        'l18n_diffsource' => [
+            'config' => [
+                'type' => 'passthrough',
+                'default' => '',
+            ],
+        ],
         'title' => [
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.title',
             'config' => [
@@ -112,6 +153,13 @@ if ($typo3Version->getMajorVersion() < 12) {
         ]
     );
     unset($tca['columns']['title']['required']);
+
+    $tca['columns']['l18n_parent']['config']['items'] = [
+        [
+            0 => '',
+            1 => 0,
+        ],
+    ];
     $tca['columns']['image'] = [
         'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
         'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
