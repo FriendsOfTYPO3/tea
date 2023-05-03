@@ -3,7 +3,7 @@
 defined('TYPO3') || die();
 
 call_user_func(
-    static function () {
+    static function (): void {
         // This makes the plugin selectable in the BE.
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             // extension name, matching the PHP namespaces (but without the vendor)
