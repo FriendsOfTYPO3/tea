@@ -7,9 +7,17 @@
 				<source>Tea list</source>
 				<target>Teeliste</target>
 			</trans-unit>
+			<trans-unit id="plugin.tea_index.description">
+				<source>Displays a list of teas</source>
+				<target>Zeigt eine Liste von Tees an</target>
+			</trans-unit>
 			<trans-unit id="plugin.tea_show">
 				<source>Tea single view</source>
 				<target>Tee-Einzelansicht</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea_show.description">
+				<source>Displays a single tea record</source>
+				<target>Zeigt einen einzelnen Tee Datensatz an</target>
 			</trans-unit>
 			<trans-unit id="index.heading">
 				<source>Our selection of assorted teas</source>

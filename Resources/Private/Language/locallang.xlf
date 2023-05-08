@@ -6,8 +6,14 @@
 			<trans-unit id="plugin.tea_index">
 				<source>Tea list</source>
 			</trans-unit>
+			<trans-unit id="plugin.tea_index.description">
+				<source>Displays a list of teas</source>
+			</trans-unit>
 			<trans-unit id="plugin.tea_show">
 				<source>Tea single view</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea_show.description">
+				<source>Displays a single tea record</source>
 			</trans-unit>
 			<trans-unit id="index.heading">
 				<source>Our selection of assorted teas</source>

@@ -13,14 +13,14 @@ call_user_func(
             // plugin title, as visible in the drop-down in the BE
             'LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_index',
             // the icon visible in the drop-down in the BE
-            'EXT:tea/Resources/Public/Icons/Extension.svg'
+            'tea_plugin'
         );
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'Tea',
             'TeaShow',
             'LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_show',
-            'EXT:tea/Resources/Public/Icons/Extension.svg'
+            'tea_plugin'
         );
 
         // This removes the default controls from the plugin.

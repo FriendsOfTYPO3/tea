@@ -1,0 +1,27 @@
+mod.wizards.newContentElement.wizardItems {
+  // add the plugins to the "Create new content element" wizard
+  plugins {
+    elements {
+      tea_teaindex {
+        title = LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_index
+        description = LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_index.description
+        iconIdentifier = tea_plugin
+        tt_content_defValues {
+          CType = list
+          list_type = = tea_teaindex
+        }
+      }
+      tea_teashow {
+        title = LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_show
+        description = LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_teashow.description
+        iconIdentifier = tea_plugin
+        tt_content_defValues {
+          CType = list
+          list_type = = tea_teashow
+        }
+      }
+    }
+
+    show := addToList(tea_teaindex, tea_teashow)
+  }
+}
