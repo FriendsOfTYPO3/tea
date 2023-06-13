@@ -142,7 +142,7 @@
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
-		"ci:php:stan:github": "phpstan analyse --no-progress --error-format=github",
+		"ci:php:stan:github": "phpstan --no-progress --error-format=github",
 		"ci:static": [
 			"@ci:composer:normalize",
 			"@ci:json:lint",
