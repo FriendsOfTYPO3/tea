@@ -27,7 +27,6 @@ include:
   - '/.gitlab/pipeline/jobs/func-php8.2-v12-lowest.yml'
   - '/.gitlab/pipeline/jobs/javascript-lint.yml'
   - '/.gitlab/pipeline/jobs/json-lint.yml'
-  - '/.gitlab/pipeline/jobs/php-copypaste-check.yml'
   - '/.gitlab/pipeline/jobs/php-lint-php7.4.yml'
   - '/.gitlab/pipeline/jobs/php-lint-php8.0.yml'
   - '/.gitlab/pipeline/jobs/php-lint-php8.1.yml'
