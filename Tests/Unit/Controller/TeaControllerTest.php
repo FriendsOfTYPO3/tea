@@ -77,10 +77,17 @@ final class TeaControllerTest extends UnitTestCase
         $this->teaRepositoryMock->method('findAll')->willReturn($teas);
         $this->viewMock->expects(self::once())->method('assign')->with('teas', $teas);
 
-        self::assertInstanceOf(
-            HtmlResponse::class,
-            $this->subject->indexAction()
-        );
+        $this->subject->indexAction();
+    }
+
+    /**
+     * @test
+     */
+    public function indexActionReturnsHtmlResponse(): void
+    {
+        $result = $this->subject->indexAction();
+
+        self::assertInstanceOf(HtmlResponse::class, $result);
     }
 
     /**
@@ -91,9 +98,16 @@ final class TeaControllerTest extends UnitTestCase
         $tea = new Tea();
         $this->viewMock->expects(self::once())->method('assign')->with('tea', $tea);
 
-        self::assertInstanceOf(
-            HtmlResponse::class,
-            $this->subject->showAction($tea)
-        );
+        $this->subject->showAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function showActionAssignsReturnsHtmlResponse(): void
+    {
+        $result = $this->subject->showAction(new Tea());
+
+        self::assertInstanceOf(HtmlResponse::class, $result);
     }
 }
