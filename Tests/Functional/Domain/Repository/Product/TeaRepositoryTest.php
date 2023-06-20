@@ -93,6 +93,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
 
         self::assertSame('Earl Grey', $model->getTitle());
         self::assertSame('Fresh and hot.', $model->getDescription());
+        self::assertSame(2, $model->getOwnerUid());
     }
 
     /**
@@ -132,5 +133,54 @@ final class TeaRepositoryTest extends FunctionalTestCase
 
         self::assertIsArray($databaseRow);
         self::assertSame($title, $databaseRow['title']);
+    }
+
+    /**
+     * @test
+     */
+    public function findByOwnerUidFindsTeaWithTheGivenOwnerUid(): void
+    {
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithOwner.csv');
+
+        $result = $this->subject->findByOwnerUid(1);
+
+        self::assertCount(1, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function findByOwnerUidFindsIgnoresTeaWithNonMatchingOwnerUid(): void
+    {
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithOwner.csv');
+
+        $result = $this->subject->findByOwnerUid(2);
+
+        self::assertCount(0, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function findByOwnerUidFindsIgnoresTeaWithZeroOwnerUid(): void
+    {
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithoutOwner.csv');
+
+        $result = $this->subject->findByOwnerUid(1);
+
+        self::assertCount(0, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function findByOwnerUidSortsByTitleInAscendingOrder(): void
+    {
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TwoTeasWithOwner.csv');
+
+        $result = $this->subject->findByOwnerUid(1);
+
+        $result->rewind();
+        self::assertSame(2, $result->current()->getUid());
     }
 }
