@@ -6,12 +6,15 @@ namespace TTN\Tea\Tests\Unit\Controller;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use TTN\Tea\Controller\FrontEndEditorController;
+use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\UserAspect;
 use TYPO3\CMS\Core\Http\HtmlResponse;
+use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
 use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
@@ -117,5 +120,146 @@ final class FrontEndEditorControllerTest extends UnitTestCase
         $result = $this->subject->indexAction();
 
         self::assertInstanceOf(HtmlResponse::class, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function editActionWithOwnTeaAssignsProvidedTeaToView(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $tea->setOwnerUid($userUid);
+
+        $this->viewMock->expects(self::once())->method('assign')->with('tea', $tea);
+
+        $this->subject->editAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function editActionWithTeaFromOtherUserThrowsException(): void
+    {
+        $this->setUidOfLoggedInUser(1);
+        $tea = new Tea();
+        $tea->setOwnerUid(2);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
+        $this->expectExceptionCode(1687363749);
+
+        $this->subject->editAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function editActionWithTeaWithoutOwnerThrowsException(): void
+    {
+        $this->setUidOfLoggedInUser(1);
+        $tea = new Tea();
+        $tea->setOwnerUid(0);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
+        $this->expectExceptionCode(1687363749);
+
+        $this->subject->editAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function editActionForOwnTeaReturnsHtmlResponse(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $tea->setOwnerUid($userUid);
+
+        $result = $this->subject->editAction($tea);
+
+        self::assertInstanceOf(HtmlResponse::class, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function updateActionWithOwnTeaPersistsProvidedTea(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $tea->setOwnerUid($userUid);
+        $this->mockRedirect('index');
+
+        $this->teaRepositoryMock->expects(self::once())->method('update')->with($tea);
+
+        $this->subject->updateAction($tea);
+    }
+
+    private function mockRedirect(string $actionName): void
+    {
+        if ((new Typo3Version())->getMajorVersion() <= 11) {
+            $this->subject->expects(self::once())->method('redirect')
+                ->with($actionName)
+                // @phpstan-ignore-next-line This class does not exist in V12 anymore, but this branch is V11-only.
+                ->willThrowException(new StopActionException('redirectToUri', 1476045828));
+            // @phpstan-ignore-next-line This class does not exist in V12 anymore, but this branch is V11-only.
+            $this->expectException(StopActionException::class);
+        } else {
+            $redirectResponse = $this->createStub(RedirectResponse::class);
+            $this->subject->expects(self::once())->method('redirect')->with($actionName)
+                ->willReturn($redirectResponse);
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function updateActionWithOwnTeaRedirectsToIndexAction(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $tea->setOwnerUid($userUid);
+
+        $this->mockRedirect('index');
+
+        $this->subject->updateAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function updateActionWithTeaFromOtherUserThrowsException(): void
+    {
+        $this->setUidOfLoggedInUser(1);
+        $tea = new Tea();
+        $tea->setOwnerUid(2);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
+        $this->expectExceptionCode(1687363749);
+
+        $this->subject->updateAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function updateActionWithTeaWithoutOwnerThrowsException(): void
+    {
+        $this->setUidOfLoggedInUser(1);
+        $tea = new Tea();
+        $tea->setOwnerUid(0);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
+        $this->expectExceptionCode(1687363749);
+
+        $this->subject->updateAction($tea);
     }
 }

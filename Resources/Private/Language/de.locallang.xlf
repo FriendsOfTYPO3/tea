@@ -43,6 +43,30 @@
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.edit.heading">
+				<source>Edit tea</source>
+				<target>Tee bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.actions">
+				<source>Actions</source>
+				<target>Aktionen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.edit">
+				<source>Edit</source>
+				<target>Bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.cancel">
+				<source>Cancel</source>
+				<target>Abbrechen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.save">
+				<source>Save</source>
+				<target>Speichern</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

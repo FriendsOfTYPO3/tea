@@ -17,6 +17,9 @@
                         <th scope="col">
                             <f:translate key="plugin.frontEndEditor.property.title"/>
                         </th>
+                        <th scope="col">
+                            <f:translate key="plugin.frontEndEditor.action.actions"/>
+                        </th>
                     </tr>
                     <f:for each="{teas}" as="tea">
                         <tr>
@@ -25,6 +28,11 @@
                             </td>
                             <td>
                                 {tea.title}
+                            </td>
+                            <td>
+                                <f:link.action action="edit" arguments="{tea: tea}">
+                                    <f:translate key="plugin.frontEndEditor.action.edit"/>
+                                </f:link.action>
                             </td>
                         </tr>
                     </f:for>
