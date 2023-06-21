@@ -21,7 +21,7 @@ $tca = [
     'types' => [
         '1' => ['showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                title, description, image,
+                title, description, image, owner,
             --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.tabs.access,
                 --palette--;;access,
         '],
@@ -133,8 +133,23 @@ $tca = [
                 'foreign_table' => 'fe_groups',
             ],
         ],
+        'owner' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.owner',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'fe_users',
+                'default' => 0,
+                'size' => 1,
+                'minitems' => 0,
+                'maxitems' => 1,
+                'hideSuggest' => true,
+            ],
+        ],
     ],
 ];
+
 $typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
 if ($typo3Version->getMajorVersion() < 12) {
     $tca = array_replace_recursive(

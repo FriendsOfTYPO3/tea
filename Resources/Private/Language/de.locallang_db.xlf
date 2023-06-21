@@ -23,6 +23,10 @@
 				<source>Image</source>
 				<target>Bild</target>
 			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.owner">
+				<source>Website user who created this record</source>
+				<target>Website-Benutzer, der diesen Datensatz erstellt hat</target>
+			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.fe_group">
 				<source>Usergroup Access Rights</source>
 				<target>Zugriffsrechte für Benutzergruppen</target>

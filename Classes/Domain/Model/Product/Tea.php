@@ -25,6 +25,13 @@ class Tea extends AbstractEntity
      */
     protected $image;
 
+    // Note: We cannot use `@var` for the more specific type annotation here as this confuses the Extbase type mapper.
+
+    /**
+     * @phpstan-var int<0, max>
+     */
+    protected int $ownerUid = 0;
+
     public function getTitle(): string
     {
         return $this->title;
@@ -59,5 +66,21 @@ class Tea extends AbstractEntity
     public function setImage(FileReference $image): void
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return int<0, max>
+     */
+    public function getOwnerUid(): int
+    {
+        return $this->ownerUid;
+    }
+
+    /**
+     * @param int<0, max> $ownerUid
+     */
+    public function setOwnerUid(int $ownerUid): void
+    {
+        $this->ownerUid = $ownerUid;
     }
 }
