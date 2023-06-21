@@ -9,6 +9,9 @@
 			<trans-unit id="plugin.tea_show">
 				<source>Tea single view</source>
 			</trans-unit>
+			<trans-unit id="plugin.tea_frontend_editor">
+				<source>Tea front-end editor</source>
+			</trans-unit>
 			<trans-unit id="plugin.tea.heading">
 				<source>Our selection of assorted teas</source>
 			</trans-unit>
@@ -16,6 +19,18 @@
 				<source>UID</source>
 			</trans-unit>
 			<trans-unit id="plugin.tea.property.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.index.heading">
+				<source>My teas</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.message.noTeas">
+				<source>You have not created any teas yet.</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.uid">
+				<source>UID</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.title">
 				<source>Title</source>
 			</trans-unit>
 		</body>
