@@ -9,13 +9,13 @@
 			<trans-unit id="plugin.tea_show">
 				<source>Tea single view</source>
 			</trans-unit>
-			<trans-unit id="index.heading">
+			<trans-unit id="plugin.tea.heading">
 				<source>Our selection of assorted teas</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.uid">
+			<trans-unit id="plugin.tea.property.uid">
 				<source>UID</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.title">
+			<trans-unit id="plugin.tea.property.title">
 				<source>Title</source>
 			</trans-unit>
 		</body>
