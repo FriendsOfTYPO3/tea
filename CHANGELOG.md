@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add a FE editor (#864)
 - Add automerging of green Dependabot PRs (#756)
 
 ### Changed
