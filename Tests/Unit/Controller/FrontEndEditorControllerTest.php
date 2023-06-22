@@ -13,6 +13,7 @@ use TYPO3\CMS\Core\Context\UserAspect;
 use TYPO3\CMS\Core\Http\HtmlResponse;
 use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -65,6 +66,14 @@ final class FrontEndEditorControllerTest extends UnitTestCase
 
         $responseStub = $this->createStub(HtmlResponse::class);
         $this->subject->method('htmlResponse')->willReturn($responseStub);
+    }
+
+    protected function tearDown(): void
+    {
+        // empty FIFO queue
+        GeneralUtility::makeInstance(Tea::class);
+
+        parent::tearDown();
     }
 
     /**
@@ -193,7 +202,7 @@ final class FrontEndEditorControllerTest extends UnitTestCase
         $this->setUidOfLoggedInUser($userUid);
         $tea = new Tea();
         $tea->setOwnerUid($userUid);
-        $this->mockRedirect('index');
+        $this->stubRedirect('index');
 
         $this->teaRepositoryMock->expects(self::once())->method('update')->with($tea);
 
@@ -213,6 +222,20 @@ final class FrontEndEditorControllerTest extends UnitTestCase
             $redirectResponse = $this->createStub(RedirectResponse::class);
             $this->subject->expects(self::once())->method('redirect')->with($actionName)
                 ->willReturn($redirectResponse);
+        }
+    }
+
+    private function stubRedirect(string $actionName): void
+    {
+        if ((new Typo3Version())->getMajorVersion() <= 11) {
+            $this->subject->method('redirect')
+                // @phpstan-ignore-next-line This class does not exist in V12 anymore, but this branch is V11-only.
+                ->willThrowException(new StopActionException('redirectToUri', 1476045828));
+            // @phpstan-ignore-next-line This class does not exist in V12 anymore, but this branch is V11-only.
+            $this->expectException(StopActionException::class);
+        } else {
+            $redirectResponse = $this->createStub(RedirectResponse::class);
+            $this->subject->method('redirect')->willReturn($redirectResponse);
         }
     }
 
@@ -259,6 +282,94 @@ final class FrontEndEditorControllerTest extends UnitTestCase
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
         $this->expectExceptionCode(1687363749);
+
+        $this->subject->updateAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function newActionWithTeaAssignsProvidedTeaToView(): void
+    {
+        $tea = new Tea();
+
+        $this->viewMock->expects(self::once())->method('assign')->with('tea', $tea);
+
+        $this->subject->newAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function newActionWithNullTeaAssignsProvidedNewTeaToView(): void
+    {
+        $tea = new Tea();
+        GeneralUtility::addInstance(Tea::class, $tea);
+
+        $this->viewMock->expects(self::once())->method('assign')->with('tea', $tea);
+
+        $this->subject->newAction(null);
+    }
+
+    /**
+     * @test
+     */
+    public function newActionWithoutTeaAssignsProvidedNewTeaToView(): void
+    {
+        $tea = new Tea();
+        GeneralUtility::addInstance(Tea::class, $tea);
+
+        $this->viewMock->expects(self::once())->method('assign')->with('tea', $tea);
+
+        $this->subject->newAction();
+    }
+
+    /**
+     * @test
+     */
+    public function newActionReturnsHtmlResponse(): void
+    {
+        $result = $this->subject->newAction();
+
+        self::assertInstanceOf(HtmlResponse::class, $result);
+    }
+
+    /**
+     * @test
+     */
+    public function createActionSetsLoggedInUserAsOwnerOfProvidedTea(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $this->stubRedirect('index');
+
+        $this->subject->createAction($tea);
+
+        self::assertSame($userUid, $tea->getOwnerUid());
+    }
+
+    /**
+     * @test
+     */
+    public function createActionPersistsProvidedTea(): void
+    {
+        $tea = new Tea();
+        $this->stubRedirect('index');
+
+        $this->teaRepositoryMock->expects(self::once())->method('add')->with($tea);
+
+        $this->subject->createAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function createActionRedirectsToIndexAction(): void
+    {
+        $tea = new Tea();
+
+        $this->mockRedirect('index');
 
         $this->subject->updateAction($tea);
     }
