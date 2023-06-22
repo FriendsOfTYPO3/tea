@@ -46,18 +46,21 @@ final class FrontEndEditorControllerTest extends UnitTestCase
     {
         parent::setUp();
 
+        $this->teaRepositoryMock = $this->getMockBuilder(TeaRepository::class)->disableOriginalConstructor()->getMock();
+
         // We need to create an accessible mock in order to be able to set the protected `view`.
         $methodsToMock = ['htmlResponse', 'redirect', 'redirectToUri'];
         if ((new Typo3Version())->getMajorVersion() <= 11) {
             $methodsToMock[] = 'forward';
         }
-        $this->subject = $this->getAccessibleMock(FrontEndEditorController::class, $methodsToMock);
+        $this->subject = $this->getAccessibleMock(
+            FrontEndEditorController::class,
+            $methodsToMock,
+            [$this->teaRepositoryMock]
+        );
 
         $this->viewMock = $this->createMock(TemplateView::class);
         $this->subject->_set('view', $this->viewMock);
-
-        $this->teaRepositoryMock = $this->getMockBuilder(TeaRepository::class)->disableOriginalConstructor()->getMock();
-        $this->subject->injectTeaRepository($this->teaRepositoryMock);
 
         $responseMock = $this->createMock(HtmlResponse::class);
         $this->subject->method('htmlResponse')->willReturn($responseMock);
