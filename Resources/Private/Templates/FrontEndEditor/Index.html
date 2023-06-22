@@ -23,7 +23,7 @@
                         <th scope="col">
                             <f:translate key="plugin.frontEndEditor.property.title"/>
                         </th>
-                        <th scope="col">
+                        <th scope="col" colspan="2">
                             <f:translate key="plugin.frontEndEditor.action.actions"/>
                         </th>
                     </tr>
@@ -39,6 +39,12 @@
                                 <f:link.action action="edit" arguments="{tea: tea}">
                                     <f:translate key="plugin.frontEndEditor.action.edit"/>
                                 </f:link.action>
+                            </td>
+                            <td>
+                                <f:form action="delete" name="tea" object="{tea}">
+                                    <f:form.submit value="{f:translate(key: 'plugin.frontEndEditor.action.delete')}"
+                                                   class="btn btn-danger"/>
+                                </f:form>
                             </td>
                         </tr>
                     </f:for>

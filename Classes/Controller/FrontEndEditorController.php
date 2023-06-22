@@ -9,6 +9,7 @@ use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -86,6 +87,18 @@ class FrontEndEditorController extends ActionController
         $tea->setOwnerUid($this->getUidOfLoggedInUser());
 
         $this->teaRepository->add($tea);
+
+        return $this->redirect('index');
+    }
+
+    /**
+     * @Extbase\IgnoreValidation("tea")
+     */
+    public function deleteAction(Tea $tea): ResponseInterface
+    {
+        $this->checkIfUserIsOwner($tea);
+
+        $this->teaRepository->remove($tea);
 
         return $this->redirect('index');
     }
