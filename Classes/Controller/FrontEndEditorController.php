@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -67,6 +68,24 @@ class FrontEndEditorController extends ActionController
         $this->checkIfUserIsOwner($tea);
 
         $this->teaRepository->update($tea);
+
+        return $this->redirect('index');
+    }
+
+    public function newAction(?Tea $tea = null): ResponseInterface
+    {
+        // Note: We are using `makeInstance` here instead of `new` to allow for XCLASSing.
+        $teaToAssign = $tea ?? GeneralUtility::makeInstance(Tea::class);
+        $this->view->assign('tea', $teaToAssign);
+
+        return $this->htmlResponse();
+    }
+
+    public function createAction(Tea $tea): ResponseInterface
+    {
+        $tea->setOwnerUid($this->getUidOfLoggedInUser());
+
+        $this->teaRepository->add($tea);
 
         return $this->redirect('index');
     }
