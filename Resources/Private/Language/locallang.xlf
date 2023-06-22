@@ -21,6 +21,9 @@
 			<trans-unit id="plugin.tea.property.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.description">
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.index.heading">
 				<source>My teas</source>
 			</trans-unit>
@@ -32,6 +35,21 @@
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.property.title">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.edit.heading">
+				<source>Edit tea</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.actions">
+				<source>Actions</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.cancel">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.save">
+				<source>Save</source>
 			</trans-unit>
 		</body>
 	</file>

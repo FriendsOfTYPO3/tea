@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TTN\Tea\Controller;
 
 use Psr\Http\Message\ResponseInterface;
+use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -40,5 +41,33 @@ class FrontEndEditorController extends ActionController
     private function getUidOfLoggedInUser(): int
     {
         return $this->context->getPropertyFromAspect('frontend.user', 'id');
+    }
+
+    public function editAction(Tea $tea): ResponseInterface
+    {
+        $this->checkIfUserIsOwner($tea);
+
+        $this->view->assign('tea', $tea);
+
+        return $this->htmlResponse();
+    }
+
+    /**
+     * @throws \RuntimeException
+     */
+    private function checkIfUserIsOwner(Tea $tea): void
+    {
+        if ($tea->getOwnerUid() !== $this->getUidOfLoggedInUser()) {
+            throw new \RuntimeException('You do not have the permissions to edit this tea.', 1687363749);
+        }
+    }
+
+    public function updateAction(Tea $tea): ResponseInterface
+    {
+        $this->checkIfUserIsOwner($tea);
+
+        $this->teaRepository->update($tea);
+
+        return $this->redirect('index');
     }
 }
