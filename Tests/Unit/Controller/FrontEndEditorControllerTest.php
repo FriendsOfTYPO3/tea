@@ -373,4 +373,67 @@ final class FrontEndEditorControllerTest extends UnitTestCase
 
         $this->subject->updateAction($tea);
     }
+
+    /**
+     * @test
+     */
+    public function deleteActionWithOwnTeaRemovesProvidedTea(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $tea->setOwnerUid($userUid);
+        $this->stubRedirect('index');
+
+        $this->teaRepositoryMock->expects(self::once())->method('remove')->with($tea);
+
+        $this->subject->deleteAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function deleteActionWithOwnTeaRedirectsToIndexAction(): void
+    {
+        $userUid = 5;
+        $this->setUidOfLoggedInUser($userUid);
+        $tea = new Tea();
+        $tea->setOwnerUid($userUid);
+
+        $this->mockRedirect('index');
+
+        $this->subject->deleteAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function deleteActionWithTeaFromOtherUserThrowsException(): void
+    {
+        $this->setUidOfLoggedInUser(1);
+        $tea = new Tea();
+        $tea->setOwnerUid(2);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
+        $this->expectExceptionCode(1687363749);
+
+        $this->subject->deleteAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function deleteActionWithTeaWithoutOwnerThrowsException(): void
+    {
+        $this->setUidOfLoggedInUser(1);
+        $tea = new Tea();
+        $tea->setOwnerUid(0);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('You do not have the permissions to edit this tea.');
+        $this->expectExceptionCode(1687363749);
+
+        $this->subject->deleteAction($tea);
+    }
 }
