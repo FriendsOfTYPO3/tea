@@ -45,6 +45,9 @@ class FrontEndEditorController extends ActionController
         return $this->context->getPropertyFromAspect('frontend.user', 'id');
     }
 
+    /**
+     * @Extbase\IgnoreValidation("tea")
+     */
     public function editAction(Tea $tea): ResponseInterface
     {
         $this->checkIfUserIsOwner($tea);
@@ -73,6 +76,9 @@ class FrontEndEditorController extends ActionController
         return $this->redirect('index');
     }
 
+    /**
+     * @Extbase\IgnoreValidation("tea")
+     */
     public function newAction(?Tea $tea = null): ResponseInterface
     {
         // Note: We are using `makeInstance` here instead of `new` to allow for XCLASSing.
