@@ -16,7 +16,7 @@ class TeaController extends ActionController
 {
     private TeaRepository $teaRepository;
 
-    public function injectTeaRepository(TeaRepository $teaRepository): void
+    public function __construct(TeaRepository $teaRepository)
     {
         $this->teaRepository = $teaRepository;
     }
