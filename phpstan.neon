@@ -20,3 +20,8 @@ parameters:
     - Classes
     - Configuration
     - Tests
+
+  type_coverage:
+      return_type: 50
+      param_type: 30
+      property_type: 70
