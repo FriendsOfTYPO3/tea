@@ -30,7 +30,7 @@ class Tea extends AbstractEntity
      * @phpstan-var FileReference|LazyLoadingProxy|null
      * @Extbase\ORM\Lazy
      */
-    protected $image;
+    protected ?FileReference $image;
 
     // Note: We cannot use `@var` for the more specific type annotation here as this confuses the Extbase type mapper.
 
