@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TTN\Tea\Tests\Unit\Controller;
+namespace TTN\Tea\Tests\Controller;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use TTN\Tea\Controller\TeaController;
