@@ -23,7 +23,7 @@ class Tea extends AbstractEntity
     /**
      * @Extbase\Validate("StringLength", options={"maximum": 2000})
      */
-    protected string $description = '';
+    protected string $description;
 
      private string $internalNotes;
 
