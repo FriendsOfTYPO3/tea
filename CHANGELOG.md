@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add type coverage calculation (#830)
 
 ### Changed
+- Rename TsConfig directory to `TSconfig` (#923)
 - Set the minimal 12LTS version to 12.1 (#702)
 
 ### Deprecated
