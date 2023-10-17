@@ -24,4 +24,4 @@ parameters:
   type_coverage:
       return_type: 100
       param_type: 100
-      property_type: 100
+      property_type: 95
