@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 - Add an FE editor (#864, #872, #874, #876)
 - Add automerging of green Dependabot PRs (#756)
+- Add type coverage calculation (#830)
 
 ### Changed
 - Set the minimal 12LTS version to 12.1 (#702)
