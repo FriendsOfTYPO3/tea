@@ -30,16 +30,14 @@
             <directory suffix="Test.php">./</directory>
         </testsuite>
     </testsuites>
-    <!-- @todo: change tag to 'coverage' when TF requires phpunit > 9 -->
-    <filter>
-        <!-- @todo: change tag to 'include' when TF requires phpunit > 9 -->
-        <whitelist>
+    <coverage>
+        <include>
             <!--
                 This path needs an adaption in extensions, when coverage statistics are wanted.
             -->
             <directory>../../../../../../typo3/sysext/*/Classes/</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </coverage>
     <php>
         <!-- @deprecated: will be removed with next major version, constant TYPO3_MODE is deprecated -->
         <const name="TYPO3_MODE" value="BE" />
