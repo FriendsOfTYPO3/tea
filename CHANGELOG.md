@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add support for PHP 8.3 (#965)
 - Add an FE editor (#864, #872, #874, #876)
 - Add automerging of green Dependabot PRs (#756)
 - Add type coverage calculation (#830)

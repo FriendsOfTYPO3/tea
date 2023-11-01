@@ -188,12 +188,13 @@ Options:
             - 11: (default) use TYPO3 v11 with typo3/cms-composer-installers ^3
             - 12: use TYPO3 v12 with typo3/cms-composer-installers ^5
 
-    -p <7.4|8.0|8.1|8.2>
+    -p <7.4|8.0|8.1|8.2|8.3>
         Specifies the PHP minor version to be used
             - 7.4: use PHP 7.4
             - 8.0: use PHP 8.0
             - 8.1: (default) use PHP 8.1
             - 8.2: use PHP 8.2
+            - 8.3: use PHP 8.3
 
     -e "<phpunit options>"
         Only with -s functional|functionalDeprecated|unit|unitDeprecated|unitRandom|acceptance
