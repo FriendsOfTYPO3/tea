@@ -40,7 +40,7 @@ final class TeaControllerTest extends UnitTestCase
     {
         parent::setUp();
 
-        $this->teaRepositoryMock = $this->getMockBuilder(TeaRepository::class)->disableOriginalConstructor()->getMock();
+        $this->teaRepositoryMock = $this->createMock(TeaRepository::class);
         // We need to create an accessible mock in order to be able to set the protected `view`.
         $methodsToMock = ['htmlResponse', 'redirect', 'redirectToUri'];
         if ((new Typo3Version())->getMajorVersion() < 12) {
