@@ -29,7 +29,7 @@ class Tea extends AbstractEntity
 
     /**
     * @var FileReference|null
-    * @phpstan-var FileReference|LazyLoadingProxy|null
+    * @phpstan-var LazyLoadingProxy|null
     * @Extbase\ORM\Lazy
     */
     protected $image;
