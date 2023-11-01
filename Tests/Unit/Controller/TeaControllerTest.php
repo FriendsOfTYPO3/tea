@@ -51,8 +51,8 @@ final class TeaControllerTest extends UnitTestCase
         $this->viewMock = $this->createMock(TemplateView::class);
         $this->subject->_set('view', $this->viewMock);
 
-        $responseMock = $this->createMock(HtmlResponse::class);
-        $this->subject->method('htmlResponse')->willReturn($responseMock);
+        $responseStub = $this->createStub(HtmlResponse::class);
+        $this->subject->method('htmlResponse')->willReturn($responseStub);
     }
 
     /**
