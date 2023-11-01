@@ -17,7 +17,19 @@
 			"name": "Oliver Klee",
 			"email": "typo3-coding@oliverklee.de",
 			"homepage": "https://www.oliverklee.de",
-			"role": "developer"
+			"role": "maintainer"
+		},
+		{
+			"name": "Daniel Siepmann",
+			"email": "coding@daniel-siepmann.de",
+			"homepage": "https://daniel-siepmann.de/",
+			"role": "maintainer"
+		},
+		{
+			"name": "Łukasz Uznański",
+			"email": "lukaszuznanski94@gmail.com",
+			"homepage": "https://uznanski.pl/",
+			"role": "maintainer"
 		}
 	],
 	"homepage": "https://extensions.typo3.org/extension/tea/",
