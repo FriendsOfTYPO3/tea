@@ -25,13 +25,13 @@ class Tea extends AbstractEntity
      */
     protected string $description;
 
-     private string $internalNotes;
+    private string $internalNotes;
 
-     /**
-     * @var FileReference|null
-     * @phpstan-var FileReference|LazyLoadingProxy|null
-     * @Extbase\ORM\Lazy
-     */
+    /**
+    * @var FileReference|null
+    * @phpstan-var FileReference|LazyLoadingProxy|null
+    * @Extbase\ORM\Lazy
+    */
     protected $image;
 
     // Note: We cannot use `@var` for the more specific type annotation here as this confuses the Extbase type mapper.
@@ -61,11 +61,13 @@ class Tea extends AbstractEntity
         $this->description = $description;
     }
 
-    public function getInternalNotes(): string {
+    public function getInternalNotes(): string
+    {
         return $this->internalNotes;
     }
 
-    public function setInternalNotes(string $notes): void {
+    public function setInternalNotes(string $notes): void
+    {
         $this->internalNote = $notes;
     }
 
