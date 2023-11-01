@@ -52,7 +52,7 @@ final class FrontEndEditorControllerTest extends UnitTestCase
 
         // We need to create an accessible mock in order to be able to set the protected `view`.
         $methodsToMock = ['htmlResponse', 'redirect', 'redirectToUri'];
-        if ((new Typo3Version())->getMajorVersion() <= 11) {
+        if ((new Typo3Version())->getMajorVersion() < 12) {
             $methodsToMock[] = 'forward';
         }
         $this->subject = $this->getAccessibleMock(
@@ -211,7 +211,7 @@ final class FrontEndEditorControllerTest extends UnitTestCase
 
     private function mockRedirect(string $actionName): void
     {
-        if ((new Typo3Version())->getMajorVersion() <= 11) {
+        if ((new Typo3Version())->getMajorVersion() < 12) {
             $this->subject->expects(self::once())->method('redirect')
                 ->with($actionName)
                 // @phpstan-ignore-next-line This class does not exist in V12 anymore, but this branch is V11-only.
@@ -227,7 +227,7 @@ final class FrontEndEditorControllerTest extends UnitTestCase
 
     private function stubRedirect(string $actionName): void
     {
-        if ((new Typo3Version())->getMajorVersion() <= 11) {
+        if ((new Typo3Version())->getMajorVersion() < 12) {
             $this->subject->method('redirect')
                 // @phpstan-ignore-next-line This class does not exist in V12 anymore, but this branch is V11-only.
                 ->willThrowException(new StopActionException('redirectToUri', 1476045828));
