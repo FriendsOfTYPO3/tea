@@ -116,7 +116,7 @@
 			"@ci:static"
 		],
 		"ci:composer:normalize": "@composer normalize --no-check-lock --dry-run",
-		"ci:composer:psr-verify": "@composer dumpautoload --optimize --strict-psr",
+		"ci:composer:psr-verify": "@composer dumpautoload --optimize --strict-psr --no-plugins",
 		"ci:coverage": [
 			"@ci:coverage:unit",
 			"@ci:coverage:functional"
