@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add an FE editor (#864, #872, #874, #876)
 - Add automerging of green Dependabot PRs (#756)
 - Add type coverage calculation (#830)
+- Make records timeable and hideable (#553)
 
 ### Changed
 - Rename TsConfig directory to `TSconfig` (#923)
