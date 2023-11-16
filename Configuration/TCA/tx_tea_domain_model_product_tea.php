@@ -233,6 +233,7 @@ if ($typo3Version->getMajorVersion() < 12) {
         ),
     ];
     $tca['columns']['hidden']['config'] = [
+        'type' => 'check',
         'items' => [
             0 => '',
             1 => '',
