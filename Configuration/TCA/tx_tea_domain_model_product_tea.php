@@ -245,11 +245,13 @@ if ($typo3Version->getMajorVersion() < 12) {
     ];
     $tca['columns']['hidden']['config'] = [
         'type' => 'check',
+        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
         'items' => [
-            0 => '',
-            1 => '',
+            [
+                0 => '',
+                'invertStateDisplay' => true,
+            ],
         ],
-        'invertStateDisplay' => true,
     ];
     $tca['columns']['starttime']['config'] = [
         'type' => 'input',
