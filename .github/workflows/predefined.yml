@@ -22,7 +22,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2.4
+          tools: composer:v2.6
       - name: "Run PHP lint"
         run: "composer ci:php:lint"
     strategy:
@@ -97,7 +97,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2.4
+          tools: composer:v2.6
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
@@ -154,7 +154,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2.4
+          tools: composer:v2.6
       - name: "Show Composer version"
         run: composer --version
       - name: "Cache dependencies installed with composer"
@@ -237,7 +237,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
-          tools: composer:v2.4
+          tools: composer:v2.6
           extensions: mysqli
           coverage: none
       - name: "Show Composer version"
