@@ -119,16 +119,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
         $this->subject->add($model);
         $this->persistenceManager->persistAll();
 
-        $connection = $this->getConnectionPool()->getConnectionForTable('tx_tea_domain_model_product_tea');
-        $databaseRow = $connection
-            ->executeQuery(
-                'SELECT * FROM tx_tea_domain_model_product_tea WHERE uid = :uid',
-                ['uid' => $model->getUid()]
-            )
-            ->fetchAssociative();
-
-        self::assertIsArray($databaseRow);
-        self::assertSame($title, $databaseRow['title']);
+        $this->assertCSVDataSet(__DIR__ . '/../Fixtures/Product/PersistedTea.csv');
     }
 
     /**
