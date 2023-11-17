@@ -114,7 +114,7 @@ final class FrontEndEditorControllerTest extends UnitTestCase
         $userUid = 5;
         $this->setUidOfLoggedInUser($userUid);
 
-        $teas = $this->createMock(QueryResultInterface::class);
+        $teas = $this->createStub(QueryResultInterface::class);
         $this->teaRepositoryMock->method('findByOwnerUid')->with($userUid)->willReturn($teas);
         $this->viewMock->expects(self::once())->method('assign')->with('teas', $teas);
 
