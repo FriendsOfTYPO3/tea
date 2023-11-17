@@ -46,11 +46,11 @@ final class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findAllWithRecordsFindsRecordsFromAllPages(): void
     {
-        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaOnPage.csv');
 
         $result = $this->subject->findAll();
 
-        self::assertGreaterThanOrEqual(1, \count($result));
+        self::assertCount(1, $result);
     }
 
     /**
@@ -58,7 +58,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findAllSortsByTitleInAscendingOrder(): void
     {
-        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TwoUnsortedTeas.csv');
 
         $result = $this->subject->findAll();
 
@@ -71,7 +71,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findByUidForExistingRecordReturnsModel(): void
     {
-        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithAllScalarData.csv');
 
         $model = $this->subject->findByUid(1);
 
@@ -83,7 +83,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
      */
     public function findByUidForExistingRecordMapsAllScalarData(): void
     {
-        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithAllScalarData.csv');
 
         $model = $this->subject->findByUid(1);
         self::assertInstanceOf(Tea::class, $model);
@@ -98,9 +98,9 @@ final class TeaRepositoryTest extends FunctionalTestCase
      */
     public function fillsImageRelation(): void
     {
-        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
+        $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithImage.csv');
 
-        $model = $this->subject->findByUid(3);
+        $model = $this->subject->findByUid(1);
 
         $image = $model->getImage();
         self::assertInstanceOf(FileReference::class, $image);
