@@ -9,22 +9,22 @@ xdebug_enabled: false
 additional_hostnames: []
 additional_fqdns: []
 database:
-  type: mariadb
-  version: "10.5"
+    type: mariadb
+    version: "10.5"
 nfs_mount_enabled: false
 mutagen_enabled: false
 hooks:
-  post-start:
-  - exec: composer install --no-progress
+    post-start:
+        - exec: composer install --no-progress
 omit_containers: [dba, ddev-ssh-agent]
 webimage_extra_packages: [parallel]
 use_dns_when_possible: true
 composer_version: "2.4"
 web_environment:
-- typo3DatabaseName=typo3
-- typo3DatabaseHost=db
-- typo3DatabaseUsername=root
-- typo3DatabasePassword=root
+    - typo3DatabaseName=typo3
+    - typo3DatabaseHost=db
+    - typo3DatabaseUsername=root
+    - typo3DatabasePassword=root
 nodejs_version: "16"
 
 # Key features of ddev's config.yaml:
