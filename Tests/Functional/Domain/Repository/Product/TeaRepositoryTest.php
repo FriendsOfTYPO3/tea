@@ -73,8 +73,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
     {
         $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
-        $uid = 1;
-        $model = $this->subject->findByUid($uid);
+        $model = $this->subject->findByUid(1);
 
         self::assertInstanceOf(Tea::class, $model);
     }
@@ -86,8 +85,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
     {
         $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
-        $uid = 1;
-        $model = $this->subject->findByUid($uid);
+        $model = $this->subject->findByUid(1);
         self::assertInstanceOf(Tea::class, $model);
 
         self::assertSame('Earl Grey', $model->getTitle());
@@ -102,8 +100,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
     {
         $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/Tea.csv');
 
-        $uid = 3;
-        $model = $this->subject->findByUid($uid);
+        $model = $this->subject->findByUid(3);
 
         $image = $model->getImage();
         self::assertInstanceOf(FileReference::class, $image);
