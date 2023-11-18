@@ -68,7 +68,7 @@ final class TeaControllerTest extends UnitTestCase
      */
     public function indexActionAssignsAllTeaAsTeasToView(): void
     {
-        $teas = $this->createMock(QueryResultInterface::class);
+        $teas = $this->createStub(QueryResultInterface::class);
         $this->teaRepositoryMock->method('findAll')->willReturn($teas);
         $this->viewMock->expects(self::once())->method('assign')->with('teas', $teas);
 
