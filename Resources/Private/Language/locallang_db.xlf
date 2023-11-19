@@ -24,6 +24,9 @@
 			<trans-unit id="tx_tea_domain_model_product_tea.fe_group">
 				<source>Usergroup Access Rights</source>
 			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.hidden">
+				<source>Visible</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

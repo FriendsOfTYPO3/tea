@@ -50,7 +50,7 @@ $tca = [
     'columns' => [
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -245,7 +245,7 @@ if ($typo3Version->getMajorVersion() < 12) {
     ];
     $tca['columns']['hidden']['config'] = [
         'type' => 'check',
-        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden',
         'items' => [
             [
                 0 => '',
