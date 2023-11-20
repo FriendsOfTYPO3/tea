@@ -32,7 +32,8 @@
 				<target>Zugriffsrechte für Benutzergruppen</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.hidden">
-				<source>Sichtbar</source>
+				<source>Visible</source>
+				<target>Sichtbar</target>
 			</trans-unit>
 		</body>
 	</file>
