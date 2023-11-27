@@ -1,64 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-	<file source-language="en" datatype="plaintext" original="messages">
+	<file source-language="en" target-language="nl" datatype="plaintext" original="messages">
 		<header/>
 		<body>
 			<trans-unit id="plugin.tea_index">
-				<source>Theelijst</source>
+				<source>Tea list</source>
+				<target>Theelijst</target>
 			</trans-unit>
 			<trans-unit id="plugin.tea_show">
-				<source>Thee-detailweergave</source>
+				<source>Tea single view</source>
+				<target>Thee-detailweergave</target>
 			</trans-unit>
 			<trans-unit id="plugin.tea_frontend_editor">
-				<source>Frontend-bewerker voor thee</source>
+				<source>Tea front-end editor</source>
+				<target>Frontend-bewerker voor thee</target>
 			</trans-unit>
 			<trans-unit id="plugin.tea.heading">
-				<source>Onze selectie van diverse theesoorten</source>
+				<source>Our selection of assorted teas</source>
+				<target>Onze selectie van diverse theesoorten</target>
 			</trans-unit>
 			<trans-unit id="plugin.tea.property.uid">
 				<source>UID</source>
+				<target>UID</target>
 			</trans-unit>
 			<trans-unit id="plugin.tea.property.title">
-				<source>Titel</source>
+				<source>Title</source>
+				<target>Titel</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.property.description">
-				<source>Omschrijving</source>
+				<source>Description</source>
+				<target>Omschrijving</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.index.heading">
-				<source>Mijn theeën</source>
+				<source>My teas</source>
+				<target>Mijn theeën</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.message.noTeas">
-				<source>Je hebt nog geen theeën aangemaakt.</source>
+				<source>You have not created any teas yet.</source>
+				<target>Je hebt nog geen theeën aangemaakt</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.property.uid">
 				<source>UID</source>
+				<target>UID</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.property.title">
-				<source>Titel</source>
+				<source>Title</source>
+				<target>Titel</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.edit.heading">
-				<source>Bewerk thee</source>
+				<source>Edit tea</source>
+				<target>Bewerk thee</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.actions">
-				<source>Acties</source>
+				<source>Actions</source>
+				<target>Acties</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.edit">
-				<source>Bewerken</source>
+				<source>Edit</source>
+				<target>Bewerk</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.cancel">
-				<source>Afbreken</source>
+				<source>Cancel</source>
+				<target>Afbreken</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.save">
-				<source>Bewaren</source>
+				<source>Save</source>
+				<target>Bewaren</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.new">
-				<source>Maak nieuwe thee aan</source>
+				<source>Create new tea</source>
+				<target>Maak nieuwe thee aan</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.delete">
-				<source>Verwijderen</source>
+				<source>Delete</source>
+				<target>Verwijderen</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.new.heading">
-				<source>Maak nieuwe thee aan</source>
+				<source>Create new tea</source>
+				<target>Maak nieuwe thee aan</target>
 			</trans-unit>
 		</body>
 	</file>

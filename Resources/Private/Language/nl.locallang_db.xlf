@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-	<file source-language="en" datatype="plaintext" original="messages">
+	<file source-language="en" target-language="nl" datatype="plaintext" original="messages">
 		<header/>
 		<body>
 			<trans-unit id="tx_tea_domain_model_product_tea">
-				<source>Thee</source>
+				<source>Tea</source>
+				<target>Thee</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.tabs.access">
-				<source>Toegang</source>
+				<source>Access</source>
+				<target>Toegang</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.title">
-				<source>Titel</source>
+				<source>Title</source>
+				<target>Title</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.description">
-				<source>Omschrijving</source>
+				<source>Description</source>
+				<target>Omschrijving</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.image">
-				<source>Afbeelding</source>
+				<source>Image</source>
+				<target>Afbeelding</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.owner">
-				<source>Website-gebruiker die dit record heeft aangemaakt</source>
+				<source>Website user who created this record</source>
+				<target>Website-gebruiker die dit record heeft aangemaakt</target>
 			</trans-unit>
 			<trans-unit id="tx_tea_domain_model_product_tea.fe_group">
-				<source>Toegangrechten voor gebruikersgroep</source>
+				<source>Usergroup Access Rights</source>
+				<target>Toegangrechten voor gebruikersgroepen</target>
 			</trans-unit>
 		</body>
 	</file>
