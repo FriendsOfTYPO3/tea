@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add polish translation for tea (#1020)
 - Make records timeable and hideable (#989)
 - Add support for PHP 8.3 (#965)
 - Add an FE editor (#864, #872, #874, #876)
