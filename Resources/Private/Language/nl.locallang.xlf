@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" datatype="plaintext" original="messages">
+		<header/>
+		<body>
+			<trans-unit id="plugin.tea_index">
+				<source>Theelijst</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea_show">
+				<source>Thee-detailweergave</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea_frontend_editor">
+				<source>Frontend-bewerker voor thee</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea.heading">
+				<source>Onze selectie van diverse theesoorten</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea.property.uid">
+				<source>UID</source>
+			</trans-unit>
+			<trans-unit id="plugin.tea.property.title">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.description">
+				<source>Omschrijving</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.index.heading">
+				<source>Mijn theeën</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.message.noTeas">
+				<source>Je hebt nog geen theeën aangemaakt.</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.uid">
+				<source>UID</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.title">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.edit.heading">
+				<source>Bewerk thee</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.actions">
+				<source>Acties</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.edit">
+				<source>Bewerken</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.cancel">
+				<source>Afbreken</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.save">
+				<source>Bewaren</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.new">
+				<source>Maak nieuwe thee aan</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.delete">
+				<source>Verwijderen</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.new.heading">
+				<source>Maak nieuwe thee aan</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
