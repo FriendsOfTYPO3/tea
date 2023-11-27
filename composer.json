@@ -53,7 +53,7 @@
 		"helmich/typo3-typoscript-lint": "^3.1.0",
 		"php-coveralls/php-coveralls": "^2.7.0",
 		"phpstan/extension-installer": "^1.3.1",
-		"phpstan/phpstan": "^1.10.44",
+		"phpstan/phpstan": "^1.10.45",
 		"phpstan/phpstan-phpunit": "^1.3.15",
 		"phpstan/phpstan-strict-rules": "^1.5.2",
 		"phpunit/phpunit": "^9.6.13",
@@ -140,7 +140,7 @@
 			"@ci:php:sniff",
 			"@ci:php:stan"
 		],
-		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff",
+		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
