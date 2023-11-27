@@ -68,6 +68,9 @@ $tca = [
             'config' => [
                 'type' => 'datetime',
                 'default' => 0,
+                'range' => [
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
+                ],
             ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
