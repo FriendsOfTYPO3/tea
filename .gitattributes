@@ -12,6 +12,7 @@
 /.prettierrc.js export-ignore
 /Build/ export-ignore
 /Tests/ export-ignore
+/ec-cli-config.php export-ignore
 /package.json export-ignore
 /phive.xml export-ignore
 /phpcs.xml export-ignore

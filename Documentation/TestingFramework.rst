@@ -54,4 +54,3 @@ code changes) more of a hassle.
 For this approach, the
 `TYPO3 testing framework <https://github.com/TYPO3/testing-framework>`__
 - which supports only one TYPO3 LTS version at a time - will work just fine.
-

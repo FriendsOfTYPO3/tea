@@ -47,6 +47,7 @@
 		"typo3/cms-frontend": "^11.5.4 || ^12.4"
 	},
 	"require-dev": {
+		"armin/editorconfig-cli": "^1.7",
 		"doctrine/dbal": "^2.13.5 || ^3.6.2",
 		"ergebnis/composer-normalize": "^2.28.3",
 		"friendsofphp/php-cs-fixer": "^3.40.0",
@@ -133,6 +134,7 @@
 		"ci:dynamic": [
 			"@ci:tests"
 		],
+		"ci:editorconfig:lint": "ec --finder-config ec-cli-config.php",
 		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
 		"ci:php": [
 			"@ci:php:cs-fixer",
@@ -210,6 +212,7 @@
 		"ci:coverage:merge": "Merges the code coverage reports for unit and functional tests.",
 		"ci:coverage:unit": "Generates the code coverage report for unit tests.",
 		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
+		"ci:editorconfig:lint": "Lints files based on editorconfig.",
 		"ci:json:lint": "Lints the JSON files.",
 		"ci:php": "Runs all static checks for the PHP files.",
 		"ci:php:cs-fixer": "Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).",
