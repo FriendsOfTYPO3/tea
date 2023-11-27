@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace TTN\Tea\Tests\Unit\Domain\Model\Product;
+namespace TTN\Tea\Tests\Unit\Domain\Model;
 
-use TTN\Tea\Domain\Model\Product\Tea;
+use TTN\Tea\Domain\Model\Tea;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
- * @covers \TTN\Tea\Domain\Model\Product\Tea
+ * @covers \TTN\Tea\Domain\Model\Tea
  */
 final class TeaTest extends UnitTestCase
 {
-    private Tea $subject;
+    private \TTN\Tea\Domain\Model\Tea $subject;
 
     protected function setUp(): void
     {

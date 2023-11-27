@@ -6,8 +6,8 @@ namespace TTN\Tea\Tests\Unit\Controller;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use TTN\Tea\Controller\TeaController;
-use TTN\Tea\Domain\Model\Product\Tea;
-use TTN\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Domain\Model\Tea;
+use TTN\Tea\Domain\Repository\TeaRepository;
 use TYPO3\CMS\Core\Http\HtmlResponse;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;

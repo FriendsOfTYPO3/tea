@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace TTN\Tea\Tests\Unit\Domain\Repository\Product;
+namespace TTN\Tea\Tests\Unit\Domain\Repository;
 
-use TTN\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Domain\Repository\TeaRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
- * @covers \TTN\Tea\Domain\Repository\Product\TeaRepository
+ * @covers \TTN\Tea\Domain\Repository\TeaRepository
  */
 final class TeaRepositoryTest extends UnitTestCase
 {
