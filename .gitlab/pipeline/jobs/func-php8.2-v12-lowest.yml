@@ -1,4 +1,4 @@
-func-php8.2-v11-lowest:
+func-php8.2-v12-lowest:
   extends: .default
   image: php:8.2
   services:
