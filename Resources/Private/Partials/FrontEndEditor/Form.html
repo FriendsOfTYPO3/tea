@@ -25,6 +25,17 @@
                 <f:render partial="FrontEndEditor/ValidationResult" arguments="{property: 'description'}"/>
             </div>
         </div>
+
+        <div class="row mb-3">
+            <label for="{idPrefix}-stars" class="col-sm-2 col-form-label">
+                <f:translate key="{propertyLabelPrefix}.stars"/>
+            </label>
+            <div class="col-sm-10">
+                <f:form.textfield property="stars" id="{idPrefix}-stars" maxlength="5"
+                                  class="form-control" errorClass="is-invalid" required="required"/>
+                <f:render partial="FrontEndEditor/ValidationResult" arguments="{property: 'stars'}"/>
+            </div>
+        </div>
     </fieldset>
 
     <div class="d-flex justify-content-end mt-3 mb-3">

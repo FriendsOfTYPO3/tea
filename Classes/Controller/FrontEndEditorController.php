@@ -19,7 +19,7 @@ class FrontEndEditorController extends ActionController
 {
     private Context $context;
 
-    private TeaRepository $teaRepository;
+    protected TeaRepository $teaRepository;
 
     public function __construct(Context $context, TeaRepository $teaRepository)
     {
@@ -60,7 +60,7 @@ class FrontEndEditorController extends ActionController
     /**
      * @throws \RuntimeException
      */
-    private function checkIfUserIsOwner(Tea $tea): void
+    protected function checkIfUserIsOwner(Tea $tea): void
     {
         if ($tea->getOwnerUid() !== $this->getUidOfLoggedInUser()) {
             throw new \RuntimeException('You do not have the permissions to edit this tea.', 1687363749);

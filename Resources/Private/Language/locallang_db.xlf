@@ -27,6 +27,9 @@
 			<trans-unit id="tx_tea_domain_model_product_tea.hidden">
 				<source>Visible</source>
 			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.stars">
+				<source>Stars</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

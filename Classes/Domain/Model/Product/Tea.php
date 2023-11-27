@@ -32,6 +32,11 @@ class Tea extends AbstractEntity
      */
     protected $image;
 
+    /**
+     * @var int
+     */
+    protected $stars = null;
+
     // Note: We cannot use `@var` for the more specific type annotation here as this confuses the Extbase type mapper.
 
     /**
@@ -90,4 +95,23 @@ class Tea extends AbstractEntity
     {
         $this->ownerUid = $ownerUid;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getStars(): ?int
+    {
+        return $this->stars;
+    }
+
+    /**
+     * @param int|null $stars
+     * @return void
+     */
+    public function setStars(?int $stars): void
+    {
+        $this->stars = $stars;
+    }
+
+
 }

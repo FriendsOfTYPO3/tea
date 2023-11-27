@@ -27,6 +27,10 @@
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
+			<trans-unit id="plugin.tea.property.stars">
+				<source>Stars</source>
+				<target>Sterne</target>
+			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.index.heading">
 				<source>My teas</source>
 				<target>Meine Tees</target>
@@ -54,6 +58,10 @@
 			<trans-unit id="plugin.frontEndEditor.action.actions">
 				<source>Actions</source>
 				<target>Aktionen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.rating">
+				<source>Rating</source>
+				<target>Bewertung</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.edit">
 				<source>Edit</source>

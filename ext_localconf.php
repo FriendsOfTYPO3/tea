@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use TTN\Tea\Controller\FrontEndEditorController;
+use TTN\Tea\Controller\RatingController;
 use TTN\Tea\Controller\TeaController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -17,6 +18,7 @@ ExtensionUtility::configurePlugin(
     // all actions
     [
         TeaController::class => 'index',
+        RatingController::class => 'filter'
     ],
     // non-cacheable actions
     [
@@ -43,11 +45,13 @@ ExtensionUtility::configurePlugin(
     // all actions
     [
         FrontEndEditorController::class => 'index, edit, update, create, new, delete',
+        RatingController::class => 'filter,rating'
     ],
     // non-cacheable actions
     [
         // All actions need to be non-cacheable because they either contain dynamic data,
         // or because they are specific to the logged-in FE user (while FE content is cached by FE groups).
         FrontEndEditorController::class => 'index, edit, update, create, new, delete',
+        RatingController::class => 'rating'
     ]
 );

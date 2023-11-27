@@ -36,11 +36,17 @@
 			<trans-unit id="plugin.frontEndEditor.property.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.stars">
+				<source>Stars</source>
+			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.edit.heading">
 				<source>Edit tea</source>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.actions">
 				<source>Actions</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.rating">
+				<source>Rating</source>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.edit">
 				<source>Edit</source>
