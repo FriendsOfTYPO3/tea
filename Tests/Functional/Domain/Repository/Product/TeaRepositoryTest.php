@@ -69,6 +69,16 @@ final class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
+    public function findByUidForInexistentRecordReturnsNull(): void
+    {
+        $model = $this->subject->findByUid(1);
+
+        self::assertNull($model);
+    }
+
+    /**
+     * @test
+     */
     public function findByUidForExistingRecordReturnsModel(): void
     {
         $this->importCSVDataSet(__DIR__ . '/../Fixtures/Product/TeaWithAllScalarData.csv');
