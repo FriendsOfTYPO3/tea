@@ -568,7 +568,7 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         ;;
     phpstanGenerateBaseline)
-        COMMAND="composer phpstan:baseline"
+        COMMAND="composer phpstan:baseline --allow-empty-baseline"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
         ;;
