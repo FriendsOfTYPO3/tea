@@ -12,6 +12,9 @@ $tca = [
         'searchFields' => 'title, description',
         'enablecolumns' => [
             'fe_group' => 'fe_group',
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
         ],
         'transOrigPointerField' => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
@@ -24,16 +27,67 @@ $tca = [
                 '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                     title, description, image, owner,
                  --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.tabs.access,
+                    --palette--;;hidden,
                     --palette--;;access,',
         ],
     ],
     'palettes' => [
+        'hidden' => [
+            'showitem' => '
+                hidden;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden
+            ',
+        ],
         'access' => [
             'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.palettes.access',
-            'showitem' => 'fe_group',
+            'showitem' => '
+                starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+                endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+                --linebreak--,
+                fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+            ',
         ],
     ],
     'columns' => [
+        'hidden' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ],
+                ],
+            ],
+        ],
+        'starttime' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'config' => [
+                'type' => 'datetime',
+                'default' => 0,
+                'range' => [
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
+                ],
+            ],
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
+        ],
+        'endtime' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'config' => [
+                'type' => 'datetime',
+                'default' => 0,
+                'range' => [
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
+                ],
+            ],
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
+        ],
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
@@ -191,6 +245,28 @@ if ($typo3Version->getMajorVersion() < 12) {
                 ],
             ]
         ),
+    ];
+    $tca['columns']['hidden']['config'] = [
+        'type' => 'check',
+        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden',
+        'items' => [
+            [
+                0 => '',
+                'invertStateDisplay' => true,
+            ],
+        ],
+    ];
+    $tca['columns']['starttime']['config'] = [
+        'type' => 'input',
+        'renderType' => 'inputDateTime',
+        'eval' => 'datetime,int',
+        'default' => 0,
+    ];
+    $tca['columns']['endtime']['config'] = [
+        'type' => 'input',
+        'renderType' => 'inputDateTime',
+        'eval' => 'datetime,int',
+        'default' => 0,
     ];
     $tca['columns']['fe_group']['config']['items'] = [
         [
