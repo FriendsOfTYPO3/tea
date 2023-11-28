@@ -11,4 +11,5 @@ php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/u
 chmod +x /usr/local/bin/composer
 
 docker-php-ext-install pdo_mysql zip mysqli intl
+cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 sed -i 's/error_reporting = E_ALL/error_reporting = E_ALL & ~E_DEPRECATED/g' /usr/local/etc/php/php.ini
