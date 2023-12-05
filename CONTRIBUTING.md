@@ -5,17 +5,24 @@
 Feel free to open an issue, No matter whether you found a bug, request a feature or have questions.
 
 1. Please check existing open and closed issues first and feel free to comment and re-open them.
-2. Use a meaningful title
-3. Provide enough context, a concrete use case and steps to reproduce bugs
+2. Use a meaningful title.
+3. Provide enough context, a concrete use case and steps to reproduce bugs.
+
+You can browse existing and closed issues at
+https://github.com/FriendsOfTYPO3/tea/issues and open new issues at https://github.com/FriendsOfTYPO3/tea/issues/new
 
 ## Contributing code and documentation
 
-1. Create a fork of the repository (You need a GitHub account)
-2. Create a new branch holding your changes
-3. Apply your changes
-4. Commit your changes, follow the commit conventions: https://docs.typo3.org/m/typo3/guide-contributionworkflow/main/en-us/Appendix/CommitMessage.html#commitmessage
+1. Create a fork of the repository.
+   You need a GitHub account which you can create at https://github.com/join .
+2. Create a new branch holding your changes.
+3. Apply your changes.
+4. Commit your changes, follow the commit conventions: https://docs.typo3.org/m/typo3/guide-contributionworkflow/main/en-us/Appendix/CommitMessage.html#commitmessage .
    Except that we do not have `Releases` or `Change-Id` Metadata.
-5. Push your changes
-6. Open a pull request
+5. Push your changes.
+6. Open a pull request.
 
-You can find the documented workflow for GitHub at: https://docs.github.com/en/get-started/quickstart/contributing-to-projects
+Some pull requests can not be merged quickly.
+We consider the original author responsible for rebasing open merge requests under that circumstances.
+
+You can find the documented workflow for GitHub at: https://docs.github.com/en/get-started/quickstart/contributing-to-projects .
