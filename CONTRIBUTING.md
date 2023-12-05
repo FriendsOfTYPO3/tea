@@ -5,16 +5,15 @@
 Feel free to open an issue - no matter whether you found a bug, would like to request a feature or have questions.
 
 1. Please check existing open and closed issues first and feel free to comment and re-open them.
-2. Use a meaningful title.
-3. Provide enough context, a concrete use case and steps to reproduce bugs.
-
-You can browse existing and closed issues at
-https://github.com/FriendsOfTYPO3/tea/issues and open new issues at https://github.com/FriendsOfTYPO3/tea/issues/new
+   Existing issues are available at https://github.com/FriendsOfTYPO3/tea/issues .
+2. Create a new issue at https://github.com/FriendsOfTYPO3/tea/issues/new .
+3. Use a meaningful title.
+4. Provide enough context, a concrete use case and steps to reproduce bugs.
 
 ## Contributing code and documentation
 
 1. Create a fork of the repository.
-   You need a [GitHub account](https://github.com/join) .
+   You need a [GitHub account](https://github.com/join).
 2. Create a new branch holding your changes.
 3. Apply your changes.
 4. Commit your changes following the [TYPO3 git commit conventions](https://docs.typo3.org/m/typo3/guide-contributionworkflow/main/en-us/Appendix/CommitMessage.html#commitmessage).
