@@ -172,7 +172,7 @@
 		],
 		"fix:php:cs": "php-cs-fixer fix --config .php-cs-fixer.php",
 		"fix:php:sniff": "phpcbf Classes Configuration Tests",
-		"phpstan:baseline": ".Build/bin/phpstan --generate-baseline=phpstan-baseline.neon --allow-empty-baseline",
+		"phpstan:baseline": ".Build/bin/phpstan --generate-baseline --allow-empty-baseline",
 		"prepare-release": [
 			"rm .gitignore",
 			"rm -rf .Build",
