@@ -109,9 +109,6 @@
 		}
 	},
 	"scripts": {
-		"ci": [
-			"@ci:static"
-		],
 		"ci:composer:normalize": "@composer normalize --no-check-lock --dry-run",
 		"ci:composer:psr-verify": "@composer dumpautoload --optimize --strict-psr --no-plugins",
 		"ci:coverage": [
@@ -130,9 +127,6 @@
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
 			".Build/bin/phpunit -c ./Tests/Unit/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
-		],
-		"ci:dynamic": [
-			"@ci:tests"
 		],
 		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
 		"ci:php": [
@@ -154,10 +148,6 @@
 			"@ci:php:stan",
 			"@ci:ts:lint",
 			"@ci:yaml:lint"
-		],
-		"ci:tests": [
-			"@ci:tests:unit",
-			"@ci:tests:functional"
 		],
 		"ci:tests:create-directories": "mkdir -p .Build/Web/typo3temp/var/tests",
 		"ci:tests:functional": [
@@ -208,13 +198,11 @@
 		]
 	},
 	"scripts-descriptions": {
-		"ci": "Runs all dynamic and static code checks.",
 		"ci:composer:normalize": "Checks the composer.json.",
 		"ci:composer:psr-verify": "Verifies PSR-4 namespace correctness.",
 		"ci:coverage:functional": "Generates the code coverage report for functional tests.",
 		"ci:coverage:merge": "Merges the code coverage reports for unit and functional tests.",
 		"ci:coverage:unit": "Generates the code coverage report for unit tests.",
-		"ci:dynamic": "Runs all PHPUnit tests (unit and functional).",
 		"ci:json:lint": "Lints the JSON files.",
 		"ci:php": "Runs all static checks for the PHP files.",
 		"ci:php:cs-fixer": "Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).",
@@ -222,7 +210,6 @@
 		"ci:php:sniff": "Checks the code style with PHP_CodeSniffer (PHPCS).",
 		"ci:php:stan": "Checks the PHP types using PHPStan.",
 		"ci:static": "Runs all static code checks (syntax, style, types).",
-		"ci:tests": "Runs all PHPUnit tests (unit and functional).",
 		"ci:tests:create-directories": "Creates the directories required to smoothely run the functional tests.",
 		"ci:tests:functional": "Runs the functional tests.",
 		"ci:tests:unit": "Runs the unit tests.",
