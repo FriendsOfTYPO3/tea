@@ -159,7 +159,7 @@
 			"@ci:tests:unit",
 			"@ci:tests:functional"
 		],
-		"ci:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
+		"ci:tests:create-directories": "mkdir -p .Build/Web/typo3temp/var/tests",
 		"ci:tests:functional": [
 			"@ci:tests:create-directories",
 			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/bin/phpunit -c ./Tests/Functional/FunctionalTests.xml {}';"
