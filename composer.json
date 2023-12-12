@@ -119,6 +119,7 @@
 			"@ci:coverage:functional"
 		],
 		"ci:coverage:functional": [
+			"@ci:tests:create-directories",
 			"@coverage:create-directories",
 			".Build/bin/phpunit -c ./Tests/Functional/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
 		],
@@ -158,7 +159,11 @@
 			"@ci:tests:unit",
 			"@ci:tests:functional"
 		],
-		"ci:tests:functional": "find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/bin/phpunit -c ./Tests/Functional/FunctionalTests.xml {}';",
+		"ci:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
+		"ci:tests:functional": [
+			"@ci:tests:create-directories",
+			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/bin/phpunit -c ./Tests/Functional/FunctionalTests.xml {}';"
+		],
 		"ci:tests:unit": ".Build/bin/phpunit -c ./Tests/Unit/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -regextype egrep -regex '.*.ya?ml$' | xargs -r php ./.Build/bin/yaml-lint",
@@ -218,6 +223,7 @@
 		"ci:php:stan": "Checks the PHP types using PHPStan.",
 		"ci:static": "Runs all static code checks (syntax, style, types).",
 		"ci:tests": "Runs all PHPUnit tests (unit and functional).",
+		"ci:tests:create-directories": "Creates the directories required to smoothely run the functional tests.",
 		"ci:tests:functional": "Runs the functional tests.",
 		"ci:tests:unit": "Runs the unit tests.",
 		"ci:ts:lint": "Lints the TypoScript files.",
