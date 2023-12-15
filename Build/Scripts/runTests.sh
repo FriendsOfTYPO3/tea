@@ -29,48 +29,74 @@ cleanUp() {
     ${CONTAINER_BIN} network rm ${NETWORK} >/dev/null
 }
 
-# Options -a and -d depend on each other. The function
-# validates input combinations and sets defaults.
-handleDbmsAndDriverOptions() {
+handleDbmsOptions() {
+    # -a, -d, -i depend on each other. Validate input combinations and set defaults.
     case ${DBMS} in
         mariadb)
             [ -z "${DATABASE_DRIVER}" ] && DATABASE_DRIVER="mysqli"
             if [ "${DATABASE_DRIVER}" != "mysqli" ] && [ "${DATABASE_DRIVER}" != "pdo_mysql" ]; then
-                echo "Invalid option -a ${DATABASE_DRIVER} with -d ${DBMS}" >&2
+                echo "Invalid combination -d ${DBMS} -a ${DATABASE_DRIVER}" >&2
                 echo >&2
-                echo "call \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                exit 1
+            fi
+            [ -z "${DBMS_VERSION}" ] && DBMS_VERSION="10.3"
+            if ! [[ ${DBMS_VERSION} =~ ^(10.3|10.4|10.5|10.6|10.7|10.8|10.9|10.10|10.11|11.0|11.1)$ ]]; then
+                echo "Invalid combination -d ${DBMS} -i ${DBMS_VERSION}" >&2
+                echo >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
                 exit 1
             fi
             ;;
         mysql)
             [ -z "${DATABASE_DRIVER}" ] && DATABASE_DRIVER="mysqli"
             if [ "${DATABASE_DRIVER}" != "mysqli" ] && [ "${DATABASE_DRIVER}" != "pdo_mysql" ]; then
-                echo "Invalid option -a ${DATABASE_DRIVER} with -d ${DBMS}" >&2
+                echo "Invalid combination -d ${DBMS} -a ${DATABASE_DRIVER}" >&2
                 echo >&2
-                echo "call \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                exit 1
+            fi
+            [ -z "${DBMS_VERSION}" ] && DBMS_VERSION="8.0"
+            if ! [[ ${DBMS_VERSION} =~ ^(5.5|5.6|5.7|8.0)$ ]]; then
+                echo "Invalid combination -d ${DBMS} -i ${DBMS_VERSION}" >&2
+                echo >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
                 exit 1
             fi
             ;;
         postgres)
             if [ -n "${DATABASE_DRIVER}" ]; then
-                echo "Invalid option -a ${DATABASE_DRIVER} with -d ${DBMS}" >&2
+                echo "Invalid combination -d ${DBMS} -a ${DATABASE_DRIVER}" >&2
                 echo >&2
-                echo "call \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                exit 1
+            fi
+            [ -z "${DBMS_VERSION}" ] && DBMS_VERSION="10"
+            if ! [[ ${DBMS_VERSION} =~ ^(10|11|12|13|14|15)$ ]]; then
+                echo "Invalid combination -d ${DBMS} -i ${DBMS_VERSION}" >&2
+                echo >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
                 exit 1
             fi
             ;;
         sqlite)
             if [ -n "${DATABASE_DRIVER}" ]; then
-                echo "Invalid option -a ${DATABASE_DRIVER} with -d ${DBMS}" >&2
+                echo "Invalid combination -d ${DBMS} -a ${DATABASE_DRIVER}" >&2
                 echo >&2
-                echo "call \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+                exit 1
+            fi
+            if [ -n "${DBMS_VERSION}" ]; then
+                echo "Invalid combination -d ${DBMS} -i ${DATABASE_DRIVER}" >&2
+                echo >&2
+                echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
                 exit 1
             fi
             ;;
         *)
             echo "Invalid option -d ${DBMS}" >&2
             echo >&2
-            echo "call \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
+            echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
             exit 1
             ;;
     esac
@@ -149,9 +175,9 @@ Options:
             - mysql: use MySQL
             - postgres: use postgres
 
-    -i <10.3|10.4|10.5|10.6|10.7|10.8|10.9|10.10|10.11|11.0|11.1>
-        Only with -d mariadb
-        Specifies on which version of mariadb tests are performed
+    -i version
+        Specify a specific database version
+        With "-d mariadb":
             - 10.3   short-term, maintained until 2023-05-25 (default)
             - 10.4   short-term, maintained until 2024-06-18
             - 10.5   short-term, maintained until 2025-06-24
@@ -163,18 +189,12 @@ Options:
             - 10.11  long-term, maintained until 2028-02
             - 11.0   development series
             - 11.1   short-term development series
-
-    -j <5.5|5.6|5.7|8.0>
-        Only with -d mysql
-        Specifies on which version of mysql tests are performed
+        With "-d mysql":
             - 5.5   unmaintained since 2018-12
             - 5.6   unmaintained since 2021-02
             - 5.7   maintained until 2023-10
             - 8.0   maintained until 2026-04 (default)
-
-    -k <10|11|12|13|14|15>
-        Only with -d postgres
-        Specifies on which version of postgres tests are performed
+        With "-d postgres":
             - 10    unmaintained since 2022-11-10 (default)
             - 11    maintained until 2023-11-09
             - 12    maintained until 2024-11-14
@@ -250,7 +270,7 @@ Examples:
     ./Build/Scripts/runTests.sh -x -p 8.1 -s functional -d postgres typo3/sysext/core/Tests/Functional/Authentication
 
     # Run functional tests on postgres 11
-    ./Build/Scripts/runTests.sh -s functional -d postgres -k 11
+    ./Build/Scripts/runTests.sh -s functional -d postgres -i 11
 
     # Run restricted set of application acceptance tests
     ./Build/Scripts/runTests.sh -s acceptance typo3/sysext/core/Tests/Acceptance/Application/Login/BackendLoginCest.php:loginButtonMouseOver
@@ -270,6 +290,7 @@ fi
 TEST_SUITE="unit"
 CORE_VERSION="11.5"
 DBMS="sqlite"
+DBMS_VERSION=""
 PHP_VERSION="8.1"
 PHP_XDEBUG_ON=0
 PHP_XDEBUG_PORT=9003
@@ -277,9 +298,6 @@ EXTRA_TEST_OPTIONS=""
 PHPUNIT_RANDOM=""
 CGLCHECK_DRY_RUN=0
 DATABASE_DRIVER=""
-MARIADB_VERSION="10.3"
-MYSQL_VERSION="8.0"
-POSTGRES_VERSION="10"
 CONTAINER_BIN="docker"
 
 # Option parsing updates above default vars
@@ -288,7 +306,7 @@ OPTIND=1
 # Array for invalid options
 INVALID_OPTIONS=()
 # Simple option parsing based on getopts (! not getopt)
-while getopts "a:s:d:i:j:k:p:e:t:xy:o:nhu" OPT; do
+while getopts "a:s:d:i:p:e:t:xy:o:nhu" OPT; do
     case ${OPT} in
         s)
             TEST_SUITE=${OPTARG}
@@ -300,22 +318,7 @@ while getopts "a:s:d:i:j:k:p:e:t:xy:o:nhu" OPT; do
             DBMS=${OPTARG}
             ;;
         i)
-            MARIADB_VERSION=${OPTARG}
-            if ! [[ ${MARIADB_VERSION} =~ ^(10.3|10.4|10.5|10.6|10.7|10.8|10.9|10.10|10.11|11.0|11.1)$ ]]; then
-                INVALID_OPTIONS+=("i ${OPTARG}")
-            fi
-            ;;
-        j)
-            MYSQL_VERSION=${OPTARG}
-            if ! [[ ${MYSQL_VERSION} =~ ^(5.5|5.6|5.7|8.0)$ ]]; then
-                INVALID_OPTIONS+=("j ${OPTARG}")
-            fi
-            ;;
-        k)
-            POSTGRES_VERSION=${OPTARG}
-            if ! [[ ${POSTGRES_VERSION} =~ ^(10|11|12|13|14|15)$ ]]; then
-                INVALID_OPTIONS+=("${OPTARG}")
-            fi
+            DBMS_VERSION=${OPTARG}
             ;;
         p)
             PHP_VERSION=${OPTARG}
@@ -410,9 +413,9 @@ IMAGE_PHP="${TYPO3_IMAGE_PREFIX}typo3/core-testing-$(echo "php${PHP_VERSION}" | 
 IMAGE_ALPINE="${IMAGE_PREFIX}alpine:3.8"
 IMAGE_DOCS="ghcr.io/t3docs/render-documentation:latest"
 IMAGE_SELENIUM="${IMAGE_PREFIX}selenium/standalone-chrome:4.0.0-20211102"
-IMAGE_MARIADB="${IMAGE_PREFIX}mariadb:${MARIADB_VERSION}"
-IMAGE_MYSQL="${IMAGE_PREFIX}mysql:${MYSQL_VERSION}"
-IMAGE_POSTGRES="${IMAGE_PREFIX}postgres:${POSTGRES_VERSION}-alpine"
+IMAGE_MARIADB="${IMAGE_PREFIX}mariadb:${DBMS_VERSION}"
+IMAGE_MYSQL="${IMAGE_PREFIX}mysql:${DBMS_VERSION}"
+IMAGE_POSTGRES="${IMAGE_PREFIX}postgres:${DBMS_VERSION}-alpine"
 
 # Detect arm64 and use a seleniarm image.
 # In a perfect world selenium would have a arm64 integrated, but that is not on the horizon.
@@ -507,7 +510,7 @@ case ${TEST_SUITE} in
         ;;
     functional)
         [ -z "${TEST_FILE}" ] && TEST_FILE="Tests/Functional"
-        handleDbmsAndDriverOptions
+        handleDbmsOptions
         COMMAND=".Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --exclude-group not-${DBMS} ${EXTRA_TEST_OPTIONS} ${TEST_FILE}"
         case ${DBMS} in
             mariadb)
