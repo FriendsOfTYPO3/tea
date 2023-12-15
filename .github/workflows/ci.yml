@@ -75,6 +75,7 @@ jobs:
           - "php:stan"
           - "ts:lint"
           - "yaml:lint"
+          - "xliff:lint"
         php-version:
           - "8.1"
   code-quality-frontend:
@@ -93,14 +94,6 @@ jobs:
         run: yarn
       - name: "Run command"
         run: "yarn lint:${{ matrix.command }}"
-  xliff-lint:
-    name: "Xliff linter"
-    runs-on: ubuntu-22.04
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-      - name: "Run the xliff lint"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-22.04
