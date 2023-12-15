@@ -216,6 +216,7 @@
 		"ci:tests:unit": "Runs the unit tests.",
 		"ci:ts:lint": "Lints the TypoScript files.",
 		"ci:yaml:lint": "Lints the YAML files.",
+		"ci:xliff:lint": "Lints the xlf files.",
 		"coverage:create-directories": "Creates the directories needed for recording and merging the code coverage reports.",
 		"docs:generate": "Renders the extension ReST documentation.",
 		"fix:composer:normalize": "Normalizes composer.json file content.",
