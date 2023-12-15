@@ -24,7 +24,7 @@ waitFor() {
 cleanUp() {
     ATTACHED_CONTAINERS=$(${CONTAINER_BIN} ps --filter network=${NETWORK} --format='{{.Names}}')
     for ATTACHED_CONTAINER in ${ATTACHED_CONTAINERS}; do
-        ${CONTAINER_BIN} rm -f ${ATTACHED_CONTAINER} >/dev/null
+        ${CONTAINER_BIN} kill ${ATTACHED_CONTAINER} >/dev/null
     done
     ${CONTAINER_BIN} network rm ${NETWORK} >/dev/null
 }
@@ -167,6 +167,11 @@ Options:
                 - mysqli (default)
                 - pdo_mysql
 
+    -b <docker|podman>
+        Container environment:
+            - docker (default)
+            - podman
+
     -d <sqlite|mariadb|mysql|postgres>
         Only with -s functional|functionalDeprecated
         Specifies on which DBMS tests are performed
@@ -275,10 +280,17 @@ EOF
 }
 
 # Test if docker exists, else exit out with error
-if ! type "docker" >/dev/null; then
-    echo "This script relies on docker. Please install" >&2
+if ! type "docker" >/dev/null 2>&1 && ! type "podman" >/dev/null 2>&1; then
+    echo "This script relies on docker or podman. Please install at least one of them" >&2
     exit 1
 fi
+
+# Go to the directory this script is located, so everything else is relative
+# to this dir, no matter from where this script is called, then go up two dirs.
+THIS_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+cd "$THIS_SCRIPT_DIR" || exit 1
+cd ../../ || exit 1
+ROOT_DIR="${PWD}"
 
 # Option defaults
 TEST_SUITE="unit"
@@ -292,7 +304,20 @@ EXTRA_TEST_OPTIONS=""
 PHPUNIT_RANDOM=""
 CGLCHECK_DRY_RUN=0
 DATABASE_DRIVER=""
-CONTAINER_BIN="docker"
+CONTAINER_BIN=""
+DEFAULT_CONTAINER_BIN="docker"
+DEFAULT_CI_CONTAINER_BIN="docker"
+COMPOSER_ROOT_VERSION="3.0.x-dev"
+CONTAINER_INTERACTIVE="-it --init"
+HOST_UID=$(id -u)
+HOST_PID=$(id -g)
+USERSET=""
+SUFFIX=$(echo $RANDOM)
+NETWORK="friendsoftypo3-tea-${SUFFIX}"
+CI_PARAMS=""
+CONTAINER_HOST="host.docker.internal"
+PHPSTAN_CONFIG_FILE="phpstan.neon"
+IS_CORE_CI=0
 
 # Option parsing updates above default vars
 # Reset in case getopts has been used previously in the shell
@@ -300,13 +325,19 @@ OPTIND=1
 # Array for invalid options
 INVALID_OPTIONS=()
 # Simple option parsing based on getopts (! not getopt)
-while getopts "a:s:d:i:p:e:t:xy:o:nhu" OPT; do
+while getopts "a:b:s:d:i:p:e:t:xy:o:nhu" OPT; do
     case ${OPT} in
         s)
             TEST_SUITE=${OPTARG}
             ;;
         a)
             DATABASE_DRIVER=${OPTARG}
+            ;;
+        b)
+            if ! [[ ${OPTARG} =~ ^(docker|podman)$ ]]; then
+                INVALID_OPTIONS+=("-b ${OPTARG}")
+            fi
+            CONTAINER_BIN=${OPTARG}
             ;;
         d)
             DBMS=${OPTARG}
@@ -317,7 +348,7 @@ while getopts "a:s:d:i:p:e:t:xy:o:nhu" OPT; do
         p)
             PHP_VERSION=${OPTARG}
             if ! [[ ${PHP_VERSION} =~ ^(7.4|8.0|8.1|8.2|8.3)$ ]]; then
-                INVALID_OPTIONS+=("p ${OPTARG}")
+                INVALID_OPTIONS+=("-p ${OPTARG}")
             fi
             ;;
         e)
@@ -326,7 +357,7 @@ while getopts "a:s:d:i:p:e:t:xy:o:nhu" OPT; do
         t)
             CORE_VERSION=${OPTARG}
             if ! [[ ${CORE_VERSION} =~ ^(11.5|12.4)$ ]]; then
-                INVALID_OPTIONS+=("t ${OPTARG}")
+                INVALID_OPTIONS+=("-t ${OPTARG}")
             fi
             ;;
         x)
@@ -350,10 +381,10 @@ while getopts "a:s:d:i:p:e:t:xy:o:nhu" OPT; do
             TEST_SUITE=update
             ;;
         \?)
-            INVALID_OPTIONS+=("${OPTARG}")
+            INVALID_OPTIONS+=("-${OPTARG}")
             ;;
         :)
-            INVALID_OPTIONS+=("${OPTARG}")
+            INVALID_OPTIONS+=("-${OPTARG}")
             ;;
     esac
 done
@@ -362,40 +393,44 @@ done
 if [ ${#INVALID_OPTIONS[@]} -ne 0 ]; then
     echo "Invalid option(s):" >&2
     for I in "${INVALID_OPTIONS[@]}"; do
-        echo "-"${I} >&2
+        echo ${I} >&2
     done
     echo >&2
     echo "call \".Build/Scripts/runTests.sh -h\" to display help and valid options"
     exit 1
 fi
 
-COMPOSER_ROOT_VERSION="3.0.x-dev"
-HOST_UID=$(id -u)
-USERSET=""
-if [ $(uname) != "Darwin" ]; then
+handleDbmsOptions
+
+# ENV var "CI" is set by gitlab-ci. Use it to force some CI details.
+if [ "${CI}" == "true" ]; then
+    IS_CORE_CI=1
+    CONTAINER_INTERACTIVE=""
+    # set default ci container binary, if not set using "-b" option
+    if [ ${CONTAINER_BIN} = "" ]; then
+        CONTAINER_BIN="${DEFAULT_CI_CONTAINER_BIN}"
+    fi
+    CI_PARAMS="--pull=never"
+fi
+
+# set default container binary, if not set using "-b" option
+if [ "${CONTAINER_BIN}" = "" ]; then
+    CONTAINER_BIN="${DEFAULT_CONTAINER_BIN}"
+fi
+
+if [ $(uname) != "Darwin" ] && [ ${CONTAINER_BIN} = "docker" ]; then
+    # Run docker jobs as current user to prevent permission issues. Not needed with podman.
     USERSET="--user $HOST_UID"
 fi
 
-# Go to the directory this script is located, so everything else is relative
-# to this dir, no matter from where this script is called, then go up two dirs.
-THIS_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
-cd "$THIS_SCRIPT_DIR" || exit 1
-cd ../../ || exit 1
-ROOT_DIR="${PWD}"
+if ! type ${CONTAINER_BIN} >/dev/null 2>&1; then
+    echo "Selected container environment \"${CONTAINER_BIN}\" not found. Please install \"${CONTAINER_BIN}\" or use -b option to select one." >&2
+    exit 1
+fi
 
 # Create .cache dir: composer need this.
 mkdir -p .cache
 mkdir -p .Build/Web/typo3temp/var/tests
-
-PHPSTAN_CONFIG_FILE="phpstan.neon"
-CONTAINER_INTERACTIVE="-it --init"
-
-IS_CORE_CI=0
-# ENV var "CI" is set by gitlab-ci. We use it here to distinct 'local' and 'CI' environment.
-if [ "${CI}" == "true" ]; then
-    IS_CORE_CI=1
-    CONTAINER_INTERACTIVE=""
-fi
 
 IMAGE_PHP="ghcr.io/typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_ALPINE="docker.io/alpine:3.8"
@@ -408,12 +443,15 @@ IMAGE_POSTGRES="docker.io/postgres:${DBMS_VERSION}-alpine"
 shift $((OPTIND - 1))
 TEST_FILE=${1}
 
-SUFFIX=$(echo $RANDOM)
-NETWORK="friendsoftypo3-tea-${SUFFIX}"
 ${CONTAINER_BIN} network create ${NETWORK} >/dev/null
 
-CONTAINER_COMMON_PARAMS="${CONTAINER_INTERACTIVE} --rm --network $NETWORK --add-host "host.docker.internal:host-gateway" $USERSET -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR}"
-CONTAINER_DOCS_PARAMS="${CONTAINER_INTERACTIVE} --rm $USERSET -v ${ROOT_DIR}:/PROJECT -v ${ROOT_DIR}/Documentation-GENERATED-temp:/RESULT -w ${ROOT_DIR}"
+if [ "${CONTAINER_BIN}" == "docker" ]; then
+    CONTAINER_COMMON_PARAMS="${CONTAINER_INTERACTIVE} --rm --network ${NETWORK} --add-host "${CONTAINER_HOST}:host-gateway" ${USERSET} -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR}"
+else
+    # podman
+    CONTAINER_HOST="host.containers.internal"
+    CONTAINER_COMMON_PARAMS="${CONTAINER_INTERACTIVE} ${CI_PARAMS} --rm --network ${NETWORK} -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR}"
+fi
 
 if [ ${PHP_XDEBUG_ON} -eq 0 ]; then
     XDEBUG_MODE="-e XDEBUG_MODE=off"
@@ -480,20 +518,29 @@ case ${TEST_SUITE} in
         ;;
     docsGenerate)
         # @todo contact the documentation team for a future rootles podman version
-        ${CONTAINER_BIN} run --rm ${IMAGE_DOCS} show-shell-commands > generate-documentation.sh
-        echo 'dockrun_t3rd makehtml' >> generate-documentation.sh
-        bash generate-documentation.sh
-        rm -Rf generate-documentation.sh
-        SUITE_EXIT_CODE=$?
+        if [ ${CONTAINER_BIN} = "podman" ]; then
+            echo "-s docsGenerate is not usable with -b podman"
+            echo "TYPO3 Documentation Team needs to deal with this, and we will"
+            echo "see if the upcoming php based documentation rendering container"
+            echo "will support podman out-of-the-box"
+            echo ""
+            echo "Please use -b docker -s docsGenerate"
+            SUITE_EXIT_CODE=1
+        else
+            ${CONTAINER_BIN} run --rm ${IMAGE_DOCS} show-shell-commands > generate-documentation.sh
+            echo 'dockrun_t3rd makehtml' >> generate-documentation.sh
+            bash generate-documentation.sh
+            rm -Rf generate-documentation.sh
+            SUITE_EXIT_CODE=$?
+        fi
         ;;
     functional)
         [ -z "${TEST_FILE}" ] && TEST_FILE="Tests/Functional"
-        handleDbmsOptions
         COMMAND=".Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --exclude-group not-${DBMS} ${EXTRA_TEST_OPTIONS} ${TEST_FILE}"
         case ${DBMS} in
             mariadb)
                 echo "Using driver: ${DATABASE_DRIVER}"
-                ${CONTAINER_BIN} run --name mariadb-func-${SUFFIX} --network ${NETWORK} -d -e MYSQL_ROOT_PASSWORD=funcp --tmpfs /var/lib/mysql/:rw,noexec,nosuid ${IMAGE_MARIADB} >/dev/null
+                ${CONTAINER_BIN} run --rm ${CI_PARAMS} --name mariadb-func-${SUFFIX} --network ${NETWORK} -d -e MYSQL_ROOT_PASSWORD=funcp --tmpfs /var/lib/mysql/:rw,noexec,nosuid ${IMAGE_MARIADB} >/dev/null
                 waitFor mariadb-func-${SUFFIX} 3306
                 CONTAINERPARAMS="-e typo3DatabaseDriver=${DATABASE_DRIVER} -e typo3DatabaseName=func_test -e typo3DatabaseUsername=root -e typo3DatabaseHost=mariadb-func-${SUFFIX} -e typo3DatabasePassword=funcp"
                 ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name functional-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${CONTAINERPARAMS} ${IMAGE_PHP} ${COMMAND}
@@ -501,14 +548,14 @@ case ${TEST_SUITE} in
                 ;;
             mysql)
                 echo "Using driver: ${DATABASE_DRIVER}"
-                ${CONTAINER_BIN} run --name mysql-func-${SUFFIX} --network ${NETWORK} -d -e MYSQL_ROOT_PASSWORD=funcp --tmpfs /var/lib/mysql/:rw,noexec,nosuid ${IMAGE_MYSQL} >/dev/null
+                ${CONTAINER_BIN} run --rm ${CI_PARAMS} --name mysql-func-${SUFFIX} --network ${NETWORK} -d -e MYSQL_ROOT_PASSWORD=funcp --tmpfs /var/lib/mysql/:rw,noexec,nosuid ${IMAGE_MYSQL} >/dev/null
                 waitFor mysql-func-${SUFFIX} 3306
                 CONTAINERPARAMS="-e typo3DatabaseDriver=${DATABASE_DRIVER} -e typo3DatabaseName=func_test -e typo3DatabaseUsername=root -e typo3DatabaseHost=mysql-func-${SUFFIX} -e typo3DatabasePassword=funcp"
                 ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name functional-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${CONTAINERPARAMS} ${IMAGE_PHP} ${COMMAND}
                 SUITE_EXIT_CODE=$?
                 ;;
             postgres)
-                ${CONTAINER_BIN} run --name postgres-func-${SUFFIX} --network ${NETWORK} -d -e POSTGRES_PASSWORD=funcp -e POSTGRES_USER=funcu --tmpfs /var/lib/postgresql/data:rw,noexec,nosuid ${IMAGE_POSTGRES} >/dev/null
+                ${CONTAINER_BIN} run --rm ${CI_PARAMS} --name postgres-func-${SUFFIX} --network ${NETWORK} -d -e POSTGRES_PASSWORD=funcp -e POSTGRES_USER=funcu --tmpfs /var/lib/postgresql/data:rw,noexec,nosuid ${IMAGE_POSTGRES} >/dev/null
                 waitFor postgres-func-${SUFFIX} 5432
                 CONTAINERPARAMS="-e typo3DatabaseDriver=pdo_pgsql -e typo3DatabaseName=bamboo -e typo3DatabaseUsername=funcu -e typo3DatabaseHost=postgres-func-${SUFFIX} -e typo3DatabasePassword=funcp"
                 ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name functional-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${CONTAINERPARAMS} ${IMAGE_PHP} ${COMMAND}
@@ -564,17 +611,13 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         ;;
     update)
-        # prune unused, dangling local volumes
-        echo "> prune unused, dangling local volumes"
-        ${CONTAINER_BIN} volume ls -q -f driver=local -f dangling=true | awk '$0 ~ /^[0-9a-f]{64}$/ { print }' | xargs -I {} ${CONTAINER_BIN} volume rm {}
-        echo ""
         # pull typo3/core-testing-*:latest versions of those ones that exist locally
-        echo "> pull ${TYPO3_IMAGE_PREFIX}core-testing-*:latest versions of those ones that exist locally"
-        ${CONTAINER_BIN} images ${TYPO3_IMAGE_PREFIX}core-testing-*:latest --format "{{.Repository}}:latest" | xargs -I {} ${CONTAINER_BIN} pull {}
+        echo "> pull ghcr.io/typo3/core-testing-*:latest versions of those ones that exist locally"
+        ${CONTAINER_BIN} images ghcr.io/typo3/core-testing-*:latest --format "{{.Repository}}:latest" | xargs -I {} ${CONTAINER_BIN} pull {}
         echo ""
         # remove "dangling" typo3/core-testing-* images (those tagged as <none>)
-        echo "> remove \"dangling\" ${TYPO3_IMAGE_PREFIX}core-testing-* images (those tagged as <none>)"
-        ${CONTAINER_BIN} images ${TYPO3_IMAGE_PREFIX}core-testing-* --filter "dangling=true" --format "{{.ID}}" | xargs -I {} ${CONTAINER_BIN} rmi {}
+        echo "> remove \"dangling\" ghcr.io/typo3/core-testing-* images (those tagged as <none>)"
+        ${CONTAINER_BIN} images ghcr.io/typo3/core-testing-* --filter "dangling=true" --format "{{.ID}}" | xargs -I {} ${CONTAINER_BIN} rmi {}
         echo ""
         ;;
     *)
@@ -599,6 +642,7 @@ else
 fi
 echo "PHP: ${PHP_VERSION}" >&2
 echo "TYPO3: ${CORE_VERSION}" >&2
+echo "CONTAINER_BIN: ${CONTAINER_BIN}"
 if [[ ${TEST_SUITE} =~ ^functional$ ]]; then
     case "${DBMS}" in
         mariadb)
