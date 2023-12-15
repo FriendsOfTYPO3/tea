@@ -18,6 +18,8 @@ updates:
       - dependency-name: "doctrine/dbal"
       - dependency-name: "phpunit/phpunit"
         versions: [ "^10.0" ]
+      - dependency-name: "symfony/console"
+      - dependency-name: "symfony/translation"
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
     versioning-strategy: "increase"
