@@ -128,9 +128,9 @@ cleanRenderedDocumentationFiles() {
 loadHelp() {
     # Load help text into $HELP
     read -r -d '' HELP <<EOF
-TYPO3 core test runner. Execute acceptance, unit, functional and other test suites in
-a container based test environment. Handles execution of single test files, sending
-xdebug information to a local IDE and more.
+TYPO3 core test runner. Execute unit, functional and other test suites in
+a container based test environment. Handles execution of single test files,
+sending xdebug information to a local IDE and more.
 
 Usage: $0 [options] [file]
 
@@ -168,7 +168,7 @@ Options:
                 - pdo_mysql
 
     -d <sqlite|mariadb|mysql|postgres>
-        Only with -s functional|functionalDeprecated|acceptance|acceptanceInstall
+        Only with -s functional|functionalDeprecated
         Specifies on which DBMS tests are performed
             - sqlite: (default): use sqlite
             - mariadb: use mariadb
@@ -217,14 +217,14 @@ Options:
             - 8.3: use PHP 8.3
 
     -e "<phpunit options>"
-        Only with -s functional|functionalDeprecated|unit|unitDeprecated|unitRandom|acceptance
-        Additional options to send to phpunit (unit & functional tests) or codeception (acceptance
-        tests). For phpunit, options starting with "--" must be added after options starting with "-".
+        Only with -s functional|functionalDeprecated|unit|unitDeprecated|unitRandom
+        Additional options to send to phpunit (unit & functional tests). For phpunit,
+        options starting with "--" must be added after options starting with "-".
         Example -e "-v --filter canRetrieveValueWithGP" to enable verbose output AND filter tests
         named "canRetrieveValueWithGP"
 
     -x
-        Only with -s functional|functionalDeprecated|unit|unitDeprecated|unitRandom|acceptance|acceptanceInstall
+        Only with -s functional|functionalDeprecated|unit|unitDeprecated|unitRandom
         Send information to host instance for test or system under test break points. This is especially
         useful if a local PhpStorm instance is listening on default xdebug port 9003. A different port
         can be selected with -y
@@ -271,12 +271,6 @@ Examples:
 
     # Run functional tests on postgres 11
     ./Build/Scripts/runTests.sh -s functional -d postgres -i 11
-
-    # Run restricted set of application acceptance tests
-    ./Build/Scripts/runTests.sh -s acceptance typo3/sysext/core/Tests/Acceptance/Application/Login/BackendLoginCest.php:loginButtonMouseOver
-
-    # Run installer tests of a new instance on sqlite
-    ./Build/Scripts/runTests.sh -s acceptanceInstall -d sqlite
 EOF
 }
 
@@ -406,19 +400,9 @@ fi
 IMAGE_PHP="ghcr.io/typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_ALPINE="docker.io/alpine:3.8"
 IMAGE_DOCS="ghcr.io/t3docs/render-documentation:latest"
-IMAGE_SELENIUM="docker.io/selenium/standalone-chrome:4.0.0-20211102"
 IMAGE_MARIADB="docker.io/mariadb:${DBMS_VERSION}"
 IMAGE_MYSQL="docker.io/mysql:${DBMS_VERSION}"
 IMAGE_POSTGRES="docker.io/postgres:${DBMS_VERSION}-alpine"
-
-# Detect arm64 and use a seleniarm image.
-# In a perfect world selenium would have a arm64 integrated, but that is not on the horizon.
-# So for the time being we have to use seleniarm image.
-ARCH=$(uname -m)
-if [ ${ARCH} = "arm64" ]; then
-    IMAGE_SELENIUM="${IMAGE_PREFIX}seleniarm/standalone-chromium:4.1.2-20220227"
-    echo "Architecture" ${ARCH} "requires" ${IMAGE_SELENIUM} "to run acceptance tests."
-fi
 
 # Set $1 to first mass argument, this is the optional test file or test directory to execute
 shift $((OPTIND - 1))
