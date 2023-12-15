@@ -1,5 +1,4 @@
 /.Build/ export-ignore
-/.ddev/ export-ignore
 /.editorconfig export-ignore
 /.eslintignore export-ignore
 /.eslintrc.json export-ignore
