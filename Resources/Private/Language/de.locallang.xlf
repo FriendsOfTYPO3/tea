@@ -11,17 +11,73 @@
 				<source>Tea single view</source>
 				<target>Tee-Einzelansicht</target>
 			</trans-unit>
-			<trans-unit id="index.heading">
+			<trans-unit id="plugin.tea_frontend_editor">
+				<source>Tea front-end editor</source>
+				<target>Frontend-Editor für Tee</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea.heading">
 				<source>Our selection of assorted teas</source>
 				<target>Unsere Auswahl an erlesenen Tees</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.uid">
+			<trans-unit id="plugin.tea.property.uid">
 				<source>UID</source>
 				<target>UID</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.title">
+			<trans-unit id="plugin.tea.property.title">
 				<source>Title</source>
 				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.index.heading">
+				<source>My teas</source>
+				<target>Meine Tees</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.message.noTeas">
+				<source>You have not created any teas yet.</source>
+				<target>Du hast noch keine Tees angelegt.</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.uid">
+				<source>UID</source>
+				<target>UID</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.edit.heading">
+				<source>Edit tea</source>
+				<target>Tee bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.actions">
+				<source>Actions</source>
+				<target>Aktionen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.edit">
+				<source>Edit</source>
+				<target>Bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.cancel">
+				<source>Cancel</source>
+				<target>Abbrechen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.save">
+				<source>Save</source>
+				<target>Speichern</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.new">
+				<source>Create new tea</source>
+				<target>Neuen Tee anlegen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.delete">
+				<source>Delete</source>
+				<target>Löschen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.new.heading">
+				<source>Create new tea</source>
+				<target>Neuen Tee anlegen</target>
 			</trans-unit>
 		</body>
 	</file>

@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2.4
+          tools: composer:v2
       - name: "Show the Composer configuration"
         run: "composer config --global --list"
       - name: "Run PHP lint"
@@ -35,18 +35,20 @@ jobs:
           - "7.4"
           - "8.0"
           - "8.1"
+          - "8.2"
+          - "8.3"
   code-quality:
     name: "Code quality checks"
     runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2.4
+          tools: composer:v2
       - name: "Show Composer version"
         run: "composer --version"
       - name: "Show the Composer configuration"
@@ -66,8 +68,8 @@ jobs:
       matrix:
         command:
           - "composer:normalize"
+          - "composer:psr-verify"
           - "json:lint"
-          - "php:copypaste"
           - "php:cs-fixer"
           - "php:sniff"
           - "php:stan:github"
@@ -86,7 +88,7 @@ jobs:
           - "js"
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Install modules"
         run: yarn
       - name: "Run command"
@@ -96,7 +98,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Run the xliff lint"
         uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
@@ -105,13 +107,13 @@ jobs:
     needs: php-lint
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
           coverage: none
-          tools: composer:v2.4
+          tools: composer:v2
       - name: "Show Composer version"
         run: "composer --version"
       - name: "Show the Composer configuration"
@@ -162,11 +164,35 @@ jobs:
           - typo3-version: "^11.5"
             php-version: "8.1"
             composer-dependencies: highest
-          - typo3-version: "^12.0"
+          - typo3-version: "^11.5"
+            php-version: "8.2"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.2"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "8.3"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.3"
+            composer-dependencies: highest
+          - typo3-version: "^12.4"
             php-version: "8.1"
             composer-dependencies: lowest
-          - typo3-version: "^12.0"
+          - typo3-version: "^12.4"
             php-version: "8.1"
+            composer-dependencies: highest
+          - typo3-version: "^12.4"
+            php-version: "8.2"
+            composer-dependencies: lowest
+          - typo3-version: "^12.4"
+            php-version: "8.2"
+            composer-dependencies: highest
+          - typo3-version: "^12.4"
+            php-version: "8.3"
+            composer-dependencies: lowest
+          - typo3-version: "^12.4"
+            php-version: "8.3"
             composer-dependencies: highest
   functional-tests:
     name: "Functional tests"
@@ -179,12 +205,12 @@ jobs:
       DB_HOST: localhost
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
-          tools: composer:v2.4
+          tools: composer:v2
           extensions: mysqli
           coverage: none
       - name: "Show Composer version"
@@ -244,9 +270,33 @@ jobs:
           - typo3-version: "^11.5"
             php-version: "8.1"
             composer-dependencies: highest
-          - typo3-version: "^12.0"
+          - typo3-version: "^11.5"
+            php-version: "8.2"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.2"
+            composer-dependencies: highest
+          - typo3-version: "^11.5"
+            php-version: "8.3"
+            composer-dependencies: lowest
+          - typo3-version: "^11.5"
+            php-version: "8.3"
+            composer-dependencies: highest
+          - typo3-version: "^12.4"
             php-version: "8.1"
             composer-dependencies: lowest
-          - typo3-version: "^12.0"
+          - typo3-version: "^12.4"
             php-version: "8.1"
+            composer-dependencies: highest
+          - typo3-version: "^12.4"
+            php-version: "8.2"
+            composer-dependencies: lowest
+          - typo3-version: "^12.4"
+            php-version: "8.2"
+            composer-dependencies: highest
+          - typo3-version: "^12.4"
+            php-version: "8.3"
+            composer-dependencies: lowest
+          - typo3-version: "^12.4"
+            php-version: "8.3"
             composer-dependencies: highest

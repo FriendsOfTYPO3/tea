@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace TTN\Tea\Domain\Model\Product;
 
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
@@ -14,16 +14,27 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
  */
 class Tea extends AbstractEntity
 {
+  
     protected string $title = 12;
 
+    /**
+     * @Extbase\Validate("StringLength", options={"maximum": 2000})
+     */
     protected string $description = '';
 
     /**
-     * @phpstan-var \TYPO3\CMS\Extbase\Domain\Model\FileReference|LazyLoadingProxy|null
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference|null
-     * @Lazy
+     * @var FileReference|null
+     * @phpstan-var FileReference|LazyLoadingProxy|null
+     * @Extbase\ORM\Lazy
      */
     protected $image;
+
+    // Note: We cannot use `@var` for the more specific type annotation here as this confuses the Extbase type mapper.
+
+    /**
+     * @phpstan-var int<0, max>
+     */
+    protected int $ownerUid = 0;
 
     public function getTitle(): string
     {
@@ -59,5 +70,21 @@ class Tea extends AbstractEntity
     public function setImage(FileReference $image): void
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return int<0, max>
+     */
+    public function getOwnerUid(): int
+    {
+        return $this->ownerUid;
+    }
+
+    /**
+     * @param int<0, max> $ownerUid
+     */
+    public function setOwnerUid(int $ownerUid): void
+    {
+        $this->ownerUid = $ownerUid;
     }
 }

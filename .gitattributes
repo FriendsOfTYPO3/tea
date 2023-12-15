@@ -10,6 +10,7 @@
 /.php-cs-fixer.php export-ignore
 /.phpstorm.meta.php export-ignore
 /.prettierrc.js export-ignore
+/Build/ export-ignore
 /Tests/ export-ignore
 /package.json export-ignore
 /phive.xml export-ignore

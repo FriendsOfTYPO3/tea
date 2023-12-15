@@ -4,24 +4,24 @@
 
     <f:section name="main">
         <h2>
-            <f:translate key="index.heading"/>
+            <f:translate key="plugin.tea.heading"/>
         </h2>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        <f:translate key="tx_tea_domain_model_product_tea.uid"/>
+                        <f:translate key="plugin.tea.property.uid"/>
                     </th>
                     <th>
-                        <f:translate key="tx_tea_domain_model_product_tea.title"/>
+                        <f:translate key="plugin.tea.property.title"/>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <f:for each="{teas}" as="tea">
                     <tr>
-                        <td scope="row">
+                        <td>
                             {tea.uid}
                         </td>
                         <td>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="pl" datatype="plaintext" original="messages">
+		<header/>
+		<body>
+			<trans-unit id="plugin.tea_index">
+				<source>Tea list</source>
+				<target>Lista herbat</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea_show">
+				<source>Tea single view</source>
+				<target>Widok pojedynczej herbaty</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea_frontend_editor">
+				<source>Tea front-end editor</source>
+				<target>Front-endowy edytor dla herbat</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea.heading">
+				<source>Our selection of assorted teas</source>
+				<target>Nasz wybór różnorodnych herbat</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea.property.uid">
+				<source>UID</source>
+				<target>UID</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea.property.title">
+				<source>Title</source>
+				<target>Tytuł</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.index.heading">
+				<source>My teas</source>
+				<target>Moje herbaty</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.message.noTeas">
+				<source>You have not created any teas yet.</source>
+				<target>Nie utworzyłeś jeszcze żadnych herbat.</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.uid">
+				<source>UID</source>
+				<target>UID</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.title">
+				<source>Title</source>
+				<target>Tytuł</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.description">
+				<source>Description</source>
+				<target>Opis</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.edit.heading">
+				<source>Edit tea</source>
+				<target>Edytuj herbatę.</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.actions">
+				<source>Actions</source>
+				<target>Akcje</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.edit">
+				<source>Edit</source>
+				<target>Edytuj</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.cancel">
+				<source>Cancel</source>
+				<target>Anuluj</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.save">
+				<source>Save</source>
+				<target>Zapisz</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.new">
+				<source>Create new tea</source>
+				<target>Utwórz nową herbatę</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.delete">
+				<source>Delete</source>
+				<target>Usuń</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.new.heading">
+				<source>Create new tea</source>
+				<target>Utwórz nową herbatę.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

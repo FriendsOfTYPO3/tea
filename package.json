@@ -2,7 +2,7 @@
 	"name": "tea",
 	"description": "npm helper tools used for the extension",
 	"repository": {
-		"url": "https://github.com/TYPO3-Documentation/tea.git"
+		"url": "https://github.com/FriendsOfTYPO3/tea.git"
 	},
 	"keywords": [],
 	"author": "",
@@ -15,13 +15,13 @@
 		"lint:style:fix": "stylelint Resources/Public/**/*.css --fix"
 	},
 	"devDependencies": {
-		"eslint": "^8.26.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"prettier": "^2.7.1",
-		"stylelint": "^14.14.0",
-		"stylelint-config-recommended": "^9.0.0",
+		"eslint": "^8.55.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-prettier": "^5.0.1",
+		"prettier": "^3.1.1",
+		"stylelint": "^15.11.0",
+		"stylelint-config-recommended": "^13.0.0",
 		"stylelint-no-browser-hacks": "^1.2.1"
 	}
 }

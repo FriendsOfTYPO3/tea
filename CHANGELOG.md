@@ -6,14 +6,24 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add polish translation for tea (#1020)
+- Make records timeable and hideable (#989)
+- Add support for PHP 8.3 (#965)
+- Add an FE editor (#864, #872, #874, #876)
+- Add automerging of green Dependabot PRs (#756)
+- Add type coverage calculation (#830)
 
 ### Changed
+- Rename TsConfig directory to `TSconfig` (#923)
+- Set the minimal 12LTS version to 12.1 (#702)
 
 ### Deprecated
 
 ### Removed
+- Stop using Prophecy (#676)
 
 ### Fixed
+- Get the functional tests to work with TYPO3 >= 12.1 (#704)
 - Avoid race condition on case-insensitive filesystems (#657)
 
 ## 3.0.0

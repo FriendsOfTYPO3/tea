@@ -1,8 +1,16 @@
 plugin.tx_tea {
   view {
-    templateRootPath = {$plugin.tx_tea.view.templateRootPath}
-    partialRootPath = {$plugin.tx_tea.view.partialRootPath}
-    layoutRootPath = {$plugin.tx_tea.view.layoutRootPath}
+    templateRootPaths {
+      0 = EXT:tea/Resources/Private/Templates/
+    }
+
+    partialRootPaths {
+      0 = EXT:tea/Resources/Private/Partials/
+    }
+
+    layoutRootPaths {
+      0 = EXT:tea/Resources/Private/Layouts/
+    }
   }
 
   persistence {

@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace TTN\Tea\Tests\Unit\Controller;
 
 use PHPUnit\Framework\MockObject\MockObject;
-use Prophecy\PhpUnit\ProphecyTrait;
-use Prophecy\Prophecy\ObjectProphecy;
-use Prophecy\Prophecy\ProphecySubjectInterface;
 use TTN\Tea\Controller\TeaController;
 use TTN\Tea\Domain\Model\Product\Tea;
 use TTN\Tea\Domain\Repository\Product\TeaRepository;
 use TYPO3\CMS\Core\Http\HtmlResponse;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
@@ -21,46 +19,40 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 /**
  * @covers \TTN\Tea\Controller\TeaController
  */
-class TeaControllerTest extends UnitTestCase
+final class TeaControllerTest extends UnitTestCase
 {
-    use ProphecyTrait;
-
     /**
      * @var TeaController&MockObject&AccessibleObjectInterface
      */
     private TeaController $subject;
 
     /**
-     * @var ObjectProphecy<TemplateView>
+     * @var TemplateView&MockObject
      */
-    private ObjectProphecy $viewProphecy;
+    private TemplateView $viewMock;
 
     /**
-     * @var ObjectProphecy<TeaRepository>
+     * @var TeaRepository&MockObject
      */
-    private ObjectProphecy $teaRepositoryProphecy;
+    private TeaRepository $teaRepositoryMock;
 
     protected function setUp(): void
     {
         parent::setUp();
 
+        $this->teaRepositoryMock = $this->createMock(TeaRepository::class);
         // We need to create an accessible mock in order to be able to set the protected `view`.
-        $this->subject = $this->getAccessibleMock(
-            TeaController::class,
-            ['forward', 'redirect', 'redirectToUri', 'htmlResponse']
-        );
+        $methodsToMock = ['htmlResponse', 'redirect', 'redirectToUri'];
+        if ((new Typo3Version())->getMajorVersion() < 12) {
+            $methodsToMock[] = 'forward';
+        }
+        $this->subject = $this->getAccessibleMock(TeaController::class, $methodsToMock, [$this->teaRepositoryMock]);
 
-        $this->viewProphecy = $this->prophesize(TemplateView::class);
-        $view = $this->viewProphecy->reveal();
-        $this->subject->_set('view', $view);
+        $this->viewMock = $this->createMock(TemplateView::class);
+        $this->subject->_set('view', $this->viewMock);
 
-        $this->teaRepositoryProphecy = $this->prophesize(TeaRepository::class);
-        /** @var TeaRepository&ProphecySubjectInterface $teaRepository */
-        $teaRepository = $this->teaRepositoryProphecy->reveal();
-        $this->subject->injectTeaRepository($teaRepository);
-
-        $response = $this->prophesize(HtmlResponse::class)->reveal();
-        $this->subject->method('htmlResponse')->willReturn($response);
+        $responseStub = $this->createStub(HtmlResponse::class);
+        $this->subject->method('htmlResponse')->willReturn($responseStub);
     }
 
     /**
@@ -76,15 +68,21 @@ class TeaControllerTest extends UnitTestCase
      */
     public function indexActionAssignsAllTeaAsTeasToView(): void
     {
-        $teas = $this->prophesize(QueryResultInterface::class)->reveal();
-        $this->teaRepositoryProphecy->findAll()->willReturn($teas);
-        $this->viewProphecy->assign('teas', $teas)->shouldBeCalled();
-        $this->viewProphecy->render()->willReturn('');
+        $teas = $this->createStub(QueryResultInterface::class);
+        $this->teaRepositoryMock->method('findAll')->willReturn($teas);
+        $this->viewMock->expects(self::once())->method('assign')->with('teas', $teas);
 
-        self::assertInstanceOf(
-            HtmlResponse::class,
-            $this->subject->indexAction()
-        );
+        $this->subject->indexAction();
+    }
+
+    /**
+     * @test
+     */
+    public function indexActionReturnsHtmlResponse(): void
+    {
+        $result = $this->subject->indexAction();
+
+        self::assertInstanceOf(HtmlResponse::class, $result);
     }
 
     /**
@@ -93,12 +91,18 @@ class TeaControllerTest extends UnitTestCase
     public function showActionAssignsPassedTeaAsTeaToView(): void
     {
         $tea = new Tea();
-        $this->viewProphecy->assign('tea', $tea)->shouldBeCalled();
-        $this->viewProphecy->render()->willReturn('');
+        $this->viewMock->expects(self::once())->method('assign')->with('tea', $tea);
 
-        self::assertInstanceOf(
-            HtmlResponse::class,
-            $this->subject->showAction($tea)
-        );
+        $this->subject->showAction($tea);
+    }
+
+    /**
+     * @test
+     */
+    public function showActionAssignsReturnsHtmlResponse(): void
+    {
+        $result = $this->subject->showAction(new Tea());
+
+        self::assertInstanceOf(HtmlResponse::class, $result);
     }
 }
