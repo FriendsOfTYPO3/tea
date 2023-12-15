@@ -394,28 +394,22 @@ mkdir -p .cache
 mkdir -p .Build/Web/typo3temp/var/tests
 
 PHPSTAN_CONFIG_FILE="phpstan.neon"
-IMAGE_PREFIX="docker.io/"
-# Non-CI fetches TYPO3 images (php and nodejs) from ghcr.io
-TYPO3_IMAGE_PREFIX="ghcr.io/"
 CONTAINER_INTERACTIVE="-it --init"
 
 IS_CORE_CI=0
 # ENV var "CI" is set by gitlab-ci. We use it here to distinct 'local' and 'CI' environment.
 if [ "${CI}" == "true" ]; then
     IS_CORE_CI=1
-    # In CI, we need to pull images from docker.io for the registry proxy to kick in.
-    TYPO3_IMAGE_PREFIX="docker.io/"
-    IMAGE_PREFIX=""
     CONTAINER_INTERACTIVE=""
 fi
 
-IMAGE_PHP="${TYPO3_IMAGE_PREFIX}typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
-IMAGE_ALPINE="${IMAGE_PREFIX}alpine:3.8"
+IMAGE_PHP="ghcr.io/typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
+IMAGE_ALPINE="docker.io/alpine:3.8"
 IMAGE_DOCS="ghcr.io/t3docs/render-documentation:latest"
-IMAGE_SELENIUM="${IMAGE_PREFIX}selenium/standalone-chrome:4.0.0-20211102"
-IMAGE_MARIADB="${IMAGE_PREFIX}mariadb:${DBMS_VERSION}"
-IMAGE_MYSQL="${IMAGE_PREFIX}mysql:${DBMS_VERSION}"
-IMAGE_POSTGRES="${IMAGE_PREFIX}postgres:${DBMS_VERSION}-alpine"
+IMAGE_SELENIUM="docker.io/selenium/standalone-chrome:4.0.0-20211102"
+IMAGE_MARIADB="docker.io/mariadb:${DBMS_VERSION}"
+IMAGE_MYSQL="docker.io/mysql:${DBMS_VERSION}"
+IMAGE_POSTGRES="docker.io/postgres:${DBMS_VERSION}-alpine"
 
 # Detect arm64 and use a seleniarm image.
 # In a perfect world selenium would have a arm64 integrated, but that is not on the horizon.
