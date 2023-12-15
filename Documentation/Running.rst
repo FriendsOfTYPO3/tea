@@ -80,56 +80,56 @@ Checks the code style with PHP_CodeSniffer (PHPCS).
 .. index:: Commands; composer ci:php:stan
 .. code-block:: bash
 
-   ddev composer ci:php:stan
+    composer ci:php:stan
 
 Checks the PHP types using PHPStan.
 
 .. index:: Commands; composer ci:static
 .. code-block:: bash
 
-   ddev composer ci:static
+    composer ci:static
 
 Runs all static code checks (syntax, style, types).
 
 .. index:: Commands; composer ci:ts:lint
 .. code-block:: bash
 
-   ddev composer ci:ts:lint
+    composer ci:ts:lint
 
 Lints the TypoScript files.
 
 .. index:: Commands; composer ci:yaml:lint
 .. code-block:: bash
 
-   ddev composer ci:yaml:lint
+    composer ci:yaml:lint
 
 Lints the YAML files.
 
 .. index:: Commands; composer fix:php
 .. code-block:: bash
 
-   ddev composer fix:php
+    composer fix:php
 
 Runs all fixers for the PHP code.
 
 .. index:: Commands; composer fix:php:cs
 .. code-block:: bash
 
-   ddev composer fix:php:cs
+    composer fix:php:cs
 
 Fixes the code style with PHP-CS-Fixer.
 
 .. index:: Commands; composer fix:php:sniff
 .. code-block:: bash
 
-   ddev composer fix:php:sniff
+    composer fix:php:sniff
 
 Fixes the code style with PHP_CodeSniffer.
 
 .. index:: Commands; composer phpstan:baseline
 .. code-block:: bash
 
-   ddev composer phpstan:baseline
+    composer phpstan:baseline
 
 Updates the PHPStan baseline file to match the code.
 
