@@ -40,13 +40,6 @@ Running code checks
 
 You can currently run these code checks on the command line (if working locally without ddev, omit the :bash:`ddev` part):
 
-.. index:: Commands; composer ci
-.. code-block:: bash
-
-   ddev composer ci
-
-Runs all dynamic and static code checks.
-
 .. index:: Commands; composer ci:composer:normalize
 .. code-block:: bash
 
@@ -179,20 +172,6 @@ Merges the code coverage reports for unit and functional tests.
    ddev composer ci:coverage:unit
 
 Generates the code coverage report for unit tests.
-
-.. index:: Commands; composer ci:dynamic
-.. code-block:: bash
-
-   ddev composer ci:dynamic
-
-Runs all PHPUnit tests (unit and functional).
-
-.. index:: Commands; composer ci:tests
-.. code-block:: bash
-
-   ddev composer ci:tests
-
-Runs all PHPUnit tests (unit and functional).
 
 .. index:: Commands; composer ci:tests:functional
 .. code-block:: bash
