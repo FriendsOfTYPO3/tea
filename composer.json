@@ -128,7 +128,7 @@
 			"@coverage:create-directories",
 			".Build/bin/phpunit -c ./Tests/Unit/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
 		],
-		"ci:json:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
+		"ci:json:lint": "find . ! -path '*/.cache/*' ! -path '*/.Build/*' ! -path '*/node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
 		"ci:php": [
 			"@ci:php:cs-fixer",
 			"@ci:php:lint",
