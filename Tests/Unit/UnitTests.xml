@@ -21,6 +21,7 @@
     stopOnSkipped="false"
     verbose="false"
 >
+    <coverage/>
     <testsuites>
         <testsuite name="Unit tests">
             <!--
@@ -30,14 +31,6 @@
             <directory suffix="Test.php">./</directory>
         </testsuite>
     </testsuites>
-    <coverage>
-        <include>
-            <!--
-                This path needs an adaption in extensions, when coverage statistics are wanted.
-            -->
-            <directory>../../../../../../typo3/sysext/*/Classes/</directory>
-        </include>
-    </coverage>
     <php>
         <!-- @deprecated: will be removed with next major version, constant TYPO3_MODE is deprecated -->
         <const name="TYPO3_MODE" value="BE"/>
