@@ -407,18 +407,18 @@ if [ "${CI}" == "true" ]; then
     IS_CORE_CI=1
     CONTAINER_INTERACTIVE=""
     # set default ci container binary, if not set using "-b" option
-    if [ ${CONTAINER_BIN} = "" ]; then
+    if [ "${CONTAINER_BIN}" == "" ]; then
         CONTAINER_BIN="${DEFAULT_CI_CONTAINER_BIN}"
     fi
     CI_PARAMS="--pull=never"
 fi
 
 # set default container binary, if not set using "-b" option
-if [ "${CONTAINER_BIN}" = "" ]; then
+if [ "${CONTAINER_BIN}" == "" ]; then
     CONTAINER_BIN="${DEFAULT_CONTAINER_BIN}"
 fi
 
-if [ $(uname) != "Darwin" ] && [ ${CONTAINER_BIN} = "docker" ]; then
+if [ $(uname) != "Darwin" ] && [ "${CONTAINER_BIN}" == "docker" ]; then
     # Run docker jobs as current user to prevent permission issues. Not needed with podman.
     USERSET="--user $HOST_UID"
 fi
@@ -518,7 +518,7 @@ case ${TEST_SUITE} in
         ;;
     docsGenerate)
         # @todo contact the documentation team for a future rootles podman version
-        if [ ${CONTAINER_BIN} = "podman" ]; then
+        if [ "${CONTAINER_BIN}" == "podman" ]; then
             echo "-s docsGenerate is not usable with -b podman"
             echo "TYPO3 Documentation Team needs to deal with this, and we will"
             echo "see if the upcoming php based documentation rendering container"
