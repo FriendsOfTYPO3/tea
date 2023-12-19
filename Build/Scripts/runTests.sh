@@ -617,7 +617,7 @@ case ${TEST_SUITE} in
         echo ""
         # remove "dangling" typo3/core-testing-* images (those tagged as <none>)
         echo "> remove \"dangling\" ghcr.io/sbuerk/demo-core-testing-* images (those tagged as <none>)"
-        ${CONTAINER_BIN} images ghcr.io/sbuerk/demo-core-testing-* --filter "dangling=true" --format "{{.ID}}" | xargs -I {} ${CONTAINER_BIN} rmi {}
+        ${CONTAINER_BIN} images --filter "reference=ghcr.io/sbuerk/demo-core-testing-*" --filter "dangling=true" --format "{{.ID}}" | xargs -I {} ${CONTAINER_BIN} rmi {}
         echo ""
         ;;
     *)
