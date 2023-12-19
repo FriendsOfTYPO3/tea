@@ -40,8 +40,8 @@
     </coverage>
     <php>
         <!-- @deprecated: will be removed with next major version, constant TYPO3_MODE is deprecated -->
-        <const name="TYPO3_MODE" value="BE" />
-        <ini name="display_errors" value="1" />
-        <env name="TYPO3_CONTEXT" value="Testing" />
+        <const name="TYPO3_MODE" value="BE"/>
+        <ini name="display_errors" value="1"/>
+        <env name="TYPO3_CONTEXT" value="Testing"/>
     </php>
 </phpunit>
