@@ -210,8 +210,8 @@ Options:
     -t <11.5|12.4>
         Only with -s composerInstall|composerInstallMin|composerInstallMax
         Specifies the TYPO3 CORE Version to be used
-            - 11: (default) use TYPO3 v11 with typo3/cms-composer-installers ^3
-            - 12: use TYPO3 v12 with typo3/cms-composer-installers ^5
+            - 11.5: use TYPO3 v11 with typo3/cms-composer-installers ^3
+            - 12.4: (default) use TYPO3 v12 with typo3/cms-composer-installers ^5
 
     -p <7.4|8.0|8.1|8.2|8.3>
         Specifies the PHP minor version to be used
@@ -294,7 +294,7 @@ ROOT_DIR="${PWD}"
 
 # Option defaults
 TEST_SUITE="unit"
-CORE_VERSION="11.5"
+CORE_VERSION="12.4"
 DBMS="sqlite"
 DBMS_VERSION=""
 PHP_VERSION="8.1"
