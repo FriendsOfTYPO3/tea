@@ -176,7 +176,6 @@
 		"fix:php:sniff": "phpcbf Classes Configuration Tests",
 		"phpstan:baseline": ".Build/bin/phpstan --generate-baseline --allow-empty-baseline",
 		"prepare-release": [
-			"rm .gitignore",
 			"rm -rf .Build",
 			"rm -rf .ddev",
 			"rm -rf .github",
@@ -185,17 +184,18 @@
 			"rm -rf Tests",
 			"rm -rf tools",
 			"rm .editorconfig",
-			"rm .gitattributes",
-			"rm .php-cs-fixer.php",
 			"rm .eslintignore",
 			"rm .eslintrc.json",
+			"rm .gitattributes",
+			"rm .gitignore",
+			"rm .php-cs-fixer.php",
 			"rm .prettierrc.js",
 			"rm package.json",
-			"rm stylelint.config.js",
 			"rm phive.xml",
+			"rm phpcs.xml",
 			"rm phpstan-baseline.neon",
 			"rm phpstan.neon",
-			"rm phpcs.xml"
+			"rm stylelint.config.js"
 		]
 	},
 	"scripts-descriptions": {
