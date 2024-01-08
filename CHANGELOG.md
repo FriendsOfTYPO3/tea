@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## 3.1.0
+
+### Added
 - Add Composer script for XLIFF linting (#1071)
 - Add polish translation for tea (#1020)
 - Make records timeable and hideable (#989)
@@ -17,8 +29,6 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 - Rename TsConfig directory to `TSconfig` (#923)
 - Set the minimal 12LTS version to 12.1 (#702)
-
-### Deprecated
 
 ### Removed
 - Stop using Prophecy (#676)
