@@ -2,7 +2,7 @@
 
 $tca = [
     'ctrl' => [
-        'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea',
+        'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -26,7 +26,7 @@ $tca = [
             'showitem' =>
                 '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                     title, description, image, owner,
-                 --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.tabs.access,
+                 --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.tabs.access,
                     --palette--;;hidden,
                     --palette--;;access,',
         ],
@@ -34,11 +34,11 @@ $tca = [
     'palettes' => [
         'hidden' => [
             'showitem' => '
-                hidden;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden
+                hidden;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.hidden
             ',
         ],
         'access' => [
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.palettes.access',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.palettes.access',
             'showitem' => '
                 starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
                 endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
@@ -50,7 +50,7 @@ $tca = [
     'columns' => [
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.hidden',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -107,10 +107,10 @@ $tca = [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_tea_domain_model_product_tea',
+                'foreign_table' => 'tx_tea_domain_model_tea',
                 'foreign_table_where' =>
-                    'AND {#tx_tea_domain_model_product_tea}.{#pid}=###CURRENT_PID###
-                     AND {#tx_tea_domain_model_product_tea}.{#sys_language_uid} IN (-1,0)',
+                    'AND {#tx_tea_domain_model_tea}.{#pid}=###CURRENT_PID###
+                     AND {#tx_tea_domain_model_tea}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -126,7 +126,7 @@ $tca = [
             ],
         ],
         'title' => [
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.title',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.title',
             'config' => [
                 'type' => 'input',
                 'size' => 40,
@@ -136,7 +136,7 @@ $tca = [
             ],
         ],
         'description' => [
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.description',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.description',
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
@@ -147,7 +147,7 @@ $tca = [
             ],
         ],
         'image' => [
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.image',
             'config' => [
                 'type' => 'file',
                 'maxitems' => 1,
@@ -164,7 +164,7 @@ $tca = [
         'fe_group' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.fe_group',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.fe_group',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -191,7 +191,7 @@ $tca = [
         'owner' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.owner',
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.owner',
             'config' => [
                 'type' => 'group',
                 'allowed' => 'fe_users',
@@ -231,7 +231,7 @@ if ($typo3Version->getMajorVersion() < 12) {
         ],
     ];
     $tca['columns']['image'] = [
-        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
+        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.image',
         'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
             'image',
             [
@@ -248,7 +248,7 @@ if ($typo3Version->getMajorVersion() < 12) {
     ];
     $tca['columns']['hidden']['config'] = [
         'type' => 'check',
-        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.hidden',
+        'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.hidden',
         'items' => [
             [
                 0 => '',

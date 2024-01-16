@@ -3,31 +3,31 @@
 	<file source-language="en" target-language="pl" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="tx_tea_domain_model_product_tea">
+			<trans-unit id="tx_tea_domain_model_tea">
 				<source>Tea</source>
 				<target>Herbata</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.tabs.access">
+			<trans-unit id="tx_tea_domain_model_tea.tabs.access">
 				<source>Access</source>
 				<target>Dostęp</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.title">
+			<trans-unit id="tx_tea_domain_model_tea.title">
 				<source>Title</source>
 				<target>Tytuł</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.description">
+			<trans-unit id="tx_tea_domain_model_tea.description">
 				<source>Description</source>
 				<target>Opis</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.image">
+			<trans-unit id="tx_tea_domain_model_tea.image">
 				<source>Image</source>
 				<target>Obraz</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.owner">
+			<trans-unit id="tx_tea_domain_model_tea.owner">
 				<source>Website user who created this record</source>
 				<target>Użytkownik strony, który utworzył ten rekord</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_product_tea.fe_group">
+			<trans-unit id="tx_tea_domain_model_tea.fe_group">
 				<source>Usergroup Access Rights</source>
 				<target>Prawa dostępu grupy użytkowników</target>
 			</trans-unit>

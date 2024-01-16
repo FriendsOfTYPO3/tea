@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace TTN\Tea\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use TTN\Tea\Domain\Model\Product\Tea;
-use TTN\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Domain\Model\Tea;
+use TTN\Tea\Domain\Repository\TeaRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**

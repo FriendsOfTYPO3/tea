@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TTN\Tea\Domain\Model\Product;
+namespace TTN\Tea\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
