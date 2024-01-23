@@ -14,7 +14,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 final class TeaTest extends UnitTestCase
 {
-    private \TTN\Tea\Domain\Model\Tea $subject;
+    private Tea $subject;
 
     protected function setUp(): void
     {
