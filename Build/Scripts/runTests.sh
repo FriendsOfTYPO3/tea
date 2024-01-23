@@ -536,7 +536,7 @@ case ${TEST_SUITE} in
         ;;
     functional)
         [ -z "${TEST_FILE}" ] && TEST_FILE="Tests/Functional"
-        COMMAND=".Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --exclude-group not-${DBMS} ${EXTRA_TEST_OPTIONS} ${TEST_FILE}"
+        COMMAND=".Build/bin/phpunit -c Configuration/FunctionalTests.xml --exclude-group not-${DBMS} ${EXTRA_TEST_OPTIONS} ${TEST_FILE}"
         case ${DBMS} in
             mariadb)
                 echo "Using driver: ${DATABASE_DRIVER}"
@@ -602,12 +602,12 @@ case ${TEST_SUITE} in
         ;;
     unit)
         [ -z "${TEST_FILE}" ] && TEST_FILE="Tests/Unit"
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name unit-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${IMAGE_PHP} .Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml ${EXTRA_TEST_OPTIONS} ${TEST_FILE}
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name unit-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${IMAGE_PHP} .Build/bin/phpunit -c Configuration/UnitTests.xml ${EXTRA_TEST_OPTIONS} ${TEST_FILE}
         SUITE_EXIT_CODE=$?
         ;;
     unitRandom)
         [ -z "${TEST_FILE}" ] && TEST_FILE="Tests/Unit"
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name unit-random-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${IMAGE_PHP} .Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml --order-by=random ${EXTRA_TEST_OPTIONS} ${PHPUNIT_RANDOM} ${TEST_FILE}
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name unit-random-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${IMAGE_PHP} .Build/bin/phpunit -c Configuration/UnitTests.xml --order-by=random ${EXTRA_TEST_OPTIONS} ${PHPUNIT_RANDOM} ${TEST_FILE}
         SUITE_EXIT_CODE=$?
         ;;
     update)
