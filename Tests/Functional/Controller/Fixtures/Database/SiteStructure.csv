@@ -1,4 +1,4 @@
-pages
-,uid,pid,title,slug
-,1,0,Rootpage,/
-,2,1,Storage,/storage
+"pages"
+,"uid","pid","title","slug"
+,1,0,"Rootpage","/"
+,2,1,"Storage","/storage"
