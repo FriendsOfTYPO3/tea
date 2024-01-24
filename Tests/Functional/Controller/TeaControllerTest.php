@@ -44,7 +44,7 @@ final class TeaControllerTest extends FunctionalTestCase
         $request = new InternalRequest();
         $request = $request->withPageId(1);
 
-        $html = $this->executeFrontendSubRequest($request)->getBody()->__toString();
+        $html = (string)$this->executeFrontendSubRequest($request)->getBody();
 
         self::assertStringContainsString('Godesberger Burgtee', $html);
         self::assertStringContainsString('Oolong', $html);
