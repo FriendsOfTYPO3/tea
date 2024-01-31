@@ -114,7 +114,7 @@ cleanTestFiles() {
     # test related
     echo -n "Clean test related files ... "
     rm -rf \
-        .Build/Web/typo3temp/var/tests/
+        .Build/public/typo3temp/var/tests/
     echo "done"
 }
 
@@ -430,7 +430,7 @@ fi
 
 # Create .cache dir: composer need this.
 mkdir -p .cache
-mkdir -p .Build/Web/typo3temp/var/tests
+mkdir -p .Build/public/typo3temp/var/tests
 
 IMAGE_PHP="ghcr.io/sbuerk/demo-core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_ALPINE="docker.io/alpine:3.8"
