@@ -6,7 +6,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    # adjust this number according to your own milestones if used.
     milestone: 12
+    commit-message:
+      prefix: "[TASK] "
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -23,11 +26,17 @@ updates:
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
     versioning-strategy: "increase"
+    # adjust this number according to your own milestones if used.
     milestone: 12
+    commit-message:
+      prefix: "[TASK] "
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
     versioning-strategy: "increase"
+    # adjust this number according to your own milestones if used.
     milestone: 12
+    commit-message:
+      prefix: "[TASK] "
