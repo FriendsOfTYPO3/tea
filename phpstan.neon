@@ -1,5 +1,9 @@
 includes:
   - phpstan-baseline.neon
+  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
+  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-execution-calls.neon
+  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-insecure-calls.neon
+  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-loose-calls.neon
 
 parameters:
   parallel:
@@ -29,3 +33,26 @@ parameters:
   cognitive_complexity:
     class: 10
     function: 5
+
+  disallowedFunctionCalls:
+    -
+      function:
+        - 'var_dump()'
+        - 'xdebug_break()'
+        - 'debug()'
+      message: 'Use logging instead or remove if it was for debugging purposes.'
+    -
+      function: 'header()'
+      message: 'Use PSR-7 API instead'
+  disallowedStaticCalls:
+    -
+      method: 'TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump()'
+      message: 'Use logging instead or remove if it was for debugging purposes.'
+  disallowedSuperglobals:
+    -
+      superglobal:
+        - '$_GET'
+        - '$_POST'
+        - '$_FILES'
+        - '$_SERVER'
+      message: 'Use PSR-7 API instead'
