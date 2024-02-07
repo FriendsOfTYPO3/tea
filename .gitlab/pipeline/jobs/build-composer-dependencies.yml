@@ -7,7 +7,7 @@ build-composer-dependencies:
   script:
     - composer --version
     - COMPOSER_CACHE_DIR=.composer
-      composer install --prefer-dist --no-progress --optimize-autoloader
+      composer update --prefer-dist --no-progress --optimize-autoloader
   artifacts:
     when: on_success
     expire_in: 2 weeks
