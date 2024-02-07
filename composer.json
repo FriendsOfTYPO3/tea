@@ -95,6 +95,7 @@
 			"typo3/cms-composer-installers": true
 		},
 		"bin-dir": ".Build/bin",
+		"lock": false,
 		"preferred-install": {
 			"*": "dist"
 		},
