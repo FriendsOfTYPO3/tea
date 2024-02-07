@@ -205,6 +205,7 @@ $tca = [
     ],
 ];
 
+// TODO: typo3/cms-backend:13.0.0 Remove the following block as we no longer support version prior 12
 $typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
 if ($typo3Version->getMajorVersion() < 12) {
     $tca = array_replace_recursive(
