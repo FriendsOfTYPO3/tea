@@ -22,6 +22,6 @@
 		"prettier": "^3.2.5",
 		"stylelint": "^15.11.0",
 		"stylelint-config-recommended": "^13.0.0",
-		"stylelint-no-browser-hacks": "^1.2.1"
+		"stylelint-no-browser-hacks": "^1.3.0"
 	}
 }
