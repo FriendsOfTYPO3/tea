@@ -1,6 +1,6 @@
 unit-php8.0-v11-lowest:
   extends: .default
-  image: php:8.0
+  image: typo3/core-testing-php80:latest
   stage: test
   needs:
     - build-composer-dependencies

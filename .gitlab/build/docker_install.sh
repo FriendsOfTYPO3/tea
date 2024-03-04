@@ -4,4 +4,4 @@
 
 set -xe
 
-apk add parallel
+apk add parallel wait-for-it
