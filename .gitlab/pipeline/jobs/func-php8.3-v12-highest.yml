@@ -1,6 +1,6 @@
 func-php8.3-v11-highest:
   extends: .default
-  image: php:8.3
+  image: typo3/core-testing-php83:latest
   services:
     - mariadb:10
   stage: test

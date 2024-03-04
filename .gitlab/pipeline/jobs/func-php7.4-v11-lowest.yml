@@ -1,6 +1,6 @@
 func-php7.4-v11-lowest:
   extends: .default
-  image: php:7.4
+  image: typo3/core-testing-php74:latest
   services:
     - mariadb:10
   stage: test
