@@ -4,5 +4,4 @@
 
 set -xe
 
-apt-get update -yqq
-apt-get install parallel
+apk add parallel
