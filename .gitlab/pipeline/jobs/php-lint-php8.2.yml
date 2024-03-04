@@ -1,6 +1,5 @@
 php-lint-php8.2:
-  extends: .default
-  image: php:8.2
+  image: typo3/core-testing-php82:latest
   stage: lint
   needs: [ ]
   script:
