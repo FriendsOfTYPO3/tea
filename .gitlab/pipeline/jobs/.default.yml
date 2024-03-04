@@ -1,4 +1,3 @@
 .default:
   image: typo3/core-testing-php83:latest
-  before_script:
-    - bash .gitlab/build/docker_install.sh > /dev/null
+
