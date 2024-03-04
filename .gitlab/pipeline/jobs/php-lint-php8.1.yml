@@ -1,5 +1,4 @@
 php-lint-php8.1:
-  extends: .default
   image: typo3/core-testing-php81:latest
   stage: lint
   needs: [ ]
