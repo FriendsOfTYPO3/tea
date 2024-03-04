@@ -5,4 +5,4 @@
 set -xe
 
 apt-get update -yqq
-apt-get install git libzip-dev unzip parallel libxml2-utils wget wait-for-it
+apt-get install parallel
