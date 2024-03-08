@@ -19,4 +19,4 @@ automatically.
 
 .. seealso::
 
-   For further details read the :doc:`TYPO3 Documentation Rendering Guide <h2document:RenderingDocs/Quickstart>`.
+   For further details read the :ref:`TYPO3 Documentation Rendering Guide <h2document:docs-contribute-git-docker>`.
