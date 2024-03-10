@@ -1,6 +1,6 @@
 unit-php8.3-v11-lowest:
   extends: .default
-  image: ghcr.io/sbuerk/demo-core-testing-83:latest
+  image: ghcr.io/sbuerk/demo-core-testing-php83:latest
   stage: test
   needs:
     - build-composer-dependencies

@@ -1,6 +1,6 @@
 func-php8.1-v11-highest:
   extends: .default
-  image: ghcr.io/sbuerk/demo-core-testing-81:latest
+  image: ghcr.io/sbuerk/demo-core-testing-php81:latest
   services:
     - mariadb:10
   stage: test
