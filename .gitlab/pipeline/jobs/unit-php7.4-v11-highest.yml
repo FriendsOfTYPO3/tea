@@ -1,6 +1,6 @@
 unit-php7.4-v11-highest:
   extends: .default
-  image: typo3/core-testing-php74:latest
+  image: ghcr.io/sbuerk/demo-core-testing-74:latest
   stage: test
   needs:
     - build-composer-dependencies

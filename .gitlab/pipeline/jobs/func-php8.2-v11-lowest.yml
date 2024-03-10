@@ -1,6 +1,6 @@
 func-php8.2-v11-lowest:
   extends: .default
-  image: typo3/core-testing-php82:latest
+  image: ghcr.io/sbuerk/demo-core-testing-82:latest
   services:
     - mariadb:10
   stage: test

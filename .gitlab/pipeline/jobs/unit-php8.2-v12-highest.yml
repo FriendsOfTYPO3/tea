@@ -1,6 +1,6 @@
 unit-php8.2-v12-highest:
   extends: .default
-  image: typo3/core-testing-php82:latest
+  image: ghcr.io/sbuerk/demo-core-testing-82:latest
   stage: test
   needs:
     - build-composer-dependencies

@@ -1,5 +1,5 @@
 php-lint-php8.1:
-  image: typo3/core-testing-php81:latest
+  image: ghcr.io/sbuerk/demo-core-testing-81:latest
   stage: lint
   needs: [ ]
   script:
