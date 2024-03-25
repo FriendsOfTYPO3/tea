@@ -1,9 +1,9 @@
 includes:
   - phpstan-baseline.neon
-  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
-  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-execution-calls.neon
-  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-insecure-calls.neon
-  - .Build/vendor/spaze/phpstan-disallowed-calls/disallowed-loose-calls.neon
+  - ../../.Build/vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
+  - ../../.Build/vendor/spaze/phpstan-disallowed-calls/disallowed-execution-calls.neon
+  - ../../.Build/vendor/spaze/phpstan-disallowed-calls/disallowed-insecure-calls.neon
+  - ../../.Build/vendor/spaze/phpstan-disallowed-calls/disallowed-loose-calls.neon
 
 parameters:
   parallel:
@@ -13,17 +13,17 @@ parameters:
   level: 3
 
   bootstrapFiles:
-    - .Build/vendor/autoload.php
+    - ../../.Build/vendor/autoload.php
 
   paths:
-    - Classes
-    - Configuration
-    - Tests
+    - ../../Classes
+    - ../../Configuration
+    - ../../Tests
 
   scanDirectories:
-    - Classes
-    - Configuration
-    - Tests
+    - ../../Classes
+    - ../../Configuration
+    - ../../Tests
 
   type_coverage:
     return_type: 100
