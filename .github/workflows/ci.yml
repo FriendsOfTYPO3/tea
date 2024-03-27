@@ -297,3 +297,14 @@ jobs:
           - typo3-version: "^12.4"
             php-version: "8.3"
             composer-dependencies: highest
+  documentation:
+    name: Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test if the documentation will render without warnings
+        run: |
+          mkdir -p Documentation-GENERATED-temp \
+          && docker run --rm --pull always -v $(pwd):/project \
+             ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
