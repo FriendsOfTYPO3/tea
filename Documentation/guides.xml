@@ -11,7 +11,7 @@
         project-repository="https://github.com/FriendsOfTYPO3/tea"
         project-issues="https://github.com/FriendsOfTYPO3/tea/issues"
         edit-on-github-branch="main"
-        edit-on-github="TYPO3-Documentation/tea"
+        edit-on-github="FriendsOfTYPO3/tea"
         typo3-core-preferred="stable"
     />
     <project
