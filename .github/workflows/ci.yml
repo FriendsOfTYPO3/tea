@@ -72,6 +72,7 @@ jobs:
           - "json:lint"
           - "php:cs-fixer"
           - "php:sniff"
+          - "php:stan"
           - "php:stan:github"
           - "ts:lint"
           - "yaml:lint"
