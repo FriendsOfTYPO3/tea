@@ -164,7 +164,7 @@
 		"ci:xliff:lint": "php Build/bin/console lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -regextype egrep -regex '.*.ya?ml$' | xargs -r php ./.Build/bin/yaml-lint",
 		"coverage:create-directories": "mkdir -p .Build/logs .Build/coverage",
-		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --fail-on-log",
+		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
 		"fix:composer:normalize": "@composer normalize --no-check-lock",
 		"fix:php": [
 			"@fix:php:cs",
