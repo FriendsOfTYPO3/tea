@@ -22,6 +22,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           coverage: none
           tools: composer:v2
       - name: "Show the Composer configuration"
@@ -47,6 +48,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           coverage: none
           tools: composer:v2
       - name: "Show Composer version"
@@ -105,6 +107,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           coverage: none
           tools: composer:v2
       - name: "Show Composer version"
@@ -203,6 +206,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           tools: composer:v2
           extensions: mysqli
           coverage: none
