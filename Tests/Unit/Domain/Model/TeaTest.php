@@ -44,7 +44,7 @@ final class TeaTest extends UnitTestCase
      */
     public function setTitleSetsTitle(): void
     {
-        $value = 'Club-Mate';
+        $value = 'Earl Grey';
         $this->subject->setTitle($value);
 
         self::assertSame($value, $this->subject->getTitle());
@@ -63,7 +63,7 @@ final class TeaTest extends UnitTestCase
      */
     public function setDescriptionSetsDescription(): void
     {
-        $value = 'Club-Mate';
+        $value = 'Very refreshing and amoratic.';
         $this->subject->setDescription($value);
 
         self::assertSame($value, $this->subject->getDescription());
