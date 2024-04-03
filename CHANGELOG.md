@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Stop using the predefined GitHub Actions (#1211)
 
 ### Fixed
 

@@ -22,19 +22,12 @@ platform you want to use.
 GitHub Actions
 ==============
 
-This extension has two code-checking workflows for
-`GitHub Actions <https://github.com/FriendsOfTYPO3/tea/actions>`__:
-
-- `one that uses the local tools <https://github.com/FriendsOfTYPO3/tea/blob/main/.github/workflows/ci.yml>`__:
-  This is the workflow you most probably would want to use:
-  This workflow uses the development tools installed via Composer and PHIVE and
-  calls them using the provided Composer scripts. Use this workflow if you want
-  to run the code quality checks locally as well as in GitHub Actions.
-
-- `one that completely relies on predefined actions <https://github.com/FriendsOfTYPO3/tea/blob/main/.github/workflows/predefined.yml>`__:
-  This workflow does not need the development tools to be installed locally.
-  Use this workflow if you only want to run the code quality checks in GitHub
-  Actions, but not locally.
+This extension has a code-checking workflow for
+`GitHub Actions <https://github.com/FriendsOfTYPO3/tea/actions>`__ using
+`local tools <https://github.com/FriendsOfTYPO3/tea/blob/main/.github/workflows/ci.yml>`__:
+This workflow uses the development tools installed via Composer and PHIVE and
+calls them using the provided Composer scripts. This allows running the code
+quality checks locally as well as in GitHub Actions.
 
 .. _gitlab-ci:
 
