@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Stop using the predefined GitHub Actions (#1211)
 
 ### Fixed
+- Raise the minimal TYPO3 V12 version (#1212)
 
 ## 3.1.0
 
