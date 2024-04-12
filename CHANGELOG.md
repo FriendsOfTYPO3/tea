@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Stop using the predefined GitHub Actions (#1211)
 
 ### Fixed
+- Add `resname` to all language labels (#1221)
 - Raise the minimal TYPO3 V12 version (#1212)
 
 ## 3.1.0
