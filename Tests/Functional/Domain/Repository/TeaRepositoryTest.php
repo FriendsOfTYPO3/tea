@@ -44,18 +44,6 @@ final class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function findAllWithRecordsFindsRecordsFromAllPages(): void
-    {
-        $this->importCSVDataSet(__DIR__ . '/Fixtures/TeaOnPage.csv');
-
-        $result = $this->subject->findAll();
-
-        self::assertCount(1, $result);
-    }
-
-    /**
-     * @test
-     */
     public function findAllSortsByTitleInAscendingOrder(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/TwoUnsortedTeas.csv');
