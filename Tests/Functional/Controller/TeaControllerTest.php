@@ -28,7 +28,7 @@ final class TeaControllerTest extends FunctionalTestCase
         $this->setUpFrontendRootPage(1, [
             'setup' => [
                 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript',
-                'EXT:tea/Tests/Functional/Controller/Fixtures/TypoScript/Rendering.typoscript',
+                'EXT:tea/Tests/Functional/Controller/Fixtures/TypoScript/Setup/Rendering.typoscript',
             ],
         ]);
     }

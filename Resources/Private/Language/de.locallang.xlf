@@ -3,79 +3,79 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="plugin.tea_index">
+			<trans-unit id="plugin.tea_index" resname="plugin.tea_index" approved="yes">
 				<source>Tea list</source>
 				<target>Teeliste</target>
 			</trans-unit>
-			<trans-unit id="plugin.tea_show">
+			<trans-unit id="plugin.tea_show" resname="plugin.tea_show" approved="yes">
 				<source>Tea single view</source>
 				<target>Tee-Einzelansicht</target>
 			</trans-unit>
-			<trans-unit id="plugin.tea_frontend_editor">
+			<trans-unit id="plugin.tea_frontend_editor" resname="plugin.tea_frontend_editor" approved="yes">
 				<source>Tea front-end editor</source>
 				<target>Frontend-Editor für Tee</target>
 			</trans-unit>
-			<trans-unit id="plugin.tea.heading">
+			<trans-unit id="plugin.tea.heading" resname="plugin.tea.heading" approved="yes">
 				<source>Our selection of assorted teas</source>
 				<target>Unsere Auswahl an erlesenen Tees</target>
 			</trans-unit>
-			<trans-unit id="plugin.tea.property.uid">
+			<trans-unit id="plugin.tea.property.uid" resname="plugin.tea.property.uid" approved="yes">
 				<source>UID</source>
 				<target>UID</target>
 			</trans-unit>
-			<trans-unit id="plugin.tea.property.title">
+			<trans-unit id="plugin.tea.property.title" resname="plugin.tea.property.title" approved="yes">
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.index.heading">
+			<trans-unit id="plugin.frontEndEditor.index.heading" resname="plugin.frontEndEditor.index.heading" approved="yes">
 				<source>My teas</source>
 				<target>Meine Tees</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.message.noTeas">
+			<trans-unit id="plugin.frontEndEditor.message.noTeas" resname="plugin.frontEndEditor.message.noTeas" approved="yes">
 				<source>You have not created any teas yet.</source>
 				<target>Du hast noch keine Tees angelegt.</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.property.uid">
+			<trans-unit id="plugin.frontEndEditor.property.uid" resname="plugin.frontEndEditor.property.uid" approved="yes">
 				<source>UID</source>
 				<target>UID</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.property.title">
+			<trans-unit id="plugin.frontEndEditor.property.title" resname="plugin.frontEndEditor.property.title" approved="yes">
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.property.description">
+			<trans-unit id="plugin.frontEndEditor.property.description" resname="plugin.frontEndEditor.property.description" approved="yes">
 				<source>Description</source>
 				<target>Beschreibung</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.edit.heading">
+			<trans-unit id="plugin.frontEndEditor.edit.heading" resname="plugin.frontEndEditor.edit.heading" approved="yes">
 				<source>Edit tea</source>
 				<target>Tee bearbeiten</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.actions">
+			<trans-unit id="plugin.frontEndEditor.action.actions" resname="plugin.frontEndEditor.action.actions" approved="yes">
 				<source>Actions</source>
 				<target>Aktionen</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.edit">
+			<trans-unit id="plugin.frontEndEditor.action.edit" resname="plugin.frontEndEditor.action.edit" approved="yes">
 				<source>Edit</source>
 				<target>Bearbeiten</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.cancel">
+			<trans-unit id="plugin.frontEndEditor.action.cancel" resname="plugin.frontEndEditor.action.cancel" approved="yes">
 				<source>Cancel</source>
 				<target>Abbrechen</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.save">
+			<trans-unit id="plugin.frontEndEditor.action.save" resname="plugin.frontEndEditor.action.save" approved="yes">
 				<source>Save</source>
 				<target>Speichern</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.new">
+			<trans-unit id="plugin.frontEndEditor.action.new" resname="plugin.frontEndEditor.action.new" approved="yes">
 				<source>Create new tea</source>
 				<target>Neuen Tee anlegen</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.delete">
+			<trans-unit id="plugin.frontEndEditor.action.delete" resname="plugin.frontEndEditor.action.delete" approved="yes">
 				<source>Delete</source>
 				<target>Löschen</target>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.new.heading">
+			<trans-unit id="plugin.frontEndEditor.new.heading" resname="plugin.frontEndEditor.new.heading" approved="yes">
 				<source>Create new tea</source>
 				<target>Neuen Tee anlegen</target>
 			</trans-unit>
