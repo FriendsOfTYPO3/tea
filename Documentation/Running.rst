@@ -24,9 +24,10 @@ If you are working locally, you can run them using :bash:`composer <scriptname>`
 
 The code-quality-related Composer scripts make use of the PHIVE-installed tools.
 
-You can run :bash:`composer` to display a list of all available
-Composer commands and scripts. For all custom Composer scripts there are descriptions
-in the `script-description` section of the `composer.json`.
+You can run :bash:`composer` or :bash:`./Build/Scripts/runTests.sh composer` to
+display a list of all available Composer commands and scripts. For all custom
+Composer scripts there are descriptions in the `script-description` section of
+the `composer.json`.
 
 .. _running-code-checks:
 

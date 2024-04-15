@@ -30,6 +30,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add an FE editor (#864, #872, #874, #876)
 - Add automerging of green Dependabot PRs (#756)
 - Add type coverage calculation (#830)
+- Drop ddev configuration in favor of runTests.sh (#1063)
 
 ### Changed
 - Rename TsConfig directory to `TSconfig` (#923)
