@@ -147,6 +147,18 @@ final class TeaRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
+    public function findByOwnerUidFindsTeaWithTheGivenOwnerUidOnPage(): void
+    {
+        $this->importCSVDataSet(__DIR__ . '/Fixtures/TeaWithOwnerOnPage.csv');
+
+        $result = $this->subject->findByOwnerUid(1);
+
+        self::assertCount(1, $result);
+    }
+
+    /**
+     * @test
+     */
     public function findByOwnerUidFindsIgnoresTeaWithNonMatchingOwnerUid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/TeaWithOwner.csv');
