@@ -29,6 +29,7 @@ final class TeaControllerTest extends FunctionalTestCase
             'constants' => [
                 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript',
                 'EXT:tea/Configuration/TypoScript/constants.typoscript',
+                'EXT:tea/Tests/Functional/Controller/Fixtures/TypoScript/Constants/PluginConfiguration.typoscript',
             ],
             'setup' => [
                 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript',

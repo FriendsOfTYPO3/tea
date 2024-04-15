@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 ### Changed
+- !!! Require a storage PID for the tea list (#1223)
 - Drop additional namespace segment for the Tea model (#1025)
 
 ### Deprecated
