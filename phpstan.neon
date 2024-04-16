@@ -47,7 +47,7 @@ parameters:
   disallowedStaticCalls:
     -
       method:
-        - 'TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump()'
+        - '\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump()'
         - '\TYPO3\CMS\Core\Utility\DebugUtility::debug()'
       message: 'Use logging instead or remove if it was for debugging purposes.'
   disallowedSuperglobals:
