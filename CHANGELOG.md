@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop DDEV configuration in favor of `runTests.sh` (#1063)
 - Stop using the predefined GitHub Actions (#1211)
 
 ### Fixed
