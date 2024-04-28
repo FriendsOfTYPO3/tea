@@ -12,9 +12,6 @@ parameters:
 
   level: 3
 
-  bootstrapFiles:
-    - .Build/vendor/autoload.php
-
   paths:
     - Classes
     - Configuration
