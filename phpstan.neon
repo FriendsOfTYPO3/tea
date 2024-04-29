@@ -17,6 +17,9 @@ parameters:
     - Configuration
     - Tests
 
+  # Allow instanceof checks, particularly in tests
+  checkAlwaysTrueCheckTypeFunctionCall: false
+
   type_coverage:
     return_type: 100
     param_type: 100

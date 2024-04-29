@@ -1,21 +1,2 @@
 parameters:
-	ignoreErrors:
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TYPO3\\\\\\\\CMS\\\\\\\\Extbase\\\\\\\\Mvc\\\\\\\\Controller\\\\\\\\ActionController' and PHPUnit\\\\Framework\\\\MockObject\\\\MockObject&TTN\\\\Tea\\\\Controller\\\\FrontEndEditorController&TYPO3\\\\TestingFramework\\\\Core\\\\AccessibleObjectInterface will always evaluate to true\\.$#"
-			count: 1
-			path: Tests/Unit/Controller/FrontEndEditorControllerTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TYPO3\\\\\\\\CMS\\\\\\\\Extbase\\\\\\\\Mvc\\\\\\\\Controller\\\\\\\\ActionController' and PHPUnit\\\\Framework\\\\MockObject\\\\MockObject&TTN\\\\Tea\\\\Controller\\\\TeaController&TYPO3\\\\TestingFramework\\\\Core\\\\AccessibleObjectInterface will always evaluate to true\\.$#"
-			count: 1
-			path: Tests/Unit/Controller/TeaControllerTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TYPO3\\\\\\\\CMS\\\\\\\\Extbase\\\\\\\\DomainObject\\\\\\\\AbstractEntity' and TTN\\\\Tea\\\\Domain\\\\Model\\\\Tea will always evaluate to true\\.$#"
-			count: 1
-			path: Tests/Unit/Domain/Model/TeaTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TYPO3\\\\\\\\CMS\\\\\\\\Extbase\\\\\\\\Persistence\\\\\\\\Repository' and TTN\\\\Tea\\\\Domain\\\\Repository\\\\TeaRepository will always evaluate to true\\.$#"
-			count: 1
-			path: Tests/Unit/Domain/Repository/TeaRepositoryTest.php
+	ignoreErrors: []
