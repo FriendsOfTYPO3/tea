@@ -3,28 +3,28 @@
 	<file source-language="en" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="tx_tea_domain_model_tea" resname="tx_tea_domain_model_tea" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea" resname="tx_tea_domain_model_tea">
 				<source>Tea</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.tabs.access" resname="tx_tea_domain_model_tea.tabs.access" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.tabs.access" resname="tx_tea_domain_model_tea.tabs.access">
 				<source>Access</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.title" resname="tx_tea_domain_model_tea.title" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.title" resname="tx_tea_domain_model_tea.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.description" resname="tx_tea_domain_model_tea.description" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.description" resname="tx_tea_domain_model_tea.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.image" resname="tx_tea_domain_model_tea.image" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.image" resname="tx_tea_domain_model_tea.image">
 				<source>Image</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.owner" resname="tx_tea_domain_model_tea.owner" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.owner" resname="tx_tea_domain_model_tea.owner">
 				<source>Website user who created this record</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.fe_group" resname="tx_tea_domain_model_tea.fe_group" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.fe_group" resname="tx_tea_domain_model_tea.fe_group">
 				<source>Usergroup Access Rights</source>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.hidden" resname="tx_tea_domain_model_tea.hidden" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.hidden" resname="tx_tea_domain_model_tea.hidden">
 				<source>Visible</source>
 			</trans-unit>
 		</body>
