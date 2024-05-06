@@ -99,6 +99,7 @@ final class TeaRepositoryTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/TeaWithImage.csv');
 
         $model = $this->subject->findByUid(1);
+        self::assertInstanceOf(Tea::class, $model);
 
         $image = $model->getImage();
         self::assertInstanceOf(FileReference::class, $image);
