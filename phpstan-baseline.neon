@@ -1,2 +1,6 @@
 parameters:
-	ignoreErrors: []
+	ignoreErrors:
+		-
+			message: "#^Method TTN\\\\Tea\\\\Domain\\\\Repository\\\\TeaRepository\\:\\:findByOwnerUid\\(\\) return type with generic interface TYPO3\\\\CMS\\\\Extbase\\\\Persistence\\\\QueryResultInterface does not specify its types\\: ModelType$#"
+			count: 1
+			path: Classes/Domain/Repository/TeaRepository.php
