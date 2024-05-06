@@ -1,2 +1,6 @@
 parameters:
-	ignoreErrors: []
+	ignoreErrors:
+		-
+			message: "#^Cannot call method getImage\\(\\) on TTN\\\\Tea\\\\Domain\\\\Model\\\\Tea\\|null\\.$#"
+			count: 1
+			path: Tests/Functional/Domain/Repository/TeaRepositoryTest.php
