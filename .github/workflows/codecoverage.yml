@@ -33,6 +33,8 @@ jobs:
           ini-values: pcov.directory=Classes
       - name: "Show Composer version"
         run: composer --version
+      - name: "Show the Composer configuration"
+        run: composer config --global --list
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v4
         with:
@@ -59,6 +61,8 @@ jobs:
         run: "sudo /etc/init.d/mysql start"
       - name: "Run unit tests with coverage"
         run: composer ci:coverage:unit
+      - name: "Show generated coverage files"
+        run: "ls -lahR .Build/coverage/"
       - name: "Run functional tests with coverage"
         run: |
           export typo3DatabaseName="$DB_DATABASE";
@@ -66,8 +70,12 @@ jobs:
           export typo3DatabaseUsername="$DB_USER";
           export typo3DatabasePassword="$DB_PASSWORD";
           composer ci:coverage:functional
+      - name: "Show generated coverage files"
+        run: "ls -lahR .Build/coverage/"
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
+      - name: "Show merged coverage files"
+        run: "ls -lahR ./.Build/logs/"
       - name: "Upload coverage results to Coveralls"
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
