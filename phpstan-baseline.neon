@@ -1,6 +1,2 @@
 parameters:
-	ignoreErrors:
-		-
-			message: "#^Method TTN\\\\Tea\\\\Controller\\\\FrontEndEditorController\\:\\:getUidOfLoggedInUser\\(\\) should return int\\<0, max\\> but returns mixed\\.$#"
-			count: 1
-			path: Classes/Controller/FrontEndEditorController.php
+	ignoreErrors: []
