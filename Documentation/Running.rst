@@ -139,6 +139,10 @@ Updates the PHPStan baseline file to match the code.
 Running unit and functional tests
 =================================
 
+.. note::
+
+   Executing tests on Windows via `runTests.sh` should be done within the Linux subsystem.
+
 You can currently run these tests and coverages on the command line:
 
 .. index:: Commands; composer ci:coverage
