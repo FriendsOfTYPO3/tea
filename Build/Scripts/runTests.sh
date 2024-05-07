@@ -4,13 +4,15 @@
 # TYPO3 core test runner based on docker.
 #
 
+trap 'cleanUp;exit 2' SIGINT
+
 waitFor() {
     local HOST=${1}
     local PORT=${2}
     local TESTCOMMAND="
         COUNT=0;
         while ! nc -z ${HOST} ${PORT}; do
-            if [ \"\${COUNT}\" -gt 10 ]; then
+            if [ \"\${COUNT}\" -gt 20 ]; then
               echo \"Can not connect to ${HOST} port ${PORT}. Aborting.\";
               exit 1;
             fi;
@@ -19,6 +21,9 @@ waitFor() {
         done;
     "
     ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name wait-for-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${IMAGE_ALPINE} /bin/sh -c "${TESTCOMMAND}"
+    if [[ $? -gt 0 ]]; then
+        kill -SIGINT -$$
+    fi
 }
 
 cleanUp() {
@@ -313,7 +318,7 @@ HOST_PID=$(id -g)
 USERSET=""
 SUFFIX=$(echo $RANDOM)
 NETWORK="friendsoftypo3-tea-${SUFFIX}"
-CI_PARAMS=""
+CI_PARAMS="${CI_PARAMS:-}"
 CONTAINER_HOST="host.docker.internal"
 PHPSTAN_CONFIG_FILE="phpstan.neon"
 IS_CORE_CI=0
@@ -405,7 +410,6 @@ handleDbmsOptions
 if [ "${CI}" == "true" ]; then
     IS_CORE_CI=1
     CONTAINER_INTERACTIVE=""
-    CI_PARAMS="--pull=never"
 fi
 
 # determine default container binary to use: 1. podman 2. docker
