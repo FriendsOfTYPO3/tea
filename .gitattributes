@@ -1,7 +1,6 @@
 /.Build/ export-ignore
 /.editorconfig export-ignore
 /.eslintignore export-ignore
-/eslint.config.json export-ignore
 /.gitattributes export-ignore
 /.github/ export-ignore
 /.gitignore export-ignore
@@ -13,10 +12,12 @@
 /Configuration/FunctionalTests.xml export-ignore
 /Configuration/UnitTests.xml export-ignore
 /Tests/ export-ignore
+/eslint.config.json export-ignore
 /package.json export-ignore
 /phive.xml export-ignore
 /phpcs.xml export-ignore
 /phpstan-baseline.neon export-ignore
 /phpstan.neon export-ignore
+/rector.php export-ignore
 /stylelint.config.js export-ignore
 /tools/ export-ignore binary

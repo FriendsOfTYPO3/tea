@@ -197,6 +197,7 @@
 			"rm phpcs.xml",
 			"rm phpstan-baseline.neon",
 			"rm phpstan.neon",
+			"rm rector.php",
 			"rm stylelint.config.js"
 		]
 	},
