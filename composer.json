@@ -151,6 +151,7 @@
 			"@ci:php:sniff",
 			"@ci:php:stan",
 			"@ci:ts:lint",
+			"@ci:xliff:lint",
 			"@ci:yaml:lint"
 		],
 		"ci:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
