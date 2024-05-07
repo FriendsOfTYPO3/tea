@@ -26,6 +26,10 @@ You can also use this extension to manage your collection of delicious teas.
 The following is a list of our code and technical philosophies only.
 https://typo3.org/community/teams/best-practices provides an overview on how we work in general.
 
+### Semantic Versioning
+
+The project follows [Semantic Versioning](https://semver.org/).
+
 ### Align with TYPO3 core
 
 We align all decisions with the TYPO3 core, whenever applicable.
