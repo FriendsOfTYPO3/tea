@@ -161,7 +161,7 @@
 		],
 		"ci:tests:unit": ".Build/bin/phpunit -c ./Configuration/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
-		"ci:xliff:lint": "php Build/bin/console lint:xliff Resources/Private/Language",
+		"ci:xliff:lint": "php Build/bin/xliff-lint lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
 		"coverage:create-directories": "mkdir -p .Build/logs .Build/coverage",
 		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
