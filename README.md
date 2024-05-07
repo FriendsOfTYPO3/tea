@@ -21,6 +21,15 @@ You can also use this extension to manage your collection of delicious teas.
 | **TER:**         | https://extensions.typo3.org/extension/tea/        |
 | **Slack:**       | https://typo3.slack.com/channels/qa-best-practices |
 
+## Philosophies
+
+The following is a list of our code and technical philosophies only.
+https://typo3.org/community/teams/best-practices provides an overview on how we work in general.
+
+### Semantic Versioning
+
+The project follows [semantic versioning](https://semver.org/).
+
 ## Presentation at the TYPO3 Online Days 2021
 
 At the TYPO3 Online Days 2021, [Oliver Klee](https://www.oliverklee.de/) held a
