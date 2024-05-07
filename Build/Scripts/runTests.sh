@@ -280,7 +280,7 @@ Examples:
 EOF
 }
 
-# Test if docker exists, else exit out with error
+# Test if at least one of the supported container binaries exists, else exit out with error
 if ! type "docker" >/dev/null 2>&1 && ! type "podman" >/dev/null 2>&1; then
     echo "This script relies on docker or podman. Please install at least one of them" >&2
     exit 1
@@ -306,8 +306,6 @@ PHPUNIT_RANDOM=""
 CGLCHECK_DRY_RUN=0
 DATABASE_DRIVER=""
 CONTAINER_BIN=""
-DEFAULT_CONTAINER_BIN="docker"
-DEFAULT_CI_CONTAINER_BIN="docker"
 COMPOSER_ROOT_VERSION="3.0.x-dev"
 CONTAINER_INTERACTIVE="-it --init"
 HOST_UID=$(id -u)
@@ -407,16 +405,16 @@ handleDbmsOptions
 if [ "${CI}" == "true" ]; then
     IS_CORE_CI=1
     CONTAINER_INTERACTIVE=""
-    # set default ci container binary, if not set using "-b" option
-    if [ "${CONTAINER_BIN}" == "" ]; then
-        CONTAINER_BIN="${DEFAULT_CI_CONTAINER_BIN}"
-    fi
     CI_PARAMS="--pull=never"
 fi
 
-# set default container binary, if not set using "-b" option
-if [ "${CONTAINER_BIN}" == "" ]; then
-    CONTAINER_BIN="${DEFAULT_CONTAINER_BIN}"
+# determine default container binary to use: 1. podman 2. docker
+if [[ -z "${CONTAINER_BIN}" ]]; then
+    if type "podman" >/dev/null 2>&1; then
+        CONTAINER_BIN="podman"
+    elif type "docker" >/dev/null 2>&1; then
+        CONTAINER_BIN="docker"
+    fi
 fi
 
 if [ $(uname) != "Darwin" ] && [ "${CONTAINER_BIN}" == "docker" ]; then
