@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\PHPUnit\Set\PHPUnitSetList;
-use Rector\PostRector\Rector\NameImportingPostRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 use Rector\ValueObject\PhpVersion;
@@ -85,11 +84,4 @@ return RectorConfig::configure()
         // @see https://github.com/sabbelasichon/typo3-rector/issues/2536
         __DIR__ . '/.github/*',
         __DIR__ . '/.Build/*',
-        NameImportingPostRector::class => [
-            'ext_localconf.php',
-            'ext_tables.php',
-            'ClassAliasMap.php',
-            __DIR__ . '/Configuration/*.php',
-            __DIR__ . '/Configuration/**/*.php',
-        ],
     ]);
