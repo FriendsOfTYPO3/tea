@@ -5,6 +5,6 @@
     key: "$CI_PROJECT_ID"
     paths:
       - Resources/Private/node_modules/
-      - Resources/Private/.yarn
+      - Resources/Private/.npm
   before_script:
-    - yarn install --cache-folder .yarn
+    - npm install --cache .npm
