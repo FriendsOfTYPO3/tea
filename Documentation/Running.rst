@@ -141,7 +141,8 @@ Running unit and functional tests
 
 .. note::
 
-   Executing tests on Windows via `runTests.sh` should be done within the Linux subsystem.
+   Executing tests on Windows via `runTests.sh` should be done within the
+   [Windows Subsystem for Linux (WSL 2)](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux).
 
 You can currently run these tests and coverages on the command line:
 
