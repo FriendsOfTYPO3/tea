@@ -23,6 +23,8 @@ return RectorConfig::configure()
         __DIR__ . '/Classes/',
         __DIR__ . '/Configuration/',
         __DIR__ . '/Tests/',
+        __DIR__ . '/ext_emconf.php',
+        __DIR__ . '/ext_localconf.php',
     ])
     ->withPhpVersion(PhpVersion::PHP_74)
     ->withPhpSets(
@@ -75,13 +77,10 @@ return RectorConfig::configure()
         // https://github.com/sabbelasichon/typo3-rector/blob/main/src/Set/Typo3LevelSetList.php
         // https://github.com/sabbelasichon/typo3-rector/blob/main/src/Set/Typo3SetList.php
 
-        Typo3SetList::TYPO3_11,
+        Typo3SetList::CODE_QUALITY,
+        Typo3SetList::GENERAL,
 
-        // Typo3SetList::CODE_QUALITY,
-        // Typo3SetList::GENERAL,
-
-        // Typo3LevelSetList::UP_TO_TYPO3_10,
-        // Typo3LevelSetList::UP_TO_TYPO3_11,
+        Typo3LevelSetList::UP_TO_TYPO3_11,
         // Typo3LevelSetList::UP_TO_TYPO3_12,
 
         // TYPO3TestingFrameworkSetList::TYPO3_TESTING_FRAMEWORK_7,
@@ -101,9 +100,4 @@ return RectorConfig::configure()
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => [],
     ])
     ->withSkip([
-        // CodeQuality
-        ExplicitBoolCompareRector::class,
-        SwitchNegatedTernaryRector::class,
-        // Strict
-        DisallowedEmptyRuleFixerRector::class,
     ]);
