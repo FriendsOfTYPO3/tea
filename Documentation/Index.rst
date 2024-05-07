@@ -58,4 +58,3 @@ continuous integration.
    :hidden:
 
    Sitemap
-   genindex

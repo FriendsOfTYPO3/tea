@@ -164,14 +164,7 @@
 		"ci:xliff:lint": "php Build/bin/console lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' -regextype egrep -regex '.*.ya?ml$' | xargs -r php ./.Build/bin/yaml-lint",
 		"coverage:create-directories": "mkdir -p .Build/logs .Build/coverage",
-		"docs:generate": [
-			"@docs:generate:pullimage",
-			"docker run --rm ghcr.io/t3docs/render-documentation show-shell-commands > tempfile.sh; echo 'dockrun_t3rd makehtml' >> tempfile.sh; bash tempfile.sh; rm tempfile.sh"
-		],
-		"docs:generate:pullimage": [
-			"docker pull ghcr.io/t3docs/render-documentation",
-			"docker tag ghcr.io/t3docs/render-documentation t3docs/render-documentation"
-		],
+		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
 		"fix:composer:normalize": "@composer normalize --no-check-lock",
 		"fix:php": [
 			"@fix:php:cs",
