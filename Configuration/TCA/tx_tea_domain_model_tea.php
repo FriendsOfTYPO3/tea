@@ -1,5 +1,8 @@
 <?php
 
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 $tca = [
     'ctrl' => [
         'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea',
@@ -206,7 +209,7 @@ $tca = [
     ],
 ];
 
-$typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
+$typo3Version = new Typo3Version();
 if ($typo3Version->getMajorVersion() < 12) {
     $tca = array_replace_recursive(
         $tca,
@@ -233,7 +236,7 @@ if ($typo3Version->getMajorVersion() < 12) {
     ];
     $tca['columns']['image'] = [
         'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.image',
-        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+        'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
             'image',
             [
                 'maxitems' => 1,

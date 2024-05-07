@@ -1,11 +1,13 @@
 <?php
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') || die();
 
 call_user_func(
     static function (): void {
         // This makes the plugin selectable in the BE.
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+        ExtensionUtility::registerPlugin(
             // extension name, matching the PHP namespaces (but without the vendor)
             'Tea',
             // arbitrary, but unique plugin name (not visible in the BE)
@@ -16,14 +18,14 @@ call_user_func(
             'EXT:tea/Resources/Public/Icons/Extension.svg'
         );
 
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+        ExtensionUtility::registerPlugin(
             'Tea',
             'TeaShow',
             'LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_show',
             'EXT:tea/Resources/Public/Icons/Extension.svg'
         );
 
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+        ExtensionUtility::registerPlugin(
             'Tea',
             'TeaFrontEndEditor',
             'LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_frontend_editor',

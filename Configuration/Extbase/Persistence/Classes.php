@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use TTN\Tea\Domain\Model\Tea;
+
 return [
-    \TTN\Tea\Domain\Model\Tea::class => [
+    Tea::class => [
         'properties' => [
             'ownerUid' => ['fieldName' => 'owner'],
         ],
