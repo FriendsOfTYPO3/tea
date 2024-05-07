@@ -31,6 +31,8 @@ jobs:
           extensions: mysqli
           coverage: pcov
           ini-values: pcov.directory=Classes
+      - name: "Install development tools"
+        run: phive --no-progress install --trust-gpg-keys D8406D0D82947747293778314AA394086372C20A
       - name: "Show Composer version"
         run: composer --version
       - name: "Show the Composer configuration"
