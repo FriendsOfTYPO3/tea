@@ -24,9 +24,9 @@ You can also use this extension to manage your collection of delicious teas.
 ## Feedback
 
 We value and welcome feedback of all kinds, including discussions.
-Feedback can be send via TYPO3 slack within our channel or via direct massages to the team members.
-We also welcome E-Mails. All the contact infos are available at our [typo3.org Team Page](https://typo3.org/community/teams/best-practices)
-And another way is to open an [issue on GitHub](https://github.com/FriendsOfTYPO3/tea/issues/new/choose).
+Feedback can be sent via TYPO3 slack within [our channel](https://app.slack.com/client/T024TUMLZ/CSQ8T0VS5) or via direct massages to the team members.
+We also welcome email. All the contact information is available at our [typo3.org team page](https://typo3.org/community/teams/best-practices).
+Another way is to open an [issue on GitHub](https://github.com/FriendsOfTYPO3/tea/issues/new/choose).
 
 ## Philosophies
 
