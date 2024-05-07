@@ -93,7 +93,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v4
       - name: "Install modules"
-        run: npm
+        run: npm install
       - name: "Run command"
         run: "npm run lint:${{ matrix.command }}"
   unit-tests:
