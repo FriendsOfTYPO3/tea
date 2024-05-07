@@ -94,6 +94,7 @@ return RectorConfig::configure()
         AddVoidReturnTypeWhereNoReturnRector::class,
         ConvertImplicitVariablesToExplicitGlobalsRector::class,
     ])
+    ->withImportNames(true, true, false)
     ->withConfiguredRule(ExtEmConfRector::class, [
         ExtEmConfRector::PHP_VERSION_CONSTRAINT => '7.4.0-8.3.99',
         ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '11.5.4-12.4.99',
