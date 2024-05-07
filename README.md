@@ -30,6 +30,12 @@ https://typo3.org/community/teams/best-practices provides an overview on how we 
 
 The project follows [semantic versioning](https://semver.org/).
 
+### Align with TYPO3 core
+
+We align all decisions with the TYPO3 core, whenever applicable.
+TYPO3 itself is a mono repository and sometimes needs to make different decisions.
+We document all divergences within Documentation/DivergencesToTypo3Core/.
+
 ## Presentation at the TYPO3 Online Days 2021
 
 At the TYPO3 Online Days 2021, [Oliver Klee](https://www.oliverklee.de/) held a
