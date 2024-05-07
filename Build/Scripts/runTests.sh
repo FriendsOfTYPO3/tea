@@ -646,14 +646,8 @@ echo "TYPO3: ${CORE_VERSION}" >&2
 echo "CONTAINER_BIN: ${CONTAINER_BIN}"
 if [[ ${TEST_SUITE} =~ ^functional$ ]]; then
     case "${DBMS}" in
-        mariadb)
-            echo "DBMS: ${DBMS}  version ${MARIADB_VERSION}  driver ${DATABASE_DRIVER}" >&2
-            ;;
-        mysql)
-            echo "DBMS: ${DBMS}  version ${MYSQL_VERSION}  driver ${DATABASE_DRIVER}" >&2
-            ;;
-        postgres)
-            echo "DBMS: ${DBMS}  version ${POSTGRES_VERSION}" >&2
+        mariadb|mysql|postgres)
+            echo "DBMS: ${DBMS}  version ${DBMS_VERSION}  driver ${DATABASE_DRIVER}" >&2
             ;;
         sqlite)
             echo "DBMS: ${DBMS}" >&2
