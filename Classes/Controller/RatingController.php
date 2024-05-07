@@ -2,17 +2,19 @@
 
 namespace TTN\Tea\Controller;
 
-use Psr\Http\Message\ResponseInterface;
-use TTN\Tea\Domain\Model\Product\Tea;
-use TTN\Tea\Domain\Repository\Product\TeaRepository;
-use TYPO3\CMS\Core\Context\Context;
-use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
+use TTN\Tea\Domain\Model\Tea;
+use TTN\Tea\Domain\Repository\TeaRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class RatingController extends FrontEndEditorController
+class RatingController extends ActionController
 {
+
+    public function __construct(protected TeaRepository $teaRepository)
+    {
+    }
+
     public function ratingAction(Tea $tea, int $stars)
     {
-        $this->checkIfUserIsOwner($tea);
         $tea->setStars($stars);
         $this->teaRepository->update($tea);
 

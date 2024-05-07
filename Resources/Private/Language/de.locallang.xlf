@@ -11,6 +11,10 @@
 				<source>Tea single view</source>
 				<target>Tee-Einzelansicht</target>
 			</trans-unit>
+			<trans-unit id="plugin.tea_rating" resname="plugin.tea_rating">
+				<source>Tea Rating view</source>
+				<target>Tee-Bewertungsansicht</target>
+			</trans-unit>
 			<trans-unit id="plugin.tea_frontend_editor" resname="plugin.tea_frontend_editor" approved="yes">
 				<source>Tea front-end editor</source>
 				<target>Frontend-Editor für Tee</target>

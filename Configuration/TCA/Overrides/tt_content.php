@@ -30,10 +30,18 @@ call_user_func(
             'EXT:tea/Resources/Public/Icons/Extension.svg'
         );
 
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            'Tea',
+            'TeaRating',
+            'LLL:EXT:tea/Resources/Private/Language/locallang.xlf:plugin.tea_rating',
+            'EXT:tea/Resources/Public/Icons/Extension.svg'
+        );
+
         // This removes the default controls from the plugin.
         $controlsToRemove = 'recursive,pages';
         $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tea_teaindex'] = $controlsToRemove;
         $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tea_teashow'] = $controlsToRemove;
         $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tea_teafrontendeditor'] = $controlsToRemove;
+        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tea_tearating'] = $controlsToRemove;
     }
 );
