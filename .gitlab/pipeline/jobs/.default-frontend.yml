@@ -1,5 +1,5 @@
 .default-frontend:
-  image: node:latest
+  image: node:18
   needs: [ ]
   cache:
     key: "$CI_PROJECT_ID"
