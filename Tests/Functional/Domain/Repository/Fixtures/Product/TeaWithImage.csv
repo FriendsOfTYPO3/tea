@@ -1,7 +1,0 @@
-"tx_tea_domain_model_product_tea"
-,"uid","pid","title","image",
-,1,1,"Gunpowder",1
-
-"sys_file_reference"
-,"uid","uid_foreign","tablenames","fieldname"
-,1,1,"tx_tea_domain_model_product_tea","image"

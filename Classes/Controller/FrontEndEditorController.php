@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace TTN\Tea\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use TTN\Tea\Domain\Model\Product\Tea;
-use TTN\Tea\Domain\Repository\Product\TeaRepository;
+use TTN\Tea\Domain\Model\Tea;
+use TTN\Tea\Domain\Repository\TeaRepository;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
@@ -42,7 +42,10 @@ class FrontEndEditorController extends ActionController
      */
     private function getUidOfLoggedInUser(): int
     {
-        return $this->context->getPropertyFromAspect('frontend.user', 'id');
+        $userUid = $this->context->getPropertyFromAspect('frontend.user', 'id');
+        \assert(\is_int($userUid) && $userUid >= 0);
+
+        return $userUid;
     }
 
     /**

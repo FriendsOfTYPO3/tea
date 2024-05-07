@@ -6,6 +6,28 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add support for PostgreSQL 16 (#1271)
+
+### Changed
+- Stop storing development tool PHARs in the repository (#1277)
+- !!! Require a storage PID for the tea list (#1223)
+- Drop additional namespace segment for the Tea model (#1025)
+
+### Deprecated
+
+### Removed
+- Drop DDEV configuration in favor of `runTests.sh` (#1063)
+- Stop using the predefined GitHub Actions (#1211)
+
+### Fixed
+- Add `resname` to all language labels (#1221)
+- Raise the minimal TYPO3 V12 version (#1212)
+
+## 3.1.0
+
+### Added
+- Add Composer script for XLIFF linting (#1071)
+- Add polish translation for tea (#1020)
 - Make records timeable and hideable (#989)
 - Add support for PHP 8.3 (#965)
 - Add an FE editor (#864, #872, #874, #876)
@@ -15,8 +37,6 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 - Rename TsConfig directory to `TSconfig` (#923)
 - Set the minimal 12LTS version to 12.1 (#702)
-
-### Deprecated
 
 ### Removed
 - Stop using Prophecy (#676)

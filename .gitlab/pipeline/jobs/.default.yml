@@ -1,4 +1,4 @@
 .default:
-  image: php:7.4
+  image: ghcr.io/sbuerk/demo-core-testing-php83:latest
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null

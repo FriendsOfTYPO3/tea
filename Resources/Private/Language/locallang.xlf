@@ -3,67 +3,67 @@
 	<file source-language="en" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="plugin.tea_index">
+			<trans-unit id="plugin.tea_index" resname="plugin.tea_index">
 				<source>Tea list</source>
 			</trans-unit>
-			<trans-unit id="plugin.tea_show">
+			<trans-unit id="plugin.tea_show" resname="plugin.tea_show">
 				<source>Tea single view</source>
 			</trans-unit>
-			<trans-unit id="plugin.tea_frontend_editor">
+			<trans-unit id="plugin.tea_frontend_editor" resname="plugin.tea_frontend_editor">
 				<source>Tea front-end editor</source>
 			</trans-unit>
-			<trans-unit id="plugin.tea.heading">
+			<trans-unit id="plugin.tea.heading" resname="plugin.tea.heading">
 				<source>Our selection of assorted teas</source>
 			</trans-unit>
-			<trans-unit id="plugin.tea.property.uid">
+			<trans-unit id="plugin.tea.property.uid" resname="plugin.tea.property.uid">
 				<source>UID</source>
 			</trans-unit>
-			<trans-unit id="plugin.tea.property.title">
+			<trans-unit id="plugin.tea.property.title" resname="plugin.tea.property.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.property.description">
+			<trans-unit id="plugin.frontEndEditor.property.description" resname="plugin.frontEndEditor.property.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.index.heading">
+			<trans-unit id="plugin.frontEndEditor.index.heading" resname="plugin.frontEndEditor.index.heading">
 				<source>My teas</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.message.noTeas">
+			<trans-unit id="plugin.frontEndEditor.message.noTeas" resname="plugin.frontEndEditor.message.noTeas">
 				<source>You have not created any teas yet.</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.property.uid">
+			<trans-unit id="plugin.frontEndEditor.property.uid" resname="plugin.frontEndEditor.property.uid">
 				<source>UID</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.property.title">
+			<trans-unit id="plugin.frontEndEditor.property.title" resname="plugin.frontEndEditor.property.title">
 				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.property.stars">
 				<source>Stars</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.edit.heading">
+			<trans-unit id="plugin.frontEndEditor.edit.heading" resname="plugin.frontEndEditor.edit.heading">
 				<source>Edit tea</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.actions">
+			<trans-unit id="plugin.frontEndEditor.action.actions" resname="plugin.frontEndEditor.action.actions">
 				<source>Actions</source>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.rating">
 				<source>Rating</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.edit">
+			<trans-unit id="plugin.frontEndEditor.action.edit" resname="plugin.frontEndEditor.action.edit">
 				<source>Edit</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.cancel">
+			<trans-unit id="plugin.frontEndEditor.action.cancel" resname="plugin.frontEndEditor.action.cancel">
 				<source>Cancel</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.save">
+			<trans-unit id="plugin.frontEndEditor.action.save" resname="plugin.frontEndEditor.action.save">
 				<source>Save</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.new">
+			<trans-unit id="plugin.frontEndEditor.action.new" resname="plugin.frontEndEditor.action.new">
 				<source>Create new tea</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.action.delete">
+			<trans-unit id="plugin.frontEndEditor.action.delete" resname="plugin.frontEndEditor.action.delete">
 				<source>Delete</source>
 			</trans-unit>
-			<trans-unit id="plugin.frontEndEditor.new.heading">
+			<trans-unit id="plugin.frontEndEditor.new.heading" resname="plugin.frontEndEditor.new.heading">
 				<source>Create new tea</source>
 			</trans-unit>
 		</body>

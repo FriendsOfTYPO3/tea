@@ -1,6 +1,5 @@
 php-lint-php7.4:
-  extends: .default
-  image: php:7.4
+  image: ghcr.io/sbuerk/demo-core-testing-php74:latest
   stage: lint
   needs: [ ]
   script:

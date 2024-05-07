@@ -1,8 +1,7 @@
 /.Build/ export-ignore
-/.ddev/ export-ignore
 /.editorconfig export-ignore
 /.eslintignore export-ignore
-/.eslintrc.json export-ignore
+/eslint.config.json export-ignore
 /.gitattributes export-ignore
 /.github/ export-ignore
 /.gitignore export-ignore
@@ -11,6 +10,8 @@
 /.phpstorm.meta.php export-ignore
 /.prettierrc.js export-ignore
 /Build/ export-ignore
+/Configuration/FunctionalTests.xml export-ignore
+/Configuration/UnitTests.xml export-ignore
 /Tests/ export-ignore
 /package.json export-ignore
 /phive.xml export-ignore

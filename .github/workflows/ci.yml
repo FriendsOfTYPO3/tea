@@ -22,6 +22,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           coverage: none
           tools: composer:v2
       - name: "Show the Composer configuration"
@@ -47,6 +48,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           coverage: none
           tools: composer:v2
       - name: "Show Composer version"
@@ -54,13 +56,13 @@ jobs:
       - name: "Show the Composer configuration"
         run: "composer config --global --list"
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       - name: "Install Composer dependencies"
-        run: "composer install --no-progress"
+        run: "composer update --no-progress"
       - name: "Run command"
         run: "composer ci:${{ matrix.command }}"
     strategy:
@@ -75,8 +77,9 @@ jobs:
           - "php:stan"
           - "ts:lint"
           - "yaml:lint"
+          - "xliff:lint"
         php-version:
-          - "8.1"
+          - "8.3"
   code-quality-frontend:
     name: "Code quality frontend checks"
     runs-on: ubuntu-22.04
@@ -93,14 +96,6 @@ jobs:
         run: yarn
       - name: "Run command"
         run: "yarn lint:${{ matrix.command }}"
-  xliff-lint:
-    name: "Xliff linter"
-    runs-on: ubuntu-22.04
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-      - name: "Run the xliff lint"
-        uses: TYPO3-Continuous-Integration/TYPO3-CI-Xliff-Lint@v1
   unit-tests:
     name: "Unit tests"
     runs-on: ubuntu-22.04
@@ -112,6 +107,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           coverage: none
           tools: composer:v2
       - name: "Show Composer version"
@@ -119,7 +115,7 @@ jobs:
       - name: "Show the Composer configuration"
         run: "composer config --global --list"
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
@@ -210,6 +206,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           tools: composer:v2
           extensions: mysqli
           coverage: none
@@ -218,7 +215,7 @@ jobs:
       - name: "Show the Composer configuration"
         run: "composer config --global --list"
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
@@ -300,3 +297,13 @@ jobs:
           - typo3-version: "^12.4"
             php-version: "8.3"
             composer-dependencies: highest
+  documentation:
+    name: Documentation
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test if the documentation will render without warnings
+        run: |
+          docker run --rm --pull always -v $(pwd):/project \
+             ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log

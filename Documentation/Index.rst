@@ -51,6 +51,7 @@ continuous integration.
    ContinuousIntegration
    Documentation
    Security
+   DivergencesToTypo3Core
 
 .. Meta Menu
 
@@ -58,4 +59,3 @@ continuous integration.
    :hidden:
 
    Sitemap
-   genindex

@@ -1,0 +1,6 @@
+php-lint-php8.3:
+  image: ghcr.io/sbuerk/demo-core-testing-php83:latest
+  stage: lint
+  needs: [ ]
+  script:
+    - composer ci:php:lint

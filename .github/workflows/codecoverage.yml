@@ -26,14 +26,19 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php-version }}"
+          ini-file: development
           tools: composer:v2, phive
           extensions: mysqli
           coverage: pcov
           ini-values: pcov.directory=Classes
+      - name: "Install development tools"
+        run: phive --no-progress install --trust-gpg-keys D8406D0D82947747293778314AA394086372C20A
       - name: "Show Composer version"
         run: composer --version
+      - name: "Show the Composer configuration"
+        run: composer config --global --list
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: "php${{ matrix.php-version }}-typo3${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
@@ -58,6 +63,8 @@ jobs:
         run: "sudo /etc/init.d/mysql start"
       - name: "Run unit tests with coverage"
         run: composer ci:coverage:unit
+      - name: "Show generated coverage files"
+        run: "ls -lahR .Build/coverage/"
       - name: "Run functional tests with coverage"
         run: |
           export typo3DatabaseName="$DB_DATABASE";
@@ -65,8 +72,12 @@ jobs:
           export typo3DatabaseUsername="$DB_USER";
           export typo3DatabasePassword="$DB_PASSWORD";
           composer ci:coverage:functional
+      - name: "Show generated coverage files"
+        run: "ls -lahR .Build/coverage/"
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
+      - name: "Show merged coverage files"
+        run: "ls -lahR ./.Build/logs/"
       - name: "Upload coverage results to Coveralls"
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,6 +86,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - typo3-version: "^11.5"
-            php-version: "7.4"
+          - typo3-version: "^12.4"
+            php-version: "8.3"
             composer-dependencies: highest

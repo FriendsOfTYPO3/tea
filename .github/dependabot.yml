@@ -6,7 +6,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    milestone: 6
+    # adjust this number according to your own milestones if used.
+    milestone: 12
+    commit-message:
+      prefix: "[TASK] "
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -18,14 +21,22 @@ updates:
       - dependency-name: "doctrine/dbal"
       - dependency-name: "phpunit/phpunit"
         versions: [ "^10.0" ]
+      - dependency-name: "symfony/console"
+      - dependency-name: "symfony/translation"
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
     versioning-strategy: "increase"
-    milestone: 6
+    # adjust this number according to your own milestones if used.
+    milestone: 12
+    commit-message:
+      prefix: "[TASK] "
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
     versioning-strategy: "increase"
-    milestone: 6
+    # adjust this number according to your own milestones if used.
+    milestone: 12
+    commit-message:
+      prefix: "[TASK] "

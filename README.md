@@ -21,6 +21,17 @@ You can also use this extension to manage your collection of delicious teas.
 | **TER:**         | https://extensions.typo3.org/extension/tea/        |
 | **Slack:**       | https://typo3.slack.com/channels/qa-best-practices |
 
+## Philosophies
+
+The following is a list of our code and technical philosophies only.
+https://typo3.org/community/teams/best-practices provides an overview on how we work in general.
+
+### Align with TYPO3 core
+
+We align all decisions with the TYPO3 core, whenever applicable.
+TYPO3 itself is a mono repository and sometimes needs to make different decisions.
+We document all divergences within Documentation/DivergencesToTypo3Core/.
+
 ## Presentation at the TYPO3 Online Days 2021
 
 At the TYPO3 Online Days 2021, [Oliver Klee](https://www.oliverklee.de/) held a
