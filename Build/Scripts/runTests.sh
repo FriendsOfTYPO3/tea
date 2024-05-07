@@ -520,7 +520,9 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         ;;
     docsGenerate)
-        ${CONTAINER_BIN} run --rm --pull always -v "$(pwd)":/project -it ${IMAGE_DOCS} --config=Documentation --fail-on-log
+        mkdir -p Documentation-GENERATED-temp
+        chown -R ${HOST_UID}:${HOST_PID} Documentation-GENERATED-temp
+        ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --pull always ${USERSET} -v "${ROOT_DIR}":/project ${IMAGE_DOCS} --config=Documentation --fail-on-log
         SUITE_EXIT_CODE=$?
         ;;
     functional)
