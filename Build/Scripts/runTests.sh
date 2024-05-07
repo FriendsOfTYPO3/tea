@@ -435,7 +435,7 @@ mkdir -p .Build/public/typo3temp/var/tests
 
 IMAGE_PHP="ghcr.io/sbuerk/demo-core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_ALPINE="docker.io/alpine:3.8"
-IMAGE_DOCS="ghcr.io/t3docs/render-documentation:latest"
+IMAGE_DOCS="ghcr.io/typo3-documentation/render-guides:latest"
 IMAGE_MARIADB="docker.io/mariadb:${DBMS_VERSION}"
 IMAGE_MYSQL="docker.io/mysql:${DBMS_VERSION}"
 IMAGE_POSTGRES="docker.io/postgres:${DBMS_VERSION}-alpine"
@@ -518,22 +518,8 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         ;;
     docsGenerate)
-        # @todo contact the documentation team for a future rootles podman version
-        if [ "${CONTAINER_BIN}" == "podman" ]; then
-            echo "-s docsGenerate is not usable with -b podman"
-            echo "TYPO3 Documentation Team needs to deal with this, and we will"
-            echo "see if the upcoming php based documentation rendering container"
-            echo "will support podman out-of-the-box"
-            echo ""
-            echo "Please use -b docker -s docsGenerate"
-            SUITE_EXIT_CODE=1
-        else
-            ${CONTAINER_BIN} run --rm ${IMAGE_DOCS} show-shell-commands > generate-documentation.sh
-            echo 'dockrun_t3rd makehtml' >> generate-documentation.sh
-            bash generate-documentation.sh
-            rm -Rf generate-documentation.sh
-            SUITE_EXIT_CODE=$?
-        fi
+        ${CONTAINER_BIN} run --rm --pull always -v "$(pwd)":/project -it ${IMAGE_DOCS} --config=Documentation --fail-on-log
+        SUITE_EXIT_CODE=$?
         ;;
     functional)
         [ -z "${TEST_FILE}" ] && TEST_FILE="Tests/Functional"
