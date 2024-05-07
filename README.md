@@ -28,7 +28,7 @@ https://typo3.org/community/teams/best-practices provides an overview on how we 
 
 ### Semantic Versioning
 
-The project follows [semantic versioning](https://semver.org/).
+The project follows [Semantic Versioning](https://semver.org/).
 
 ### Align with TYPO3 core
 
