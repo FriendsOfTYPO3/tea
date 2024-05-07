@@ -21,6 +21,13 @@ You can also use this extension to manage your collection of delicious teas.
 | **TER:**         | https://extensions.typo3.org/extension/tea/        |
 | **Slack:**       | https://typo3.slack.com/channels/qa-best-practices |
 
+## Feedback
+
+We value and welcome feedback of all kinds, including discussions.
+Feedback can be send via TYPO3 slack within our channel or via direct massages to the team members.
+We also welcome E-Mails. All the contact infos are available at our [typo3.org Team Page](https://typo3.org/community/teams/best-practices)
+And another way is to open an [issue on GitHub](https://github.com/FriendsOfTYPO3/tea/issues/new/choose).
+
 ## Philosophies
 
 The following is a list of our code and technical philosophies only.
