@@ -72,7 +72,7 @@ handleDbmsOptions() {
                 exit 1
             fi
             [ -z "${DBMS_VERSION}" ] && DBMS_VERSION="10"
-            if ! [[ ${DBMS_VERSION} =~ ^(10|11|12|13|14|15)$ ]]; then
+            if ! [[ ${DBMS_VERSION} =~ ^(10|11|12|13|14|15|16)$ ]]; then
                 echo "Invalid combination -d ${DBMS} -i ${DBMS_VERSION}" >&2
                 echo >&2
                 echo "Use \".Build/Scripts/runTests.sh -h\" to display help and valid options" >&2
@@ -201,11 +201,12 @@ Options:
             - 8.0   maintained until 2026-04 (default)
         With "-d postgres":
             - 10    unmaintained since 2022-11-10 (default)
-            - 11    maintained until 2023-11-09
+            - 11    unmaintained since 2023-11-09
             - 12    maintained until 2024-11-14
             - 13    maintained until 2025-11-13
             - 14    maintained until 2026-11-12
             - 15    maintained until 2027-11-11
+            - 16    maintained until 2028-11-09
 
     -t <11.5|12.4>
         Only with -s composerInstall|composerInstallMin|composerInstallMax
