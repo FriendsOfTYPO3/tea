@@ -435,7 +435,7 @@ fi
 mkdir -p .cache
 mkdir -p .Build/public/typo3temp/var/tests
 
-IMAGE_PHP="ghcr.io/sbuerk/demo-core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
+IMAGE_PHP="ghcr.io/typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_ALPINE="docker.io/alpine:3.8"
 IMAGE_DOCS="ghcr.io/typo3-documentation/render-guides:latest"
 IMAGE_MARIADB="docker.io/mariadb:${DBMS_VERSION}"
@@ -601,12 +601,12 @@ case ${TEST_SUITE} in
         ;;
     update)
         # pull typo3/core-testing-*:latest versions of those ones that exist locally
-        echo "> pull ghcr.io/sbuerk/demo-core-testing-*:latest versions of those ones that exist locally"
-        ${CONTAINER_BIN} images ghcr.io/sbuerk/demo-core-testing-*:latest --format "{{.Repository}}:latest" | xargs -I {} ${CONTAINER_BIN} pull {}
+        echo "> pull ghcr.io/typo3/core-testing-*:latest versions of those ones that exist locally"
+        ${CONTAINER_BIN} images ghcr.io/typo3/core-testing-*:latest --format "{{.Repository}}:latest" | xargs -I {} ${CONTAINER_BIN} pull {}
         echo ""
         # remove "dangling" typo3/core-testing-* images (those tagged as <none>)
-        echo "> remove \"dangling\" ghcr.io/sbuerk/demo-core-testing-* images (those tagged as <none>)"
-        ${CONTAINER_BIN} images --filter "reference=ghcr.io/sbuerk/demo-core-testing-*" --filter "dangling=true" --format "{{.ID}}" | xargs -I {} ${CONTAINER_BIN} rmi {}
+        echo "> remove \"dangling\" ghcr.io/typo3/core-testing-* images (those tagged as <none>)"
+        ${CONTAINER_BIN} images --filter "reference=ghcr.io/typo3/core-testing-*" --filter "dangling=true" --format "{{.ID}}" | xargs -I {} ${CONTAINER_BIN} rmi {}
         echo ""
         ;;
     *)
