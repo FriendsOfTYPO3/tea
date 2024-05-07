@@ -1,7 +1,7 @@
 /.Build/ export-ignore
 /.editorconfig export-ignore
 /.eslintignore export-ignore
-/.eslintrc.json export-ignore
+/eslint.config.json export-ignore
 /.gitattributes export-ignore
 /.github/ export-ignore
 /.gitignore export-ignore
