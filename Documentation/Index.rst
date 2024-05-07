@@ -51,6 +51,7 @@ continuous integration.
    ContinuousIntegration
    Documentation
    Security
+   DivergencesToTypo3Core
 
 .. Meta Menu
 
