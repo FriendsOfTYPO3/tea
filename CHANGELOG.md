@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## x.y.z
 
 ### Added
+- Add support for PostgreSQL 16 (#1271)
 
 ### Changed
 - !!! Require a storage PID for the tea list (#1223)
