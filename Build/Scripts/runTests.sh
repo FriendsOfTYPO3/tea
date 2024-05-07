@@ -644,11 +644,14 @@ echo "TYPO3: ${CORE_VERSION}" >&2
 echo "CONTAINER_BIN: ${CONTAINER_BIN}"
 if [[ ${TEST_SUITE} =~ ^functional$ ]]; then
     case "${DBMS}" in
-        mariadb|mysql|postgres)
+        mariadb|mysql)
             echo "DBMS: ${DBMS}  version ${DBMS_VERSION}  driver ${DATABASE_DRIVER}" >&2
             ;;
+        postgres)
+            echo "DBMS: ${DBMS}  version ${DBMS_VERSION}  driver pdo_pgsql" >&2
+            ;;
         sqlite)
-            echo "DBMS: ${DBMS}" >&2
+            echo "DBMS: ${DBMS}  driver pdo_sqlite" >&2
             ;;
     esac
 fi
