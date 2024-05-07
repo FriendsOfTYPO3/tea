@@ -6,7 +6,7 @@ export default [
   eslintConfigPrettier,
   {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: 2024,
       globals: {
         document: false,
         TYPO3: "readonly"
