@@ -20,6 +20,7 @@ $tca = [
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'languageField' => 'sys_language_uid',
         'translationSource' => 'l10n_source',
+        'versioningWS' => true,
     ],
     'types' => [
         '1' => [
