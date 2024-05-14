@@ -10,7 +10,6 @@
 /generate-documentation.sh
 /nbproject
 /node_modules/
-/package-lock.json
 /var
 /yarn-error.log
 /yarn.lock
