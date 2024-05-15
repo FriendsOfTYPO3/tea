@@ -58,7 +58,7 @@
 		"phpunit/phpunit": "^9.6.19",
 		"saschaegerer/phpstan-typo3": "^1.10.1",
 		"seld/jsonlint": "^1.10.2",
-		"spaze/phpstan-disallowed-calls": "^3.3",
+		"spaze/phpstan-disallowed-calls": "^3.4",
 		"squizlabs/php_codesniffer": "^3.9.2",
 		"ssch/typo3-rector": "^2.5.0",
 		"ssch/typo3-rector-testing-framework": "^2.0.1",
