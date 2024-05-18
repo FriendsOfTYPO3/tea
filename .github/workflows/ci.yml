@@ -92,6 +92,10 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
+      - name: "Set up Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.20.2"
       - name: "Install modules"
         run: |
           npm ci
