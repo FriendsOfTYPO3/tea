@@ -14,7 +14,7 @@ permissions:
 jobs:
   php-lint:
     name: "PHP linter"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
           - "8.3"
   code-quality:
     name: "Code quality checks"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
@@ -82,7 +82,7 @@ jobs:
           - "8.3"
   code-quality-frontend:
     name: "Code quality frontend checks"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -104,7 +104,7 @@ jobs:
           npm run lint:${{ matrix.command }}
   unit-tests:
     name: "Unit tests"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: php-lint
     steps:
       - name: "Checkout"
@@ -198,7 +198,7 @@ jobs:
             composer-dependencies: highest
   functional-tests:
     name: "Functional tests"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: php-lint
     env:
       DB_DATABASE: typo3
@@ -305,7 +305,7 @@ jobs:
             composer-dependencies: highest
   documentation:
     name: Documentation
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
