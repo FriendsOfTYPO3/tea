@@ -13,9 +13,9 @@ parameters:
   level: 9
 
   paths:
-    - Classes
-    - Configuration
-    - Tests
+    - ../../Classes
+    - ../../Configuration
+    - ../../Tests
 
   # Allow instanceof checks, particularly in tests
   checkAlwaysTrueCheckTypeFunctionCall: false
