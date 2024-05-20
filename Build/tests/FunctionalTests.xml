@@ -4,7 +4,7 @@
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
     backupGlobals="true"
     beStrictAboutTestsThatDoNotTestAnything="false"
-    bootstrap="../.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php"
+    bootstrap="../../.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php"
     cacheResult="false"
     colors="true"
     convertDeprecationsToExceptions="true"
