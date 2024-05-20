@@ -66,7 +66,7 @@
 		"symfony/translation": "^5.4 || ^6.4 || ^7.0",
 		"symfony/yaml": "^5.4 || ^6.4 || ^7.0",
 		"tomasvotruba/cognitive-complexity": "^0.2.3",
-		"tomasvotruba/type-coverage": "^0.2.8",
+		"tomasvotruba/type-coverage": "^0.3.0",
 		"typo3/cms-fluid-styled-content": "^11.5.4 || ^12.4.2",
 		"typo3/coding-standards": "^0.6.1",
 		"typo3/testing-framework": "^7.0.4",
