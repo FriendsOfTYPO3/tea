@@ -13,7 +13,7 @@ jobs:
     name: "Calculate code coverage"
     permissions:
       actions: write
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       DB_DATABASE: typo3
       DB_USER: root
