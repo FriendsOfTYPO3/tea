@@ -51,7 +51,7 @@
 		"friendsofphp/php-cs-fixer": "^3.58.1",
 		"helmich/typo3-typoscript-lint": "^3.1.1",
 		"php-coveralls/php-coveralls": "^2.7.0",
-		"phpstan/extension-installer": "^1.4.0",
+		"phpstan/extension-installer": "^1.4.1",
 		"phpstan/phpstan": "^1.11.4",
 		"phpstan/phpstan-phpunit": "^1.4.0",
 		"phpstan/phpstan-strict-rules": "^1.6.0",
