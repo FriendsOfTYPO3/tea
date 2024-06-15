@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use TTN\Tea\Controller\FrontEndEditorController;
+use TTN\Tea\Controller\RatingController;
 use TTN\Tea\Controller\TeaController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
@@ -51,3 +52,18 @@ ExtensionUtility::configurePlugin(
         FrontEndEditorController::class => 'index, edit, update, create, new, delete',
     ]
 );
+
+// Combine TeaController and RatingController into a new Plugin
+ExtensionUtility::configurePlugin(
+    'Tea',
+    'TeaRating',
+    [
+        TeaController::class => 'index',
+        RatingController::class => 'filter,rating'
+    ],
+    [
+        TeaController::class => 'index',
+        RatingController::class => 'rating,filter'
+    ]
+);
+

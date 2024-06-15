@@ -21,3 +21,27 @@ plugin.tx_tea {
     singleViewPageUid = {$plugin.tx_tea.settings.singleViewPageUid}
   }
 }
+
+plugin.tx_tea_tearating {
+  view {
+    templateRootPaths {
+      0 = EXT:tea/Resources/Private/Plugins/Rating/Templates/
+    }
+
+    partialRootPaths {
+      0 = EXT:tea/Resources/Private/Plugins/Rating/Partials/
+    }
+
+    layoutRootPaths {
+      0 = EXT:tea/Resources/Private/Plugins/Rating/Layouts/
+    }
+  }
+
+  persistence {
+    storagePid = {$plugin.tx_tea.persistence.storagePid}
+  }
+
+  settings {
+    singleViewPageUid = {$plugin.tx_tea_tearating.settings.singleViewPageUid}
+  }
+}
