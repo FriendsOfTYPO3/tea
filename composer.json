@@ -124,7 +124,7 @@
 		"ci:coverage:functional": [
 			"@ci:tests:create-directories",
 			"@coverage:create-directories",
-			".Build/bin/phpunit -c ./Build/Tests/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
+			".Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
 		],
 		"ci:coverage:merge": [
 			"@coverage:create-directories",
@@ -132,7 +132,7 @@
 		],
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
-			".Build/bin/phpunit -c ./Build/Tests/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
+			".Build/bin/phpunit -c Build/phpunit/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
 		],
 		"ci:json:lint": "find . ! -path '*/.cache/*' ! -path '*/.Build/*' ! -path '*/node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
 		"ci:php": [
@@ -159,9 +159,9 @@
 		"ci:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
 		"ci:tests:functional": [
 			"@ci:tests:create-directories",
-			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/bin/phpunit -c ./Build/Tests/FunctionalTests.xml {}';"
+			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \\\"Running functional test suite {}\\\"; .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml {}';"
 		],
-		"ci:tests:unit": ".Build/bin/phpunit -c ./Build/Tests/UnitTests.xml Tests/Unit",
+		"ci:tests:unit": ".Build/bin/phpunit -c Build/phpunit/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:xliff:lint": "php Build/bin/xliff-lint lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
@@ -190,8 +190,8 @@
 			"rm .gitignore",
 			"rm .php-cs-fixer.php",
 			"rm .prettierrc.js",
-			"rm Build/Tests/FunctionalTests.xml",
-			"rm Build/Tests/UnitTests.xml",
+			"rm Build/phpunit/FunctionalTests.xml",
+			"rm Build/phpunit/UnitTests.xml",
 			"rm .npmrc",
 			"rm .nvmrc",
 			"rm package.json",
