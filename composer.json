@@ -141,7 +141,7 @@
 			"@ci:php:sniff",
 			"@ci:php:stan"
 		],
-		"ci:php:cs-fixer": "php-cs-fixer fix --config ./Build/.php-cs-fixer.php -v --dry-run --diff",
+		"ci:php:cs-fixer": "php-cs-fixer fix --config ./Build/php-cs-fixer/.php-cs-fixer.php -v --dry-run --diff",
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
@@ -188,7 +188,7 @@
 			"rm .eslintrc.json",
 			"rm .gitattributes",
 			"rm .gitignore",
-			"rm .php-cs-fixer.php",
+			"rm Build/php-cs-fixer/.php-cs-fixer.php",
 			"rm .prettierrc.js",
 			"rm Build/phpunit/FunctionalTests.xml",
 			"rm Build/phpunit/UnitTests.xml",
