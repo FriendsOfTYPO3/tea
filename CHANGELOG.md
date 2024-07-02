@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add support for PostgreSQL 16 (#1271)
 
 ### Changed
+- Move tests configuration to Build dir (#1352)
 - Stop storing development tool PHARs in the repository (#1277)
 - !!! Require a storage PID for the tea list (#1223)
 - Drop additional namespace segment for the Tea model (#1025)
