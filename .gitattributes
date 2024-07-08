@@ -15,8 +15,8 @@
 /Configuration/UnitTests.xml export-ignore
 /Tests/ export-ignore
 /eslint.config.json export-ignore
-/package.json export-ignore
 /package-lock.json export-ignore
+/package.json export-ignore
 /phive.xml export-ignore
 /phpcs.xml export-ignore
 /phpstan-baseline.neon export-ignore
