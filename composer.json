@@ -55,7 +55,7 @@
 		"phpstan/phpstan": "^1.11.7",
 		"phpstan/phpstan-phpunit": "^1.4.0",
 		"phpstan/phpstan-strict-rules": "^1.6.0",
-		"phpunit/phpunit": "^9.6.19",
+		"phpunit/phpunit": "^11.2.6",
 		"saschaegerer/phpstan-typo3": "^1.10.1",
 		"seld/jsonlint": "^1.10.2",
 		"spaze/phpstan-disallowed-calls": "^3.4",
