@@ -173,7 +173,7 @@
 			"@fix:php:sniff"
 		],
 		"fix:php:cs": "php-cs-fixer fix --config .php-cs-fixer.php",
-		"fix:php:sniff": "phpcbf Classes Configuration Tests",
+		"fix:php:sniff": "phpcbf --standard=Build/phpcs/phpcs.xml Classes Configuration Tests",
 		"phpstan:baseline": ".Build/bin/phpstan --generate-baseline --allow-empty-baseline",
 		"prepare-release": [
 			"rm -rf .Build",
