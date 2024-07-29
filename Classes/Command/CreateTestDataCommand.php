@@ -34,6 +34,7 @@ final class CreateTestDataCommand extends Command
             'sys_language_uid' => 0,
         ],
     ];
+
     protected function configure(): void
     {
         $this
