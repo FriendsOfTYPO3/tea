@@ -52,6 +52,7 @@
 		"helmich/typo3-typoscript-lint": "^3.1.1",
 		"icanhazstring/composer-unused": "^0.8.11",
 		"php-coveralls/php-coveralls": "^2.7.0",
+		"phpcompatibility/php-compatibility": "^9.3",
 		"phpstan/extension-installer": "^1.4.1",
 		"phpstan/phpstan": "^1.11.8",
 		"phpstan/phpstan-phpunit": "^1.4.0",
@@ -116,6 +117,8 @@
 		}
 	},
 	"scripts": {
+		"post-install-cmd": "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility",
+		"post-update-cmd" : "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility",
 		"ci:composer:normalize": "@composer normalize --no-check-lock --dry-run",
 		"ci:composer:psr-verify": "@composer dumpautoload --optimize --strict-psr --no-plugins",
 		"ci:composer:unused": "composer-unused",
