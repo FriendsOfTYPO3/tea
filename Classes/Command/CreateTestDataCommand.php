@@ -19,7 +19,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class CreateTestDataCommand extends Command
 {
-    /** @phpstan-ignore-next-line */
+    /**
+     * @var list<array{title: non-empty-string, description: non-empty-string, sys_language_uid: int<0, max>}>
+     */
     protected array $teaData = [
         [
             'title' => 'Darjeeling',
