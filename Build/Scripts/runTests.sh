@@ -151,7 +151,7 @@ Options:
             - composer: "composer" with all remaining arguments dispatched.
             - composerInstallMax: "composer update", with no platform.php config.
             - composerInstallMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
-            - composerUnused: Finds unused composer packages.
+            - composerUnused: Finds unused Composer packages.
             - docsGenerate: Renders the extension ReST documentation.
             - functional: PHP functional tests
             - lintTypoScript: TypoScript linting
