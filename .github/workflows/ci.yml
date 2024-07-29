@@ -71,6 +71,7 @@ jobs:
         command:
           - "composer:normalize"
           - "composer:psr-verify"
+          - "composer:unused"
           - "json:lint"
           - "php:cs-fixer"
           - "php:sniff"
