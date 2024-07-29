@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace TTN\Tea\Command;
 
-/*
- * Command to create test data for the tea extension.
- */
-
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,6 +13,9 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/*
+ * Command to create test data for the tea extension.
+ */
 final class CreateTestDataCommand extends Command
 {
     /**
