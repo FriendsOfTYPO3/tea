@@ -24,7 +24,7 @@ If you are working locally, you can run them using :bash:`composer <scriptname>`
 
 The code-quality-related Composer scripts make use of the PHIVE-installed tools.
 
-You can run :bash:`composer` or :bash:`./Build/Scripts/runTests.sh composer` to
+You can run :bash:`composer` or :bash:`./Build/Scripts/runTests.sh -s composer` to
 display a list of all available Composer commands and scripts. For all custom
 Composer scripts there are descriptions in the `script-description` section of
 the `composer.json`.
@@ -143,6 +143,11 @@ Running unit and functional tests
 
    Executing tests on Windows via `runTests.sh` should be done within the
    [Windows Subsystem for Linux (WSL 2)](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux).
+   Before running any commands you need to install all dependencies with
+
+.. code-block:: bash
+
+    runTests.sh -s composer install
 
 You can currently run these tests and coverages on the command line:
 
