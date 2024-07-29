@@ -209,7 +209,7 @@
 	"scripts-descriptions": {
 		"ci:composer:normalize": "Checks the composer.json.",
 		"ci:composer:psr-verify": "Verifies PSR-4 namespace correctness.",
-		"ci:composer:unused": "Finds unused composer packages required in composer.json.",
+		"ci:composer:unused": "Finds unused Composer packages required in composer.json.",
 		"ci:coverage:functional": "Generates the code coverage report for functional tests.",
 		"ci:coverage:merge": "Merges the code coverage reports for unit and functional tests.",
 		"ci:coverage:unit": "Generates the code coverage report for unit tests.",
