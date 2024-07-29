@@ -159,7 +159,7 @@
 		"ci:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
 		"ci:tests:functional": [
 			"@ci:tests:create-directories",
-			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \\\"Running functional test suite {}\\\"; .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml {}';"
+			".Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml Tests/Functional"
 		],
 		"ci:tests:unit": ".Build/bin/phpunit -c Build/phpunit/UnitTests.xml Tests/Unit",
 		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
