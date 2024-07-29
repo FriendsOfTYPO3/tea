@@ -4,4 +4,4 @@ ts-lint:
   needs:
     - build-composer-dependencies
   script:
-    - composer ci:ts:lint
+    - composer ci:typoscript:lint

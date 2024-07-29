@@ -76,7 +76,7 @@ jobs:
           - "php:cs-fixer"
           - "php:sniff"
           - "php:stan"
-          - "ts:lint"
+          - "typoscript:lint"
           - "yaml:lint"
           - "xliff:lint"
         php-version:

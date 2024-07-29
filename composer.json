@@ -154,7 +154,7 @@
 			"@ci:php:lint",
 			"@ci:php:sniff",
 			"@ci:php:stan",
-			"@ci:ts:lint",
+			"@ci:typoscript:lint",
 			"@ci:xliff:lint",
 			"@ci:yaml:lint"
 		],
@@ -164,7 +164,7 @@
 			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \\\"Running functional test suite {}\\\"; .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml {}';"
 		],
 		"ci:tests:unit": ".Build/bin/phpunit -c Build/phpunit/UnitTests.xml Tests/Unit",
-		"ci:ts:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
+		"ci:typoscript:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:xliff:lint": "php Build/xliff/xliff-lint lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
 		"coverage:create-directories": "mkdir -p .Build/logs .Build/coverage",
@@ -223,7 +223,7 @@
 		"ci:tests:create-directories": "Creates the directories required to smoothely run the functional tests.",
 		"ci:tests:functional": "Runs the functional tests.",
 		"ci:tests:unit": "Runs the unit tests.",
-		"ci:ts:lint": "Lints the TypoScript files.",
+		"ci:typoscript:lint": "Lints the TypoScript files.",
 		"ci:xliff:lint": "Lints the XLIFF files.",
 		"ci:yaml:lint": "Lints the YAML files.",
 		"coverage:create-directories": "Creates the directories needed for recording and merging the code coverage reports.",
