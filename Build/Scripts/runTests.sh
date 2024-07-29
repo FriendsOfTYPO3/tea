@@ -151,6 +151,7 @@ Options:
             - composer: "composer" with all remaining arguments dispatched.
             - composerInstallMax: "composer update", with no platform.php config.
             - composerInstallMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
+            - composerUnused: Finds unused composer packages.
             - docsGenerate: Renders the extension ReST documentation.
             - functional: PHP functional tests
             - lintTypoScript: TypoScript linting
@@ -517,6 +518,11 @@ case ${TEST_SUITE} in
             COMMAND="composer fix:composer:normalize"
         fi
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-normalize-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_DOCS} /bin/sh -c "${COMMAND}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    composerUnused)
+        COMMAND="composer ci:composer:unused"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-unused-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
         ;;
     docsGenerate)
