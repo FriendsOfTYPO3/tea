@@ -24,13 +24,13 @@ final class CreateTestDataCommand extends Command
         [
             'title' => 'Darjeeling',
             'description' => 'I love that tea!',
-            'sys_language_uid' => 0
+            'sys_language_uid' => 0,
         ],
          [
             'title' => 'Earl Grey',
             'description' => 'A nice tea!',
-            'sys_language_uid' => 0
-        ]
+            'sys_language_uid' => 0,
+        ],
     ];
     protected function configure(): void
     {
@@ -51,23 +51,24 @@ final class CreateTestDataCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @var integer $pageId */
+        /** @var int $pageId */
         $pageId = $input->getArgument('pageId') ?? 0;
-        /** @var boolean $deleteDataBefore */
+        /** @var bool $deleteDataBefore */
         $deleteDataBefore = $input->getOption('delete-data-before') ?? false;
         $table = 'tx_tea_domain_model_tea';
         $connectionForTable = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($table);
 
-        if($deleteDataBefore) {
+        if ($deleteDataBefore) {
             $query = $connectionForTable;
             $query->delete($table, ['pid' => $pageId], [Connection::PARAM_INT]);
-            $output->writeln(sprintf('Existing data in page %s deleted.',$pageId));
+            $output->writeln(sprintf('Existing data in page %s deleted.', $pageId));
         }
 
         $query = $connectionForTable;
         foreach ($this->teaData as $item) {
             $item = ['pid' => $pageId, ...$item];
-            $query->insert($table,
+            $query->insert(
+                $table,
                 $item
             );
         }
