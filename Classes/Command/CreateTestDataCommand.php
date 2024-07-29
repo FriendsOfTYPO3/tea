@@ -39,7 +39,7 @@ final class CreateTestDataCommand extends Command
         $this
             ->setHelp('Create test data for the tea extension in an already existing page (sysfolder).')
             ->addArgument(
-                'pageId',
+                'pageUid',
                 InputArgument::REQUIRED,
                 'Existing sysfolder page id.'
             )
@@ -53,8 +53,8 @@ final class CreateTestDataCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @var int $pageId */
-        $pageId = $input->getArgument('pageId') ?? 0;
+        /** @var int $pageUid */
+        $pageUid = $input->getArgument('pageUid') ?? 0;
         /** @var bool $deleteDataBefore */
         $deleteDataBefore = $input->getOption('delete-data-before') ?? false;
         $table = 'tx_tea_domain_model_tea';
@@ -62,19 +62,19 @@ final class CreateTestDataCommand extends Command
 
         if ($deleteDataBefore) {
             $query = $connectionForTable;
-            $query->delete($table, ['pid' => $pageId], [Connection::PARAM_INT]);
-            $output->writeln(sprintf('Existing data in page %s deleted.', $pageId));
+            $query->delete($table, ['pid' => $pageUid], [Connection::PARAM_INT]);
+            $output->writeln(sprintf('Existing data in page %s deleted.', $pageUid));
         }
 
         $query = $connectionForTable;
         foreach ($this->teaData as $item) {
-            $item = ['pid' => $pageId, ...$item];
+            $item = ['pid' => $pageUid, ...$item];
             $query->insert(
                 $table,
                 $item
             );
         }
-        $output->writeln(sprintf('Test data in page %s created.', $pageId));
+        $output->writeln(sprintf('Test data in page %s created.', $pageUid));
 
         return Command::SUCCESS;
     }
