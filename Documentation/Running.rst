@@ -92,10 +92,10 @@ Checks the PHP types using PHPStan.
 
 Runs all static code checks (syntax, style, types).
 
-.. index:: Commands; composer ci:ts:lint
+.. index:: Commands; composer ci:typoscript:lint
 .. code-block:: bash
 
-    composer ci:ts:lint
+    composer ci:typoscript:lint
 
 Lints the TypoScript files.
 
