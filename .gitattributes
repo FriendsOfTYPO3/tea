@@ -14,6 +14,7 @@
 /Configuration/FunctionalTests.xml export-ignore
 /Configuration/UnitTests.xml export-ignore
 /Tests/ export-ignore
+/composer-unused.php export-ignore
 /eslint.config.json export-ignore
 /package-lock.json export-ignore
 /package.json export-ignore
