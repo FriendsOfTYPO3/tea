@@ -143,7 +143,7 @@ Running unit and functional tests
 
    Executing tests on Windows via `runTests.sh` should be done within the
    [Windows Subsystem for Linux (WSL 2)](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux).
-    Before running any commands you need to install all dependencies with
+   Before running any commands you need to install all dependencies with
 
 .. code-block:: bash
 
