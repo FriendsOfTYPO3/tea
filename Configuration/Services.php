@@ -16,10 +16,11 @@ return static function (ContainerConfigurator $containerConfigurator) {
         ->exclude('../Classes/Domain/Model/*');
 
     $services->set(CreateTestDataCommand::class)
-        ->tag('console.command', [
+        ->tag(
+            'console.command',
+            [
                 'command' => 'tea:createtestdata',
-                'description'=>'Create test data in existing sysfolder'
+                'description' => 'Create test data in existing sysfolder',
             ]
         );
-
 };
