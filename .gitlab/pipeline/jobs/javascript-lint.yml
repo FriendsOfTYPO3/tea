@@ -2,10 +2,10 @@ javascript-lint:
   extends: .default-frontend
   stage: lint
   script:
-    - npm run lint:js
+    - npm run ci:lint:js
 
 style-lint:
   extends: .default-frontend
   stage: lint
   script:
-    - npm run lint:style
+    - npm run ci:lint:style
