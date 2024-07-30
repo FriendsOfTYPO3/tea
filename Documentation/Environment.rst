@@ -68,5 +68,6 @@ After that you can start the testing distribution using ddev.
     ddev db-import
 
 After that you should be able to access the frontend:
+.. code-block:: bash
 
     ddev launch
