@@ -158,7 +158,7 @@ Options:
             - lintPhp: PHP linting
             - lintJs: JavaScript file linting. Set -n for dry-run.
             - lintJson: JSON linting
-            - lintStyle: CSS file linting. Set -n for dry-run.
+            - lintCss: CSS file linting. Set -n for dry-run.
             - lintYaml: YAML linting
             - phpstan: phpstan tests
             - phpstanGenerateBaseline: regenerate phpstan baseline, handy after phpstan updates
@@ -254,7 +254,7 @@ Options:
         replay the unit tests in that order.
 
     -n
-        Only with -s cgl|composerNormalize|npm|lintJs|lintStyle
+        Only with -s cgl|composerNormalize|npm|lintJs|lintCss
         Activate dry-run in checks so they do not actively change files and only print broken ones.
 
     -u
@@ -591,11 +591,11 @@ case ${TEST_SUITE} in
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
         ;;
-    lintStyle)
+    lintCss)
         if [ "${CGLCHECK_DRY_RUN}" -eq 1 ]; then
-            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run ci:lint:style"
+            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run ci:lint:css"
         else
-            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run fix:lint:style"
+            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run fix:lint:css"
         fi
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
@@ -665,7 +665,7 @@ if [[ ${IS_CORE_CI} -eq 1 ]]; then
 else
     echo "Environment: local" >&2
 fi
-if [[ ${TEST_SUITE} =~ ^npm$ ]]; then
+if [[ ${TEST_SUITE} =~ ^(npm|lintCss|lintJs)$ ]]; then
     echo "NODE: ${NODE_VERSION}" >&2
 else
     echo "PHP: ${PHP_VERSION}" >&2
