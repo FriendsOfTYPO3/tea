@@ -143,7 +143,7 @@
 			"@ci:php:stan"
 		],
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
-		"ci:php:lint": "parallel-lint --exclude .git --exclude .cache --exclude .Build --exclude typo3temp --exclude Documentation --exclude Resources --exclude .gitlab --exclude .github .",
+		"ci:php:lint": "parallel-lint .*.php *.php Classes Configuration Tests",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
 		"ci:static": [
