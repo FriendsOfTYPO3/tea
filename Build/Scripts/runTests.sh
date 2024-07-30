@@ -156,7 +156,9 @@ Options:
             - functional: PHP functional tests
             - lintTypoScript: TypoScript linting
             - lintPhp: PHP linting
+            - lintJs: JavaScript file linting. Set -n for dry-run.
             - lintJson: JSON linting
+            - lintCss: CSS file linting. Set -n for dry-run.
             - lintYaml: YAML linting
             - phpstan: phpstan tests
             - phpstanGenerateBaseline: regenerate phpstan baseline, handy after phpstan updates
@@ -252,8 +254,8 @@ Options:
         replay the unit tests in that order.
 
     -n
-        Only with -s cgl|composerNormalize
-        Activate dry-run in CGL check that does not actively change files and only prints broken ones.
+        Only with -s cgl|composerNormalize|npm|lintJs|lintCss
+        Activate dry-run in checks so they do not actively change files and only print broken ones.
 
     -u
         Update existing typo3/core-testing-*:latest container images and remove dangling local volumes.
@@ -309,10 +311,14 @@ PHP_XDEBUG_ON=0
 PHP_XDEBUG_PORT=9003
 EXTRA_TEST_OPTIONS=""
 PHPUNIT_RANDOM=""
+# CGLCHECK_DRY_RUN is a more generic dry-run switch not limited to CGL
 CGLCHECK_DRY_RUN=0
 DATABASE_DRIVER=""
 CONTAINER_BIN=""
 COMPOSER_ROOT_VERSION="3.0.x-dev"
+NODE_VERSION=18
+HELP_TEXT_NPM_CI="Now running \'npm ci --silent\'."
+HELP_TEXT_NPM_FAILURE="npm clean-install has failed. Please run \'${0} -s npm ci\' to explore."
 CONTAINER_INTERACTIVE="-it --init"
 HOST_UID=$(id -u)
 HOST_PID=$(id -g)
@@ -437,6 +443,7 @@ mkdir -p .cache
 mkdir -p .Build/public/typo3temp/var/tests
 
 IMAGE_PHP="ghcr.io/typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
+IMAGE_NODE="docker.io/node:${NODE_VERSION}-alpine"
 IMAGE_ALPINE="docker.io/alpine:3.8"
 IMAGE_DOCS="ghcr.io/typo3-documentation/render-guides:latest"
 IMAGE_MARIADB="docker.io/mariadb:${DBMS_VERSION}"
@@ -575,6 +582,24 @@ case ${TEST_SUITE} in
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
         ;;
+    lintJs)
+        if [ "${CGLCHECK_DRY_RUN}" -eq 1 ]; then
+            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run ci:lint:js"
+        else
+            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run fix:lint:js"
+        fi
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    lintCss)
+        if [ "${CGLCHECK_DRY_RUN}" -eq 1 ]; then
+            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run ci:lint:css"
+        else
+            COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run fix:lint:css"
+        fi
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
+        SUITE_EXIT_CODE=$?
+        ;;
     lintJson)
         COMMAND="composer ci:json:lint"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
@@ -583,6 +608,11 @@ case ${TEST_SUITE} in
     lintYaml)
         COMMAND="composer ci:yaml:lint"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    npm)
+        COMMAND="npm $@"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
         ;;
     phpstan)
@@ -635,8 +665,12 @@ if [[ ${IS_CORE_CI} -eq 1 ]]; then
 else
     echo "Environment: local" >&2
 fi
-echo "PHP: ${PHP_VERSION}" >&2
-echo "TYPO3: ${CORE_VERSION}" >&2
+if [[ ${TEST_SUITE} =~ ^(npm|lintCss|lintJs)$ ]]; then
+    echo "NODE: ${NODE_VERSION}" >&2
+else
+    echo "PHP: ${PHP_VERSION}" >&2
+    echo "TYPO3: ${CORE_VERSION}" >&2
+fi
 echo "CONTAINER_BIN: ${CONTAINER_BIN}"
 if [[ ${TEST_SUITE} =~ ^functional$ ]]; then
     case "${DBMS}" in
