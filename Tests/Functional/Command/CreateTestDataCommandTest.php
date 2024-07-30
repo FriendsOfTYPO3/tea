@@ -103,4 +103,19 @@ class CreateTestDataCommandTest extends FunctionalTestCase
         self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDelete.csv');
     }
 
+    /**
+     * @test
+     */
+    public function existingDataWillBeNotDeleted(): void
+    {
+        $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/OtherExistingTeas.csv');
+        $this->commandTester->execute(
+            [
+                'pageUid' => '1',
+                '--delete-data-before' => true,
+            ]
+        );
+        self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDeleteOtherExistingTeas.csv');
+    }
+
 }
