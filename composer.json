@@ -94,12 +94,12 @@
 	},
 	"config": {
 		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"ergebnis/composer-normalize": true,
 			"phpstan/extension-installer": true,
 			"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": true,
 			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true,
-			"dealerdirect/phpcodesniffer-composer-installer": true
+			"typo3/cms-composer-installers": true
 		},
 		"bin-dir": ".Build/bin",
 		"lock": false,
