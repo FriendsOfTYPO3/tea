@@ -92,7 +92,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
      */
     public function testDataGetsDeletedBeforeNewDataCreated(): void
     {
-        $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/Teas.csv');
+        $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/ExistingTeas.csv');
         $this->commandTester->execute(
             [
                 'pageUid' => '1',
