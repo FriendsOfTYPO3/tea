@@ -313,6 +313,16 @@ jobs:
           - typo3-version: "^12.4"
             php-version: "8.3"
             composer-dependencies: highest
+  shellcheck:
+    name: Check shell scripts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check scripts
+        run: |
+          Build/Scripts/runTests.sh -s shellcheck
   documentation:
     name: Documentation
     runs-on: ubuntu-24.04
