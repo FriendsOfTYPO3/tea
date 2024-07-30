@@ -149,6 +149,7 @@
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
+		"ci:php:compatibility": "phpcs -p Classes Configuration Tests --runtime-set testVersion 7.4-8.3 --standard=PHPCompatibility",
 		"ci:php:stan": "phpstan --no-progress",
 		"ci:static": [
 			"@ci:composer:normalize",
