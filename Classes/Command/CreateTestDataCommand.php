@@ -53,10 +53,10 @@ final class CreateTestDataCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @var int $pageUid */
-        $pageUid = $input->getArgument('pageUid') ?? 0;
-        /** @var bool $deleteDataBefore */
+        $pageUid = (int)$input->getArgument('pageUid') ?? 0;
+        \assert(\is_int($pageUid));
         $deleteDataBefore = $input->getOption('delete-data-before') ?? false;
+        \assert(\is_bool($deleteDataBefore));
         $table = 'tx_tea_domain_model_tea';
         $connectionForTable = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($table);
 
