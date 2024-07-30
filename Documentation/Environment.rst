@@ -38,7 +38,7 @@ structure looks like this:
 
 
 Inside the testing distribution there is a file
-:bash:`docker-compose.extensions.yaml.template` which mounts the used extensions. This file need to be renamed and adjusted.
+:file:`docker-compose.extensions.yaml.template` which mounts the used extensions. This file need to be renamed and adjusted.
 
 .. index:: Create docker-compose.extensions.yaml
 .. code-block:: bash
