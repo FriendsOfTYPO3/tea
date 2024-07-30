@@ -9,7 +9,7 @@ Development environment
 You can run the code quality checks and automated tests locally (using a
 local PHP, Composer, and database) or using runTests.sh.
 
-To kickstart the project we suggest the usage of the
+To kickstart the project, we suggest the usage of the
 `TYPO3-testing-distribution <https://github.com/oliverklee/TYPO3-testing-distribution/>`__
 by Oliver Klee as development environment. The distribution comes with a frontend,
 example data and predefined plugins.
