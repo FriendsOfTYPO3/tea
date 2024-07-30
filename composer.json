@@ -52,6 +52,7 @@
 		"helmich/typo3-typoscript-lint": "^3.1.1",
 		"icanhazstring/composer-unused": "^0.8.11",
 		"php-coveralls/php-coveralls": "^2.7.0",
+		"php-parallel-lint/php-parallel-lint": "^1.4",
 		"phpstan/extension-installer": "^1.4.1",
 		"phpstan/phpstan": "^1.11.8",
 		"phpstan/phpstan-phpunit": "^1.4.0",
@@ -144,7 +145,7 @@
 			"@ci:php:stan"
 		],
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
-		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
+		"ci:php:lint": "parallel-lint .*.php *.php Classes Configuration Tests",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
 		"ci:static": [
