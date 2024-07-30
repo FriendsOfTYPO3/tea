@@ -78,7 +78,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function testDataGetsCreated(): void
+    public function createsTestData(): void
     {
         $this->commandTester->execute([
             'pageUid' => '1',
@@ -90,7 +90,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function testDataGetsDeletedBeforeNewDataCreated(): void
+    public function deletesExistingDataOnGivenPidBeforeCreatingNewData(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/ExistingTeas.csv');
         $this->commandTester->execute(
@@ -106,7 +106,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function existingDataWillBeNotDeleted(): void
+    public function doesNotDeleteDataOnOtherPid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/OtherExistingTeas.csv');
         $this->commandTester->execute(
@@ -115,7 +115,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
                 '--delete-data-before' => true,
             ]
         );
+
         self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDeleteOtherExistingTeas.csv');
     }
-
 }
