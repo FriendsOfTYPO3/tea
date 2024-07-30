@@ -96,7 +96,7 @@ jobs:
       fail-fast: false
       matrix:
         command:
-          - "style"
+          - "css"
           - "js"
     steps:
       - name: "Checkout"
