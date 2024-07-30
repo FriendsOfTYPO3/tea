@@ -47,6 +47,7 @@
 		"typo3/cms-frontend": "^11.5.4 || ^12.4.2"
 	},
 	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
 		"ergebnis/composer-normalize": "^2.43.0",
 		"friendsofphp/php-cs-fixer": "^3.60.0",
 		"helmich/typo3-typoscript-lint": "^3.1.1",
@@ -97,7 +98,8 @@
 			"phpstan/extension-installer": true,
 			"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": true,
 			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
+			"typo3/cms-composer-installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		},
 		"bin-dir": ".Build/bin",
 		"lock": false,
@@ -147,7 +149,7 @@
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
 		"ci:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"ci:php:sniff": [
-			"phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility",
+			"phpcs --config-set installed_paths .Build/vendor/phpcompatibility/php-compatibility",
 			"phpcs Classes Configuration Tests"
 		],
 		"ci:php:stan": "phpstan --no-progress",
