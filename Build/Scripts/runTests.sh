@@ -142,8 +142,7 @@ Usage: $0 [options] [file]
 Options:
     -s <...>
         Specifies which test suite to run
-            - cgl: Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).
-            - cglFix: Fixes the code style with PHP-CS-Fixer."
+            - cgl: Fixes the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).
             - clean: clean up build, cache and testing related files and folders
             - cleanCache: clean up cache related files and folders
             - cleanRenderedDocumentation: clean up rendered documentation files and folders (Documentation-GENERATED-temp)
