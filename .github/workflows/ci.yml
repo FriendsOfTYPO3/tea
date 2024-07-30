@@ -84,6 +84,7 @@ jobs:
           - "php:cs-fixer"
           - "php:sniff"
           - "php:stan"
+          - "php:mess"
           - "typoscript:lint"
           - "yaml:lint"
           - "xliff:lint"
