@@ -9,9 +9,10 @@ Development environment
 You can run the code quality checks and automated tests locally (using a
 local PHP, Composer, and database) or using runTests.sh.
 
-To kickstart the project we suggest the usage of the `TYPO3-testing-distribution <https://github.com/oliverklee/TYPO3-testing-distribution/>`__ by Oliver Klee
-as development environment. The distribution comes with a frontend, example data and predefined
-plugins.
+To kickstart the project we suggest the usage of the
+`TYPO3-testing-distribution <https://github.com/oliverklee/TYPO3-testing-distribution/>`__
+by Oliver Klee as development environment. The distribution comes with a frontend,
+example data and predefined plugins.
 
 .. index:: Clone TYPO3 Testing Distribution
 .. code-block:: bash
@@ -25,7 +26,8 @@ Also clone the tea extension.
 
    git clone git@github.com:FriendsOfTYPO3/tea.git
 
-You can organize the folder structure as you wish, but lets say your folder structure looks like this:
+You can organize the folder structure as you wish, but lets say your folder
+structure looks like this:
 
 .. index:: Folder structure
 .. code-block:: bash
@@ -35,7 +37,12 @@ You can organize the folder structure as you wish, but lets say your folder stru
         tea
 
 
-Inside the testing distribution there is a file **docker-compose.extensions.yaml.template**
+Inside the testing distribution there is a file
+
+.. code-block:: bash
+
+    docker-compose.extensions.yaml.template
+
 which mounts the used extensions. This file need to be renamed and adjusted.
 
 .. index:: Create docker-compose.extensions.yaml
@@ -67,4 +74,4 @@ After that you can start the testing distribution using ddev.
 
 After that you should be able to access the frontend:
 
-https://typo3-testing-12-4.ddev.site:8081/tea/
+    ddev launch
