@@ -7,7 +7,6 @@
     bootstrap="../../.Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTestsBootstrap.php"
     cacheResult="false"
     colors="true"
-    controlGarbageCollector="true"
     convertDeprecationsToExceptions="true"
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"

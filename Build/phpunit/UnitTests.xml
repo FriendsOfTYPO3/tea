@@ -5,7 +5,6 @@
     beStrictAboutTestsThatDoNotTestAnything="false"
     cacheResult="false"
     colors="true"
-    controlGarbageCollector="true"
     convertDeprecationsToExceptions="true"
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
