@@ -149,8 +149,8 @@ Options:
             - cleanRenderedDocumentation: clean up rendered documentation files and folders (Documentation-GENERATED-temp)
             - cleanTests: clean up test related files and folders
             - composer: "composer" with all remaining arguments dispatched.
-            - composerInstallMax: "composer update", with no platform.php config.
-            - composerInstallMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
+            - composerUpdateMax: "composer update", with no platform.php config.
+            - composerUpdateMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
             - composerUnused: Finds unused Composer packages.
             - docsGenerate: Renders the extension ReST documentation.
             - functional: PHP functional tests
@@ -218,7 +218,7 @@ Options:
             - 16    maintained until 2028-11-09
 
     -t <11.5|12.4>
-        Only with -s composerInstall|composerInstallMin|composerInstallMax
+        Only with -s composerInstall|composerUpdateMin|composerUpdateMax
         Specifies the TYPO3 CORE Version to be used
             - 11.5: use TYPO3 v11 with typo3/cms-composer-installers ^3
             - 12.4: (default) use TYPO3 v12 with typo3/cms-composer-installers ^5
@@ -511,12 +511,12 @@ case ${TEST_SUITE} in
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-install-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND_PARTS[@]}"
         SUITE_EXIT_CODE=$?
         ;;
-    composerInstallMax)
+    composerUpdateMax)
         COMMAND="composer config --unset platform.php; composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^${CORE_VERSION}"; composer update --no-progress --no-interaction; composer dumpautoload; composer show"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-install-max-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
         ;;
-    composerInstallMin)
+    composerUpdateMin)
         COMMAND="composer config platform.php ${PHP_VERSION}.0; composer require --no-ansi --no-interaction --no-progress --no-install typo3/cms-core:"^${CORE_VERSION}"; composer update --prefer-lowest --no-progress --no-interaction; composer dumpautoload; composer show"
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-install-min-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
         SUITE_EXIT_CODE=$?
