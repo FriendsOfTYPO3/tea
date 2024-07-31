@@ -658,6 +658,7 @@ case ${TEST_SUITE} in
         echo "Invalid -s option argument ${TEST_SUITE}" >&2
         echo >&2
         echo "${HELP}" >&2
+        ${CONTAINER_BIN} network remove ${NETWORK} >/dev/null
         exit 1
         ;;
 esac
