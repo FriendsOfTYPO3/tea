@@ -218,7 +218,7 @@ Options:
             - 16    maintained until 2028-11-09
 
     -t <11.5|12.4>
-        Only with -s composerInstall|composerUpdateMin|composerUpdateMax
+        Only with -s composerUpdateMin|composerUpdateMax
         Specifies the TYPO3 CORE Version to be used
             - 11.5: use TYPO3 v11 with typo3/cms-composer-installers ^3
             - 12.4: (default) use TYPO3 v12 with typo3/cms-composer-installers ^5
@@ -504,11 +504,6 @@ case ${TEST_SUITE} in
     composer)
         COMMAND_PARTS=(composer "$@")
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND_PARTS[@]}"
-        SUITE_EXIT_CODE=$?
-        ;;
-    composerInstall)
-        COMMAND_PARTS=(composer install "$@")
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-install-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND_PARTS[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     composerUpdateMax)
