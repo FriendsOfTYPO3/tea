@@ -21,6 +21,7 @@ waitFor() {
         done;
     "
     ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name wait-for-${SUFFIX} ${XDEBUG_MODE} -e XDEBUG_CONFIG="${XDEBUG_CONFIG}" ${IMAGE_ALPINE} /bin/sh -c "${TESTCOMMAND}"
+    # shellcheck disable=SC2181 # Disabled because we don‘t want to move the long line between the brackets
     if [[ $? -gt 0 ]]; then
         kill -SIGINT -$$
     fi
@@ -322,10 +323,11 @@ CONTAINER_INTERACTIVE="-it --init"
 HOST_UID=$(id -u)
 HOST_PID=$(id -g)
 USERSET=""
-SUFFIX=$(echo $RANDOM)
+SUFFIX="$RANDOM"
 NETWORK="friendsoftypo3-tea-${SUFFIX}"
 CI_PARAMS="${CI_PARAMS:-}"
 CONTAINER_HOST="host.docker.internal"
+# shellcheck disable=SC2034 # This variable will be needed when we try to clean up the root folder
 PHPSTAN_CONFIG_FILE="phpstan.neon"
 IS_CORE_CI=0
 
@@ -427,7 +429,7 @@ if [[ -z "${CONTAINER_BIN}" ]]; then
     fi
 fi
 
-if [ $(uname) != "Darwin" ] && [ "${CONTAINER_BIN}" == "docker" ]; then
+if [ "$(uname)" != "Darwin" ] && [ "${CONTAINER_BIN}" == "docker" ]; then
     # Run docker jobs as current user to prevent permission issues. Not needed with podman.
     USERSET="--user $HOST_UID"
 fi
@@ -497,13 +499,13 @@ case ${TEST_SUITE} in
         cleanTestFiles
         ;;
     composer)
-        COMMAND="composer $@"
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
+        COMMAND=(composer "$@")
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     composerInstall)
-        COMMAND="composer install $@"
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-install-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
+        COMMAND=(composer install "$@")
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-install-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     composerInstallMax)
