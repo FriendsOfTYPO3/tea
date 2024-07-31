@@ -149,7 +149,7 @@
 		"ci:php:lint": "parallel-lint .*.php *.php Classes Configuration Tests",
 		"ci:php:mess": "phpmd Classes text Build/phpmd/phpmd.xml",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
-		"ci:php:stan": "phpstan --no-progress",
+		"ci:php:stan": "phpstan --no-progress -v",
 		"ci:static": [
 			"@ci:composer:normalize",
 			"@ci:json:lint",
