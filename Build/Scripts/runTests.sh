@@ -223,13 +223,14 @@ Options:
             - 11.5: use TYPO3 v11 with typo3/cms-composer-installers ^3
             - 12.4: (default) use TYPO3 v12 with typo3/cms-composer-installers ^5
 
-    -p <7.4|8.0|8.1|8.2|8.3>
+    -p <7.4|8.0|8.1|8.2|8.3|8.4>
         Specifies the PHP minor version to be used
             - 7.4: use PHP 7.4
             - 8.0: use PHP 8.0
             - 8.1: use PHP 8.1
             - 8.2: use PHP 8.2
             - 8.3: (default) use PHP 8.3
+            - 8.4: use PHP 8.4
 
     -e "<phpunit options>"
         Only with -s functional|functionalDeprecated|unit|unitDeprecated|unitRandom
@@ -360,7 +361,7 @@ while getopts "a:b:s:d:i:p:e:t:xy:o:nhu" OPT; do
             ;;
         p)
             PHP_VERSION=${OPTARG}
-            if ! [[ ${PHP_VERSION} =~ ^(7.4|8.0|8.1|8.2|8.3)$ ]]; then
+            if ! [[ ${PHP_VERSION} =~ ^(7.4|8.0|8.1|8.2|8.3|8.4)$ ]]; then
                 INVALID_OPTIONS+=("-p ${OPTARG}")
             fi
             ;;
