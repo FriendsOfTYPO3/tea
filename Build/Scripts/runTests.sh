@@ -613,7 +613,7 @@ case ${TEST_SUITE} in
         ;;
     npm)
         COMMAND_PARTS=(npm "$@")
-        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND_PARTS[@]}"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} "${COMMAND_PARTS[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     phpstan)
