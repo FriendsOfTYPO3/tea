@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# TYPO3 core test runner based on docker.
+# TYPO3 extension tea test runner based on docker.
 #
 
 trap 'cleanUp;exit 2' SIGINT
@@ -162,6 +162,7 @@ Options:
             - lintYaml: YAML linting
             - phpstan: phpstan tests
             - phpstanGenerateBaseline: regenerate phpstan baseline, handy after phpstan updates
+            - shellcheck: check runTests.sh for shell issues
             - unit (default): PHP unit tests
             - unitRandom: PHP unit tests in random order, add -o <number> to use specific seed
 
@@ -446,6 +447,7 @@ mkdir -p .Build/public/typo3temp/var/tests
 IMAGE_PHP="ghcr.io/typo3/core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_NODE="docker.io/node:${NODE_VERSION}-alpine"
 IMAGE_ALPINE="docker.io/alpine:3.8"
+IMAGE_SHELLCHECK="docker.io/koalaman/shellcheck:v0.10.0"
 IMAGE_DOCS="ghcr.io/typo3-documentation/render-guides:latest"
 IMAGE_MARIADB="docker.io/mariadb:${DBMS_VERSION}"
 IMAGE_MYSQL="docker.io/mysql:${DBMS_VERSION}"
@@ -537,6 +539,10 @@ case ${TEST_SUITE} in
         mkdir -p Documentation-GENERATED-temp
         chown -R ${HOST_UID}:${HOST_PID} Documentation-GENERATED-temp
         ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --pull always ${USERSET} -v "${ROOT_DIR}":/project ${IMAGE_DOCS} --config=Documentation --fail-on-log
+        SUITE_EXIT_CODE=$?
+        ;;
+    shellcheck)
+        ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --pull always ${USERSET} -v "${ROOT_DIR}":/project:ro -e SHELLCHECK_OPTS="-e SC2086" ${IMAGE_SHELLCHECK} /project/Build/Scripts/runTests.sh
         SUITE_EXIT_CODE=$?
         ;;
     functional)
