@@ -540,6 +540,17 @@ case ${TEST_SUITE} in
         ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --pull always ${USERSET} -v "${ROOT_DIR}":/project ${IMAGE_DOCS} --config=Documentation --fail-on-log
         SUITE_EXIT_CODE=$?
         ;;
+    fix)
+        COMMAND="composer fix"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
+        COMMAND="composer normalize"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/sh -c "${COMMAND}"
+        COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run fix:lint:js"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
+        COMMAND="echo ${HELP_TEXT_NPM_CI}; npm ci --silent || { echo ${HELP_TEXT_NPM_FAILURE}; exit 1; } && npm run fix:lint:css"
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name npm-command-${SUFFIX} ${IMAGE_NODE} /bin/sh -c "${COMMAND}"
+        SUITE_EXIT_CODE=$?
+        ;;
     shellcheck)
         ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --pull always ${USERSET} -v "${ROOT_DIR}":/project:ro -e SHELLCHECK_OPTS="-e SC2086" ${IMAGE_SHELLCHECK} /project/Build/Scripts/runTests.sh
         SUITE_EXIT_CODE=$?

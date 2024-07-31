@@ -172,6 +172,7 @@
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
 		"coverage:create-directories": "mkdir -p build/coverage build/logs",
 		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
+		"fix": "@fix:php",
 		"fix:composer:normalize": "@composer normalize --no-check-lock",
 		"fix:php": [
 			"@fix:php:cs",
