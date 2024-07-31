@@ -105,7 +105,7 @@ jobs:
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
         with:
-          node-version: "18.20.2"
+          node-version: "22.5.1"
       - name: "Install modules"
         run: |
           npm ci
