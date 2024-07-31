@@ -53,6 +53,7 @@
 		"icanhazstring/composer-unused": "^0.8.11",
 		"php-coveralls/php-coveralls": "^2.7.0",
 		"php-parallel-lint/php-parallel-lint": "^1.4",
+		"phpmd/phpmd": "^2.15.0",
 		"phpstan/extension-installer": "^1.4.1",
 		"phpstan/phpstan": "^1.11.8",
 		"phpstan/phpstan-phpunit": "^1.4.0",
@@ -146,6 +147,7 @@
 		],
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
 		"ci:php:lint": "parallel-lint .*.php *.php Classes Configuration Tests",
+		"ci:php:mess": "phpmd Classes text Build/phpmd/phpmd.xml",
 		"ci:php:sniff": "phpcs Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress",
 		"ci:static": [
@@ -218,6 +220,7 @@
 		"ci:php": "Runs all static checks for the PHP files.",
 		"ci:php:cs-fixer": "Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).",
 		"ci:php:lint": "Lints the PHP files for syntax errors.",
+		"ci:php:mess": "Runs PHP mess detection.",
 		"ci:php:sniff": "Checks the code style with PHP_CodeSniffer (PHPCS).",
 		"ci:php:stan": "Checks the PHP types using PHPStan.",
 		"ci:static": "Runs all static code checks (syntax, style, types).",

@@ -82,6 +82,7 @@ jobs:
           - "composer:unused"
           - "json:lint"
           - "php:cs-fixer"
+          - "php:mess"
           - "php:sniff"
           - "php:stan"
           - "typoscript:lint"
