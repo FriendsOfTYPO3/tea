@@ -658,6 +658,11 @@ case ${TEST_SUITE} in
         echo "Invalid -s option argument ${TEST_SUITE}" >&2
         echo >&2
         echo "${HELP}" >&2
+        if [ ${CONTAINER_BIN} = "docker" ]; then
+            ${CONTAINER_BIN} network rm ${NETWORK} >/dev/null
+        else
+            ${CONTAINER_BIN} network rm -f ${NETWORK} >/dev/null
+        fi
         exit 1
         ;;
 esac
