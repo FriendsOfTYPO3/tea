@@ -149,6 +149,7 @@ Options:
             - cleanRenderedDocumentation: clean up rendered documentation files and folders (Documentation-GENERATED-temp)
             - cleanTests: clean up test related files and folders
             - composer: "composer" with all remaining arguments dispatched.
+            - composerNormalize: Normalizes the composer.json.
             - composerUnused: Finds unused Composer packages.
             - composerUpdateMax: "composer update", with no platform.php config.
             - composerUpdateMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
@@ -160,11 +161,13 @@ Options:
             - lintPhp: PHP linting
             - lintTypoScript: TypoScript linting
             - lintYaml: YAML linting
+            - npm: "npm" with all remaining arguments dispatched.
             - phpstan: PHPStan tests
             - phpstanGenerateBaseline: regenerate PHPStan baseline, handy after PHPStan updates
             - shellcheck: check runTests.sh for shell issues
             - unit (default): PHP unit tests
             - unitRandom: PHP unit tests in random order, add -o <number> to use specific seed
+            - update: Updates existing typo3/core-testing-*:latest container images and removes dangling local volumes.
 
     -a <mysqli|pdo_mysql>
         Only with -s functional|functionalDeprecated
