@@ -149,19 +149,19 @@ Options:
             - cleanRenderedDocumentation: clean up rendered documentation files and folders (Documentation-GENERATED-temp)
             - cleanTests: clean up test related files and folders
             - composer: "composer" with all remaining arguments dispatched.
+            - composerUnused: Finds unused Composer packages.
             - composerUpdateMax: "composer update", with no platform.php config.
             - composerUpdateMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
-            - composerUnused: Finds unused Composer packages.
             - docsGenerate: Renders the extension ReST documentation.
             - functional: PHP functional tests
-            - lintTypoScript: TypoScript linting
-            - lintPhp: PHP linting
+            - lintCss: CSS file linting. Set -n for dry-run.
             - lintJs: JavaScript file linting. Set -n for dry-run.
             - lintJson: JSON linting
-            - lintCss: CSS file linting. Set -n for dry-run.
+            - lintPhp: PHP linting
+            - lintTypoScript: TypoScript linting
             - lintYaml: YAML linting
-            - phpstan: phpstan tests
-            - phpstanGenerateBaseline: regenerate phpstan baseline, handy after phpstan updates
+            - phpstan: PHPStan tests
+            - phpstanGenerateBaseline: regenerate PHPStan baseline, handy after PHPStan updates
             - shellcheck: check runTests.sh for shell issues
             - unit (default): PHP unit tests
             - unitRandom: PHP unit tests in random order, add -o <number> to use specific seed
@@ -184,10 +184,10 @@ Options:
     -d <sqlite|mariadb|mysql|postgres>
         Only with -s functional|functionalDeprecated
         Specifies on which DBMS tests are performed
-            - sqlite: (default): use sqlite
             - mariadb: use mariadb
             - mysql: use MySQL
             - postgres: use postgres
+            - sqlite: (default): use sqlite
 
     -i version
         Specify a specific database version
