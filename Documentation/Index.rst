@@ -47,6 +47,7 @@ continuous integration.
    TestingFramework
    Environment
    DependencyManager
+   CommandController
    Running
    ContinuousIntegration
    Documentation
