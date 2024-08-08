@@ -48,7 +48,7 @@
 	},
 	"require-dev": {
 		"ergebnis/composer-normalize": "^2.43.0",
-		"friendsofphp/php-cs-fixer": "^3.61.1",
+		"friendsofphp/php-cs-fixer": "^3.62.0",
 		"helmich/typo3-typoscript-lint": "^3.1.1",
 		"icanhazstring/composer-unused": "^0.8.11",
 		"php-coveralls/php-coveralls": "^2.7.0",
