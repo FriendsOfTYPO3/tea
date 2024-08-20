@@ -28,7 +28,7 @@ final class CreateTestDataCommand extends Command
             'description' => 'I love that tea!',
             'sys_language_uid' => 0,
         ],
-         [
+        [
             'title' => 'Earl Grey',
             'description' => 'A nice tea!',
             'sys_language_uid' => 0,
@@ -54,7 +54,8 @@ final class CreateTestDataCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $pageUid = (int)$input->getArgument('pageUid') ?? 0;
+        $pageUid = $input->getArgument('pageUid') ?? 0;
+        \assert(\is_int($pageUid));
         $deleteDataBefore = $input->getOption('delete-data-before') ?? false;
         \assert(\is_bool($deleteDataBefore));
         $table = 'tx_tea_domain_model_tea';
@@ -77,7 +78,7 @@ final class CreateTestDataCommand extends Command
         $output->writeln(sprintf('Test data in page %s created.', $pageUid));
 
         $referenceIndex = GeneralUtility::makeInstance(ReferenceIndex::class);
-        $referenceIndex->updateIndex(0);
+        $referenceIndex->updateIndex(false);
         $output->writeln('Reference index updated.');
 
         return Command::SUCCESS;
