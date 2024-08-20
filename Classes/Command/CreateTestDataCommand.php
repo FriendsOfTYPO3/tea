@@ -69,7 +69,7 @@ final class CreateTestDataCommand extends Command
 
         $query = $connectionForTable;
         foreach ($this->teaData as $item) {
-            $item = ['pid' => $pageUid, ...$item];
+            $item = ['pid' => $pageUid, 'title' => $item['title'], 'description' => $item['description']];
             $query->insert(
                 $table,
                 $item
