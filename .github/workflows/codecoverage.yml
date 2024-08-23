@@ -80,7 +80,7 @@ jobs:
       - name: "Upload coverage results to Coveralls"
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: .Build/bin/php-coveralls --coverage_clover=.Build/coverage/combined.xml --json_path=.Build/coverage/coveralls-upload.json -v
+        run: .Build/bin/php-coveralls --coverage_clover=.Build/coverage/combined.xml -v
     strategy:
       fail-fast: false
       matrix:
