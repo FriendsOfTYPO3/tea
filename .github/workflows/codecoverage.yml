@@ -75,12 +75,15 @@ jobs:
         run: "ls -lahR .Build/coverage/"
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
-      - name: "Show generated coverage files"
-        run: "ls -lahR .Build/coverage/"
+      - name: "Show combined coverage files"
+        run: "ls -lahR build/logs/"
       - name: "Upload coverage results to Coveralls"
+        uses: coverallsapp/github-action@v2
         env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: .Build/bin/php-coveralls --coverage_clover=.Build/coverage/combined.xml --json_path=.Build/coverage/coveralls-upload.json -v
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Note: This is the only path that the Coveralls GitHub Action supports.
+          # So we cannot use something like .Build/coverage/clover.xml here.
+          file: build/logs/clover.xml
     strategy:
       fail-fast: false
       matrix:
