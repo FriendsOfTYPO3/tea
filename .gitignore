@@ -5,7 +5,7 @@
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /Documentation-GENERATED-temp/
-/clover.xml
+/build
 /composer.lock
 /generate-documentation.sh
 /nbproject
