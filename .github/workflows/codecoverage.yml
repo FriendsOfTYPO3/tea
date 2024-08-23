@@ -29,8 +29,7 @@ jobs:
           ini-file: development
           tools: composer:v2, phive
           extensions: mysqli
-          coverage: pcov
-          ini-values: pcov.directory=Classes
+          coverage: xdebug
       - name: "Install development tools"
         run: phive --no-progress install --trust-gpg-keys D8406D0D82947747293778314AA394086372C20A
       - name: "Show Composer version"
