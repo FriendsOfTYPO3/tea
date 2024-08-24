@@ -81,9 +81,7 @@ jobs:
         uses: coverallsapp/github-action@v2
         env:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Note: This is the only path that the Coveralls GitHub Action supports.
-          # So we cannot use something like .Build/coverage/clover.xml here.
-          file: build/logs/clover.xml
+          files: .Build/coverage/merged.xml
     strategy:
       fail-fast: false
       matrix:
