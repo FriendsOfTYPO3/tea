@@ -131,7 +131,7 @@
 		],
 		"ci:coverage:merge": [
 			"@coverage:create-directories",
-			"@php tools/phpcov merge --clover=build/logs/clover.xml .Build/coverage/"
+			"@php tools/phpcov merge --clover=build/logs/merged.xml .Build/coverage/"
 		],
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
