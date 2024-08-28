@@ -152,6 +152,7 @@
 		"ci:php:stan": "phpstan --no-progress -v",
 		"ci:static": [
 			"@ci:composer:normalize",
+			"@ci:composer:unused",
 			"@ci:json:lint",
 			"@ci:php:cs-fixer",
 			"@ci:php:lint",
