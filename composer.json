@@ -51,7 +51,6 @@
 		"friendsofphp/php-cs-fixer": "^3.64.0",
 		"helmich/typo3-typoscript-lint": "^3.1.1",
 		"icanhazstring/composer-unused": "^0.8.11",
-		"php-coveralls/php-coveralls": "^2.7.0",
 		"php-parallel-lint/php-parallel-lint": "^1.4",
 		"phpmd/phpmd": "^2.15.0",
 		"phpstan/extension-installer": "^1.4.2",
@@ -132,7 +131,7 @@
 		],
 		"ci:coverage:merge": [
 			"@coverage:create-directories",
-			"@php tools/phpcov merge --clover=.Build/coverage/combined.xml .Build/coverage/"
+			"@php tools/phpcov merge --clover=build/logs/clover.xml .Build/coverage/"
 		],
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
@@ -171,7 +170,7 @@
 		"ci:typoscript:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:xliff:lint": "php Build/xliff/xliff-lint lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
-		"coverage:create-directories": "mkdir -p .Build/coverage",
+		"coverage:create-directories": "mkdir -p .Build/coverage build/logs",
 		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
 		"fix:composer:normalize": "@composer normalize --no-check-lock",
 		"fix:php": [
