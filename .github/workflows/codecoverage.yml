@@ -63,7 +63,7 @@ jobs:
       - name: "Run unit tests with coverage"
         run: composer ci:coverage:unit
       - name: "Show generated coverage files"
-        run: "ls -lahR .Build/coverage/"
+        run: "ls -lahR build/coverage/"
       - name: "Run functional tests with coverage"
         run: |
           export typo3DatabaseName="$DB_DATABASE";
@@ -72,7 +72,7 @@ jobs:
           export typo3DatabasePassword="$DB_PASSWORD";
           composer ci:coverage:functional
       - name: "Show generated coverage files"
-        run: "ls -lahR .Build/coverage/"
+        run: "ls -lahR build/coverage/"
       - name: "Merge coverage results"
         run: composer ci:coverage:merge
       - name: "Show combined coverage files"
