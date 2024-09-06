@@ -127,15 +127,15 @@
 		"ci:coverage:functional": [
 			"@ci:tests:create-directories",
 			"@coverage:create-directories",
-			"phpunit -c Build/phpunit/FunctionalTests.xml --whitelist Classes --coverage-php=.Build/coverage/functional.cov Tests/Functional"
+			"phpunit -c Build/phpunit/FunctionalTests.xml --whitelist Classes --coverage-php=build/coverage/functional.cov Tests/Functional"
 		],
 		"ci:coverage:merge": [
 			"@coverage:create-directories",
-			"@php tools/phpcov merge --clover=build/logs/clover.xml .Build/coverage/"
+			"@php tools/phpcov merge --clover=build/logs/clover.xml build/coverage/"
 		],
 		"ci:coverage:unit": [
 			"@coverage:create-directories",
-			"phpunit -c Build/phpunit/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
+			"phpunit -c Build/phpunit/UnitTests.xml --whitelist Classes --coverage-php=build/coverage/unit.cov Tests/Unit"
 		],
 		"ci:json:lint": "find . ! -path '*/.cache/*' ! -path '*/.Build/*' ! -path '*/node_modules/*' -name '*.json' | xargs -r php .Build/bin/jsonlint -q",
 		"ci:php": [
@@ -170,7 +170,7 @@
 		"ci:typoscript:lint": "typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:xliff:lint": "php Build/xliff/xliff-lint lint:xliff Resources/Private/Language",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*node_modules/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
-		"coverage:create-directories": "mkdir -p .Build/coverage build/logs",
+		"coverage:create-directories": "mkdir -p build/coverage build/logs",
 		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
 		"fix:composer:normalize": "@composer normalize --no-check-lock",
 		"fix:php": [
