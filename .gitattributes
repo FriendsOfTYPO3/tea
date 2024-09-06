@@ -8,7 +8,6 @@
 /.npmrc export-ignore
 /.nvmrc export-ignore
 /.php-cs-fixer.php export-ignore
-/.phpstorm.meta.php export-ignore
 /.prettierrc.js export-ignore
 /Build/ export-ignore
 /Configuration/FunctionalTests.xml export-ignore
