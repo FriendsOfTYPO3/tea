@@ -14,4 +14,4 @@ What would you like to achieve with this feature? Maybe in form of a User Story.
 - [ ] 
 
 ## Additional Information
-You can add any useful informations here, e.g. links, tipps ect.
+Anything else that would be helpful to know to implement this feature.
