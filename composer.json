@@ -147,6 +147,7 @@
 		"ci:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
 		"ci:php:lint": "parallel-lint .*.php *.php Classes Configuration Tests",
 		"ci:php:mess": "phpmd Classes text Build/phpmd/phpmd.xml",
+		"ci:php:rector": "rector --dry-run",
 		"ci:php:sniff": "phpcs --standard=Build/phpcs/phpcs.xml Classes Configuration Tests",
 		"ci:php:stan": "phpstan --no-progress -v",
 		"ci:static": [
@@ -155,6 +156,7 @@
 			"@ci:json:lint",
 			"@ci:php:cs-fixer",
 			"@ci:php:lint",
+			"@ci:php:rector",
 			"@ci:php:sniff",
 			"@ci:php:stan",
 			"@ci:typoscript:lint",
@@ -174,10 +176,12 @@
 		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation",
 		"fix:composer:normalize": "@composer normalize --no-check-lock",
 		"fix:php": [
+			"@fix:php:rector",
 			"@fix:php:cs",
 			"@fix:php:sniff"
 		],
 		"fix:php:cs": "php-cs-fixer fix --config .php-cs-fixer.php",
+		"fix:php:rector": "rector",
 		"fix:php:sniff": "phpcbf --standard=Build/phpcs/phpcs.xml Classes Configuration Tests",
 		"phpstan:baseline": "phpstan --generate-baseline --allow-empty-baseline",
 		"prepare-release": [
@@ -218,6 +222,7 @@
 		"ci:php:cs-fixer": "Checks the code style with the PHP Coding Standards Fixer (PHP-CS-Fixer).",
 		"ci:php:lint": "Lints the PHP files for syntax errors.",
 		"ci:php:mess": "Runs PHP mess detection.",
+		"ci:php:rector": "Checks for code for changes by Rector.",
 		"ci:php:sniff": "Checks the code style with PHP_CodeSniffer (PHPCS).",
 		"ci:php:stan": "Checks the PHP types using PHPStan.",
 		"ci:static": "Runs all static code checks (syntax, style, types).",
@@ -232,6 +237,7 @@
 		"fix:composer:normalize": "Normalizes composer.json file content.",
 		"fix:php": "Runs all fixers for the PHP code.",
 		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",
+		"fix:php:rector": "Updates the code with Rector.",
 		"fix:php:sniff": "Fixes the code style with PHP_CodeSniffer.",
 		"phpstan:baseline": "Updates the PHPStan baseline file to match the code.",
 		"prepare-release": "Removes development-only files in preparation of a TER release."
