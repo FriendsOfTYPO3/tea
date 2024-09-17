@@ -197,8 +197,6 @@
 			"rm .nvmrc",
 			"rm .php-cs-fixer.php",
 			"rm .prettierrc.js",
-			"rm Build/phpunit/FunctionalTests.xml",
-			"rm Build/phpunit/UnitTests.xml",
 			"rm package-lock.json",
 			"rm package.json",
 			"rm phive.xml",
