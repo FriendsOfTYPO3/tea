@@ -3,4 +3,5 @@ php-lint-php8.0:
   stage: lint
   needs: [ ]
   script:
+    - composer update --no-progress
     - composer ci:php:lint
