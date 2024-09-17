@@ -5,4 +5,4 @@
   variables:
     PHP_INI_SCAN_DIR: "/etc/php"
   volumes:
-    - ../ci/php.ini:/usr/local/etc/php/php.ini
+    - ./ci/php.ini:/usr/local/etc/php/php.ini
