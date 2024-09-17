@@ -230,6 +230,7 @@
 		"ci:yaml:lint": "Lints the YAML files.",
 		"coverage:create-directories": "Creates the directories needed for recording and merging the code coverage reports.",
 		"docs:generate": "Renders the extension ReST documentation.",
+		"fix": "Runs all automatic code style fixes.",
 		"fix:composer:normalize": "Normalizes composer.json file content.",
 		"fix:php": "Runs all fixers for the PHP code.",
 		"fix:php:cs": "Fixes the code style with PHP-CS-Fixer.",

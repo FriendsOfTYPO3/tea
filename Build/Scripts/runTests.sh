@@ -154,6 +154,7 @@ Options:
             - composerUpdateMax: "composer update", with no platform.php config.
             - composerUpdateMin: "composer update --prefer-lowest", with platform.php set to PHP version x.x.0.
             - docsGenerate: Renders the extension ReST documentation.
+            - fix: Runs all automatic code style fixes.
             - functional: PHP functional tests
             - lintCss: CSS file linting. Set -n for dry-run.
             - lintJs: JavaScript file linting. Set -n for dry-run.
