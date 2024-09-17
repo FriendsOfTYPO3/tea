@@ -1,7 +1,7 @@
 php-lint-php8.2:
+  extends: .composer-update
   image: ghcr.io/sbuerk/demo-core-testing-php82:latest
   stage: lint
   needs: [ ]
   script:
-    - composer update --no-progress
     - composer ci:php:lint
