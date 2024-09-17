@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Add support for PostgreSQL 16 (#1271)
 
 ### Changed
+- Move php sniff configuration to Build dir (#1357)
 - Move xliff configuration to Build xliff dir (#1356)
 - Move tests configuration to Build dir (#1352)
 - Stop storing development tool PHARs in the repository (#1277)
