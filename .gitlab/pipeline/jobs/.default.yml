@@ -2,3 +2,7 @@
   image: ghcr.io/typo3/core-testing-php83:latest
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
+  variables:
+    PHP_INI_SCAN_DIR: "/etc/php"
+  volumes:
+    - ../ci/php.ini:/usr/local/etc/php/php.ini
