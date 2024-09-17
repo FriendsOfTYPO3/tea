@@ -1,5 +1,5 @@
 .default:
-  image: ghcr.io/sbuerk/demo-core-testing-php83:latest
+  image: ghcr.io/typo3/core-testing-php83:latest
   before_script:
     - bash .gitlab/build/docker_install.sh > /dev/null
   variables:
