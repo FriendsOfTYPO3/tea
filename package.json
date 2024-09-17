@@ -10,7 +10,7 @@
 	"version": "1.0.0",
 	"license": "GPL-2.0-or-later",
 	"engines": {
-		"node": "^22.5.0",
+		"node": "^20.17.0 || ^22.5.1",
 		"npm": "^10.8.0"
 	},
 	"scripts": {
