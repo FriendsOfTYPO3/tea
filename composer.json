@@ -56,7 +56,7 @@
 		"phpstan/extension-installer": "^1.4.3",
 		"phpstan/phpstan": "^1.12.4",
 		"phpstan/phpstan-phpunit": "^1.4.0",
-		"phpstan/phpstan-strict-rules": "^1.6.0",
+		"phpstan/phpstan-strict-rules": "^1.6.1",
 		"phpunit/phpunit": "^9.6.20",
 		"saschaegerer/phpstan-typo3": "^1.10.2",
 		"seld/jsonlint": "^1.11.0",
