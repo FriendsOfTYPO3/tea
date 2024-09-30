@@ -35,6 +35,7 @@ include:
   - '/.gitlab/pipeline/jobs/php-lint-php8.2.yml'
   - '/.gitlab/pipeline/jobs/php-lint-php8.3.yml'
   - '/.gitlab/pipeline/jobs/phpcs.yml'
+  - '/.gitlab/pipeline/jobs/rector.yml'
   - '/.gitlab/pipeline/jobs/typoscript-lint.yml'
   - '/.gitlab/pipeline/jobs/unit-php7.4-v11-highest.yml'
   - '/.gitlab/pipeline/jobs/unit-php7.4-v11-lowest.yml'

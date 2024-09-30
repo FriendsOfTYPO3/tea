@@ -83,6 +83,7 @@ jobs:
           - "json:lint"
           - "php:cs-fixer"
           - "php:mess"
+          - "php:rector"
           - "php:sniff"
           - "php:stan"
           - "typoscript:lint"
