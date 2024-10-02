@@ -30,10 +30,9 @@ version-dependent code switches might be necessary. The upside is that there
 is only one branch to maintain, which makes adding new features (and all other
 code changes) a lot less of a hassle.
 
-The `Nimut testing framework <https://github.com/Nimut/testing-framework>`__
-can support multiple TYPO3 versions at a time, and
-it provides version-independent abstractions for testing, making it the perfect
-companion for this approach.
+For this approach, the
+`TYPO3 testing framework <https://github.com/TYPO3/testing-framework>`__
+- which supports multiple TYPO3 versions at a time - will work just fine.
 
 This is the approach that we have chosen for this extension as we do not want
 to maintain two branches in parallel.
@@ -54,4 +53,3 @@ code changes) more of a hassle.
 For this approach, the
 `TYPO3 testing framework <https://github.com/TYPO3/testing-framework>`__
 - which supports only one TYPO3 LTS version at a time - will work just fine.
-
