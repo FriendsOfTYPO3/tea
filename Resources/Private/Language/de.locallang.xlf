@@ -11,6 +11,10 @@
 				<source>Tea single view</source>
 				<target>Tee-Einzelansicht</target>
 			</trans-unit>
+			<trans-unit id="plugin.tea_rating" resname="plugin.tea_rating">
+				<source>Tea Rating view</source>
+				<target>Tee-Bewertungsansicht</target>
+			</trans-unit>
 			<trans-unit id="plugin.tea_frontend_editor" resname="plugin.tea_frontend_editor" approved="yes">
 				<source>Tea front-end editor</source>
 				<target>Frontend-Editor für Tee</target>
@@ -26,6 +30,10 @@
 			<trans-unit id="plugin.tea.property.title" resname="plugin.tea.property.title" approved="yes">
 				<source>Title</source>
 				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="plugin.tea.property.stars">
+				<source>Stars</source>
+				<target>Sterne</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.index.heading" resname="plugin.frontEndEditor.index.heading" approved="yes">
 				<source>My teas</source>
@@ -54,6 +62,10 @@
 			<trans-unit id="plugin.frontEndEditor.action.actions" resname="plugin.frontEndEditor.action.actions" approved="yes">
 				<source>Actions</source>
 				<target>Aktionen</target>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.rating">
+				<source>Rating</source>
+				<target>Bewertung</target>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.edit" resname="plugin.frontEndEditor.action.edit" approved="yes">
 				<source>Edit</source>

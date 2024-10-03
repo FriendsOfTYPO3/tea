@@ -9,6 +9,9 @@
 			<trans-unit id="plugin.tea_show" resname="plugin.tea_show">
 				<source>Tea single view</source>
 			</trans-unit>
+			<trans-unit id="plugin.tea_rating" resname="plugin.tea_rating">
+				<source>Tea Rating view</source>
+			</trans-unit>
 			<trans-unit id="plugin.tea_frontend_editor" resname="plugin.tea_frontend_editor">
 				<source>Tea front-end editor</source>
 			</trans-unit>
@@ -36,11 +39,17 @@
 			<trans-unit id="plugin.frontEndEditor.property.title" resname="plugin.frontEndEditor.property.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.property.stars">
+				<source>Stars</source>
+			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.edit.heading" resname="plugin.frontEndEditor.edit.heading">
 				<source>Edit tea</source>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.actions" resname="plugin.frontEndEditor.action.actions">
 				<source>Actions</source>
+			</trans-unit>
+			<trans-unit id="plugin.frontEndEditor.action.rating">
+				<source>Rating</source>
 			</trans-unit>
 			<trans-unit id="plugin.frontEndEditor.action.edit" resname="plugin.frontEndEditor.action.edit">
 				<source>Edit</source>
@@ -60,6 +69,10 @@
 			<trans-unit id="plugin.frontEndEditor.new.heading" resname="plugin.frontEndEditor.new.heading">
 				<source>Create new tea</source>
 			</trans-unit>
+			<trans-unit id="plugin.tea.filter.rating" resname="plugin.tea.filter.rating">
+				<source>Filter by rating</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
