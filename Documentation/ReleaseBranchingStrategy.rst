@@ -2,9 +2,9 @@
 
 .. _release-branching-strategy:
 
-============================
+==============================
 Release and Branching Strategy
-============================
+==============================
 
 When maintaining TYPO3 extensions, developers often need to support multiple TYPO3 Long-Term Support (LTS) versions simultaneously. This typically requires a clear release and branching strategy to manage development and maintenance across different TYPO3 versions.
 
