@@ -44,7 +44,7 @@ continuous integration.
 
    Introduction
    PHPVersionSupport
-   TestingFramework
+   ReleaseBranchingStrategy
    Environment
    DependencyManager
    Running
