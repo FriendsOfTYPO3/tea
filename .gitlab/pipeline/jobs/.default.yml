@@ -4,5 +4,5 @@
     - bash .gitlab/build/docker_install.sh > /dev/null
   variables:
     PHP_INI_SCAN_DIR: "/etc/php"
-  volumes:
-    - ./ci/php.ini:/usr/local/etc/php/php.ini
+    script:
+    - cp $CI_PROJECT_DIR/.gitlab/pipeline/ci/php.ini /usr/local/etc/php/php.ini; # copy php.ini into image
