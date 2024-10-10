@@ -106,6 +106,13 @@ Lints the TypoScript files.
 
 Lints the YAML files.
 
+.. index:: Commands; composer fix
+.. code-block:: bash
+
+    composer fix
+
+Runs all fixers (except for the ones that need JavaScript).
+
 .. index:: Commands; composer fix:php
 .. code-block:: bash
 
