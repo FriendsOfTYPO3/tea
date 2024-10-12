@@ -154,11 +154,11 @@
 			"@ci:composer:normalize",
 			"@ci:composer:unused",
 			"@ci:json:lint",
-			"@ci:php:cs-fixer",
 			"@ci:php:lint",
 			"@ci:php:rector",
-			"@ci:php:sniff",
 			"@ci:php:stan",
+			"@ci:php:cs-fixer",
+			"@ci:php:sniff",
 			"@ci:typoscript:lint",
 			"@ci:xliff:lint",
 			"@ci:yaml:lint"
