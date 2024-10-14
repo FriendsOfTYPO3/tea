@@ -1,0 +1,6 @@
+"tx_tea_domain_model_tea"
+,"uid","pid","title","description","deleted"
+,3,1,"Darjeeling","Exists and should be deleted","0"
+,4,1,"Earl Grey","Exists and should be deleted","0"
+,1,2,"Darjeeling","Which already existed in the system",0
+,2,2,"Earl Grey","Which already existed in the system",0
