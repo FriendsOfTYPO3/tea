@@ -437,6 +437,8 @@ fi
 if [ "$(uname)" != "Darwin" ] && [ "${CONTAINER_BIN}" == "docker" ]; then
     # Run docker jobs as current user to prevent permission issues. Not needed with podman.
     USERSET="--user $HOST_UID"
+    elif [ "$(uname)" == "Darwin" ] && [ "${CONTAINER_BIN}" == "docker" ]; then
+        USERSET="--user=$(id -u):$(id -g)"
 fi
 
 if ! type ${CONTAINER_BIN} >/dev/null 2>&1; then
@@ -537,7 +539,7 @@ case ${TEST_SUITE} in
     docsGenerate)
         mkdir -p Documentation-GENERATED-temp
         chown -R ${HOST_UID}:${HOST_PID} Documentation-GENERATED-temp
-        ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --user=$(id -u):$(id -g) --pull always ${USERSET} -v "${ROOT_DIR}":/project ${IMAGE_DOCS} --config=Documentation --fail-on-log
+        ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} --rm --pull always ${USERSET} -v "${ROOT_DIR}":/project ${IMAGE_DOCS} --config=Documentation --fail-on-log
         SUITE_EXIT_CODE=$?
         ;;
     shellcheck)
