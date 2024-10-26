@@ -4,7 +4,7 @@
 [![TYPO3 V11](https://img.shields.io/badge/TYPO3-11-orange.svg)](https://get.typo3.org/version/11)
 [![License](https://img.shields.io/github/license/TYPO3-Documentation/tea)](https://packagist.org/packages/ttn/tea)
 [![Total downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
-[![GitHub CI status](https://github.com/FriendsOfTYPO3/tea/workflows/CI/badge.svg?branch=main)](https://github.com/FriendsOfTYPO3/tea/actions)
+[![GitHub CI status](https://github.com/FriendsOfTYPO3/tea/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/FriendsOfTYPO3/tea/actions)
 [![GitLab CI status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
 [![Coverage Status](https://coveralls.io/repos/github/TYPO3-Documentation/tea/badge.svg?branch=main)](https://coveralls.io/github/TYPO3-Documentation/tea?branch=main)
 
