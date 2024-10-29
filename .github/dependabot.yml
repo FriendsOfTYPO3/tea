@@ -9,7 +9,7 @@ updates:
     # adjust this number according to your own milestones if used.
     milestone: 12
     commit-message:
-      prefix: "[TASK] "
+      prefix: "[TASK][Dependabot] "
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -30,7 +30,7 @@ updates:
     # adjust this number according to your own milestones if used.
     milestone: 12
     commit-message:
-      prefix: "[TASK] "
+      prefix: "[TASK][Dependabot] "
 
   - package-ecosystem: "npm"
     directory: "/"
@@ -40,4 +40,4 @@ updates:
     # adjust this number according to your own milestones if used.
     milestone: 12
     commit-message:
-      prefix: "[TASK] "
+      prefix: "[TASK][Dependabot] "
