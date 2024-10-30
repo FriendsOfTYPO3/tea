@@ -83,6 +83,7 @@ jobs:
           - "json:lint"
           - "php:cs-fixer"
           - "php:mess"
+          - "php:rector"
           - "php:sniff"
           - "php:stan"
           - "typoscript:lint"
@@ -326,6 +327,7 @@ jobs:
   documentation:
     name: Documentation
     runs-on: ubuntu-24.04
+    timeout-minutes: 2
     steps:
       - name: Checkout
         uses: actions/checkout@v4

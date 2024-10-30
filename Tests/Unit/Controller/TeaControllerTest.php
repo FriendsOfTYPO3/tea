@@ -17,6 +17,9 @@ use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
+ * Note: Unit tests for controllers are not considered best practice anymore. Instead, functional tests should be used.
+ * We're currently in the process of migrating all controller tests to functional tests.
+ *
  * @covers \TTN\Tea\Controller\TeaController
  */
 final class TeaControllerTest extends UnitTestCase
