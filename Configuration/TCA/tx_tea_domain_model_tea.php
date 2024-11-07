@@ -29,8 +29,8 @@ $tca = [
         '1' => [
             'showitem' =>
                 '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                    title, description, image, owner,
-                 --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.tabs.access,
+                    title, description, image, stars, owner,
+                 --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.tabs.access,
                     --palette--;;hidden,
                     --palette--;;access,',
         ],
@@ -205,6 +205,16 @@ $tca = [
                 'maxitems' => 1,
                 'hideSuggest' => true,
             ],
+        ],
+        'stars' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.stars',
+            'config' => [
+                'type' => 'input',
+                'size' => 8,
+                'eval' => 'trim',
+                'max' => 255,
+            ]
         ],
     ],
 ];

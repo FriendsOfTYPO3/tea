@@ -26,6 +26,9 @@
                         <th scope="col" colspan="2">
                             <f:translate key="plugin.frontEndEditor.action.actions"/>
                         </th>
+                        <th scope="col" colspan="2">
+                            <f:translate key="plugin.frontEndEditor.action.rating"/>
+                        </th>
                     </tr>
                     <f:for each="{teas}" as="tea">
                         <tr>
@@ -45,6 +48,14 @@
                                     <f:form.submit value="{f:translate(key: 'plugin.frontEndEditor.action.delete')}"
                                                    class="btn btn-danger"/>
                                 </f:form>
+                            </td>
+                            <td>
+                                <f:link.action action="rating" controller="Rating" arguments="{tea:tea,stars:1}">1</f:link.action>
+                                <f:link.action action="rating" controller="Rating" arguments="{tea:tea,stars:2}">2</f:link.action>
+                                <f:link.action action="rating" controller="Rating" arguments="{tea:tea,stars:3}">3</f:link.action>
+                                <f:link.action action="rating" controller="Rating" arguments="{tea:tea,stars:4}">4</f:link.action>
+                                <f:link.action action="rating" controller="Rating" arguments="{tea:tea,stars:5}">5</f:link.action>
+                                ({tea.stars})
                             </td>
                         </tr>
                     </f:for>

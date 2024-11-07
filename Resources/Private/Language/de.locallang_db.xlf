@@ -35,6 +35,10 @@
 				<source>Visible</source>
 				<target>Sichtbar</target>
 			</trans-unit>
+			<trans-unit id="tx_tea_domain_model_product_tea.stars">
+				<source>Stars</source>
+				<target>Sterne</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
