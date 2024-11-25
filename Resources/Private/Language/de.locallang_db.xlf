@@ -3,35 +3,35 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages">
 		<header/>
 		<body>
-			<trans-unit id="tx_tea_domain_model_tea" resname="tx_tea_domain_model_tea" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea" approved="yes">
 				<source>Tea</source>
 				<target>Tee</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.tabs.access" resname="tx_tea_domain_model_tea.tabs.access" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.tabs.access" approved="yes">
 				<source>Access</source>
 				<target>Zugriff</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.title" resname="tx_tea_domain_model_tea.title" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.title" approved="yes">
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.description" resname="tx_tea_domain_model_tea.description" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.description" approved="yes">
 				<source>Description</source>
 				<target>Beschreibung</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.image" resname="tx_tea_domain_model_tea.image" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.image" approved="yes">
 				<source>Image</source>
 				<target>Bild</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.owner" resname="tx_tea_domain_model_tea.owner" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.owner" approved="yes">
 				<source>Website user who created this record</source>
 				<target>Website-Benutzer, der diesen Datensatz erstellt hat</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.fe_group" resname="tx_tea_domain_model_tea.fe_group" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.fe_group" approved="yes">
 				<source>Usergroup Access Rights</source>
 				<target>Zugriffsrechte für Benutzergruppen</target>
 			</trans-unit>
-			<trans-unit id="tx_tea_domain_model_tea.hidden" resname="tx_tea_domain_model_tea.hidden" approved="yes">
+			<trans-unit id="tx_tea_domain_model_tea.hidden" approved="yes">
 				<source>Visible</source>
 				<target>Sichtbar</target>
 			</trans-unit>
