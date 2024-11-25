@@ -34,8 +34,8 @@
 	],
 	"homepage": "https://extensions.typo3.org/extension/tea/",
 	"support": {
-		"issues": "https://github.com/FriendsOfTYPO3/tea/issues",
-		"source": "https://github.com/FriendsOfTYPO3/tea",
+		"issues": "https://github.com/TYPO3BestPractices/tea/issues",
+		"source": "https://github.com/TYPO3BestPractices/tea",
 		"docs": "https://docs.typo3.org/p/ttn/tea/main/en-us/"
 	},
 	"require": {

@@ -8,10 +8,10 @@
         class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
         project-home="https://extensions.typo3.org/extension/tea"
         project-contact="mailto:typo3-coding@oliverklee.de"
-        project-repository="https://github.com/FriendsOfTYPO3/tea"
-        project-issues="https://github.com/FriendsOfTYPO3/tea/issues"
+        project-repository="https://github.com/TYPO3BestPractices/tea"
+        project-issues="https://github.com/TYPO3BestPractices/tea/issues"
         edit-on-github-branch="main"
-        edit-on-github="FriendsOfTYPO3/tea"
+        edit-on-github="TYPO3BestPractices/tea"
         typo3-core-preferred="stable"
     />
     <project

@@ -13,8 +13,8 @@ you agree to adhere to this code of conduct.
 Feel free to open an issue - no matter whether you found a bug, would like to request a feature or have questions.
 
 1. Please check existing open and closed issues first and feel free to comment and re-open them.
-   Existing issues are available at https://github.com/FriendsOfTYPO3/tea/issues .
-2. Create a new issue at https://github.com/FriendsOfTYPO3/tea/issues/new .
+   Existing issues are available at https://github.com/TYPO3BestPractices/tea/issues .
+2. Create a new issue at https://github.com/TYPO3BestPractices/tea/issues/new .
 3. Use a meaningful title.
 4. Provide enough context, a concrete use case and steps to reproduce bugs.
 

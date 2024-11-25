@@ -24,7 +24,7 @@ Also clone the tea extension.
 .. index:: Clone Tea Extension
 .. code-block:: bash
 
-   git clone git@github.com:FriendsOfTYPO3/tea.git
+   git clone git@github.com:TYPO3BestPractices/tea.git
 
 You can organize the folder structure as you wish, but lets say your folder
 structure looks like this:

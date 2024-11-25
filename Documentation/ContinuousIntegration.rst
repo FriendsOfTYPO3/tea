@@ -23,8 +23,8 @@ GitHub Actions
 ==============
 
 This extension has a code-checking workflow for
-`GitHub Actions <https://github.com/FriendsOfTYPO3/tea/actions>`__ using
-`local tools <https://github.com/FriendsOfTYPO3/tea/blob/main/.github/workflows/ci.yml>`__:
+`GitHub Actions <https://github.com/TYPO3BestPractices/tea/actions>`__ using
+`local tools <https://github.com/TYPO3BestPractices/tea/blob/main/.github/workflows/ci.yml>`__:
 This workflow uses the development tools installed via Composer and PHIVE and
 calls them using the provided Composer scripts. This allows running the code
 quality checks locally as well as in GitHub Actions.
@@ -35,5 +35,5 @@ GitLab CI
 =========
 
 This extension also provides
-`configuration <https://github.com/FriendsOfTYPO3/tea/blob/main/.gitlab/pipeline/.gitlab-ci.yml>`__
+`configuration <https://github.com/TYPO3BestPractices/tea/blob/main/.gitlab/pipeline/.gitlab-ci.yml>`__
 for `GitLab CI <https://gitlab.typo3.org/qa/example-extension/-/pipelines>`__.

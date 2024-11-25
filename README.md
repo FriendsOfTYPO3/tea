@@ -4,7 +4,7 @@
 [![TYPO3 V11](https://img.shields.io/badge/TYPO3-11-orange.svg)](https://get.typo3.org/version/11)
 [![License](https://img.shields.io/github/license/TYPO3-Documentation/tea)](https://packagist.org/packages/ttn/tea)
 [![Total downloads](https://poser.pugx.org/ttn/tea/downloads.svg)](https://packagist.org/packages/ttn/tea)
-[![GitHub CI status](https://github.com/FriendsOfTYPO3/tea/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/FriendsOfTYPO3/tea/actions)
+[![GitHub CI status](https://github.com/TYPO3BestPractices/tea/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TYPO3BestPractices/tea/actions)
 [![GitLab CI status](https://gitlab.typo3.org/qa/example-extension/badges/main/pipeline.svg)](https://gitlab.typo3.org/qa/example-extension/-/pipelines)
 [![Coverage Status](https://coveralls.io/repos/github/TYPO3-Documentation/tea/badge.svg?branch=main)](https://coveralls.io/github/TYPO3-Documentation/tea?branch=main)
 
@@ -16,7 +16,7 @@ You can also use this extension to manage your collection of delicious teas.
 
 |                  | URL                                                |
 |------------------|----------------------------------------------------|
-| **Repository:**  | https://github.com/FriendsOfTYPO3/tea         |
+| **Repository:**  | https://github.com/TYPO3BestPractices/tea          |
 | **Read online:** | https://docs.typo3.org/p/ttn/tea/main/en-us/       |
 | **TER:**         | https://extensions.typo3.org/extension/tea/        |
 | **Slack:**       | https://typo3.slack.com/channels/qa-best-practices |
@@ -26,7 +26,7 @@ You can also use this extension to manage your collection of delicious teas.
 We value and welcome feedback of all kinds, including discussions.
 Feedback can be sent via TYPO3 slack within [our channel](https://app.slack.com/client/T024TUMLZ/CSQ8T0VS5) or via direct massages to the team members.
 We also welcome email. All the contact information is available at our [typo3.org team page](https://typo3.org/community/teams/best-practices).
-Another way is to create a [discussion on GitHub](https://github.com/FriendsOfTYPO3/tea/discussions).
+Another way is to create a [discussion on GitHub](https://github.com/TYPO3BestPractices/tea/discussions).
 
 ## Philosophies
 
