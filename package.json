@@ -2,7 +2,7 @@
 	"name": "tea",
 	"description": "npm helper tools used for the extension",
 	"repository": {
-		"url": "https://github.com/FriendsOfTYPO3/tea.git"
+		"url": "https://github.com/TYPO3BestPractices/tea.git"
 	},
 	"keywords": [],
 	"type": "module",
