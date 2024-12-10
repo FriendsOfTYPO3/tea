@@ -47,8 +47,7 @@ final class TeaControllerTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/ContentElementTeaIndex.csv');
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/Teas.csv');
 
-        $request = new InternalRequest();
-        $request = $request->withPageId(1);
+        $request = (new InternalRequest())->withPageId(1);
 
         $html = (string)$this->executeFrontendSubRequest($request)->getBody();
 
