@@ -68,7 +68,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
     {
         $result = $this->commandTester->execute(
             [
-                'pageUid' => '1',
+                'pageUid' => 1,
             ],
         );
 
@@ -81,7 +81,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
     public function createsTestData(): void
     {
         $this->commandTester->execute([
-            'pageUid' => '1',
+            'pageUid' => 1,
         ]);
 
         self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/Teas.csv');
@@ -95,7 +95,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/ExistingTeas.csv');
         $this->commandTester->execute(
             [
-                'pageUid' => '1',
+                'pageUid' => 1,
                 '--delete-data-before' => true,
             ]
         );
@@ -111,7 +111,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Database/OtherExistingTeas.csv');
         $this->commandTester->execute(
             [
-                'pageUid' => '1',
+                'pageUid' => 1,
                 '--delete-data-before' => true,
             ]
         );
