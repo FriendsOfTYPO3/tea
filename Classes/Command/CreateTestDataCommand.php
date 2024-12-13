@@ -54,8 +54,7 @@ final class CreateTestDataCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $pageUid = $input->getArgument('pageUid') ?? 0;
-        \assert(\is_int($pageUid));
+        $pageUid = (int)$input->getArgument('pageUid') ?? 0;
         $deleteDataBefore = $input->getOption('delete-data-before') ?? false;
         \assert(\is_bool($deleteDataBefore));
         $table = 'tx_tea_domain_model_tea';
