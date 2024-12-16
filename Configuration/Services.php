@@ -19,7 +19,7 @@ return static function (ContainerConfigurator $containerConfigurator) {
         ->tag(
             'console.command',
             [
-                'command' => 'tea:createtestdata',
+                'command' => 'tea:create-test-data',
                 'description' => 'Create test data in existing sysfolder',
             ]
         );

@@ -15,7 +15,7 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class CreateTestDataCommandTest extends FunctionalTestCase
 {
-    private const COMMAND_NAME = 'tea:createtestdata';
+    private const COMMAND_NAME = 'tea:create-test-data';
 
     protected array $testExtensionsToLoad = ['ttn/tea'];
 
@@ -31,7 +31,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
         $application = new Application();
         $application->add($this->subject);
 
-        $command = $application->find('tea:createtestdata');
+        $command = $application->find('tea:create-test-data');
         $this->commandTester = new CommandTester($command);
     }
 

@@ -18,7 +18,7 @@ You can add option `-d` to delete already existing data.
 
 .. code-block:: bash
 
-   vendor/bin/typo3 tea:createtestdata 3
+   vendor/bin/typo3 tea:create-test-data 3
 
 
 .. seealso::
