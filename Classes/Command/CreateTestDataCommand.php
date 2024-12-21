@@ -70,12 +70,9 @@ final class CreateTestDataCommand extends Command
         $query = $connectionForTable;
         foreach ($this->teaData as $item) {
             $item = ['pid' => $pageUid, 'title' => $item['title'], 'description' => $item['description']];
-            $query->insert(
-                $table,
-                $item
-            );
+            $query->insert($table, $item);
         }
-        $output->writeln(sprintf('Test data in page %s created.', $pageUid));
+        $output->writeln(\sprintf('Test data in page %s created.', $pageUid));
 
         $referenceIndex = GeneralUtility::makeInstance(ReferenceIndex::class);
         $referenceIndex->updateIndex(false);

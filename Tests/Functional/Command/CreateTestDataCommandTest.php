@@ -13,8 +13,11 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 /**
  * @covers \TTN\Tea\Command\CreateTestDataCommand
  */
-class CreateTestDataCommandTest extends FunctionalTestCase
+final class CreateTestDataCommandTest extends FunctionalTestCase
 {
+    /**
+     * @var non-empty-string
+     */
     private const COMMAND_NAME = 'tea:create-test-data';
 
     protected array $testExtensionsToLoad = ['ttn/tea'];
@@ -84,7 +87,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
             'pageUid' => 1,
         ]);
 
-        self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/Teas.csv');
+        $this->assertCSVDataSet(__DIR__ . '/Fixtures/Database/Teas.csv');
     }
 
     /**
@@ -100,7 +103,7 @@ class CreateTestDataCommandTest extends FunctionalTestCase
             ]
         );
 
-        self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDelete.csv');
+        $this->assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDelete.csv');
     }
 
     /**
@@ -116,6 +119,6 @@ class CreateTestDataCommandTest extends FunctionalTestCase
             ]
         );
 
-        self::assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDeleteOtherExistingTeas.csv');
+        $this->assertCSVDataSet(__DIR__ . '/Fixtures/Database/TeasAfterDeleteOtherExistingTeas.csv');
     }
 }
