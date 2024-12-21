@@ -53,3 +53,7 @@ parameters:
         - '$_FILES'
         - '$_SERVER'
       message: 'Use PSR-7 API instead'
+  ignoreErrors:
+    -
+      message: '#Out of 1 possible constant types#'
+      path: Tests/Functional/Command/CreateTestDataCommandTest.php

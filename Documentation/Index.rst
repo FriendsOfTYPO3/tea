@@ -47,6 +47,7 @@ continuous integration.
    ReleaseBranchingStrategy
    Environment
    DependencyManager
+   CommandController
    Running
    ContinuousIntegration
    Documentation
